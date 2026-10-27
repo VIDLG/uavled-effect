@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:," />
+    <title>UAVLED 特效模拟器</title>
+    <style>
+      body { margin: 0; }
+      .boot { min-height: 100vh; display: flex; align-items: center; justify-content: center; gap: 14px; font: 14px "Segoe UI", "Microsoft YaHei", sans-serif; color: #39554d; background: #f4f6f5; }
+      .boot-mark { width: 28px; height: 28px; border-radius: 6px; background: #253b3a; position: relative; }
+      .boot-mark::after { content: ""; position: absolute; left: 13px; top: 5px; width: 3px; height: 18px; background: #f7cf92; box-shadow: -6px 3px #eaa27e, 6px 3px #eaa27e; }
+    </style>
+  </head>
+  <body>
+    <div id="root"><div class="boot"><span class="boot-mark" aria-hidden="true"></span><span>UAVLED · 正在载入模拟器</span></div></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

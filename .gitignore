@@ -1,1 +1,5 @@
 dist/
+node_modules/
+simulator-build/
+simulator-evidence/
+simulator/public/canvaskit.wasm
