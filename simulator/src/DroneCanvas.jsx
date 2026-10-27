@@ -13,10 +13,10 @@ function Led({ point, raw, calibration }) {
   const color = lit ? [channel(r), channel(g), channel(b)] : [r, g, b];
   const [red, green, blue] = color;
   return <>
-    {lit && <Circle cx={point.x} cy={point.y} r={11} color={`rgba(${red},${green},${blue},0.17)`} />}
-    {lit && <Circle cx={point.x} cy={point.y} r={6.5} color={`rgba(${red},${green},${blue},0.34)`} />}
-    <Circle cx={point.x} cy={point.y} r={4} color={lit ? `rgb(${red},${green},${blue})` : "#445055"} />
-    <Circle cx={point.x} cy={point.y} r={1.35} color={lit ? "rgba(255,255,255,0.68)" : "#697276"} />
+    {lit && <Circle cx={point.x} cy={point.y} r={12} color={`rgba(${red},${green},${blue},0.2)`} />}
+    {lit && <Circle cx={point.x} cy={point.y} r={7.5} color={`rgba(${red},${green},${blue},0.4)`} />}
+    <Circle cx={point.x} cy={point.y} r={lit ? 4.7 : 4.3} color={lit ? `rgb(${red},${green},${blue})` : "#445055"} />
+    <Circle cx={point.x} cy={point.y} r={1.5} color={lit ? "rgba(255,255,255,0.68)" : "#697276"} />
   </>;
 }
 
