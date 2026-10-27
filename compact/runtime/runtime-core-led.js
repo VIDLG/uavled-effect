@@ -1,0 +1,1 @@
+function led(i,r,g,b){ setLed(i,r,g,b); }

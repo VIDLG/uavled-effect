@@ -1,0 +1,1 @@
+var _frame=0; function tick(){ _frame=_frame+1; return _frame; }

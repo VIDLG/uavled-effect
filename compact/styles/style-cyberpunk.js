@@ -1,0 +1,1 @@
+function styleCyberpunk(){ var c=getLedCount(); var i=0; while(i<c){ var w=sin255((_frame*5+i*23)%256)+255; led(i, w/3, 0, 120+w/4); i=i+1; } }

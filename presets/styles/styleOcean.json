@@ -1,0 +1,80 @@
+{
+  "preset": {
+    "id": "styleOcean",
+    "label": "海洋",
+    "category": "风格",
+    "call": "styleOcean()",
+    "colors": [
+      [
+        0,
+        90,
+        220
+      ],
+      [
+        0,
+        220,
+        180
+      ]
+    ],
+    "aliases": [],
+    "codeTemplate": [
+      "function update(): void {",
+      "  tick();",
+      "  styleOcean();",
+      "}"
+    ],
+    "controlSchema": [
+      {
+        "id": "primaryColor",
+        "label": "主色",
+        "kind": "color",
+        "defaultValue": "#008aff",
+        "level": "basic"
+      },
+      {
+        "id": "zoneMode",
+        "label": "分区",
+        "kind": "zone",
+        "defaultValue": "all",
+        "options": [
+          {
+            "label": "全机臂",
+            "value": "all"
+          },
+          {
+            "label": "上半区",
+            "value": "upper"
+          },
+          {
+            "label": "下半区",
+            "value": "lower"
+          }
+        ],
+        "level": "basic"
+      },
+      {
+        "id": "speed",
+        "label": "速度",
+        "kind": "integer",
+        "defaultValue": 4,
+        "min": 1,
+        "max": 9,
+        "step": 1,
+        "level": "basic"
+      }
+    ]
+  },
+  "stylePreset": {
+    "id": "styleOcean",
+    "label": "海洋",
+    "aliases": [
+      "ocean"
+    ],
+    "codeTemplate": [
+      "function update(): void {",
+      "  tick();",
+      "  styleOcean();",
+      "}"
+    ]
+  }
+}

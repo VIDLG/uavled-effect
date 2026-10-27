@@ -1,0 +1,1 @@
+function sin255(x){ x=x%256; if(x<0){x=x+256;} var y=x<128?x:255-x; return ((y*4)-255); }

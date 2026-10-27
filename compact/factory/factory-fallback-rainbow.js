@@ -1,0 +1,1 @@
+function factoryFallbackRainbow(){ effectRainbow(2); }

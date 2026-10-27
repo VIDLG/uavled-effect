@@ -1,0 +1,61 @@
+{
+  "preset": {
+    "id": "effectRainbow",
+    "label": "彩虹循环",
+    "category": "彩虹",
+    "call": "effectRainbow(3)",
+    "colors": [
+      [
+        255,
+        0,
+        80
+      ],
+      [
+        0,
+        180,
+        255
+      ]
+    ],
+    "aliases": [],
+    "controlSchema": [
+      {
+        "id": "primaryColor",
+        "label": "主色",
+        "kind": "color",
+        "defaultValue": "#008aff",
+        "level": "basic"
+      },
+      {
+        "id": "zoneMode",
+        "label": "分区",
+        "kind": "zone",
+        "defaultValue": "all",
+        "options": [
+          {
+            "label": "全机臂",
+            "value": "all"
+          },
+          {
+            "label": "上半区",
+            "value": "upper"
+          },
+          {
+            "label": "下半区",
+            "value": "lower"
+          }
+        ],
+        "level": "basic"
+      },
+      {
+        "id": "speed",
+        "label": "速度",
+        "kind": "integer",
+        "defaultValue": 4,
+        "min": 1,
+        "max": 9,
+        "step": 1,
+        "level": "basic"
+      }
+    ]
+  }
+}

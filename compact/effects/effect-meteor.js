@@ -1,0 +1,1 @@
+function effectMeteor(r,g,b,tailLen,speed,dir){ clear(); var c=getLedCount(); var head=_positiveMod((_frame/speed)*dir,c); var i=0; while(i<tailLen){ var pos=_positiveMod(head-i*dir,c); var f=255-(i*255/tailLen); led(pos,(r*f)/255,(g*f)/255,(b*f)/255); i=i+1; } }

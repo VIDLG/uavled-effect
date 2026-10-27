@@ -1,0 +1,80 @@
+{
+  "preset": {
+    "id": "styleLava",
+    "label": "熔岩",
+    "category": "风格",
+    "call": "styleLava()",
+    "colors": [
+      [
+        255,
+        60,
+        0
+      ],
+      [
+        255,
+        190,
+        0
+      ]
+    ],
+    "aliases": [],
+    "codeTemplate": [
+      "function update(): void {",
+      "  tick();",
+      "  styleLava();",
+      "}"
+    ],
+    "controlSchema": [
+      {
+        "id": "primaryColor",
+        "label": "主色",
+        "kind": "color",
+        "defaultValue": "#008aff",
+        "level": "basic"
+      },
+      {
+        "id": "zoneMode",
+        "label": "分区",
+        "kind": "zone",
+        "defaultValue": "all",
+        "options": [
+          {
+            "label": "全机臂",
+            "value": "all"
+          },
+          {
+            "label": "上半区",
+            "value": "upper"
+          },
+          {
+            "label": "下半区",
+            "value": "lower"
+          }
+        ],
+        "level": "basic"
+      },
+      {
+        "id": "speed",
+        "label": "速度",
+        "kind": "integer",
+        "defaultValue": 4,
+        "min": 1,
+        "max": 9,
+        "step": 1,
+        "level": "basic"
+      }
+    ]
+  },
+  "stylePreset": {
+    "id": "styleLava",
+    "label": "熔岩",
+    "aliases": [
+      "lava"
+    ],
+    "codeTemplate": [
+      "function update(): void {",
+      "  tick();",
+      "  styleLava();",
+      "}"
+    ]
+  }
+}

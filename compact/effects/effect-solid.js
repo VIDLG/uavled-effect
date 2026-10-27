@@ -1,0 +1,1 @@
+function effectSolid(r,g,b){ fill(r,g,b); }

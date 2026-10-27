@@ -1,0 +1,1 @@
+function effectRainbow(speed){ var c=getLedCount(); var i=0; while(i<c){ var rgb=hsvToRgb((_frame*speed+i*360/c)%360,255,255); led(i,rgb[0],rgb[1],rgb[2]); i=i+1; } }

@@ -1,0 +1,61 @@
+{
+  "preset": {
+    "id": "effectIceFire",
+    "label": "冰火",
+    "category": "氛围",
+    "call": "effectIceFire(80)",
+    "colors": [
+      [
+        0,
+        180,
+        255
+      ],
+      [
+        255,
+        70,
+        0
+      ]
+    ],
+    "aliases": [],
+    "controlSchema": [
+      {
+        "id": "primaryColor",
+        "label": "主色",
+        "kind": "color",
+        "defaultValue": "#008aff",
+        "level": "basic"
+      },
+      {
+        "id": "zoneMode",
+        "label": "分区",
+        "kind": "zone",
+        "defaultValue": "all",
+        "options": [
+          {
+            "label": "全机臂",
+            "value": "all"
+          },
+          {
+            "label": "上半区",
+            "value": "upper"
+          },
+          {
+            "label": "下半区",
+            "value": "lower"
+          }
+        ],
+        "level": "basic"
+      },
+      {
+        "id": "intensity",
+        "label": "强度",
+        "kind": "integer",
+        "defaultValue": 60,
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "level": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "preset": {
+    "id": "styleNeon",
+    "label": "霓虹",
+    "category": "风格",
+    "call": "styleNeon()",
+    "colors": [
+      [
+        0,
+        255,
+        220
+      ],
+      [
+        255,
+        0,
+        180
+      ]
+    ],
+    "aliases": [],
+    "codeTemplate": [
+      "function update(): void {",
+      "  tick();",
+      "  styleNeon();",
+      "}"
+    ],
+    "controlSchema": [
+      {
+        "id": "primaryColor",
+        "label": "主色",
+        "kind": "color",
+        "defaultValue": "#008aff",
+        "level": "basic"
+      },
+      {
+        "id": "zoneMode",
+        "label": "分区",
+        "kind": "zone",
+        "defaultValue": "all",
+        "options": [
+          {
+            "label": "全机臂",
+            "value": "all"
+          },
+          {
+            "label": "上半区",
+            "value": "upper"
+          },
+          {
+            "label": "下半区",
+            "value": "lower"
+          }
+        ],
+        "level": "basic"
+      },
+      {
+        "id": "speed",
+        "label": "速度",
+        "kind": "integer",
+        "defaultValue": 4,
+        "min": 1,
+        "max": 9,
+        "step": 1,
+        "level": "basic"
+      }
+    ]
+  },
+  "stylePreset": {
+    "id": "styleNeon",
+    "label": "霓虹",
+    "aliases": [
+      "neon"
+    ],
+    "codeTemplate": [
+      "function update(): void {",
+      "  tick();",
+      "  styleNeon();",
+      "}"
+    ]
+  }
+}

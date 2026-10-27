@@ -1,0 +1,1 @@
+function styleAurora(){ var c=getLedCount(); var i=0; while(i<c){ var rgb=hsvToRgb((120+i*4+_frame)%360,180,160); led(i,rgb[0],rgb[1],rgb[2]); i=i+1; } }

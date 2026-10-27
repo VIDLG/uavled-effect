@@ -1,0 +1,81 @@
+{
+  "preset": {
+    "id": "styleMatrix",
+    "label": "黑客帝国",
+    "category": "风格",
+    "call": "styleMatrix()",
+    "colors": [
+      [
+        20,
+        255,
+        80
+      ],
+      [
+        0,
+        60,
+        20
+      ]
+    ],
+    "aliases": [],
+    "codeTemplate": [
+      "function update(): void {",
+      "  tick();",
+      "  styleMatrix();",
+      "}"
+    ],
+    "controlSchema": [
+      {
+        "id": "primaryColor",
+        "label": "主色",
+        "kind": "color",
+        "defaultValue": "#008aff",
+        "level": "basic"
+      },
+      {
+        "id": "zoneMode",
+        "label": "分区",
+        "kind": "zone",
+        "defaultValue": "all",
+        "options": [
+          {
+            "label": "全机臂",
+            "value": "all"
+          },
+          {
+            "label": "上半区",
+            "value": "upper"
+          },
+          {
+            "label": "下半区",
+            "value": "lower"
+          }
+        ],
+        "level": "basic"
+      },
+      {
+        "id": "speed",
+        "label": "速度",
+        "kind": "integer",
+        "defaultValue": 4,
+        "min": 1,
+        "max": 9,
+        "step": 1,
+        "level": "basic"
+      }
+    ]
+  },
+  "stylePreset": {
+    "id": "styleMatrix",
+    "label": "黑客帝国",
+    "aliases": [
+      "matrix",
+      "green code"
+    ],
+    "codeTemplate": [
+      "function update(): void {",
+      "  tick();",
+      "  styleMatrix();",
+      "}"
+    ]
+  }
+}

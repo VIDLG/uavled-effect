@@ -1,0 +1,1 @@
+function clear(){ setAll(0,0,0); }

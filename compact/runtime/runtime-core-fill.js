@@ -1,0 +1,1 @@
+function fill(r,g,b){ var c=getLedCount(); var i=0; while(i<c){ led(i,r,g,b); i=i+1; } }

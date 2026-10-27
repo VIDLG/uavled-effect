@@ -1,0 +1,87 @@
+{
+  "preset": {
+    "id": "effectMultiChase",
+    "label": "多点追逐",
+    "category": "运动",
+    "call": "effectMultiChase(0, 200, 255, 3, 4)",
+    "colors": [
+      [
+        0,
+        200,
+        255
+      ],
+      [
+        0,
+        30,
+        80
+      ]
+    ],
+    "aliases": [],
+    "controlSchema": [
+      {
+        "id": "primaryColor",
+        "label": "主色",
+        "kind": "color",
+        "defaultValue": "#008aff",
+        "level": "basic"
+      },
+      {
+        "id": "zoneMode",
+        "label": "分区",
+        "kind": "zone",
+        "defaultValue": "all",
+        "options": [
+          {
+            "label": "全机臂",
+            "value": "all"
+          },
+          {
+            "label": "上半区",
+            "value": "upper"
+          },
+          {
+            "label": "下半区",
+            "value": "lower"
+          }
+        ],
+        "level": "basic"
+      },
+      {
+        "id": "speed",
+        "label": "速度",
+        "kind": "integer",
+        "defaultValue": 4,
+        "min": 1,
+        "max": 9,
+        "step": 1,
+        "level": "basic"
+      },
+      {
+        "id": "chaseCount",
+        "label": "追逐点数",
+        "kind": "integer",
+        "defaultValue": 3,
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "level": "advanced"
+      },
+      {
+        "id": "pointColors",
+        "label": "点色",
+        "kind": "colorList",
+        "defaultValue": [
+          "#008aff",
+          "#00d0a8",
+          "#ffb12a",
+          "#ff4f8a",
+          "#9a5cff"
+        ],
+        "min": 2,
+        "max": 5,
+        "description": "按点数使用前 N 个颜色",
+        "level": "basic"
+      }
+    ]
+  }
+}

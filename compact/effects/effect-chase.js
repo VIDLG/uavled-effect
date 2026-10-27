@@ -1,0 +1,1 @@
+function effectChase(r,g,b,speed){ clear(); var c=getLedCount(); var p=_frame%c; led(p,r,g,b); }

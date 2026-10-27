@@ -1,0 +1,71 @@
+{
+  "preset": {
+    "id": "effectRipple",
+    "label": "涟漪",
+    "category": "波形",
+    "call": "effectRipple(0, 180, 255, 3, 8)",
+    "colors": [
+      [
+        0,
+        180,
+        255
+      ],
+      [
+        0,
+        40,
+        90
+      ]
+    ],
+    "aliases": [],
+    "controlSchema": [
+      {
+        "id": "primaryColor",
+        "label": "主色",
+        "kind": "color",
+        "defaultValue": "#008aff",
+        "level": "basic"
+      },
+      {
+        "id": "zoneMode",
+        "label": "分区",
+        "kind": "zone",
+        "defaultValue": "all",
+        "options": [
+          {
+            "label": "全机臂",
+            "value": "all"
+          },
+          {
+            "label": "上半区",
+            "value": "upper"
+          },
+          {
+            "label": "下半区",
+            "value": "lower"
+          }
+        ],
+        "level": "basic"
+      },
+      {
+        "id": "speed",
+        "label": "速度",
+        "kind": "integer",
+        "defaultValue": 4,
+        "min": 1,
+        "max": 9,
+        "step": 1,
+        "level": "basic"
+      },
+      {
+        "id": "tailLength",
+        "label": "尾长",
+        "kind": "integer",
+        "defaultValue": 7,
+        "min": 2,
+        "max": 18,
+        "step": 1,
+        "level": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "preset": {
+    "id": "effectSolid",
+    "label": "纯色",
+    "category": "基础",
+    "call": "effectSolid(0, 150, 255)",
+    "colors": [
+      [
+        0,
+        150,
+        255
+      ],
+      [
+        0,
+        150,
+        255
+      ]
+    ],
+    "aliases": [],
+    "controlSchema": [
+      {
+        "id": "primaryColor",
+        "label": "主色",
+        "kind": "color",
+        "defaultValue": "#008aff",
+        "level": "basic"
+      },
+      {
+        "id": "zoneMode",
+        "label": "分区",
+        "kind": "zone",
+        "defaultValue": "all",
+        "options": [
+          {
+            "label": "全机臂",
+            "value": "all"
+          },
+          {
+            "label": "上半区",
+            "value": "upper"
+          },
+          {
+            "label": "下半区",
+            "value": "lower"
+          }
+        ],
+        "level": "basic"
+      }
+    ]
+  }
+}

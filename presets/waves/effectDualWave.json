@@ -1,0 +1,68 @@
+{
+  "preset": {
+    "id": "effectDualWave",
+    "label": "双色波浪",
+    "category": "波形",
+    "call": "effectDualWave(255, 40, 20, 0, 120, 255, 4)",
+    "colors": [
+      [
+        255,
+        40,
+        20
+      ],
+      [
+        0,
+        120,
+        255
+      ]
+    ],
+    "aliases": [],
+    "controlSchema": [
+      {
+        "id": "primaryColor",
+        "label": "主色",
+        "kind": "color",
+        "defaultValue": "#008aff",
+        "level": "basic"
+      },
+      {
+        "id": "secondaryColor",
+        "label": "辅色",
+        "kind": "color",
+        "defaultValue": "#00305c",
+        "level": "basic"
+      },
+      {
+        "id": "zoneMode",
+        "label": "分区",
+        "kind": "zone",
+        "defaultValue": "all",
+        "options": [
+          {
+            "label": "全机臂",
+            "value": "all"
+          },
+          {
+            "label": "上半区",
+            "value": "upper"
+          },
+          {
+            "label": "下半区",
+            "value": "lower"
+          }
+        ],
+        "level": "basic"
+      },
+      {
+        "id": "speed",
+        "label": "速度",
+        "kind": "integer",
+        "defaultValue": 4,
+        "min": 1,
+        "max": 9,
+        "step": 1,
+        "level": "basic"
+      }
+    ]
+  }
+}
