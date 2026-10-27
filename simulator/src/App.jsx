@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { BookOpen, Check, ChevronRight, CircleHelp, FileCode2, MonitorPlay, Pause, Play, RotateCcw, Search, SkipBack, SkipForward } from "lucide-react";
+import { BookOpen, Check, ChevronRight, CircleHelp, FileCode2, Hammer, MonitorPlay, Pause, Play, RotateCcw, Search, SkipBack, SkipForward } from "lucide-react";
+import CompilerView from "./CompilerView.jsx";
 import DroneCanvas from "./DroneCanvas.jsx";
-import { categories, scripts } from "./catalog.js";
+import { categories, compiledScripts, scripts } from "./catalog.js";
 import { FRAME_COUNT, FRAME_RATE } from "./simulate.js";
 import "./styles.css";
 
@@ -27,6 +28,7 @@ function ScriptList({ items, selectedId, onSelect, showAction = false }) {
 export default function App() {
   const [view, setView] = useState("library");
   const [selectedId, setSelectedId] = useState(DEFAULT_SCRIPT_ID);
+  const [currentCompiled, setCurrentCompiled] = useState(null);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("全部");
   const [snapshots, setSnapshots] = useState([]);
@@ -38,13 +40,28 @@ export default function App() {
   const [calibration, setCalibration] = useState(false);
   const workerRef = useRef(null);
   const requestId = useRef(0);
-  const selected = scripts.find((script) => script.id === selectedId) ?? scripts[0];
+  const currentScript = currentCompiled && { id: "compiled:current", path: currentCompiled.origin, label: currentCompiled.name, categoryLabel: "已编译", source: currentCompiled.code, compiledCode: currentCompiled.code };
+  const simulatorScripts = [...scripts, ...compiledScripts, ...(currentScript ? [currentScript] : [])];
+  const selected = simulatorScripts.find((script) => script.id === selectedId) ?? scripts[0];
 
   useEffect(() => {
     const worker = new Worker(new URL("./simulator.worker.js", import.meta.url), { type: "module" });
     workerRef.current = worker;
+    const id = ++requestId.current;
+    setStatus("loading");
+    setError("");
+    setPlaying(false);
+    setSnapshots([]);
+    setFrameIndex(0);
+    const timeout = setTimeout(() => {
+      if (workerRef.current !== worker) return;
+      worker.terminate();
+      setError("脚本运行超过 6 秒，模拟已停止");
+      setStatus("error");
+    }, 6000);
     worker.onmessage = ({ data }) => {
-      if (data.id !== requestId.current) return;
+      if (data.action !== "simulate" || data.id !== id || workerRef.current !== worker) return;
+      clearTimeout(timeout);
       if (data.error) {
         setError(data.error);
         setStatus("error");
@@ -56,19 +73,18 @@ export default function App() {
         setPlaying(true);
       }
     };
-    return () => worker.terminate();
-  }, []);
-
-  useEffect(() => {
-    if (!workerRef.current || !selected) return;
-    requestId.current += 1;
-    setStatus("loading");
-    setError("");
-    setPlaying(false);
-    setSnapshots([]);
-    setFrameIndex(0);
-    workerRef.current.postMessage({ id: requestId.current, call: selected.call });
-  }, [selectedId]);
+    worker.onerror = (event) => {
+      clearTimeout(timeout);
+      setError(event.message || "模拟 Worker 加载失败");
+      setStatus("error");
+    };
+    worker.postMessage({ action: "simulate", id, code: selected.compiledCode ?? `function update() { tick(); ${selected.call}; }` });
+    return () => {
+      clearTimeout(timeout);
+      worker.terminate();
+      if (workerRef.current === worker) workerRef.current = null;
+    };
+  }, [selectedId, selected.compiledCode]);
 
   useEffect(() => {
     if (!playing || snapshots.length === 0) return;
@@ -85,6 +101,17 @@ export default function App() {
     setSelectedId(script.id);
     setView("simulator");
   };
+  const openCompiled = (result) => {
+    setCurrentCompiled(result);
+    setSelectedId("compiled:current");
+    setCategory("全部");
+    setSearch("");
+    setView("simulator");
+  };
+  const simulatorFiltered = simulatorScripts.filter((script) =>
+    (category === "全部" || script.categoryLabel === category) &&
+    `${script.label} ${script.path}`.toLowerCase().includes(search.trim().toLowerCase()),
+  );
   const seek = (index) => {
     setPlaying(false);
     setFrameIndex(Math.max(0, Math.min(snapshots.length - 1, index)));
@@ -96,6 +123,7 @@ export default function App() {
       <div className="brand"><span className="brand-mark"><span /><span /><span /></span><span><strong>UAVLED</strong><small>EFFECT LIBRARY</small></span></div>
       <nav className="top-nav" aria-label="主导航">
         <button className={view === "library" ? "active" : ""} onClick={() => setView("library")}><BookOpen size={17} />特效库</button>
+        <button className={view === "compiler" ? "active" : ""} onClick={() => setView("compiler")} title="编译器"><Hammer size={17} />编译器</button>
         <button className={view === "simulator" ? "active" : ""} onClick={() => setView("simulator")}><MonitorPlay size={17} />模拟器</button>
       </nav>
       <div className="topbar-status"><span className="status-dot" />Skia Web <span className="topbar-divider" /> {scripts.length} 个脚本</div>
@@ -104,7 +132,7 @@ export default function App() {
     {view === "library" ? <main className="library-view">
       <div className="section-head">
         <div><p className="eyebrow">LIBRARY / SCRIPTS</p><h1>特效脚本</h1><p className="section-subtitle">按类型浏览内置特效，选择文件后在无人机灯带上模拟。</p></div>
-        <button className="primary-button" onClick={() => setView("simulator")}><MonitorPlay size={18} />进入模拟器<ChevronRight size={16} /></button>
+        <div className="entry-actions"><button className="secondary-button" onClick={() => setView("compiler")}><Hammer size={17} />进入编译器</button><button className="primary-button" onClick={() => setView("simulator")}><MonitorPlay size={18} />进入模拟器<ChevronRight size={16} /></button></div>
       </div>
       <div className="library-toolbar">
         <label className="search-field"><Search size={18} /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="搜索名称或文件路径" aria-label="搜索特效脚本" /></label>
@@ -118,12 +146,12 @@ export default function App() {
         <span className="category-chip">{script.categoryLabel}</span>
         <button className="icon-button run-button" title={`模拟 ${script.label}`} aria-label={`模拟 ${script.label}`} onClick={() => openScript(script)}><Play size={17} fill="currentColor" /></button>
       </div>)}</div>
-    </main> : <main className="simulator-view">
+    </main> : view === "compiler" ? <CompilerView onSimulate={openCompiled} /> : <main className="simulator-view">
       <aside className="file-sidebar">
-        <div className="aside-head"><strong>脚本文件</strong><span>{scripts.length}</span></div>
+        <div className="aside-head"><strong>脚本文件</strong><span>{simulatorScripts.length}</span></div>
         <label className="search-field sidebar-search"><Search size={16} /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="搜索脚本" aria-label="搜索脚本" /></label>
-        <select className="sidebar-select" value={category} onChange={(event) => setCategory(event.target.value)} aria-label="筛选特效类型">{categories.map((name) => <option key={name}>{name}</option>)}</select>
-        <ScriptList items={filtered} selectedId={selectedId} onSelect={(script) => setSelectedId(script.id)} />
+        <select className="sidebar-select" value={category} onChange={(event) => setCategory(event.target.value)} aria-label="筛选特效类型">{[...categories, "已编译"].map((name) => <option key={name}>{name}</option>)}</select>
+        <ScriptList items={simulatorFiltered} selectedId={selectedId} onSelect={(script) => setSelectedId(script.id)} />
       </aside>
 
       <section className="sim-main">
@@ -143,7 +171,7 @@ export default function App() {
         <div className="sim-bottom"><label className="calibration-toggle"><input type="checkbox" checked={calibration} onChange={(event) => setCalibration(event.target.checked)} /><span className="switch-track" />显示全部灯位</label><span><CircleHelp size={15} />左右机臂镜像同一组 40 灯信号</span></div>
       </section>
 
-      <aside className="source-sidebar"><div className="aside-head"><strong>脚本详情</strong><FileCode2 size={17} /></div><div className="source-meta"><small>文件</small><code>{selected.path}</code><small>默认调用</small><code>{selected.call}</code></div><div className="source-label">源代码</div><pre className="source-code"><code>{selected.source}</code></pre></aside>
+      <aside className="source-sidebar"><div className="aside-head"><strong>脚本详情</strong><FileCode2 size={17} /></div><div className="source-meta"><small>文件</small><code>{selected.path}</code><small>{selected.call ? "默认调用" : "类型"}</small><code>{selected.call ?? "已编译脚本"}</code></div><div className="source-label">源代码</div><pre className="source-code"><code>{selected.source}</code></pre></aside>
     </main>}
   </div>;
 }

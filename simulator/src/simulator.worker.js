@@ -1,11 +1,11 @@
 import prelude from "../../dist/prelude.js?raw";
-import { simulateFrames } from "./simulate.js";
+import { simulateCompiledFrames } from "./simulate.js";
 
 self.onmessage = ({ data }) => {
   try {
-    const snapshots = simulateFrames(prelude, data.call);
-    self.postMessage({ id: data.id, snapshots });
+    const snapshots = simulateCompiledFrames(prelude, data.code);
+    self.postMessage({ action: "simulate", id: data.id, snapshots });
   } catch (error) {
-    self.postMessage({ id: data.id, error: error instanceof Error ? error.message : String(error) });
+    self.postMessage({ action: "simulate", id: data.id, error: error instanceof Error ? error.message : String(error) });
   }
 };

@@ -1,0 +1,4 @@
+[mcp_servers.uavled-effects]
+command = "node"
+args = ["tools/mcp-server.mjs"]
+enabled_tools = ["compile_effect", "simulate_effect"]

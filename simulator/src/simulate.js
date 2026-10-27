@@ -8,6 +8,10 @@ function channel(value) {
 }
 
 export function simulateFrames(prelude, call, frames = FRAME_COUNT, ledCount = LED_COUNT) {
+  return simulateCompiledFrames(prelude, `function update() { tick(); ${call}; }`, frames, ledCount);
+}
+
+export function simulateCompiledFrames(prelude, compiledCode, frames = FRAME_COUNT, ledCount = LED_COUNT) {
   const leds = Array.from({ length: ledCount }, () => [0, 0, 0]);
   const setLed = (index, r, g, b) => {
     if (!Number.isInteger(index) || index < 0 || index >= ledCount) return;
@@ -20,7 +24,7 @@ export function simulateFrames(prelude, call, frames = FRAME_COUNT, ledCount = L
   const getLedCount = () => ledCount;
   const update = new Function(
     "setLed", "setAll", "getLedCount",
-    `${prelude}\nfunction update() { tick(); ${call}; }\nreturn update;`,
+    `${prelude}\n${compiledCode}\nreturn update;`,
   )(setLed, setAll, getLedCount);
   const snapshots = [];
   for (let frame = 0; frame < frames; frame += 1) {

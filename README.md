@@ -16,6 +16,15 @@ The initial split was checked against the former aggregate files: 98 prelude fun
 
 ## Skia Web simulator
 
-Install dependencies with `npm install`, then run `npm run sim:dev`. Open the URL printed by Vite, enter **模拟器** from the library, and select an effect or style script file. The simulator renders the drone image with React Native Skia Web and projects 40 logical LEDs to 80 physical positions using the copied hardware topology profile. Search and category filters, playback controls, frame seeking, speed selection, and the **显示全部灯位** calibration view are available in the simulator.
+Install dependencies with `npm install`, then run `npm run sim:dev`. Open the URL printed by Vite. **编译器** accepts `project-scripts/*.ts` and `*.js`, a local file, or pasted code. Compile a script containing `function update()` and send its JS output to **模拟器**. The simulator also lists built-in effects and files already present under `compiled/`. The simulator renders the drone image with React Native Skia Web and projects 40 logical LEDs to 80 physical positions using the copied hardware topology profile. Search and category filters, playback controls, frame seeking, speed selection, and the **显示全部灯位** calibration view are available.
 
-`npm run sim:build` creates a static site in `simulator-build/`; `npm run sim:preview` serves that build locally. The browser worker evaluates the assembled JavaScript prelude for 240 frames at a nominal 30 FPS. It is a visual preview of script output, not a test of the desktop Rust/mquickjs runtime, BLE transport, or physical LED calibration. Changes to the drone image or topology in `ledjs-ai` must be copied to `simulator/public/drone.png` and `simulator/src/hardware-profile.json` respectively before publishing a matching preview.
+Add new project scripts under `project-scripts/`. Vite discovers them during development; rebuild the static site after adding files for production. Use the two tools independently when an output file is needed:
+
+```powershell
+npm run tool:compile -- --file project-scripts/wing-chase.ts
+npm run tool:simulate -- --artifact compiled/wing-chase.js --frames 120
+```
+
+`compile_effect` and `simulate_effect` are also separate MCP tools from `npm run mcp:serve`. The project-scoped `.codex/config.toml` registers them when this repository is opened as a trusted Codex project. `compile_effect` accepts either `file` (under `project-scripts/`) or `code`, plus an optional artifact `name`; `simulate_effect` accepts an `artifact` under `compiled/` and `frames` (1-240). Compilation writes `compiled/<name>.js`; simulation writes `simulations/<name>.json`. The sample `compiled/wing-chase.js` is ready to simulate after cloning.
+
+`npm run sim:build` creates a static site in `simulator-build/`; `npm run sim:preview` serves that build locally. The TypeScript compiler transpiles and syntax-checks a self-contained `update()` script; built-in LED functions are available during simulation. Browser workers evaluate the assembled JavaScript prelude for 240 frames at a nominal 30 FPS. This is a visual preview of script output, not a test of the desktop Rust/mquickjs compiler, BLE transport, or physical LED calibration. Run only scripts you trust. Changes to the drone image or topology in `ledjs-ai` must be copied to `simulator/public/drone.png` and `simulator/src/hardware-profile.json` respectively before publishing a matching preview.

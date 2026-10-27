@@ -5,6 +5,8 @@ import { additionalCalls } from "./sampleCalls.js";
 const effectSources = import.meta.glob("../../effects/**/*.js", { query: "?raw", import: "default", eager: true });
 const styleSources = import.meta.glob("../../styles/*.js", { query: "?raw", import: "default", eager: true });
 const sources = { ...effectSources, ...styleSources };
+const projectSources = import.meta.glob("../../project-scripts/**/*.{ts,js}", { query: "?raw", import: "default", eager: true });
+const compiledSources = import.meta.glob("../../compiled/**/*.js", { query: "?raw", import: "default", eager: true });
 const presets = new Map(registry.presets.map((preset) => [preset.id, preset]));
 
 const categoryNames = {
@@ -30,3 +32,18 @@ export const scripts = manifest.prelude
   });
 
 export const categories = ["全部", ...new Set(scripts.map((script) => script.categoryLabel))];
+
+export const projectScripts = Object.entries(projectSources).map(([path, source]) => ({
+  path: path.slice(6),
+  name: path.split("/").at(-1).replace(/\.(ts|js)$/, ""),
+  source,
+}));
+
+export const compiledScripts = Object.entries(compiledSources).map(([path, code]) => ({
+  id: `compiled:${path}`,
+  path: path.slice(6),
+  label: path.split("/").at(-1),
+  categoryLabel: "已编译",
+  compiledCode: code,
+  source: code,
+}));
