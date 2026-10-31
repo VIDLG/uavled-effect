@@ -139,10 +139,10 @@ export default function App() {
         <select value={category} onChange={(event) => setCategory(event.target.value)} aria-label="特效类型">{categories.map((name) => <option key={name}>{name}</option>)}</select>
         <span className="result-count">{filtered.length} 个文件</span>
       </div>
-      <div className="library-list-head"><span>名称 / 路径</span><span>类型</span><span>操作</span></div>
+      <div className="library-list-head"><span>名称 / 函数 / 路径</span><span>类型</span><span>操作</span></div>
       <div className="library-list">{filtered.map((script) => <div className="library-item" key={script.path}>
         <FileCode2 className="file-icon" size={18} />
-        <div className="library-item-name"><strong>{script.label}</strong><small>{script.path}</small></div>
+        <div className="library-item-name"><strong>{script.label}</strong><small>{script.functionName ?? script.id} · {script.path}</small></div>
         <span className="category-chip">{script.categoryLabel}</span>
         <button className="icon-button run-button" title={`模拟 ${script.label}`} aria-label={`模拟 ${script.label}`} onClick={() => openScript(script)}><Play size={17} fill="currentColor" /></button>
       </div>)}</div>

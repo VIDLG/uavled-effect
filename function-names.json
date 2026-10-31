@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "names": {
+    "effectStudySegment": "学习分段",
+    "effectPlanSegment": "计划分段",
+    "effectCenterExpand": "中心扩散",
+    "effectCenterContract": "中心收缩",
+    "effectDampedRebound": "阻尼回弹",
+    "effectTendril": "藤蔓伸展",
+    "effectBubble": "气泡漂移",
+    "effectBreathe": "呼吸渐变",
+    "effectFade": "淡入淡出",
+    "effectDirectionalTrail": "定向拖尾",
+    "effectDirectionalWipe": "定向擦除",
+    "effectDirectionalTendril": "定向藤蔓"
+  }
+}

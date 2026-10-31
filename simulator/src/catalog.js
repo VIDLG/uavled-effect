@@ -1,5 +1,6 @@
 import manifest from "../../manifest.json";
 import registry from "../../dist/effect-presets.json";
+import functionNames from "../../function-names.json";
 import { additionalCalls } from "./sampleCalls.js";
 
 const effectSources = import.meta.glob("../../effects/**/*.js", { query: "?raw", import: "default", eager: true });
@@ -22,8 +23,9 @@ export const scripts = manifest.prelude
     const category = path.startsWith("styles/") ? "styles" : path.split("/")[1];
     return {
       id,
+      functionName: id,
       path,
-      label: preset?.label ?? id,
+      label: preset?.label ?? functionNames.names[id] ?? id,
       category,
       categoryLabel: categoryNames[category],
       call: preset?.call ?? additionalCalls[id],

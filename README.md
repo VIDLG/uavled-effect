@@ -7,6 +7,7 @@ Standalone source project for the UAVLED effect library and editor presets.
 - `effects/`: one built-in effect function per JavaScript file, grouped by behavior.
 - `styles/`: one style function per JavaScript file.
 - `presets/`: one editor preset per JSON file, grouped by the existing UI categories. A style preset's editor definition and code template live in the same JSON file.
+- `function-names.json`: display names for extracted functions that do not have an editor preset; API function identifiers remain unchanged.
 - `compact/`: one source snippet per entry of the smaller effect-package library. These are distinct from the full prelude implementations.
 - `manifest.json`: explicit source order and preset display order.
 

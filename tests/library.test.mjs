@@ -7,6 +7,7 @@ import test from "node:test";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const manifest = JSON.parse(await readFile(resolve(root, "manifest.json"), "utf8"));
+const functionNames = JSON.parse(await readFile(resolve(root, "function-names.json"), "utf8"));
 
 test("one source file per named prelude function", async () => {
   const names = new Set();
@@ -33,6 +34,17 @@ test("presets are unique and reference built-in functions", async () => {
   }
   assert.equal(names.size, 44);
   assert.equal(manifest.stylePresets.length, 16);
+});
+
+test("every extracted effect has a concrete display name", async () => {
+  const registry = JSON.parse(await readFile(resolve(root, "dist/effect-presets.json"), "utf8"));
+  const labels = new Map([...registry.presets, ...registry.stylePresets].map((entry) => [entry.id, entry.label]));
+  for (const path of manifest.prelude.filter((item) => /^(effects|styles)\//.test(item))) {
+    const id = path.split("/").at(-1).replace(/\.js$/, "");
+    const label = labels.get(id) ?? functionNames.names[id];
+    assert(label, `missing display name for ${id}`);
+    assert.notEqual(label, id, `display name still uses internal id for ${id}`);
+  }
 });
 
 test("standalone build assembles the full library", async () => {
