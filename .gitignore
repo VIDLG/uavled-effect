@@ -2,6 +2,7 @@ dist/
 node_modules/
 simulator-build/
 simulator-evidence/
+tmp/
 simulator/public/canvaskit.wasm
 compiled/*
 !compiled/wing-chase.js
