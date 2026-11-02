@@ -1,7 +1,7 @@
 
 
-// --- Rainbow wave (rainbow + wave motion) ---
-// 中文：彩虹波浪，颜色变化和亮度波动同时推进
+// --- Color wave (hue + brightness motion) ---
+// 中文：色彩波动，颜色变化和亮度波动同时推进
 function effectRainbowWave(speed, waveSpeed) {
     var count = getLedCount();
     if (count < 1) { return; }

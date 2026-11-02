@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "setId": "geometric-album-v1",
+  "purpose": "Map simulator behavior to a second geometric album-cover detail set before image generation.",
+  "inputAuthority": "simulator representative frame",
+  "baseRule": {
+    "style": "premium 2D geometric album art",
+    "composition": "wide 3:2 top-down drone, large centered subject, full-bleed background",
+    "background": "large interlocking color fields, crisp arcs, bands, chevrons, grids, or contour geometry; no literal scenery",
+    "subject": "preserve the same enclosed-propeller drone, four guards, four propellers, central body, camera, and two outer LED paths",
+    "finish": "controlled matte texture, crisp edges, refined color blocking, no 3D product render",
+    "avoid": [
+      "text",
+      "logos",
+      "watermarks",
+      "extra aircraft",
+      "new LED paths",
+      "simulator grid or labels",
+      "photorealistic scenery",
+      "unrelated objects"
+    ]
+  },
+  "categoryRules": {
+    "basic": {
+      "geometry": "simple aligned blocks and one dominant band",
+      "rhythm": "stable and legible"
+    },
+    "composition": {
+      "geometry": "nested zones, measured separators, and precise alignment marks",
+      "rhythm": "structured and sectional"
+    },
+    "motion": {
+      "geometry": "directional rails, arrows, chevrons, and offset bands",
+      "rhythm": "clear travel direction"
+    },
+    "rainbow": {
+      "geometry": "ordered spectrum strips and rotating color blocks",
+      "rhythm": "continuous color progression"
+    },
+    "trails": {
+      "geometry": "tapered streaks, nested chevrons, and diminishing bars",
+      "rhythm": "bright head followed by decay"
+    },
+    "ambience": {
+      "geometry": "broad layered fields and calm contour arcs",
+      "rhythm": "organic but controlled"
+    },
+    "flashes": {
+      "geometry": "broken rays, hard-edged bursts, and separated markers",
+      "rhythm": "intermittent high contrast"
+    },
+    "waves": {
+      "geometry": "nested arcs, contour bands, and repeated wave lines",
+      "rhythm": "smooth oscillation"
+    },
+    "styles": {
+      "geometry": "motifs chosen from the named style while retaining the same geometric album language",
+      "rhythm": "style-specific but coherent"
+    }
+  },
+  "functionRules": {
+    "effectSolid": {"category": "basic", "behavior": "uniform full-strip illumination in one source-frame color", "geometry": "one broad continuous rectangular band behind the drone", "frame": 90},
+    "effectStudySegment": {"category": "composition", "behavior": "bounded study segment with a controlled envelope and contrasting zone", "geometry": "two measured panels separated by a thin alignment line", "frame": 90},
+    "effectPlanSegment": {"category": "composition", "behavior": "planned bounded segment with a controlled motion envelope", "geometry": "stacked planning bars and a precise progress bracket", "frame": 90},
+    "effectChase": {"category": "motion", "behavior": "one bright moving head with a short dim tail", "geometry": "one luminous chevron head followed by two shorter rails", "frame": 90},
+    "effectRainbow": {"category": "rainbow", "behavior": "continuous spectral progression distributed along the outer paths", "geometry": "ordered spectrum tiles following a circular orbit", "frame": 90},
+    "effectMeteor": {"category": "trails", "behavior": "one concentrated bright head followed by a fading directional tail", "geometry": "one large diamond head with stepped taper bars", "frame": 90},
+    "effectMeteorRain": {"category": "trails", "behavior": "several staggered bright heads with separate fading tails", "geometry": "repeated diagonal diamonds with descending bar lengths", "frame": 90},
+    "effectFire": {"category": "ambience", "behavior": "warm irregular flicker with clustered hot spots and darker gaps", "geometry": "offset ember polygons and uneven contour bands", "frame": 90},
+    "effectIceFire": {"category": "ambience", "behavior": "continuous upper ice-cyan to violet transition to lower ember-orange progression", "geometry": "stacked flowing ribbons divided into cool upper and warm lower fields", "frame": 90},
+    "effectLightning": {"category": "flashes", "behavior": "sparse abrupt bright impulses along the outer paths", "geometry": "broken angular zigzags and isolated white-blue nodes", "frame": 90},
+    "effectPulse": {"category": "waves", "behavior": "broad brightness pulse expanding from the center", "geometry": "nested rectangular rings with one bright active crest", "frame": 90},
+    "effectCenterExpand": {"category": "waves", "behavior": "symmetric wavefront expanding outward from the center", "geometry": "three nested rings with the outer ring emphasized", "frame": 90},
+    "effectCenterContract": {"category": "waves", "behavior": "symmetric wavefront contracting toward the center", "geometry": "three nested rings with the inner ring emphasized", "frame": 90},
+    "effectDampedRebound": {"category": "waves", "behavior": "bright wave crest rebounding with decreasing amplitude", "geometry": "nested arcs that shrink in height toward the edges", "frame": 90},
+    "effectTendril": {"category": "motion", "behavior": "thin organic tendril growing and bending along the path", "geometry": "one articulated curved ribbon with joint markers", "frame": 90},
+    "effectBubble": {"category": "motion", "behavior": "several rounded luminous bubbles moving along the path", "geometry": "overlapping circles with stepped motion offsets", "frame": 90},
+    "effectBreathe": {"category": "ambience", "behavior": "whole pattern breathing smoothly between dim and bright", "geometry": "concentric soft-edged frames with repeated spacing", "frame": 90},
+    "effectFade": {"category": "ambience", "behavior": "smooth directional bright-to-dark fade", "geometry": "long parallel strips with measured opacity steps", "frame": 90},
+    "effectDirectionalTrail": {"category": "trails", "behavior": "directional head with a tapered trail", "geometry": "arrowhead plus progressively shorter trailing bars", "frame": 90},
+    "effectDirectionalWipe": {"category": "motion", "behavior": "sharp directional boundary wiping across the strip", "geometry": "one diagonal cut line followed by a solid field", "frame": 90},
+    "effectDirectionalTendril": {"category": "motion", "behavior": "single directional tendril with elongated organic trail", "geometry": "long curved ribbon with repeated angular joints", "frame": 90},
+    "effectMultiChase": {"category": "motion", "behavior": "multiple evenly spaced chase heads moving together", "geometry": "three repeated chevrons aligned on parallel rails", "frame": 90},
+    "effectMultiChaseTail": {"category": "trails", "behavior": "multiple chase heads with visible fading tails", "geometry": "three chevrons each followed by stepped taper bars", "frame": 90},
+    "effectWave": {"category": "waves", "behavior": "smooth sinusoidal brightness wave traveling along the paths", "geometry": "repeated curved contour lines with one bright crest", "frame": 90},
+    "effectDualWave": {"category": "waves", "behavior": "two contrasting traveling waves occupying separate color bands", "geometry": "paired offset contour systems with a central divider", "frame": 90},
+    "effectSparkle": {"category": "flashes", "behavior": "many small single-color sparkle points with uneven density", "geometry": "scattered diamond markers around a clean grid", "frame": 90},
+    "effectColorSparkle": {"category": "flashes", "behavior": "small sparkle points with varied source-frame hues", "geometry": "multicolor marker clusters arranged on offset diagonals", "frame": 90},
+    "effectTwinkle": {"category": "flashes", "behavior": "warm star-like points varying in brightness", "geometry": "small four-point stars and isolated circular markers", "frame": 90},
+    "effectComet": {"category": "trails", "behavior": "one comet head with a long smooth fading tail", "geometry": "bright circle head with a long tapered orbital rail", "frame": 90},
+    "effectBounce": {"category": "motion", "behavior": "one bright block bouncing between the two ends", "geometry": "mirrored end brackets connected by a travel line", "frame": 90},
+    "effectBounceTail": {"category": "trails", "behavior": "bouncing head with a fading trail", "geometry": "end bracket, bright chevron, and reversed taper bars", "frame": 90},
+    "effectTheaterChase": {"category": "motion", "behavior": "regular separated marquee blocks with chase rhythm", "geometry": "evenly spaced marquee rectangles and a stepped border", "frame": 90},
+    "effectGradient": {"category": "basic", "behavior": "smooth gradient slowly rolling along the strip", "geometry": "large parallel color panels with a clean interpolation seam", "frame": 90},
+    "effectStack": {"category": "motion", "behavior": "ordered bands rising or shifting in layers", "geometry": "stacked horizontal cards with one highlighted layer", "frame": 90},
+    "effectScanner": {"category": "motion", "behavior": "narrow bright scanning bar crossing a dim field", "geometry": "thin luminous rail with a rectangular scan window", "frame": 90},
+    "effectRipple": {"category": "waves", "behavior": "concentric brightness ripples spreading from a center point", "geometry": "nested square and circular rings with increasing spacing", "frame": 90},
+    "effectPlasma": {"category": "waves", "behavior": "organic plasma modulation with smooth local variation", "geometry": "interleaved rounded cells and contour loops", "frame": 90},
+    "effectStrobe": {"category": "flashes", "behavior": "full-strip hard on/off flash with crisp states", "geometry": "high-contrast split panels and a sharp rectangular flash frame", "frame": 90},
+    "effectColorWipe": {"category": "motion", "behavior": "solid color front wiping across the strip with a sharp boundary", "geometry": "large diagonal wipe plane and a hard dividing edge", "frame": 90},
+    "effectRainbowWave": {"category": "waves", "behavior": "traveling hue and brightness wave with local crest modulation", "geometry": "layered color wave bands with repeated angular crests", "frame": 90},
+    "styleCyberpunk": {"category": "styles", "behavior": "neon cyan and magenta cyberpunk bands", "geometry": "angular neon rails, scan brackets, and offset grids", "frame": 90},
+    "styleVaporwave": {"category": "styles", "behavior": "lavender, cyan, and pink retro color fields", "geometry": "sunset disk, diagonal grid, and clean rounded blocks", "frame": 90},
+    "styleOcean": {"category": "styles", "behavior": "deep blue and turquoise calm ocean flow", "geometry": "layered wave contours and horizon bands", "frame": 90},
+    "styleLava": {"category": "styles", "behavior": "deep red, ember orange, and molten yellow heat bands", "geometry": "angular magma plates and bright fissure lines", "frame": 90},
+    "styleForest": {"category": "styles", "behavior": "layered forest green and fresh lime fields", "geometry": "leaf-like polygons and branching contour lines", "frame": 90},
+    "styleAurora": {"category": "styles", "behavior": "teal, green, and violet aurora ribbons", "geometry": "tall curved ribbons crossing a dark horizon grid", "frame": 90},
+    "styleSunset": {"category": "styles", "behavior": "coral, orange, violet, and indigo sunset bands", "geometry": "horizontal horizon blocks and thin sun arcs", "frame": 90},
+    "styleGalaxy": {"category": "styles", "behavior": "deep indigo and violet cosmic color fields", "geometry": "orbital ellipses, star points, and polygonal constellations", "frame": 90},
+    "styleNeon": {"category": "styles", "behavior": "electric cyan and hot magenta neon bands", "geometry": "glowing outlined rectangles and diagonal light rails", "frame": 90},
+    "styleCandlelight": {"category": "styles", "behavior": "warm amber and deep brown candlelight fields", "geometry": "nested warm halos and small geometric flame facets", "frame": 90},
+    "styleMoonlight": {"category": "styles", "behavior": "cool silver-blue moonlight fields", "geometry": "crescent arcs, quiet grids, and long horizontal bands", "frame": 90},
+    "styleArcade": {"category": "styles", "behavior": "bright primary-color retro arcade blocks", "geometry": "pixel-like rectangles, score bars, and stepped borders without text", "frame": 90},
+    "styleMatrix": {"category": "styles", "behavior": "dark green and acid-green code-like bands", "geometry": "vertical modular columns and falling rectangular glyph blocks without literal text", "frame": 90},
+    "styleHeartbeat": {"category": "styles", "behavior": "deep red periodic heartbeat crest", "geometry": "angular pulse line and nested red panels", "frame": 90},
+    "stylePolice": {"category": "styles", "behavior": "upper outer path red and lower outer path blue, then swapped; inactive path remains dark in each state", "geometry": "two complementary red-blue panels and two offset dashed arcs; never alternate every LED around the full perimeter", "frame": 30},
+    "styleChristmas": {"category": "styles", "behavior": "red and green festive light groupings", "geometry": "stepped ribbon, small star polygons, and restrained ornament circles", "frame": 90}
+  }
+}

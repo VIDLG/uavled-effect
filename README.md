@@ -15,6 +15,29 @@ Edit files here, then run `npm run build` to assemble `dist/` locally. Run `npm 
 
 The initial split was checked against the former aggregate files: 98 prelude functions and 44 editor presets preserve their original order and content. The `compact/` directory preserves all 15 package-builder source snippets separately.
 
+## Visual assets and dynamics
+
+The reusable image assets are committed under `assets/` and are grouped by purpose:
+
+| Category | Location | Contents |
+| --- | --- | --- |
+| Standard detail images | `assets/effects/generated-details/` | One detail PNG per effect or style preset. `simulator/src/ColorLab.jsx` loads this set for the color and animation preview. |
+| Geometric album-cover variants | `assets/effects/generated-details-geometric/` | The alternate geometric background set, with its source mapping in `index.json`. |
+| Static animation samples | `assets/effects/generated-frames/` | Three representative simulated frames per effect or style, named `<id>-030.png`, `<id>-090.png`, and `<id>-150.png`. These are visual samples, not runtime playback files. |
+| Ice-fire source material | `assets/effects/ice-fire/` | Ice-fire detail images, metadata, and the original source frames under `source-frames/`. |
+| Red-blue alert variants | `assets/effects/red-blue-alert/` | The alert detail image and its thumbnail/background variants. |
+| Neo2 chibi variants | `assets/effects/neo2-chibi/` | Generated icon and illustration variants for the drone subject. |
+
+The dynamic behavior remains source-controlled alongside the presets:
+
+- `effects/<category>/*.js`: runtime LED effect functions. Categories include `basic`, `composition`, `motion`, `waves`, `flashes`, `trails`, `ambience`, and the compatibility `rainbow` folder.
+- `styles/*.js`: named style functions such as `styleForest()`.
+- `presets/<category>/*.json`: display names, categories, function calls, colors, and editor controls for each effect.
+- `simulator/src/ColorLab.jsx`: static-image color mapping, effect-specific preview policies, and the Forest keyframe interpolation preview.
+- `simulator/src/simulate.js` and `simulator/src/topology.js`: frame simulation and drone LED topology used by the previews.
+
+The `tmp/` directory contains local screenshots, browser recordings, and generation intermediates. It is evidence for development and is intentionally separate from the committed reusable assets.
+
 ## Skia Web simulator
 
 On Windows, double-click `start-simulator.cmd` in this folder. It installs dependencies if needed, starts the local service, and opens the simulator after the service is ready. Keep its console window open while using the simulator; closing it stops the service. To start manually, install dependencies with `npm install`, run `npm run sim:dev`, and open the URL printed by Vite. **编译器** accepts `project-scripts/*.ts` and `*.js`, a local file, or pasted code. Compile a script containing `function update()` and send its JS output to **模拟器**. The simulator also lists built-in effects and files already present under `compiled/`. The simulator renders the drone image with React Native Skia Web and projects 40 logical LEDs to 80 physical positions using the copied hardware topology profile. Search and category filters, playback controls, frame seeking, speed selection, and the **显示全部灯位** calibration view are available.

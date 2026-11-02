@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { BookOpen, Check, ChevronRight, CircleHelp, FileCode2, Hammer, MonitorPlay, Pause, Play, RotateCcw, Search, SkipBack, SkipForward } from "lucide-react";
+import { BookOpen, Check, ChevronRight, CircleHelp, FileCode2, Hammer, MonitorPlay, Palette, Pause, Play, RotateCcw, Search, SkipBack, SkipForward } from "lucide-react";
 import CompilerView from "./CompilerView.jsx";
+import ColorLab from "./ColorLab.jsx";
 import DroneCanvas from "./DroneCanvas.jsx";
 import { categories, compiledScripts, scripts } from "./catalog.js";
 import { FRAME_COUNT, FRAME_RATE } from "./simulate.js";
@@ -125,11 +126,12 @@ export default function App() {
         <button className={view === "library" ? "active" : ""} onClick={() => setView("library")}><BookOpen size={17} />特效库</button>
         <button className={view === "compiler" ? "active" : ""} onClick={() => setView("compiler")} title="编译器"><Hammer size={17} />编译器</button>
         <button className={view === "simulator" ? "active" : ""} onClick={() => setView("simulator")}><MonitorPlay size={17} />模拟器</button>
+        <button className={view === "color-lab" ? "active" : ""} onClick={() => setView("color-lab")} title="静态图色区实验"><Palette size={17} />色彩实验</button>
       </nav>
       <div className="topbar-status"><span className="status-dot" />Skia Web <span className="topbar-divider" /> {scripts.length} 个脚本</div>
     </header>
 
-    {view === "library" ? <main className="library-view">
+    {view === "color-lab" ? <ColorLab /> : view === "library" ? <main className="library-view">
       <div className="section-head">
         <div><p className="eyebrow">LIBRARY / SCRIPTS</p><h1>特效脚本</h1><p className="section-subtitle">按类型浏览内置特效，选择文件后在无人机灯带上模拟。</p></div>
         <div className="entry-actions"><button className="secondary-button" onClick={() => setView("compiler")}><Hammer size={17} />进入编译器</button><button className="primary-button" onClick={() => setView("simulator")}><MonitorPlay size={18} />进入模拟器<ChevronRight size={16} /></button></div>

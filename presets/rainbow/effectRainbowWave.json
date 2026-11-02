@@ -1,8 +1,8 @@
 {
   "preset": {
     "id": "effectRainbowWave",
-    "label": "彩虹波浪",
-    "category": "彩虹",
+    "label": "色彩波动",
+    "category": "波形",
     "call": "effectRainbowWave(3, 8)",
     "colors": [
       [
