@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 1,
+  "setId": "geometric-album-v1",
+  "rules": "assets/effects/geometric-detail-rules.json",
+  "source": "simulator representative frames",
+  "model": "gpt-image-2",
+  "details": [
+    {
+      "id": "effectBounce",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectBounce-detail.png"
+    },
+    {
+      "id": "effectBounceTail",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectBounceTail-detail.png"
+    },
+    {
+      "id": "effectBreathe",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectBreathe-detail.png"
+    },
+    {
+      "id": "effectBubble",
+      "status": "skipped-existing",
+      "path": "assets/effects/generated-details-geometric/effectBubble-detail.png"
+    },
+    {
+      "id": "effectCenterContract",
+      "status": "skipped-existing",
+      "path": "assets/effects/generated-details-geometric/effectCenterContract-detail.png"
+    },
+    {
+      "id": "effectCenterExpand",
+      "status": "skipped-existing",
+      "path": "assets/effects/generated-details-geometric/effectCenterExpand-detail.png"
+    },
+    {
+      "id": "effectChase",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectChase-detail.png"
+    },
+    {
+      "id": "effectColorSparkle",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectColorSparkle-detail.png"
+    },
+    {
+      "id": "effectColorWipe",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectColorWipe-detail.png"
+    },
+    {
+      "id": "effectComet",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectComet-detail.png"
+    },
+    {
+      "id": "effectDampedRebound",
+      "status": "skipped-existing",
+      "path": "assets/effects/generated-details-geometric/effectDampedRebound-detail.png"
+    },
+    {
+      "id": "effectDirectionalTendril",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectDirectionalTendril-detail.png"
+    },
+    {
+      "id": "effectDirectionalTrail",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectDirectionalTrail-detail.png"
+    },
+    {
+      "id": "effectDirectionalWipe",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectDirectionalWipe-detail.png"
+    },
+    {
+      "id": "effectDualWave",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectDualWave-detail.png"
+    },
+    {
+      "id": "effectFade",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectFade-detail.png"
+    },
+    {
+      "id": "effectFire",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectFire-detail.png"
+    },
+    {
+      "id": "effectGradient",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectGradient-detail.png"
+    },
+    {
+      "id": "effectIceFire",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectIceFire-detail.png"
+    },
+    {
+      "id": "effectLightning",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectLightning-detail.png"
+    },
+    {
+      "id": "effectMeteor",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectMeteor-detail.png"
+    },
+    {
+      "id": "effectMeteorRain",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectMeteorRain-detail.png"
+    },
+    {
+      "id": "effectMultiChase",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectMultiChase-detail.png"
+    },
+    {
+      "id": "effectMultiChaseTail",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectMultiChaseTail-detail.png"
+    },
+    {
+      "id": "effectPlanSegment",
+      "status": "skipped-existing",
+      "path": "assets/effects/generated-details-geometric/effectPlanSegment-detail.png"
+    },
+    {
+      "id": "effectPlasma",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectPlasma-detail.png"
+    },
+    {
+      "id": "effectPulse",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectPulse-detail.png"
+    },
+    {
+      "id": "effectRainbow",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectRainbow-detail.png"
+    },
+    {
+      "id": "effectRainbowWave",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectRainbowWave-detail.png"
+    },
+    {
+      "id": "effectRipple",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectRipple-detail.png"
+    },
+    {
+      "id": "effectScanner",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectScanner-detail.png"
+    },
+    {
+      "id": "effectSolid",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectSolid-detail.png"
+    },
+    {
+      "id": "effectSparkle",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectSparkle-detail.png"
+    },
+    {
+      "id": "effectStack",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectStack-detail.png"
+    },
+    {
+      "id": "effectStrobe",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectStrobe-detail.png"
+    },
+    {
+      "id": "effectStudySegment",
+      "status": "skipped-existing",
+      "path": "assets/effects/generated-details-geometric/effectStudySegment-detail.png"
+    },
+    {
+      "id": "effectTendril",
+      "status": "skipped-existing",
+      "path": "assets/effects/generated-details-geometric/effectTendril-detail.png"
+    },
+    {
+      "id": "effectTheaterChase",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectTheaterChase-detail.png"
+    },
+    {
+      "id": "effectTwinkle",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectTwinkle-detail.png"
+    },
+    {
+      "id": "effectWave",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/effectWave-detail.png"
+    },
+    {
+      "id": "styleArcade",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleArcade-detail.png"
+    },
+    {
+      "id": "styleAurora",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleAurora-detail.png"
+    },
+    {
+      "id": "styleCandlelight",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleCandlelight-detail.png"
+    },
+    {
+      "id": "styleChristmas",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleChristmas-detail.png"
+    },
+    {
+      "id": "styleCyberpunk",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleCyberpunk-detail.png"
+    },
+    {
+      "id": "styleForest",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleForest-detail.png"
+    },
+    {
+      "id": "styleGalaxy",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleGalaxy-detail.png"
+    },
+    {
+      "id": "styleHeartbeat",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleHeartbeat-detail.png"
+    },
+    {
+      "id": "styleLava",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleLava-detail.png"
+    },
+    {
+      "id": "styleMatrix",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleMatrix-detail.png"
+    },
+    {
+      "id": "styleMoonlight",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleMoonlight-detail.png"
+    },
+    {
+      "id": "styleNeon",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleNeon-detail.png"
+    },
+    {
+      "id": "styleOcean",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleOcean-detail.png"
+    },
+    {
+      "id": "stylePolice",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/stylePolice-detail.png"
+    },
+    {
+      "id": "styleSunset",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleSunset-detail.png"
+    },
+    {
+      "id": "styleVaporwave",
+      "status": "generated",
+      "path": "assets/effects/generated-details-geometric/styleVaporwave-detail.png"
+    }
+  ]
+}

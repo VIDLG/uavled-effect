@@ -1,0 +1,71 @@
+{
+  "effectId": "effectIceFire",
+  "label": "冰火",
+  "iconFamily": "uavled-top-view-raster-v1",
+  "variantLightingOnly": true,
+  "icon": {
+    "path": "effect-ice-fire-icon.png",
+    "width": 1024,
+    "height": 1024,
+    "intendedUse": "effect library icon",
+    "safeMargin": "Keep the full quadcopter and both outer LED paths inside the platform mask-safe area; do not crop the upper or lower arm segments."
+  },
+  "detail": {
+    "path": "effect-ice-fire-detail.png",
+    "width": 1536,
+    "height": 1024,
+    "aspectRatio": "3:2",
+    "intendedUse": "effect detail / preview image"
+  },
+  "alternates": {
+    "detailBrightAlbum": {
+      "path": "effect-ice-fire-detail-album-bright.png",
+      "width": 1536,
+      "height": 1024,
+      "aspectRatio": "3:2",
+      "intendedUse": "alternate effect detail / album-cover preview",
+      "style": "high-contrast geometric color-block album art"
+    }
+  },
+  "visualBasis": {
+    "source": "effects/ambience/effectIceFire.js",
+    "preset": "presets/ambience/effectIceFire.json",
+    "sourceFrame": "simulator frame 60 at 30 FPS, captured from the built-in simulator",
+    "behavior": [
+      "the 40 logical LEDs are mirrored onto 80 physical positions",
+      "the lit nodes occupy only the left and right outer arm paths",
+      "the sampled frame progresses from brighter cyan at the upper segment to deeper blue along the lower segment",
+      "the center body, propellers, and inner guard rings remain unlit"
+    ],
+    "palette": ["#00B4FF", "#7B78D8", "#FF4600"],
+    "iconColorTreatment": "ice-blue/cyan upper path, violet transition, restrained ember orange lower path"
+  },
+  "generation": {
+    "icon": {
+      "tool": "openai-python OpenAI().images.edit",
+      "provider": "OpenAI",
+      "model": "gpt-image-2",
+      "inputFidelity": "high",
+      "style": "2D raster technical illustration with enclosing outer LED paths",
+      "basis": "previous 2D icon plus simulator frame geometry and hardware-profile topology"
+    },
+    "detail": {
+      "tool": "openai-python OpenAI().images.edit",
+      "provider": "OpenAI",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "inputFidelity": "high",
+      "basis": "effect-ice-fire-icon.png with restrained premium album-cover background treatment",
+      "backgroundTreatment": "matte graphite field with soft cyan upper wash, muted ember-orange lower wash, and low-contrast circular halo"
+    },
+    "detailBrightAlbum": {
+      "tool": "openai-python OpenAI().images.edit",
+      "provider": "OpenAI",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "inputFidelity": "high",
+      "basis": "effect-ice-fire-detail.png with bright high-contrast geometric album-cover background",
+      "backgroundTreatment": "electric cyan, cobalt, violet, hot magenta, orange-red and lemon-yellow color blocks with orbital arcs and geometric accents"
+    }
+  }
+}
