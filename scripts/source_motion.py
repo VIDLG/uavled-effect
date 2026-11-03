@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import uuid
 
 import cv2
 import numpy as np
@@ -12,6 +13,17 @@ from PIL import Image, ImageDraw
 ROOT = Path("assets/effects/generated-keyframe-experiments/source-motion-v1")
 OLD = Path("assets/effects/generated-keyframe-experiments/flare-dense16")
 WIDTH, HEIGHT = 768, 512
+
+
+def save_image(image, path, **kwargs):
+    """Complete image writes before replacing a previously exported artifact."""
+    path = Path(path)
+    temporary = path.with_name(f".{path.stem}-{uuid.uuid4().hex}{path.suffix}")
+    try:
+        image.save(temporary, **kwargs)
+        temporary.replace(path)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def sample_source(frames, seconds, fps):
@@ -28,6 +40,12 @@ def phase_coordinate(led_index, source_frame):
 
 def replace_regions(base, target, mask):
     return np.clip(np.round(base * (1 - mask[..., None]) + target * mask[..., None]), 0, 255).astype(np.uint8)
+
+
+def display_exposure(rgb, gain=1.8):
+    # Source snapshots already include runtime master brightness. Restore image exposure without clipping hue ratios.
+    maximum = np.maximum(rgb.max(axis=-1, keepdims=True), 1)
+    return rgb * np.minimum(gain, 255/maximum)
 
 
 def smoothstep(low, high, value):
@@ -85,6 +103,10 @@ class MotionField:
         hsv = cv2.cvtColor(self.base, cv2.COLOR_RGB2HSV).astype(np.float32)
         self.value = hsv[..., 2] / 255
         saturation = hsv[..., 1] / 255
+        # Max RGB alone flattens saturated glow and white emitter cores to the same brightness.
+        # Preserve the original low-saturation bright cores above their colored halos.
+        gain = 1.2 if style == "styleCyberpunk" else 4.0
+        self.band_texture = np.clip(self.value * (1-.72*saturation) * gain, .025, 1)
         colored = smoothstep(.08, .3, saturation)
         # Include low-saturation light cores next to a color region, while protecting neutral drone areas.
         colored = cv2.dilate(colored, np.ones((3, 3), np.uint8))
@@ -118,7 +140,7 @@ class MotionField:
             phase = phase_coordinate(diagonal, source_position)
             front = (.5+.5*np.cos(phase*np.pi/128))**6
             bg_target = bg_colors * self.value[..., None] * (.60 + .55*front[..., None])
-            band_target = band * np.clip(self.value*1.15, .12, 1)[..., None]
+            band_target = band * self.band_texture[..., None]
         else:
             column = np.floor(self.x/22).astype(np.int32) % 40
             age = (source_position-self.births[int(source_position), column]) / 30
@@ -129,10 +151,12 @@ class MotionField:
             activity = colors[column, 1] / 255
             envelope = .08 + (.1 + .7*head + .25*tail)*activity
             bg_target = np.array([0, 255, 30], np.float32)*self.value[..., None]*envelope[..., None]
-            band_target = band * np.clip(self.value*1.8, .16, 1)[..., None]
+            band_target = band * self.band_texture[..., None]
         if detail is not None:
             bg_target *= detail[..., None]
             band_target *= detail[..., None]
+        bg_target = display_exposure(bg_target)
+        band_target = display_exposure(band_target)
         output = replace_regions(self.base, bg_target, self.background_mask)
         # Full replacement at the band core; interpolation only at the feathered spatial boundary.
         return replace_regions(output, band_target, self.band_mask)
@@ -146,7 +170,7 @@ def prepare(root):
     for style, frames in source["styles"].items():
         field = MotionField(style, frames)
         calibration[style] = {"left": field.left.tolist(), "right": field.right.tolist(), "logicalIndices": list(range(40))}
-        Image.fromarray((field.mask*255).astype(np.uint8)).save(root / f"{style}-color-mask.png")
+        save_image(Image.fromarray((field.mask*255).astype(np.uint8)), root / f"{style}-color-mask.png")
         # Index labels are for debugging calibration only, never supplied as the art target.
         guide = Image.fromarray(field.base.copy())
         draw = ImageDraw.Draw(guide)
@@ -155,13 +179,13 @@ def prepare(root):
                 draw.ellipse((x-2, y-2, x+2, y+2), fill="yellow")
                 if i % 5 == 0:
                     draw.text((x+5, y), str(i), fill="white")
-        guide.save(root / "controls" / f"{style}-calibration.png")
+        save_image(guide, root / "controls" / f"{style}-calibration.png")
         for batch in range(2):
             indices = source["keyframes"][batch*4:batch*4+4]
             grid = Image.new("RGB", (1536, 1024))
             for slot, index in enumerate(indices):
                 grid.paste(Image.fromarray(field.render(index/30)), ((slot%2)*WIDTH, (slot//2)*HEIGHT))
-            grid.save(root / "controls" / f"{style}-{batch:02}.png")
+            save_image(grid, root / "controls" / f"{style}-{batch:02}.png")
             positions = [round(-i*4/42, 3) for i in indices]
             prompt = f"""Edit the FIRST image: an exact 2x2 animation storyboard of four equal 768x512 panels, no gutters or labels. Return 1536x1024. The second image is the same-series artwork identity reference.
 These are four DIFFERENT MOTION POSITIONS, not four brightness variations. Reading order source frames {indices} at 30fps, so the time interval is 0.533333 seconds. The first image ALREADY contains correctly calibrated LED locations, colors and spatial phase. Preserve those locations and states panel by panel. Refine only local luminous texture, tiny glow and light-head detail. No change to hue grouping, no re-positioning the color boundaries to the same place in all panels.
@@ -235,7 +259,7 @@ def export(root):
                     index = keyframes[batch*4+slot]
                     x, y = (slot%2)*WIDTH, (slot//2)*HEIGHT
                     raw = np.asarray(grid.convert("RGB").crop((x, y, x+WIDTH, y+HEIGHT))).copy()
-                    Image.fromarray(raw).save(root / "generated" / f"{style}-{index:03}.png")
+                    save_image(Image.fromarray(raw), root / "generated" / f"{style}-{index:03}.png")
                     registered, stats = align_generated(raw, field)
                     target = field.render(index/30)
                     # Retain generated luminous microstructure, while source color/position remain authoritative.
@@ -247,19 +271,22 @@ def export(root):
         contact = Image.new("RGB", (1536, 552), (16, 20, 24))
         for n, index in enumerate(keyframes):
             anchor = field.render(index/30, details[n])
-            Image.fromarray(anchor).save(root / "keyframes" / f"{style}-{index:03}.png")
+            save_image(Image.fromarray(anchor), root / "keyframes" / f"{style}-{index:03}.png")
             thumb = Image.fromarray(anchor).resize((384, 256), Image.Resampling.LANCZOS)
             x, y = (n%4)*384, (n//4)*276
             contact.paste(thumb, (x, y+20))
             ImageDraw.Draw(contact).text((x+8, y+4), f"source {index:03} | {index/30:.3f}s", fill="white")
-        contact.save(root / f"{style}-keyframes.jpg", quality=94)
+        save_image(contact, root / f"{style}-keyframes.jpg", quality=94)
 
         render_count = keyframes[-1]*2
+        video_path = root / f"{style}-motion60.mp4"
+        temporary_video = root / f".{style}-{uuid.uuid4().hex}.mp4"
         command = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
                    "-s", f"{WIDTH}x{HEIGHT}", "-r", "60", "-i", "-", "-an", "-c:v", "libx264", "-crf", "18",
-                   "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(root / f"{style}-motion60.mp4")]
+                   "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(temporary_video)]
         encoder = subprocess.Popen(command, stdin=subprocess.PIPE)
         gif_frames, spacetime, max_neutral_error = [], [], 0
+        render_error = None
         try:
             for n in range(render_count):
                 seconds = n/60
@@ -276,11 +303,17 @@ def export(root):
                 spacetime.append(frame[points[:, 1], points[:, 0]])
                 if n % 60 == 0:
                     print(f"{style}: rendered {n}/{render_count} frames", flush=True)
+        except BaseException as error:
+            render_error = error
         finally:
             encoder.stdin.close()
             code = encoder.wait()
-        if code:
+        if render_error is not None or code:
+            temporary_video.unlink(missing_ok=True)
+            if render_error is not None:
+                raise render_error
             raise RuntimeError(f"FFmpeg failed with code {code}")
+        temporary_video.replace(video_path)
 
         palette_sheet = Image.new("RGB", (576*8, 384))
         for i in range(8):
@@ -288,7 +321,7 @@ def export(root):
         palette = palette_sheet.quantize(colors=256)
         gif = [frame.quantize(palette=palette, dither=Image.Dither.NONE) for frame in gif_frames]
         durations = [round((n+1)*100/30)*10-round(n*100/30)*10 for n in range(len(gif))]
-        gif[0].save(root / f"{style}-motion30.gif", save_all=True, append_images=gif[1:], duration=durations, loop=0, disposal=2)
+        save_image(gif[0], root / f"{style}-motion30.gif", save_all=True, append_images=gif[1:], duration=durations, loop=0, disposal=2)
 
         # A fixed physical LED index on each row exposes direction reversals and color-position mismatch.
         actual = np.stack(spacetime, axis=1)
@@ -299,7 +332,7 @@ def export(root):
         evidence.paste(Image.fromarray(actual).resize((896, 160), Image.Resampling.NEAREST), (0, 28))
         d.text((8, 196), "Actual source RGB at the same indices and times", fill="white")
         evidence.paste(Image.fromarray(expected.astype(np.uint8)).resize((896, 160), Image.Resampling.NEAREST), (0, 216))
-        evidence.save(root / f"{style}-space-time.png")
+        save_image(evidence, root / f"{style}-space-time.png")
 
         norm_a = actual.astype(np.float32)/np.maximum(actual.max(axis=2, keepdims=True), 1)
         norm_b = expected/np.maximum(expected.max(axis=2, keepdims=True), 1)
@@ -320,6 +353,7 @@ def export(root):
         "cyberpunkDisplacementPerSourceFrame": -4/42,
         "matrixMotion": "LED birth/decay at fixed indices; background heads move down at 130px/s after source trigger",
         "generatedDetailGainRange": [.75, 1.35],
+        "displayExposure": {"gain": 1.8, "gamutLimit": "scale all channels together", "preserveEmitterCores": True},
         "preludeSha256": source["preludeSha256"], "requests": [],
     }
     for style in source["styles"]:

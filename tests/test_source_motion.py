@@ -6,10 +6,18 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from source_motion import sample_source, phase_coordinate, replace_regions, MotionField
+from source_motion import sample_source, phase_coordinate, replace_regions, display_exposure, MotionField
 
 
 class SourceMotionTests(unittest.TestCase):
+    def test_display_exposure_preserves_hue_ratios_and_off_states(self):
+        rgb = np.array([[0, 0, 0], [20, 100, 120], [250, 30, 170]], np.float32)
+        output = display_exposure(rgb)
+        np.testing.assert_array_equal(output[0], 0)
+        self.assertLessEqual(output.max(), 255)
+        for index in (1, 2):
+            np.testing.assert_allclose(output[index]/output[index].max(), rgb[index]/rgb[index].max(), atol=1e-6)
+
     def test_playback_never_reverses_after_last_keyframe(self):
         frames = np.array([[[0, 0, 0]], [[40, 80, 120]], [[80, 160, 240]]], dtype=np.float32)
         values = [sample_source(frames, t, 1)[0, 0] for t in (0, .5, 1, 1.5, 2, 2.5, 3)]

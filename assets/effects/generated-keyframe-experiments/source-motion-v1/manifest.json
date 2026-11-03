@@ -24,6 +24,11 @@
     0.75,
     1.35
   ],
+  "displayExposure": {
+    "gain": 1.8,
+    "gamutLimit": "scale all channels together",
+    "preserveEmitterCores": true
+  },
   "preludeSha256": "4e86f3a04ffcaaf6e34c9190eae6ba9fb7b2ae8f1ef1293adca35bbbdffde344",
   "requests": [
     {

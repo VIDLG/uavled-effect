@@ -17,7 +17,7 @@
     "durationSeconds": 3.7333333333333334,
     "gifFps": 30,
     "maxNeutralPixelDifference": 0,
-    "meanNormalizedColorErrorAtLedCenters": 0.0013416919391602278,
+    "meanNormalizedColorErrorAtLedCenters": 0.0011078916722908616,
     "alignment": [
       {
         "sourceFrame": 0,
@@ -167,7 +167,7 @@
     "durationSeconds": 3.7333333333333334,
     "gifFps": 30,
     "maxNeutralPixelDifference": 0,
-    "meanNormalizedColorErrorAtLedCenters": 0.0015916444826871157,
+    "meanNormalizedColorErrorAtLedCenters": 0.0009306474821642041,
     "alignment": [
       {
         "sourceFrame": 0,
