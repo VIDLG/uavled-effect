@@ -113,6 +113,11 @@ try {
   await phone.goto(`${base}/?view=motion&effect=effectRainbow`);
   await phone.waitForFunction(() => document.querySelector('.motion-artwork[aria-busy="false"] canvas'));
   assert(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  assert(await phone.evaluate(() => {
+    const track = document.querySelector('.motion-track[aria-pressed="true"]').getBoundingClientRect();
+    const list = document.querySelector('.motion-playlist-items').getBoundingClientRect();
+    return track.left >= list.left && track.right <= list.right;
+  }), "The selected album must be visible in the horizontal mobile playlist");
   await phone.screenshot({ path: "tmp/single-image-motion/mobile.png", fullPage: true });
   assert.deepEqual(report.errors, []);
   report.mobileOverflow = false;

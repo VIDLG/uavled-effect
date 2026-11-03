@@ -86,6 +86,7 @@ function MotionPlayer({ effect, onPrevious, onNext }) {
 }
 
 export default function MotionGallery() {
+  const playlist = useRef(null);
   const [selectedId, setSelectedId] = useState(() => {
     const requested = new URLSearchParams(window.location.search).get("effect");
     return effects.some((effect) => effect.id === requested) ? requested : effects[0].id;
@@ -93,13 +94,20 @@ export default function MotionGallery() {
   const selectedIndex = effects.findIndex((effect) => effect.id === selectedId);
   const selected = effects[selectedIndex];
   const change = (step) => setSelectedId(effects[(selectedIndex + step + effects.length) % effects.length].id);
+  useEffect(() => {
+    const container = playlist.current;
+    const track = container.querySelector('[aria-pressed="true"]');
+    const bounds = container.getBoundingClientRect(), selected = track.getBoundingClientRect();
+    if (selected.left < bounds.left) container.scrollLeft += selected.left-bounds.left-8;
+    else if (selected.right > bounds.right) container.scrollLeft += selected.right-bounds.right+8;
+  }, [selectedId]);
 
   return <main className="motion-gallery">
     <header className="motion-gallery-heading"><div><p className="eyebrow">UAVLED / MOTION ALBUM</p><h1>动效专辑</h1><p className="section-subtitle">让光循着轮廓流动，也让每一种节奏有自己的画面。</p></div><span className="motion-album-count"><Disc3 size={17} />{effects.length} 种灯光</span></header>
     <div className="motion-gallery-layout">
       <aside className="motion-playlist" aria-label="选择灯光动效">
         <div className="motion-playlist-heading"><strong>全部动效</strong><span>选择并播放</span></div>
-        <div className="motion-playlist-items">{effects.map((effect, index) => <button key={effect.id} type="button"
+        <div ref={playlist} className="motion-playlist-items">{effects.map((effect, index) => <button key={effect.id} type="button"
           className={`motion-track ${selectedId === effect.id ? "selected" : ""}`} aria-pressed={selectedId === effect.id}
           onClick={() => setSelectedId(effect.id)} aria-label={`选择${effect.label}动效`}>
           <span className="motion-track-number">{String(index + 1).padStart(2, "0")}</span>
