@@ -1,0 +1,168 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "operation": "images.edit",
+  "size": "1536x1024",
+  "quality": "high",
+  "panelsPerRequest": 4,
+  "sourceFps": 30,
+  "sourceIndices": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24,
+    26,
+    28,
+    30
+  ],
+  "playbackUniqueFps": 15,
+  "interpolation": "none",
+  "preludeSha256": "4e86f3a04ffcaaf6e34c9190eae6ba9fb7b2ae8f1ef1293adca35bbbdffde344",
+  "stabilization": "ORB/RANSAC affine alignment; fixed inner guards and central body, feathered mask",
+  "requests": [
+    {
+      "style": "styleCyberpunk",
+      "sourceIndices": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "images": [
+        "../../generated-details/styleCyberpunk-detail.png",
+        "controls/styleCyberpunk-00.png",
+        "../image-2.5/styleCyberpunk-flare-grid.png"
+      ],
+      "prompt": "prompts/styleCyberpunk-00.txt",
+      "output": "raw/styleCyberpunk-00.png",
+      "outputSha256": "63453c4608636d46d657a08980856ed3931fbc2a6567032d15e8f71ab59b3678"
+    },
+    {
+      "style": "styleCyberpunk",
+      "sourceIndices": [
+        8,
+        10,
+        12,
+        14
+      ],
+      "images": [
+        "../../generated-details/styleCyberpunk-detail.png",
+        "controls/styleCyberpunk-01.png",
+        "../image-2.5/styleCyberpunk-flare-grid.png"
+      ],
+      "prompt": "prompts/styleCyberpunk-01.txt",
+      "output": "raw/styleCyberpunk-01.png",
+      "outputSha256": "c9dcf932a5de136a1f189202ed43c2d33f6206354a64c1a4cab6531eb4d2a7a6"
+    },
+    {
+      "style": "styleCyberpunk",
+      "sourceIndices": [
+        16,
+        18,
+        20,
+        22
+      ],
+      "images": [
+        "../../generated-details/styleCyberpunk-detail.png",
+        "controls/styleCyberpunk-02.png",
+        "../image-2.5/styleCyberpunk-flare-grid.png"
+      ],
+      "prompt": "prompts/styleCyberpunk-02.txt",
+      "output": "raw/styleCyberpunk-02.png",
+      "outputSha256": "f9e9104b5dfb12b962009e872f1ea9e35fc70767fb0b00b0774bedc8a0d24c24"
+    },
+    {
+      "style": "styleCyberpunk",
+      "sourceIndices": [
+        24,
+        26,
+        28,
+        30
+      ],
+      "images": [
+        "../../generated-details/styleCyberpunk-detail.png",
+        "controls/styleCyberpunk-03.png",
+        "../image-2.5/styleCyberpunk-flare-grid.png"
+      ],
+      "prompt": "prompts/styleCyberpunk-03.txt",
+      "output": "raw/styleCyberpunk-03.png",
+      "outputSha256": "2f9a351b7c23320511aa264819adf17112e87a2fedb0cf9d82c7e7e87644f22b"
+    },
+    {
+      "style": "styleMatrix",
+      "sourceIndices": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "images": [
+        "../../generated-details/styleMatrix-detail.png",
+        "controls/styleMatrix-00.png",
+        "../image-2.5/styleMatrix-flare-grid.png"
+      ],
+      "prompt": "prompts/styleMatrix-00.txt",
+      "output": "raw/styleMatrix-00.png",
+      "outputSha256": "6cf086db0d86c5e69cd4f7c11d4588e8f470f95d80da0614e2848c7b3ae8a372"
+    },
+    {
+      "style": "styleMatrix",
+      "sourceIndices": [
+        8,
+        10,
+        12,
+        14
+      ],
+      "images": [
+        "../../generated-details/styleMatrix-detail.png",
+        "controls/styleMatrix-01.png",
+        "../image-2.5/styleMatrix-flare-grid.png"
+      ],
+      "prompt": "prompts/styleMatrix-01.txt",
+      "output": "raw/styleMatrix-01.png",
+      "outputSha256": "6f909c974101b0a31043f3253d39c78d4e294da51adadee858c7c57ed7026bb5"
+    },
+    {
+      "style": "styleMatrix",
+      "sourceIndices": [
+        16,
+        18,
+        20,
+        22
+      ],
+      "images": [
+        "../../generated-details/styleMatrix-detail.png",
+        "controls/styleMatrix-02.png",
+        "../image-2.5/styleMatrix-flare-grid.png"
+      ],
+      "prompt": "prompts/styleMatrix-02.txt",
+      "output": "raw/styleMatrix-02.png",
+      "outputSha256": "9b4b98850f1589cbec6b43bea16b501f7dd3e48e702ccf6bb22695b4b35adb1e"
+    },
+    {
+      "style": "styleMatrix",
+      "sourceIndices": [
+        24,
+        26,
+        28,
+        30
+      ],
+      "images": [
+        "../../generated-details/styleMatrix-detail.png",
+        "controls/styleMatrix-03.png",
+        "../image-2.5/styleMatrix-flare-grid.png"
+      ],
+      "prompt": "prompts/styleMatrix-03.txt",
+      "output": "raw/styleMatrix-03.png",
+      "outputSha256": "f4b49006511f9bba18a4b67c3321311ad01c28d8a8235221fa1e68fe7d788400"
+    }
+  ]
+}
