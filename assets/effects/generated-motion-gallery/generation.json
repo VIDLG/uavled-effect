@@ -128,5 +128,13 @@
   ],
   "reusedGeneratedKeyframes": "assets\\effects\\generated-keyframe-experiments\\source-motion-v1",
   "loopClosure": "Forward playback, last 12 source frames blend RGB to first state; generated detail wraps forward, never ping-pong",
-  "sourceNote": "Aurora native-JavaScript ledHsv fractional branch yields magenta, unlike its comment; no source functions modified"
+  "sourceNote": "Aurora native-JavaScript ledHsv fractional branch yields magenta, unlike its comment; no source functions modified",
+  "backgroundRevision": {
+    "effects": [
+      "styleOcean",
+      "styleAurora"
+    ],
+    "manifest": "background-separation-v2/generation.json",
+    "rules": "background-separation-v2/rules.json"
+  }
 }

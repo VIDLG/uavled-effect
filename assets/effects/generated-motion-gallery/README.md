@@ -2,6 +2,8 @@
 
 Five image-based albums for the browser's **动效专辑** view. Forest, Ocean and Aurora each add eight generated keyframes; Cyberpunk and Matrix reuse the eight approved source-position keyframes from `../generated-keyframe-experiments/source-motion-v1/raw/`. Formal static detail images are not replaced.
 
+Ocean and Aurora now use the selective **background-separation-v2** revision. Their earlier render mapped the same per-LED RGB onto a highly saturated background with an extra 1.35 gain, obscuring motion on the strip. The revision edits the background composition, regenerates eight source-position anchors per style, and renders the background as a darker, broader, slower field. Original neutral drone material, physical LED carrier texture, source RGB and LED coordinates are retained. Inputs, exact prompts, before/after images, generation hashes and decoded-video contrast evidence are under [`background-separation-v2/`](background-separation-v2/README.md). The catalog selects their new `*-background-v2-loop.mp4` files; original videos are retained. Other album videos are preserved byte-for-byte. Re-export only these two with `python scripts/motion_gallery.py export --styles styleOcean styleAurora`.
+
 ## Source and prompt mapping
 
 `rules.json` is written **before** image generation. `source-frames.json` holds 257 native-JavaScript preview snapshots per style, 40 logical LEDs, 30 source FPS, with function and assembled-prelude SHA256 values. This is the browser simulator's RGB output, not Rust/mquickjs or hardware validation.
@@ -20,7 +22,7 @@ Every panel keeps the original drone and LED carriers fixed. Source-position con
 
 ## Files
 
-- `index.json`: runtime catalog; `*-loop.mp4`: five H.264/yuv420p clips, 768×512, 60 FPS, 512 unique rendered frames, 8.533 seconds each.
+- `index.json`: runtime catalog selecting five H.264/yuv420p clips, 768×512, 60 FPS, 512 unique rendered frames, 8.533 seconds each. Original Ocean/Aurora MP4s are also retained beside their selected background-v2 replacements.
 - `posters/*.jpg`, `keyframes/*.jpg`: browser covers and eight seek thumbnails per effect. The browser imports only these and the MP4 URLs, not generation intermediates.
 - `controls/`: source-position 2×2 storyboards and numbered calibration images. `references/`: the existing series identity for each new style. `calibration.json`: two mirrored 40-point image-space LED paths.
 - `prompts/*.txt`: exact unaugmented image-edit prompts; `raw/*.png`: six new API outputs, four panels per sheet.

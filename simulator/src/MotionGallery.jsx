@@ -14,8 +14,9 @@ const files = {
   ...import.meta.glob("../../assets/effects/single-image-motion/*-poster.jpg", { eager: true, query: "?url", import: "default" }),
 };
 const asset = (path) => files[`../../assets/effects/generated-motion-gallery/${path}`];
-const effects = catalog.effects.map((effect) => ({ ...effect, video: asset(effect.video), poster: asset(effect.poster),
-  keyframes: effect.keyframes.map((frame) => ({ ...frame, image: asset(frame.image) })) }));
+const versionedAsset = (path, revision) => revision ? `${asset(path)}?v=${encodeURIComponent(revision)}` : asset(path);
+const effects = catalog.effects.map((effect) => ({ ...effect, video: versionedAsset(effect.video, effect.revision), poster: versionedAsset(effect.poster, effect.revision),
+  keyframes: effect.keyframes.map((frame) => ({ ...frame, image: versionedAsset(frame.image, effect.revision) })) }));
 const singleAsset = (path) => files[`../../assets/effects/single-image-motion/${path}`];
 effects.push({ ...single, base: singleAsset(single.base), map: singleAsset(single.map),
   lookup: singleAsset(single.paletteTexture), poster: singleAsset(single.poster) });

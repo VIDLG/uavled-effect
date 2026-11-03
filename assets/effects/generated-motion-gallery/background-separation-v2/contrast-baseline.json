@@ -1,0 +1,102 @@
+{
+  "styleOcean": [
+    {
+      "sourceFrame": 0,
+      "ledMeanLuma": 59.329742499999995,
+      "backgroundMeanLuma": 62.489227500000005,
+      "ratio": 0.9344851849079435
+    },
+    {
+      "sourceFrame": 32,
+      "ledMeanLuma": 62.220270000000006,
+      "backgroundMeanLuma": 50.4036925,
+      "ratio": 1.2104241344140794
+    },
+    {
+      "sourceFrame": 64,
+      "ledMeanLuma": 61.79730000000001,
+      "backgroundMeanLuma": 57.519450000000006,
+      "ratio": 1.0560130008057151
+    },
+    {
+      "sourceFrame": 96,
+      "ledMeanLuma": 63.905454999999996,
+      "backgroundMeanLuma": 59.60263,
+      "ratio": 1.0544996974553744
+    },
+    {
+      "sourceFrame": 128,
+      "ledMeanLuma": 59.987954999999985,
+      "backgroundMeanLuma": 55.16476250000001,
+      "ratio": 1.068071016947681
+    },
+    {
+      "sourceFrame": 160,
+      "ledMeanLuma": 61.15420999999999,
+      "backgroundMeanLuma": 58.2643875,
+      "ratio": 1.0318879951302964
+    },
+    {
+      "sourceFrame": 192,
+      "ledMeanLuma": 63.5621675,
+      "backgroundMeanLuma": 54.33335999999999,
+      "ratio": 1.1487133168851487
+    },
+    {
+      "sourceFrame": 224,
+      "ledMeanLuma": 61.643359999999994,
+      "backgroundMeanLuma": 55.930442500000005,
+      "ratio": 1.0827837847914143
+    }
+  ],
+  "styleAurora": [
+    {
+      "sourceFrame": 0,
+      "ledMeanLuma": 56.0169375,
+      "backgroundMeanLuma": 82.5459575,
+      "ratio": 0.6704924951036679
+    },
+    {
+      "sourceFrame": 32,
+      "ledMeanLuma": 53.8511025,
+      "backgroundMeanLuma": 82.6837725,
+      "ratio": 0.6435071088603229
+    },
+    {
+      "sourceFrame": 64,
+      "ledMeanLuma": 51.91625750000001,
+      "backgroundMeanLuma": 93.3597225,
+      "ratio": 0.5501951057560603
+    },
+    {
+      "sourceFrame": 96,
+      "ledMeanLuma": 53.30786500000001,
+      "backgroundMeanLuma": 96.6183,
+      "ratio": 0.5460847505027234
+    },
+    {
+      "sourceFrame": 128,
+      "ledMeanLuma": 56.6673725,
+      "backgroundMeanLuma": 81.19456749999999,
+      "ratio": 0.6894296572580664
+    },
+    {
+      "sourceFrame": 160,
+      "ledMeanLuma": 60.172607500000005,
+      "backgroundMeanLuma": 86.61250749999999,
+      "ratio": 0.6868038504662135
+    },
+    {
+      "sourceFrame": 192,
+      "ledMeanLuma": 53.35295,
+      "backgroundMeanLuma": 97.8090225,
+      "ratio": 0.5399603057504188
+    },
+    {
+      "sourceFrame": 224,
+      "ledMeanLuma": 51.46848250000001,
+      "backgroundMeanLuma": 87.0640175,
+      "ratio": 0.5844439529459351
+    }
+  ]
+}

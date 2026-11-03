@@ -173,7 +173,7 @@
         "#25c9e8",
         "#2058e2"
       ],
-      "video": "styleOcean-loop.mp4",
+      "video": "styleOcean-background-v2-loop.mp4",
       "poster": "posters/styleOcean.jpg",
       "duration": 8.533333333333333,
       "fps": 60,
@@ -218,7 +218,8 @@
           "image": "keyframes/styleOcean-224.jpg",
           "sourceFrame": 224
         }
-      ]
+      ],
+      "revision": "background-separation-v2"
     },
     {
       "id": "styleAurora",
@@ -228,7 +229,7 @@
         "#d64bd8",
         "#6c2b8c"
       ],
-      "video": "styleAurora-loop.mp4",
+      "video": "styleAurora-background-v2-loop.mp4",
       "poster": "posters/styleAurora.jpg",
       "duration": 8.533333333333333,
       "fps": 60,
@@ -273,7 +274,8 @@
           "image": "keyframes/styleAurora-224.jpg",
           "sourceFrame": 224
         }
-      ]
+      ],
+      "revision": "background-separation-v2"
     }
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "revision": "background-separation-v2",
+  "model": "gpt-image-2.5-flare",
+  "effects": [
+    "styleOcean",
+    "styleAurora"
+  ],
+  "source": "Unchanged native-JavaScript RGB and calibrated two mirrored S-shaped paths",
+  "composition": "Source LED core texture and original neutral drone material are restored after background editing",
+  "hierarchy": "28/255 maximum RGB near the strip, rising smoothly to 110/255 at 100 px; broad background fronts take one 8.533-second cycle, independently of local LED phase",
+  "styles": {
+    "styleOcean": "Deep ink/navy, sparse blue-cyan tide marks at outer corners; calm water behind strips",
+    "styleAurora": "Cold midnight-indigo and muted blue-violet; distant slender aurora curtains at top/outer edges; magenta source LEDs remain the vivid foreground"
+  }
+}

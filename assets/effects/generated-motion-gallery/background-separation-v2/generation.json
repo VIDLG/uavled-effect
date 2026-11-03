@@ -1,0 +1,112 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "operation": "images.edit",
+  "size": "1536x1024",
+  "quality": "high",
+  "sourceSha256": "4e86f3a04ffcaaf6e34c9190eae6ba9fb7b2ae8f1ef1293adca35bbbdffde344",
+  "requests": [
+    {
+      "style": "styleOcean",
+      "sourceFrames": [
+        0,
+        32,
+        64,
+        96
+      ],
+      "images": [
+        "background-separation-v2/controls/styleOcean-00.png",
+        "background-separation-v2/bases/styleOcean.png"
+      ],
+      "inputSha256": [
+        "61551e2aba9537066e789fa022898e7b4889cdfc4fe431c81c11a24ced9ec325",
+        "fd513c91829792208e76ed6ddf999d345d4dd8988b491ac41929157f5a518c1f"
+      ],
+      "prompt": "background-separation-v2/prompts/styleOcean-00.txt",
+      "output": "background-separation-v2/raw/styleOcean-00.png",
+      "outputSha256": "1ebcc0e8e92a89c8285542151807a087caa9da9af2021fb239970d7689d45761"
+    },
+    {
+      "style": "styleOcean",
+      "sourceFrames": [
+        128,
+        160,
+        192,
+        224
+      ],
+      "images": [
+        "background-separation-v2/controls/styleOcean-01.png",
+        "background-separation-v2/bases/styleOcean.png"
+      ],
+      "inputSha256": [
+        "a7d719720a4185b822a819868d8c2cfc802b28b25bac98941bb3bb77ab040e3f",
+        "fd513c91829792208e76ed6ddf999d345d4dd8988b491ac41929157f5a518c1f"
+      ],
+      "prompt": "background-separation-v2/prompts/styleOcean-01.txt",
+      "output": "background-separation-v2/raw/styleOcean-01.png",
+      "outputSha256": "1779f177a894ce4da29d504da75ca4c8d67e20a8b6b981b8f3ba12709b9d9713"
+    },
+    {
+      "style": "styleAurora",
+      "sourceFrames": [
+        0,
+        32,
+        64,
+        96
+      ],
+      "images": [
+        "background-separation-v2/controls/styleAurora-00.png",
+        "background-separation-v2/bases/styleAurora.png"
+      ],
+      "inputSha256": [
+        "52ac932b2ac03d44b98ee8ce92ac2573f0b8af6c033309b789b8c02f3fc814a7",
+        "9a25482c296e89444fa9274188474e861bcdbed633c766ec7eec2d047574dbfb"
+      ],
+      "prompt": "background-separation-v2/prompts/styleAurora-00.txt",
+      "output": "background-separation-v2/raw/styleAurora-00.png",
+      "outputSha256": "ed9bb864ec5c0d79380fcc26ec35b57342f3f1ff594fa6f57b5d04c514b5cb13"
+    },
+    {
+      "style": "styleAurora",
+      "sourceFrames": [
+        128,
+        160,
+        192,
+        224
+      ],
+      "images": [
+        "background-separation-v2/controls/styleAurora-01.png",
+        "background-separation-v2/bases/styleAurora.png"
+      ],
+      "inputSha256": [
+        "047b69a88dc64029d696d20478d8af7ed8a962c1557d9302a4b57d16b72171f4",
+        "9a25482c296e89444fa9274188474e861bcdbed633c766ec7eec2d047574dbfb"
+      ],
+      "prompt": "background-separation-v2/prompts/styleAurora-01.txt",
+      "output": "background-separation-v2/raw/styleAurora-01.png",
+      "outputSha256": "3c552a5eff75830626d8c8d32a1558106f8f078b52643f66c1c2063e6fc60714"
+    }
+  ],
+  "reusedGeneratedKeyframes": "assets\\effects\\generated-keyframe-experiments\\source-motion-v1",
+  "loopClosure": "Forward playback, last 12 source frames blend RGB to first state; generated detail wraps forward, never ping-pong",
+  "sourceNote": "Aurora native-JavaScript ledHsv fractional branch yields magenta, unlike its comment; no source functions modified",
+  "backgroundRequests": [
+    {
+      "style": "styleOcean",
+      "image": "references/styleOcean.png",
+      "inputSha256": "f962e4eef0a49be5b6644aad82917c5fb686f6e92adaeff56a4fffc5acaa46e8",
+      "prompt": "background-prompts/styleOcean.txt",
+      "output": "background-raw/styleOcean.png",
+      "outputSha256": "22d686fba0f76764487c1f5a305a5dc6c07d9e2336875f6c66cff52cc80d5136"
+    },
+    {
+      "style": "styleAurora",
+      "image": "references/styleAurora.png",
+      "inputSha256": "f5edf5e178a9c4cd1ef082ad0433fdab2ef0de11e29beb26be4fa6aee50cccbd",
+      "prompt": "background-prompts/styleAurora.txt",
+      "output": "background-raw/styleAurora.png",
+      "outputSha256": "91f892913f7eed3995b044424aabf634b98cfdac91fdd5b342aa7b8bf2fe9410"
+    }
+  ],
+  "requestsRoot": "assets/effects/generated-motion-gallery",
+  "backgroundRequestsRoot": "assets/effects/generated-motion-gallery/background-separation-v2"
+}

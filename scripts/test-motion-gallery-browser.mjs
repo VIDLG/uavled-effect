@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { chromium } from "playwright";
 
 const base = process.argv[2] || "http://localhost:5173";
+const catalog = JSON.parse(await readFile("assets/effects/generated-motion-gallery/index.json", "utf8"));
 await mkdir("tmp/motion-gallery", { recursive: true });
 const browser = await chromium.launch({ channel: "msedge", headless: true });
 const results = { base, effects: [], consoleErrors: [], failedRequests: [] };
@@ -11,6 +12,7 @@ try {
   const page = await context.newPage();
   const videos = new Set();
   page.on("pageerror", (error) => results.consoleErrors.push(error.message));
+  page.on("console", (message) => { if (message.type() === "error") results.consoleErrors.push(message.text()); });
   page.on("response", (response) => {
     if (response.url().includes("generated-motion-gallery") && response.status() >= 400) results.failedRequests.push({ url: response.url(), status: response.status() });
   });
@@ -36,7 +38,7 @@ try {
       const t0 = performance.now();
       await new Promise((resolve) => setTimeout(resolve, 1200));
       stopped = true;
-      return { start, end: v.currentTime, duration: v.duration, width: v.videoWidth, height: v.videoHeight,
+      return { start, end: v.currentTime, duration: v.duration, source: v.currentSrc, width: v.videoWidth, height: v.videoHeight,
         muted: v.muted, loop: v.loop, callbacks, observedFps: callbacks / ((performance.now()-t0)/1000) };
     });
     assert(media.end > media.start + .8, `${label} should advance at normal speed`);
@@ -44,6 +46,8 @@ try {
     assert.equal(media.width, 768);
     assert.equal(media.height, 512);
     assert(media.muted && media.loop);
+    const definition = catalog.effects.find((effect) => effect.label === label);
+    if (definition.revision) assert.equal(new URL(media.source).searchParams.get("v"), definition.revision, "The player must use the current background revision");
     await page.getByRole("button", { name: "暂停动效", exact: true }).click();
     const frozen = await page.locator("video").evaluate((v) => v.currentTime);
     await page.waitForTimeout(300);
@@ -55,6 +59,7 @@ try {
     await page.getByRole("button", { name: "播放动效", exact: true }).click();
     await page.waitForFunction(() => { const v = document.querySelector("video"); return !v.paused && v.currentTime < 1; });
     results.effects.push({ label, ...media, loopBoundaryPassed: true, pauseAndSeekPassed: true });
+    if (definition.revision) await page.screenshot({ path: `tmp/motion-gallery/${definition.id}-background.png`, fullPage: true });
   }
   await page.getByRole("button", { name: "选择森林动效", exact: true }).click();
   await page.waitForFunction(() => document.querySelector("video")?.currentTime > .2);

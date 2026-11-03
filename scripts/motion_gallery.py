@@ -11,6 +11,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 from source_motion import (MotionField, sample_source, smoothstep, resample_path,
                            replace_regions, display_exposure, save_image, align_generated)
+from album_background import REVISION, TARGETS, backdrop
 
 ROOT = Path("assets/effects/generated-motion-gallery")
 PREVIOUS = Path("assets/effects/generated-keyframe-experiments/source-motion-v1")
@@ -50,21 +51,40 @@ def album_paths(style):
 
 
 class AlbumField(MotionField):
-    def __init__(self, definition, frames):
+    def __init__(self, definition, frames, revised=True):
         self.definition = definition
+        self.revised = bool(revised and definition['id'] in TARGETS and (REVISION/'bases'/f"{definition['id']}.png").exists())
         if definition.get("existing"):
             super().__init__(definition["id"], frames)
         else:
             image = Image.open(f"assets/effects/generated-details/{definition['id']}-detail.png").convert("RGB")
             base = np.asarray(image.resize((WIDTH, HEIGHT), Image.Resampling.LANCZOS))
-            super().__init__(definition["id"], frames, base=base, paths=album_paths(definition["id"]))
+            current = np.asarray(Image.open(REVISION/'bases'/f"{definition['id']}.png").convert('RGB')) if self.revised else base
+            super().__init__(definition["id"], frames, base=current, paths=album_paths(definition["id"]))
+            if self.revised:
+                # Preserve the old physical emitter texture/exposure exactly; the revision is in the scene.
+                hsv = cv2.cvtColor(base, cv2.COLOR_RGB2HSV).astype(np.float32)
+                self.band_texture = np.clip(hsv[..., 2]/255*(1-.72*hsv[..., 1]/255)*1.2, .025, 1)
+                self.background_mask = np.asarray(Image.open(REVISION/'masks'/f"{definition['id']}.png").convert('L'), np.float32)/255
+                self.mask = np.maximum(self.background_mask, self.band_mask)
         self.angle = np.arctan2(self.y-HEIGHT/2, self.x-WIDTH/2)
         self.radius = np.hypot(self.x-WIDTH/2, self.y-HEIGHT/2)
+        if self.revised:
+            self.background_phase = 2*np.pi*((self.x/WIDTH*1.7+self.y/HEIGHT*.8) if self.style == 'styleOcean' else (self.x/WIDTH*1.2-self.y/HEIGHT*.15))
+            self.scene = self.base.astype(np.float32)
 
     def render(self, seconds, detail=None, colors=None):
         if self.definition.get("existing"):
             return super().render(seconds, detail, colors)
         colors = sample_source(self.frames, seconds, 30) if colors is None else colors
+        if self.revised:
+            background = backdrop(self.scene, self.distance, self.background_phase, seconds, detail)
+            band = self.at_coordinate(colors, self.coordinate)*self.band_texture[..., None]
+            if detail is not None:
+                band *= detail[..., None]
+            exposure = 3.2 if self.style == 'styleAurora' else 2.2
+            output = replace_regions(self.base, background, self.background_mask)
+            return replace_regions(output, display_exposure(band, exposure), self.band_mask)
         if self.style == "styleForest":
             coordinate = (self.angle*40/(2*np.pi) + self.radius/110 + 20) % 39
         elif self.style == "styleOcean":
@@ -126,7 +146,7 @@ def prepare(root):
     calibration = {}
     for definition in data["definitions"]:
         style = definition["id"]
-        field = AlbumField(definition, data["styles"][style])
+        field = AlbumField(definition, data["styles"][style], revised=False)
         calibration[style] = {"left": field.left.tolist(), "right": field.right.tolist()}
         if definition.get("existing"):
             continue
@@ -156,13 +176,17 @@ Background motion: {('green canopy fronts and yellow-green firefly highlights tr
     print("Prepared source-position controls and prompts for Forest, Ocean and Aurora.")
 
 
-def export(root):
+def export(root, styles=None):
     data = json.loads((root/"source-frames.json").read_text(encoding="utf-8"))
-    catalog, verification, requests = [], {}, []
+    catalog = {effect['id']: effect for effect in json.loads((root/'index.json').read_text(encoding='utf-8'))['effects']} if (root/'index.json').exists() else {}
+    verification = json.loads((root/'verification.json').read_text(encoding='utf-8')) if (root/'verification.json').exists() else {}
+    requests = []
     for definition in data["definitions"]:
         style, keys = definition["id"], definition["keyframes"]
+        if styles and style not in styles:
+            continue
         field = AlbumField(definition, data["styles"][style])
-        raw_root = PREVIOUS/"raw" if definition.get("existing") else root/"raw"
+        raw_root = REVISION/'raw' if field.revised else PREVIOUS/"raw" if definition.get("existing") else root/"raw"
         details, alignments = [], []
         for batch in range(2):
             raw_path = raw_root/f"{style}-{batch:02}.png"
@@ -178,10 +202,11 @@ def export(root):
                     details.append(cv2.GaussianBlur(np.clip(ratio, .75, 1.35), (5, 5), .8))
                     alignments.append({"sourceFrame": index, **stats})
             if not definition.get("existing"):
-                inputs = [f"controls/{style}-{batch:02}.png", f"references/{style}.png"]
+                prefix = f'{REVISION.name}/' if field.revised else ''
+                inputs = [f"{prefix}controls/{style}-{batch:02}.png", f"{prefix}bases/{style}.png" if field.revised else f"references/{style}.png"]
                 requests.append({"style": style, "sourceFrames": keys[batch*4:batch*4+4],
                     "images": inputs, "inputSha256": [hashlib.sha256((root/p).read_bytes()).hexdigest() for p in inputs],
-                    "prompt": f"prompts/{style}-{batch:02}.txt", "output": f"raw/{style}-{batch:02}.png",
+                    "prompt": f"{prefix}prompts/{style}-{batch:02}.txt", "output": f"{prefix}raw/{style}-{batch:02}.png",
                     "outputSha256": hashlib.sha256(raw_path.read_bytes()).hexdigest()})
 
         first = render_loop(field, details, keys, 0)
@@ -200,7 +225,7 @@ def export(root):
             ImageDraw.Draw(contact).text((x+8, y+4), f"{index/30:.2f}s | source {index:03}", fill="white")
         save_image(contact, root/f"{style}-keyframes.jpg", quality=92)
 
-        output = root/f"{style}-loop.mp4"
+        output = root/f"{style}-background-v2-loop.mp4" if field.revised else root/f"{style}-loop.mp4"
         temporary = root/f".{style}-{uuid.uuid4().hex}.mp4"
         encoder = subprocess.Popen(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
             "-s", "768x512", "-r", "60", "-i", "-", "-an", "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p",
@@ -237,29 +262,48 @@ def export(root):
             "endpointMaxDifference": int(np.abs(endpoint.astype(int)-first.astype(int)).max()),
             "lastToFirstRgbMAE": seam, "meanAdjacentRgbMAE": float(np.mean(adjacent)), "alignment": alignments}
         save_image(Image.fromarray(np.stack(trace, axis=1)).resize((1024, 160), Image.Resampling.NEAREST), root/f"{style}-space-time.png")
-        catalog.append({k: definition[k] for k in ("id", "label", "description", "palette")})
-        catalog[-1].update({"video": output.name, "poster": f"posters/{style}.jpg", "duration": 256/30,
+        catalog[style] = {k: definition[k] for k in ("id", "label", "description", "palette")}
+        catalog[style].update({"video": output.name, "poster": f"posters/{style}.jpg", "duration": 256/30,
                            "fps": 60, "keyframes": thumbnails})
+        if field.revised:
+            catalog[style]['revision'] = REVISION.name
         print(f"{style}: closed-loop seam MAE={seam:.4f}, neutral error={neutral_error}", flush=True)
 
-    (root/"index.json").write_text(json.dumps({"effects": catalog}, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+    (root/"index.json").write_text(json.dumps({"effects": [catalog[d['id']] for d in data['definitions']]}, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     (root/"verification.json").write_text(json.dumps(verification, indent=2)+"\n", encoding="utf-8")
-    (root/"generation.json").write_text(json.dumps({"model": "gpt-image-2.5-flare", "operation": "images.edit",
+    generation = {"model": "gpt-image-2.5-flare", "operation": "images.edit",
         "size": "1536x1024", "quality": "high", "sourceSha256": data["preludeSha256"],
         "requests": requests, "reusedGeneratedKeyframes": str(PREVIOUS),
         "loopClosure": "Forward playback, last 12 source frames blend RGB to first state; generated detail wraps forward, never ping-pong",
-        "sourceNote": "Aurora native-JavaScript ledHsv fractional branch yields magenta, unlike its comment; no source functions modified"}, indent=2)+"\n", encoding="utf-8")
+        "sourceNote": "Aurora native-JavaScript ledHsv fractional branch yields magenta, unlike its comment; no source functions modified"}
+    if any((REVISION/'bases'/f'{style}.png').exists() for style in TARGETS):
+        revision_requests = [request for request in requests if request['prompt'].startswith(REVISION.name+'/')]
+        if revision_requests:
+            revised_generation = {**generation, 'requests': revision_requests, 'backgroundRequests': [],
+                'requestsRoot': root.as_posix(), 'backgroundRequestsRoot': REVISION.as_posix()}
+            for style in TARGETS:
+                raw = REVISION/'background-raw'/f'{style}.png'
+                revised_generation['backgroundRequests'].append({'style': style, 'image': f'references/{style}.png',
+                    'inputSha256': hashlib.sha256((REVISION/'references'/f'{style}.png').read_bytes()).hexdigest(),
+                    'prompt': f'background-prompts/{style}.txt', 'output': f'background-raw/{style}.png',
+                    'outputSha256': hashlib.sha256(raw.read_bytes()).hexdigest()})
+            (REVISION/'generation.json').write_text(json.dumps(revised_generation, indent=2)+'\n', encoding='utf-8')
+        generation = json.loads((root/'generation.json').read_text(encoding='utf-8'))
+        generation['backgroundRevision'] = {'effects': list(TARGETS), 'manifest': f'{REVISION.name}/generation.json',
+                                           'rules': f'{REVISION.name}/rules.json'}
+    (root/"generation.json").write_text(json.dumps(generation, indent=2)+'\n', encoding='utf-8')
     print("Saved the five-effect browser catalog and verification records.")
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("prepare", "export"))
+    parser.add_argument('--styles', nargs='+', choices=('styleCyberpunk', 'styleMatrix', 'styleForest', 'styleOcean', 'styleAurora'))
     args = parser.parse_args()
     if args.mode == "prepare":
         prepare(ROOT)
     else:
-        export(ROOT)
+        export(ROOT, args.styles)
 
 
 if __name__ == "__main__":
