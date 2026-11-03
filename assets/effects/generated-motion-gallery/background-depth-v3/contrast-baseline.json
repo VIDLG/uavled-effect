@@ -1,0 +1,134 @@
+{
+  "styleOcean": [
+    {
+      "sourceFrame": 0,
+      "ledMeanLuma": 61.910237499999994,
+      "backgroundMeanLuma": 16.983645,
+      "ratio": 3.4425856104254726,
+      "outerMeanLuma": 18.881729993845397,
+      "outerMeanChroma": 30.026981782373216
+    },
+    {
+      "sourceFrame": 32,
+      "ledMeanLuma": 63.36857249999999,
+      "backgroundMeanLuma": 16.657854999999994,
+      "ratio": 3.58869027410181,
+      "outerMeanLuma": 19.035237726489417,
+      "outerMeanChroma": 30.20520679468242
+    },
+    {
+      "sourceFrame": 64,
+      "ledMeanLuma": 63.452980000000004,
+      "backgroundMeanLuma": 16.422254999999996,
+      "ratio": 3.6420647040236767,
+      "outerMeanLuma": 19.169622699409157,
+      "outerMeanChroma": 30.485604382077796
+    },
+    {
+      "sourceFrame": 96,
+      "ledMeanLuma": 63.51341,
+      "backgroundMeanLuma": 16.2105275,
+      "ratio": 3.6903813668697834,
+      "outerMeanLuma": 19.070195881339234,
+      "outerMeanChroma": 30.256290004923684
+    },
+    {
+      "sourceFrame": 128,
+      "ledMeanLuma": 61.239059999999995,
+      "backgroundMeanLuma": 15.6208125,
+      "ratio": 3.684480527050046,
+      "outerMeanLuma": 18.98564708887248,
+      "outerMeanChroma": 30.06744214672575
+    },
+    {
+      "sourceFrame": 160,
+      "ledMeanLuma": 62.04490499999999,
+      "backgroundMeanLuma": 15.716169999999996,
+      "ratio": 3.7116698980687564,
+      "outerMeanLuma": 19.00301914081733,
+      "outerMeanChroma": 30.12339364844904
+    },
+    {
+      "sourceFrame": 192,
+      "ledMeanLuma": 63.391045,
+      "backgroundMeanLuma": 15.777852499999998,
+      "ratio": 3.7782573782908155,
+      "outerMeanLuma": 19.066290470211715,
+      "outerMeanChroma": 30.25429591334318
+    },
+    {
+      "sourceFrame": 224,
+      "ledMeanLuma": 60.54920249999999,
+      "backgroundMeanLuma": 15.547322499999996,
+      "ratio": 3.6591540716028232,
+      "outerMeanLuma": 19.098433898325947,
+      "outerMeanChroma": 30.30611152141802
+    }
+  ],
+  "styleAurora": [
+    {
+      "sourceFrame": 0,
+      "ledMeanLuma": 65.46169749999999,
+      "backgroundMeanLuma": 21.103445,
+      "ratio": 2.961606098053945,
+      "outerMeanLuma": 23.091923163657903,
+      "outerMeanChroma": 26.46234221096695
+    },
+    {
+      "sourceFrame": 32,
+      "ledMeanLuma": 64.3281375,
+      "backgroundMeanLuma": 21.1999,
+      "ratio": 2.8976769039500176,
+      "outerMeanLuma": 23.146254153782053,
+      "outerMeanChroma": 26.604002421764633
+    },
+    {
+      "sourceFrame": 64,
+      "ledMeanLuma": 64.30594,
+      "backgroundMeanLuma": 21.188222500000002,
+      "ratio": 2.8982015120859725,
+      "outerMeanLuma": 23.075905185310567,
+      "outerMeanChroma": 26.521473630759015
+    },
+    {
+      "sourceFrame": 96,
+      "ledMeanLuma": 66.82309500000001,
+      "backgroundMeanLuma": 21.025572500000003,
+      "ratio": 3.033886860375593,
+      "outerMeanLuma": 22.986712308683845,
+      "outerMeanChroma": 26.41219475674937
+    },
+    {
+      "sourceFrame": 128,
+      "ledMeanLuma": 60.4350975,
+      "backgroundMeanLuma": 21.044535000000003,
+      "ratio": 2.7415002176276335,
+      "outerMeanLuma": 21.51059557181639,
+      "outerMeanChroma": 24.97446079931253
+    },
+    {
+      "sourceFrame": 160,
+      "ledMeanLuma": 64.547545,
+      "backgroundMeanLuma": 20.979885000000003,
+      "ratio": 2.936664363803541,
+      "outerMeanLuma": 21.669691493226217,
+      "outerMeanChroma": 25.115469998112065
+    },
+    {
+      "sourceFrame": 192,
+      "ledMeanLuma": 57.8332725,
+      "backgroundMeanLuma": 21.122684999999997,
+      "ratio": 2.6142067520285175,
+      "outerMeanLuma": 21.984606567409035,
+      "outerMeanChroma": 25.38898617901528
+    },
+    {
+      "sourceFrame": 224,
+      "ledMeanLuma": 56.201627499999994,
+      "backgroundMeanLuma": 21.1040525,
+      "ratio": 2.5425938297965947,
+      "outerMeanLuma": 22.2170826043084,
+      "outerMeanChroma": 25.78121439778135
+    }
+  ]
+}

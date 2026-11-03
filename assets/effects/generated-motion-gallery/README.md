@@ -2,7 +2,7 @@
 
 Five image-based albums for the browser's **动效专辑** view. Forest, Ocean and Aurora each add eight generated keyframes; Cyberpunk and Matrix reuse the eight approved source-position keyframes from `../generated-keyframe-experiments/source-motion-v1/raw/`. Formal static detail images are not replaced.
 
-Ocean and Aurora now use the selective **background-separation-v2** revision. Their earlier render mapped the same per-LED RGB onto a highly saturated background with an extra 1.35 gain, obscuring motion on the strip. The revision edits the background composition, regenerates eight source-position anchors per style, and renders the background as a darker, broader, slower field. Original neutral drone material, physical LED carrier texture, source RGB and LED coordinates are retained. Inputs, exact prompts, before/after images, generation hashes and decoded-video contrast evidence are under [`background-separation-v2/`](background-separation-v2/README.md). The catalog selects their new `*-background-v2-loop.mp4` files; original videos are retained. Other album videos are preserved byte-for-byte. Re-export only these two with `python scripts/motion_gallery.py export --styles styleOcean styleAurora`.
+Ocean and Aurora now use the selective **background-depth-v3** revision. The preceding [background-separation-v2](background-separation-v2/README.md) made their LED motion readable but suppressed too much of the surrounding scene. V3 retains the approved ocean/polar-night atmosphere and a narrow quiet region beside the strips, while adding layered blue/teal wave ridges, foam and glints for Ocean, and overlapping cyan/violet curtains and sparse stars for Aurora. Outer-scene saturation and brightness have more room; the background still moves independently of local LED phases. Original neutral drone material, physical LED carrier texture, source RGB and coordinates are retained. Inputs, exact prompts, before/after images, generation hashes and decoded-video evidence are under [`background-depth-v3/`](background-depth-v3/README.md). The catalog selects `*-background-v3-loop.mp4`; v2 and original videos are retained. Other album videos are preserved byte-for-byte. Re-export only these two with `python scripts/motion_gallery.py export --styles styleOcean styleAurora`.
 
 ## Source and prompt mapping
 
@@ -22,7 +22,7 @@ Every panel keeps the original drone and LED carriers fixed. Source-position con
 
 ## Files
 
-- `index.json`: runtime catalog selecting five H.264/yuv420p clips, 768×512, 60 FPS, 512 unique rendered frames, 8.533 seconds each. Original Ocean/Aurora MP4s are also retained beside their selected background-v2 replacements.
+- `index.json`: runtime catalog selecting five H.264/yuv420p clips, 768×512, 60 FPS, 512 unique rendered frames, 8.533 seconds each. Original and background-v2 Ocean/Aurora MP4s are retained beside their selected background-v3 replacements.
 - `posters/*.jpg`, `keyframes/*.jpg`: browser covers and eight seek thumbnails per effect. The browser imports only these and the MP4 URLs, not generation intermediates.
 - `controls/`: source-position 2×2 storyboards and numbered calibration images. `references/`: the existing series identity for each new style. `calibration.json`: two mirrored 40-point image-space LED paths.
 - `prompts/*.txt`: exact unaugmented image-edit prompts; `raw/*.png`: six new API outputs, four panels per sheet.

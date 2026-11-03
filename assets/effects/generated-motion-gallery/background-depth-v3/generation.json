@@ -1,0 +1,112 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "operation": "images.edit",
+  "size": "1536x1024",
+  "quality": "high",
+  "sourceSha256": "4e86f3a04ffcaaf6e34c9190eae6ba9fb7b2ae8f1ef1293adca35bbbdffde344",
+  "requests": [
+    {
+      "style": "styleOcean",
+      "sourceFrames": [
+        0,
+        32,
+        64,
+        96
+      ],
+      "images": [
+        "background-depth-v3/controls/styleOcean-00.png",
+        "background-depth-v3/bases/styleOcean.png"
+      ],
+      "inputSha256": [
+        "1b3977aae7426c435513491a147ff2877b13a4072a7cf307f417d56178e836c1",
+        "a41b65cb15b6b0bf2d471504ff8bdbfa341f2da8cdc3c754c42a7142cff4d6a2"
+      ],
+      "prompt": "background-depth-v3/prompts/styleOcean-00.txt",
+      "output": "background-depth-v3/raw/styleOcean-00.png",
+      "outputSha256": "393a9215c9c3fcded2081612a583a6d4a231ca25d45809c83cfc34c870790bb3"
+    },
+    {
+      "style": "styleOcean",
+      "sourceFrames": [
+        128,
+        160,
+        192,
+        224
+      ],
+      "images": [
+        "background-depth-v3/controls/styleOcean-01.png",
+        "background-depth-v3/bases/styleOcean.png"
+      ],
+      "inputSha256": [
+        "9829940cb1480d3141e1a83adb105bc1c3ab4228cb9ae03d53516971bb6792f1",
+        "a41b65cb15b6b0bf2d471504ff8bdbfa341f2da8cdc3c754c42a7142cff4d6a2"
+      ],
+      "prompt": "background-depth-v3/prompts/styleOcean-01.txt",
+      "output": "background-depth-v3/raw/styleOcean-01.png",
+      "outputSha256": "2aae7f1e098cf7c7852ef7f3b3863c06eedf874138370e68246da9cb827e3d80"
+    },
+    {
+      "style": "styleAurora",
+      "sourceFrames": [
+        0,
+        32,
+        64,
+        96
+      ],
+      "images": [
+        "background-depth-v3/controls/styleAurora-00.png",
+        "background-depth-v3/bases/styleAurora.png"
+      ],
+      "inputSha256": [
+        "0927d2310a52606448125e3f745d7d59188ac762126470db3ea711588d087d7c",
+        "133dde3efc19544aa1b7ef17dcf3296cd9c58bd7f1eb4514c5e7d4003d782667"
+      ],
+      "prompt": "background-depth-v3/prompts/styleAurora-00.txt",
+      "output": "background-depth-v3/raw/styleAurora-00.png",
+      "outputSha256": "1b061732542b0fc60f9af3550e3474ac73c72649be442417792287eaa42a1ca9"
+    },
+    {
+      "style": "styleAurora",
+      "sourceFrames": [
+        128,
+        160,
+        192,
+        224
+      ],
+      "images": [
+        "background-depth-v3/controls/styleAurora-01.png",
+        "background-depth-v3/bases/styleAurora.png"
+      ],
+      "inputSha256": [
+        "f195dabdda2a889ca6c94ed117abd9d9283fdda254ef5102ae22c7301613b85d",
+        "133dde3efc19544aa1b7ef17dcf3296cd9c58bd7f1eb4514c5e7d4003d782667"
+      ],
+      "prompt": "background-depth-v3/prompts/styleAurora-01.txt",
+      "output": "background-depth-v3/raw/styleAurora-01.png",
+      "outputSha256": "e8bff768c5b163ff56d2b8d8214109dbebc3c66bf1875e893ae45209b422891a"
+    }
+  ],
+  "reusedGeneratedKeyframes": "assets\\effects\\generated-keyframe-experiments\\source-motion-v1",
+  "loopClosure": "Forward playback, last 12 source frames blend RGB to first state; generated detail wraps forward, never ping-pong",
+  "sourceNote": "Aurora native-JavaScript ledHsv fractional branch yields magenta, unlike its comment; no source functions modified",
+  "backgroundRequests": [
+    {
+      "style": "styleOcean",
+      "image": "references/styleOcean.png",
+      "inputSha256": "32e885ac67ff8d635977729f6b7ef579632e424b64f27be999c2e03beea1b2f9",
+      "prompt": "background-prompts/styleOcean.txt",
+      "output": "background-raw/styleOcean.png",
+      "outputSha256": "05a5277a6ea09a9e0b0c5e5338194d1e4ac01281b4f004c0867bedb047a50efc"
+    },
+    {
+      "style": "styleAurora",
+      "image": "references/styleAurora.png",
+      "inputSha256": "c0bab855fffb56125b6e3a82001cadab8c373850740a1e594694e6abdd3ec9e4",
+      "prompt": "background-prompts/styleAurora.txt",
+      "output": "background-raw/styleAurora.png",
+      "outputSha256": "16a4a7af26d3cec4feca23fe2e9172ca8d1f7476302916668f3089d9e25a3866"
+    }
+  ],
+  "requestsRoot": "assets/effects/generated-motion-gallery",
+  "backgroundRequestsRoot": "assets/effects/generated-motion-gallery/background-depth-v3"
+}

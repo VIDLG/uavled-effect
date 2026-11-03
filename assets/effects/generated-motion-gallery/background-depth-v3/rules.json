@@ -1,0 +1,16 @@
+{
+  "revision": "background-depth-v3",
+  "model": "gpt-image-2.5-flare",
+  "effects": [
+    "styleOcean",
+    "styleAurora"
+  ],
+  "source": "Unchanged native-JavaScript RGB and calibrated two mirrored S-shaped paths",
+  "composition": "Source LED core texture and original neutral drone material are restored after background editing",
+  "previousRevision": "assets/effects/generated-motion-gallery/background-separation-v2",
+  "hierarchy": "28/255 maximum RGB within 24 px of the strip, rising smoothly to 180/255 at 80 px; richer outer-scene saturation and depth, with an 8.533-second broad front independent of local LED phase",
+  "styles": {
+    "styleOcean": "Retain approved deep-water feel; add layered cobalt/teal wave ridges, translucent ripple intersections and restrained foam/glints across the outer scene, not just the corners",
+    "styleAurora": "Retain approved polar-night feel; add overlapping turquoise/blue-violet curtains at different depths, fine vertical rays and sparse star clusters; actual magenta source LEDs remain foreground"
+  }
+}

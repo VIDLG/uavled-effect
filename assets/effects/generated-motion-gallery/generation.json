@@ -134,7 +134,7 @@
       "styleOcean",
       "styleAurora"
     ],
-    "manifest": "background-separation-v2/generation.json",
-    "rules": "background-separation-v2/rules.json"
+    "manifest": "background-depth-v3/generation.json",
+    "rules": "background-depth-v3/rules.json"
   }
 }

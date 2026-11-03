@@ -22,11 +22,14 @@ def local_contrast(field, frame):
 
 class BackgroundTests(unittest.TestCase):
     def test_texture_cannot_brighten_the_quiet_background_beside_leds(self):
-        distance = np.array([[16., 100.]])
-        color = backdrop(np.full((1, 2, 3), 255.), distance, np.zeros((1, 2)), 0, np.full((1, 2), 1.35))
-        self.assertLessEqual(float(color[0, 0].max()), 28.01)
-        self.assertLessEqual(float(color[0, 1].max()), 110.01)
-        np.testing.assert_allclose(color, backdrop(np.full((1, 2, 3), 255.), distance, np.zeros((1, 2)), 256/30, np.full((1, 2), 1.35)))
+        distance = np.array([[16., 24., 80.]])
+        inputs = np.full((1, 3, 3), 255.)
+        texture = np.full((1, 3), 1.35)
+        color = backdrop(inputs, distance, np.zeros((1, 3)), 0, texture)
+        self.assertLessEqual(float(color[0, :2].max()), 28.01)
+        self.assertLessEqual(float(color[0, 2].max()), 180.01)
+        self.assertGreater(float(color[0, 2].min()), 150)
+        np.testing.assert_allclose(color, backdrop(inputs, distance, np.zeros((1, 3)), 256/30, texture))
 
     def test_ocean_aurora_background_separate_without_changing_led_signal(self):
         data = json.loads((ROOT/'source-frames.json').read_text(encoding='utf-8'))

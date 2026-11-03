@@ -8,44 +8,47 @@ from PIL import Image, ImageDraw
 import hashlib
 from source_motion import smoothstep, save_image, align_generated
 
-REVISION = Path('assets/effects/generated-motion-gallery/background-separation-v2')
+REVISION = Path('assets/effects/generated-motion-gallery/background-depth-v3')
+PREVIOUS_REVISION = REVISION.with_name('background-separation-v2')
+VIDEO_SUFFIX = 'background-v3-loop.mp4'
 TARGETS = ('styleOcean', 'styleAurora')
 
 
 def backdrop(rgb, distance, phase, seconds, detail=None):
     """Quiet near-strip region, broad slow background fronts, capped after texture."""
-    near = smoothstep(16, 100, distance)[..., None]
+    near = smoothstep(24, 80, distance)[..., None]
     luma = np.sum(rgb*np.array([.2126, .7152, .0722]), axis=2, keepdims=True)
-    saturation = .36+.42*near
+    saturation = .50+.46*near
     color = rgb*saturation+luma*(1-saturation)
     envelope = .86+.14*(.5+.5*np.cos(phase-seconds*2*np.pi/(256/30)))
     color = color*envelope[..., None]
     if detail is not None:
         color *= detail[..., None]
-    ceiling = 28+82*near
+    ceiling = 28+152*near
     return color*np.minimum(1, ceiling/np.maximum(color.max(axis=2, keepdims=True), 1))
 
 
 def prepare():
     for folder in ('references', 'background-prompts', 'background-raw', 'bases', 'masks', 'controls', 'prompts', 'raw'):
         (REVISION/folder).mkdir(parents=True, exist_ok=True)
-    rules = {'revision': 'background-separation-v2', 'model': 'gpt-image-2.5-flare', 'effects': list(TARGETS),
+    rules = {'revision': REVISION.name, 'model': 'gpt-image-2.5-flare', 'effects': list(TARGETS),
         'source': 'Unchanged native-JavaScript RGB and calibrated two mirrored S-shaped paths',
         'composition': 'Source LED core texture and original neutral drone material are restored after background editing',
-        'hierarchy': '28/255 maximum RGB near the strip, rising smoothly to 110/255 at 100 px; broad background fronts take one 8.533-second cycle, independently of local LED phase',
-        'styles': {'styleOcean': 'Deep ink/navy, sparse blue-cyan tide marks at outer corners; calm water behind strips',
-                   'styleAurora': 'Cold midnight-indigo and muted blue-violet; distant slender aurora curtains at top/outer edges; magenta source LEDs remain the vivid foreground'}}
+        'previousRevision': PREVIOUS_REVISION.as_posix(),
+        'hierarchy': '28/255 maximum RGB within 24 px of the strip, rising smoothly to 180/255 at 80 px; richer outer-scene saturation and depth, with an 8.533-second broad front independent of local LED phase',
+        'styles': {'styleOcean': 'Retain approved deep-water feel; add layered cobalt/teal wave ridges, translucent ripple intersections and restrained foam/glints across the outer scene, not just the corners',
+                   'styleAurora': 'Retain approved polar-night feel; add overlapping turquoise/blue-violet curtains at different depths, fine vertical rays and sparse star clusters; actual magenta source LEDs remain foreground'}}
     (REVISION/'rules.json').write_text(json.dumps(rules, indent=2)+'\n', encoding='utf-8')
     for style in TARGETS:
-        original = Image.open(f'assets/effects/generated-details/{style}-detail.png').convert('RGB')
+        original = Image.open(PREVIOUS_REVISION/'bases'/f'{style}.png').convert('RGB').resize((1536, 1024), Image.Resampling.LANCZOS)
         save_image(original, REVISION/'references'/f'{style}.png')
-        theme = ("Deep-ocean editorial album art: predominantly ink navy and slate blue. Sparse, fine cyan tide contours and low foam detail live near the OUTER corners and far perimeter. The water directly beside both S-shaped LED strips is calm, dark and low contrast. Remove the bright cyan whirlpool that hugs the drone silhouette."
+        theme = ("Preserve the approved DEEP OCEAN atmosphere, but enrich its too-empty outer water. Build three readable depths: broad cobalt/teal rolling wave ridges at the outer left/right; finer intersecting translucent ripples across the top and bottom; selected delicate silver-cyan foam flecks and water glints. Fill the outer scene with composed, flowing detail and visible blue-to-teal tonal variation. Use asymmetrical wave clusters and quieter connecting water. This should feel like an elegant richly textured ocean album cover, not flat navy and not a neon whirlpool."
                  if style == 'styleOcean' else
-                 "Quiet polar-night editorial album art: predominantly midnight indigo and muted blue-violet, with slender distant aurora curtains near the TOP and OUTER edges. Only sparse subdued violet/magenta accents far from the drone. Remove the huge hot-pink luminous whirlpool wrapped around the drone. The sky beside the strips is cold, dark and softly textured.")
+                 "Preserve the approved POLAR NIGHT atmosphere, but enrich its too-empty sky. Compose several overlapping translucent AURORA curtains at visibly different depths: blue-violet farther away, turquoise/teal in front, delicate vertical light rays within each folded ribbon. Sweep these across the upper margin and down the outer sides, with a softer reflected ribbon along the lower margin. Add sparse crisp star clusters, a few faint fine star-dust veils, and a nuanced indigo-to-cobalt sky. The colored curtain folds must read clearly at thumbnail size. Elegant atmospheric album art, not a flat dark vignette and not a hot-pink fantasy vortex.")
         prompt = f"""EDIT ONLY THE BACKGROUND of this existing album illustration. Keep the exact original drone, four dense rotor guards, camera, silhouette, position, size, viewpoint and illustration finish. Keep both dense S-shaped physical LED strips and their original source colors. Output 1536x1024, no text or borders.
 {theme}
-The foreground LED points and their small halos must be the brightest, most saturated, most readable moving subject. Background must be clearly secondary in brightness, saturation and visual frequency. Do not duplicate the LED strip's color segmentation in a nearby background ribbon. Place background bright features away from the bands, use broad slow structures rather than matching LED cadence.
-Keep tasteful depth and full-bleed texture. Make a subtle continuous contrast falloff beside the drone, NOT a black cutout, blank central rectangle, uniform halo outline or hard vignette. No smoke/flame fantasy effects, gold decoration, extra LEDs or new drone geometry. This is the same refined illustrated series, not a new product rendering.
+The small foreground LED points remain the brightest accents. The OUTER background needs clearly visible medium-bright colored layers and detailed highlights, not uniformly low exposure. Keep only a NARROW quiet darker-water/sky transition immediately beside each physical strip; do not expand that quiet region across the whole scene. Do not duplicate the strip's segmentation in a nearby background ribbon. Background structures are broader and slower than the LED cadence.
+Keep tasteful depth, asymmetric visual rhythm and full-bleed texture. No black cutout, blank central rectangle, uniform halo outline or hard vignette. No smoke/flame fantasy effects, gold decoration, extra LEDs or new drone geometry. Preserve the same refined illustration finish; change only the BACKGROUND richness, not the drone or effect identity.
 """
         (REVISION/'background-prompts'/f'{style}.txt').write_text(prompt, encoding='utf-8')
     print('Prepared background revision mapping and two exact edit prompts.')
@@ -94,8 +97,8 @@ def controls():
             prompt = f"""Refine image 1, a precisely controlled 2x2 storyboard; image 2 fixes the drone and revised album background identity. Output exactly 1536x1024, four equal 768x512 panels, no gaps or text.
 Source frames {indices}, reading order, 30 source FPS. Function: {definition['rules']}.
 Keep each panel's DIFFERENT source LED color sections at the exact provided positions. Bright crests progress forward, toward lower logical LED indices on both mirrored S-shaped strips. All guards, carriers, central body, camera, framing and neutral material exposure stay fixed.
-Crucial hierarchy: tiny foreground LED points/halos are the bright saturated subject. The immediate surrounding background stays calm, dark, less saturated and free of competing light heads. Far-background broad fronts move slowly, independently of the strip's local phase. Preserve the ink/navy or indigo atmosphere, distant thin light features and refined existing illustration style. No luminous ribbon hugging the strip, no giant glowing vortex, no restoring the previous saturated full-screen cyan/magenta arrangement. No central cutout or hard halo boundary.
-Add only coherent light microtexture. Do not brighten the background, redesign the drone, change the palette, invent LEDs, or generate four copies with only global exposure changes.
+Crucial hierarchy: tiny foreground LED points/halos are the bright saturated subject. Only the immediate surrounding background stays calm, dark and free of competing light heads. Preserve the RICH layered outer waves or overlapping aurora curtains in the supplied scene, their visible medium-bright color, fine glints or stars and depth. Broad background fronts move slowly, independently of local strip phase. No luminous ribbon hugging the strip, no giant glowing vortex, no central cutout or hard halo boundary. Do not flatten the outer scene into dark empty space.
+Add only coherent light microtexture. Do not redesign the drone, change the palette, invent LEDs, or generate four copies with only global exposure changes.
 """
             (REVISION/'prompts'/f'{style}-{batch:02}.txt').write_text(prompt, encoding='utf-8')
     print('Prepared four source-position storyboards with separate background hierarchy.')
@@ -121,8 +124,8 @@ def sample_videos(current=False):
         style = definition['id']
         if style not in TARGETS:
             continue
-        field = AlbumField(definition, data['styles'][style])
-        name = f'{style}-background-v2-loop.mp4' if current else f'{style}-loop.mp4'
+        field = AlbumField(definition, data['styles'][style], revised=False)
+        name = f'{style}-{VIDEO_SUFFIX}' if current else f'{style}-background-v2-loop.mp4'
         video = cv2.VideoCapture(str(ROOT/name))
         samples = []
         try:
@@ -131,7 +134,11 @@ def sample_videos(current=False):
                 ok, bgr = video.read()
                 if not ok:
                     raise RuntimeError(f'Cannot decode {style} frame {index*2}')
-                samples.append({'sourceFrame': index, **measured_contrast(field, cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB))})
+                rgb = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
+                outer = rgb[(field.distance > 80) & (field.background_mask > .99)]
+                samples.append({'sourceFrame': index, **measured_contrast(field, rgb),
+                    'outerMeanLuma': float(np.mean(outer@np.array([.2126, .7152, .0722]))),
+                    'outerMeanChroma': float(np.mean(outer.max(axis=1).astype(float)-outer.min(axis=1)))})
         finally:
             video.release()
         result[style] = samples
@@ -153,9 +160,12 @@ def verify():
         after = np.array([frame['ratio'] for frame in current[style]])
         result['effects'][style] = {'before': previous[style], 'after': current[style],
             'meanRatioBefore': float(before.mean()), 'meanRatioAfter': float(after.mean()),
-            'minimumRatioAfter': float(after.min()), 'meanImprovement': float(np.mean(after/before))}
+            'minimumRatioAfter': float(after.min()), 'meanRatioRetention': float(np.mean(after/before))}
         assert after.min() > 2, (style, after)
-        assert np.mean(after/before) > 1.8, (style, before, after)
+        assert np.mean(after/before) > .8, (style, before, after)
+        for metric in ('outerMeanLuma', 'outerMeanChroma'):
+            result['effects'][style][metric+'Growth'] = float(np.mean([f[metric] for f in current[style]])/np.mean([f[metric] for f in previous[style]]))
+            assert result['effects'][style][metric+'Growth'] > 1.25, (style, metric)
     hashes = json.loads((REVISION/'before-hashes.json').read_text())
     result['unchangedOtherVideos'] = {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() == digest
         for name, digest in hashes.items() if name.split('-loop')[0] not in TARGETS}

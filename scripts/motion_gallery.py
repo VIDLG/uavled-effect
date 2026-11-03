@@ -11,7 +11,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 from source_motion import (MotionField, sample_source, smoothstep, resample_path,
                            replace_regions, display_exposure, save_image, align_generated)
-from album_background import REVISION, TARGETS, backdrop
+from album_background import REVISION, TARGETS, VIDEO_SUFFIX, backdrop
 
 ROOT = Path("assets/effects/generated-motion-gallery")
 PREVIOUS = Path("assets/effects/generated-keyframe-experiments/source-motion-v1")
@@ -225,7 +225,7 @@ def export(root, styles=None):
             ImageDraw.Draw(contact).text((x+8, y+4), f"{index/30:.2f}s | source {index:03}", fill="white")
         save_image(contact, root/f"{style}-keyframes.jpg", quality=92)
 
-        output = root/f"{style}-background-v2-loop.mp4" if field.revised else root/f"{style}-loop.mp4"
+        output = root/f"{style}-{VIDEO_SUFFIX}" if field.revised else root/f"{style}-loop.mp4"
         temporary = root/f".{style}-{uuid.uuid4().hex}.mp4"
         encoder = subprocess.Popen(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
             "-s", "768x512", "-r", "60", "-i", "-", "-an", "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p",
