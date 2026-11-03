@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "modelRequested": "gpt-image-2",
+  "client": "openai-python OpenAI() with existing environment configuration",
+  "operation": "images.edit",
+  "referenceImage": "assets/effects/generated-details/effectRainbowWave-detail.png",
+  "invariants": [
+    "Preserve reference drone body, four dense propeller guards, camera orientation and framing",
+    "Preserve series illustration finish and full-bleed album background density",
+    "Two mirrored outer S-shaped LED paths; no added front/rear connections"
+  ],
+  "effects": {
+    "effectRainbow": {
+      "source": "effects/rainbow/effectRainbow.js",
+      "prompt": "assets/effects/prompts/effectRainbow.txt",
+      "output": "assets/effects/generated-details/effectRainbow-detail.png",
+      "spatialRule": "wheelRgb(_frame * speed + i * 768 / count): ordered spectrum along LED index, same progression mirrored on both arms",
+      "backgroundRule": "Continuous spectrum ribbons communicate cyclic progression"
+    },
+    "effectColorSparkle": {
+      "source": "effects/flashes/effectColorSparkle.js",
+      "prompt": "assets/effects/prompts/effectColorSparkle.txt",
+      "output": "assets/effects/generated-details/effectColorSparkle-detail.png",
+      "spatialRule": "Random wheelRgb color per LED with independent 180/255 decay each frame; mirrored arms share logical LED state",
+      "backgroundRule": "Broken multicolor rays and isolated sparkles communicate independent activation and decay"
+    }
+  }
+}

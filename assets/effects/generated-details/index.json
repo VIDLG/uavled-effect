@@ -42,7 +42,9 @@
     {
       "id": "effectColorSparkle",
       "status": "generated",
-      "path": "assets/effects/generated-details/effectColorSparkle-detail.png"
+      "path": "assets/effects/generated-details/effectColorSparkle-detail.png",
+      "operation": "images.edit",
+      "generationRules": "assets/effects/prompts/rainbow-series-mapping.json"
     },
     {
       "id": "effectColorWipe",
@@ -137,7 +139,9 @@
     {
       "id": "effectRainbow",
       "status": "generated",
-      "path": "assets/effects/generated-details/effectRainbow-detail.png"
+      "path": "assets/effects/generated-details/effectRainbow-detail.png",
+      "operation": "images.edit",
+      "generationRules": "assets/effects/prompts/rainbow-series-mapping.json"
     },
     {
       "id": "effectRainbowWave",

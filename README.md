@@ -38,6 +38,8 @@ The dynamic behavior remains source-controlled alongside the presets:
 
 The rainbow mappings are kept explicit: `effectRainbow` is **彩虹循环** (ordered hue progression), while `effectColorSparkle` is **彩虹闪烁** (random rainbow colors with independent point brightness decay). The Color Lab preserves those source hues and only animates the corresponding color zones. `styleForest()` uses nine simulated keyframes and a synchronized, low-frequency background drift.
 
+The two rainbow detail images are reference-image edits using `gpt-image-2`, preserving the existing series drone and background treatment. Their exact prompts, reference image, and source-to-visual rules are saved under `assets/effects/prompts/` in `rainbow-series-mapping.json`. A function's palette and spatial behavior change the lighting and background rhythm; they must not redesign the drone or change the series style.
+
 The `tmp/` directory contains local screenshots, browser recordings, and generation intermediates. It is evidence for development and is intentionally separate from the committed reusable assets.
 
 ## Skia Web simulator
