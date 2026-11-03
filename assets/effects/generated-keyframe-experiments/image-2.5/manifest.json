@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "status": "experimental; no production asset replacement",
+  "client": "OpenAI() via imagegen CLI using existing environment configuration",
+  "operation": "images.edit",
+  "requestedModels": [
+    "gpt-image-2.5-flare",
+    "gpt-image-2.5-sunburst"
+  ],
+  "inputRoles": {
+    "image1": "existing style detail as identity/style lock",
+    "image2": "four source RGB/topology reference frames"
+  },
+  "simulationFrames": [
+    0,
+    8,
+    16,
+    24
+  ],
+  "simulationFps": 30,
+  "layout": "2x2, row-major; each panel 768x512",
+  "playback": "Four generated keyframes, held for eight source frames each. No optical flow, no synthetic interpolation, not a native video-model output.",
+  "sourceRules": {
+    "styleCyberpunk": {
+      "source": "styles/styleCyberpunk.js",
+      "LED": "moving magenta/cyan phase groups and localized glitch, mirrored arms",
+      "background": "interpret phase as diagonal rail scan; not direct source geometry"
+    },
+    "styleMatrix": {
+      "source": "styles/styleMatrix.js",
+      "LED": "independent random green activations with linear decay; no traveling chase",
+      "background": "thematic downward digital-rain columns; not actual LED travel"
+    }
+  },
+  "observations": [
+    "Detailed drone guards retained in all sampled panels.",
+    "Spatial light-state changes visible.",
+    "Background displacement remains subtle.",
+    "Generated source-state matching is approximate; no exact RGB or pixel-frozen drone guarantee."
+  ],
+  "metrics": {
+    "styleCyberpunk-flare": {
+      "panelSize": [
+        768,
+        512
+      ],
+      "consecutiveMeanAbsoluteRgbDifference": [
+        16.246,
+        15.962,
+        12.878
+      ],
+      "centralBodyMeanAbsoluteRgbDifference": [
+        1.938,
+        2.712,
+        1.967
+      ]
+    },
+    "styleCyberpunk-sunburst": {
+      "panelSize": [
+        768,
+        512
+      ],
+      "consecutiveMeanAbsoluteRgbDifference": [
+        13.384,
+        15.932,
+        11.986
+      ],
+      "centralBodyMeanAbsoluteRgbDifference": [
+        1.869,
+        2.509,
+        1.93
+      ]
+    },
+    "styleMatrix-flare": {
+      "panelSize": [
+        768,
+        512
+      ],
+      "consecutiveMeanAbsoluteRgbDifference": [
+        10.15,
+        12.137,
+        8.482
+      ],
+      "centralBodyMeanAbsoluteRgbDifference": [
+        2.769,
+        2.622,
+        2.564
+      ]
+    },
+    "styleMatrix-sunburst": {
+      "panelSize": [
+        768,
+        512
+      ],
+      "consecutiveMeanAbsoluteRgbDifference": [
+        17.075,
+        17.781,
+        14.677
+      ],
+      "centralBodyMeanAbsoluteRgbDifference": [
+        2.608,
+        3.896,
+        2.612
+      ]
+    }
+  }
+}

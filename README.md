@@ -24,6 +24,7 @@ The reusable image assets are committed under `assets/` and are grouped by purpo
 | Standard detail images | `assets/effects/generated-details/` | One detail PNG per effect or style preset. `simulator/src/ColorLab.jsx` loads this set for the color and animation preview. |
 | Geometric album-cover variants | `assets/effects/generated-details-geometric/` | The alternate geometric background set, with its source mapping in `index.json`. |
 | Static animation samples | `assets/effects/generated-frames/` | Three representative simulated frames per effect or style, named `<id>-030.png`, `<id>-090.png`, and `<id>-150.png`. These are visual samples, not runtime playback files. |
+| Image 2.5 keyframe candidates | `assets/effects/generated-keyframe-experiments/image-2.5/` | Cyberpunk and Matrix experiments comparing `gpt-image-2.5-flare` and `gpt-image-2.5-sunburst`: source controls, exact prompts, four generated keyframes, GIF/MP4 comparisons, and limitations. |
 | Ice-fire source material | `assets/effects/ice-fire/` | Ice-fire detail images, metadata, and the original source frames under `source-frames/`. |
 | Red-blue alert variants | `assets/effects/red-blue-alert/` | The alert detail image and its thumbnail/background variants. |
 | Neo2 chibi variants | `assets/effects/neo2-chibi/` | Generated icon and illustration variants for the drone subject. |
