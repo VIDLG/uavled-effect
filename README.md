@@ -28,6 +28,7 @@ The reusable image assets are committed under `assets/` and are grouped by purpo
 | Flare 16-frame motion candidates | `assets/effects/generated-keyframe-experiments/flare-dense16/` | Cyberpunk and Matrix with 16 generated keyframes each, source samples every two frames, aligned/fixed inner drone, 15 unique FPS previews, and four-versus-sixteen-frame comparisons. See the local README for reproduction and remaining batch transitions. |
 | Source-position keyframes and motion | `assets/effects/generated-keyframe-experiments/source-motion-v1/` | Eight newly generated keyframes per style at distinct motion phases; source-constrained positions, forward RGB transitions, 60 FPS video, and rendered-versus-source space-time evidence. Addresses the oscillation found in the denser free-generated sequence. |
 | Looping motion albums | `assets/effects/generated-motion-gallery/` | Five 60 FPS MP4 albums: Cyberpunk, Matrix, Forest, Ocean and Aurora. Includes generated keyframe sheets, source/prompt mappings, posters, seek thumbnails, calibration and loop verification. Played by `simulator/src/MotionGallery.jsx`; see the local README for reproduction and source-preview limitations. |
+| Single-image color flow | `assets/effects/single-image-motion/` | Rainbow cycle driven live from one fixed artwork, a phase/mask atlas and a 256×1 source RGB lookup. The sixth album uses a WebGL shader, with no video or generated keyframe sequence. See its local README for source mapping and limits. |
 | Ice-fire source material | `assets/effects/ice-fire/` | Ice-fire detail images, metadata, and the original source frames under `source-frames/`. |
 | Red-blue alert variants | `assets/effects/red-blue-alert/` | The alert detail image and its thumbnail/background variants. |
 | Neo2 chibi variants | `assets/effects/neo2-chibi/` | Generated icon and illustration variants for the drone subject. |
@@ -46,7 +47,7 @@ The two rainbow detail images are reference-image edits using `gpt-image-2`, pre
 
 The `tmp/` directory contains local screenshots, browser recordings, and generation intermediates. It is evidence for development and is intentionally separate from the committed reusable assets.
 
-Open **动效专辑** in the top navigation, or append `/?view=motion` to the local Vite URL. The selected album loops automatically with pause, seeking, previous/next and eight clickable keyframes. Only the selected MP4 loads; switching away releases the player. Reduced-motion preferences disable autoplay. These are prerecorded image-based previews rather than live parameter-driven simulation; the standard static detail set is unchanged.
+Open **动效专辑** in the top navigation, or append `/?view=motion` to the local Vite URL. The selected album loops automatically with pause, seeking and previous/next. The five video albums also have eight clickable keyframes; only the selected MP4 loads. **彩虹循环** instead uses live single-image color flow, with an **原图对照** button; open it directly with `/?view=motion&effect=effectRainbow`. Switching away releases its renderer. Reduced-motion preferences disable autoplay. The five MP4 albums are prerecorded previews; the single-image rainbow is rendered live. The standard static detail set is unchanged.
 
 ## Skia Web simulator
 

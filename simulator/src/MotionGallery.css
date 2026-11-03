@@ -21,6 +21,10 @@
 .motion-player { min-width: 0; }
 .motion-artwork { position: relative; overflow: hidden; aspect-ratio: 3 / 2; border: 1px solid #283a32; border-radius: 9px; background: #0d1713; box-shadow: 0 14px 30px #19382c17; }
 .motion-artwork video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.motion-artwork canvas { display: block; width: 100%; height: 100%; object-fit: contain; }
+.motion-color-flow-note { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: #5a6f60; }
+.motion-color-flow-note strong { font-size: 12px; font-weight: 550; }
+.motion-color-flow-note p { margin: 9px 0 0; font-size: 11px; color: #87958b; line-height: 1.7; }
 .motion-loading { position: absolute; right: 13px; bottom: 12px; padding: 6px 9px; border-radius: 5px; background: #14221ecf; color: #d4dfd7; font-size: 11px; }
 .motion-media-message { position: absolute; inset: 0; display: grid; align-content: center; justify-items: center; gap: 15px; background: #0b1911c9; color: #d5dfd8; font-size: 12px; }
 .motion-now-playing { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 24px; }

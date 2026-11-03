@@ -1,21 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Disc3, Pause, Play, Repeat, RotateCcw, SkipBack, SkipForward } from "lucide-react";
+import { Disc3, RotateCcw } from "lucide-react";
 import catalog from "../../assets/effects/generated-motion-gallery/index.json";
+import single from "../../assets/effects/single-image-motion/index.json";
+import MotionControls, { formatTime as clock } from "./MotionControls.jsx";
+import SingleImagePlayer from "./SingleImagePlayer.jsx";
 import "./MotionGallery.css";
 
 const files = {
   ...import.meta.glob("../../assets/effects/generated-motion-gallery/*-loop.mp4", { eager: true, query: "?url", import: "default" }),
   ...import.meta.glob("../../assets/effects/generated-motion-gallery/posters/*.jpg", { eager: true, query: "?url", import: "default" }),
   ...import.meta.glob("../../assets/effects/generated-motion-gallery/keyframes/*.jpg", { eager: true, query: "?url", import: "default" }),
+  ...import.meta.glob("../../assets/effects/single-image-motion/*.png", { eager: true, query: "?url", import: "default" }),
+  ...import.meta.glob("../../assets/effects/single-image-motion/*-poster.jpg", { eager: true, query: "?url", import: "default" }),
 };
 const asset = (path) => files[`../../assets/effects/generated-motion-gallery/${path}`];
 const effects = catalog.effects.map((effect) => ({ ...effect, video: asset(effect.video), poster: asset(effect.poster),
   keyframes: effect.keyframes.map((frame) => ({ ...frame, image: asset(frame.image) })) }));
-
-function clock(seconds) {
-  const value = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
-  return `${Math.floor(value / 60)}:${String(Math.floor(value % 60)).padStart(2, "0")}`;
-}
+const singleAsset = (path) => files[`../../assets/effects/single-image-motion/${path}`];
+effects.push({ ...single, base: singleAsset(single.base), map: singleAsset(single.map),
+  lookup: singleAsset(single.paletteTexture), poster: singleAsset(single.poster) });
 
 function MotionPlayer({ effect, onPrevious, onNext }) {
   const videoRef = useRef(null);
@@ -69,20 +72,8 @@ function MotionPlayer({ effect, onPrevious, onNext }) {
       {failed && <div className="motion-media-message" role="alert"><span>暂时无法播放这段动效</span><button className="secondary-button" type="button" onClick={() => { setFailed(false); videoRef.current.load(); }}><RotateCcw size={15} />重新载入</button></div>}
       {!ready && !failed && <span className="motion-loading">正在载入动效</span>}
     </div>
-    <div className="motion-now-playing">
-      <div><p className="eyebrow">NOW PLAYING</p><h2>{effect.label}</h2><p>{effect.description}</p></div>
-      <span className={`motion-loop-label ${playing ? "is-playing" : ""}`}><Repeat size={15} />{playing ? "循环播放中" : "已暂停"}</span>
-    </div>
-    <div className="motion-transport">
-      <button className="icon-button" type="button" aria-label="上一种动效" onClick={onPrevious}><SkipBack size={19} /></button>
-      <button className="motion-play-button" type="button" aria-label={playing ? "暂停动效" : "播放动效"} disabled={!ready} onClick={toggle}>{playing ? <Pause size={19} fill="currentColor" /> : <Play size={19} fill="currentColor" />}</button>
-      <button className="icon-button" type="button" aria-label="下一种动效" onClick={onNext}><SkipForward size={19} /></button>
-      <span className="motion-current-time">{clock(time)}</span>
-      <input className="motion-seek" type="range" min="0" max={Number.isFinite(duration) ? duration : effect.duration} step="0.01"
-        value={Math.min(time, Number.isFinite(duration) ? duration : effect.duration)} disabled={!ready} aria-label="动效播放进度"
-        onChange={(event) => seek(Number(event.target.value))} />
-      <span className="motion-duration">{clock(duration)}</span>
-    </div>
+    <MotionControls effect={effect} playing={playing} ready={ready} time={time} duration={Number.isFinite(duration) ? duration : effect.duration}
+      onPrevious={onPrevious} onNext={onNext} onToggle={toggle} onSeek={seek} />
     <div className="motion-keyframe-heading"><strong>关键画面</strong><span>点击跳转到这一刻</span></div>
     <div className="motion-keyframes">
       {effect.keyframes.map((frame, index) => <button key={frame.sourceFrame} type="button" disabled={!ready}
@@ -95,12 +86,15 @@ function MotionPlayer({ effect, onPrevious, onNext }) {
 }
 
 export default function MotionGallery() {
-  const [selectedId, setSelectedId] = useState(effects[0].id);
+  const [selectedId, setSelectedId] = useState(() => {
+    const requested = new URLSearchParams(window.location.search).get("effect");
+    return effects.some((effect) => effect.id === requested) ? requested : effects[0].id;
+  });
   const selectedIndex = effects.findIndex((effect) => effect.id === selectedId);
   const selected = effects[selectedIndex];
   const change = (step) => setSelectedId(effects[(selectedIndex + step + effects.length) % effects.length].id);
 
-  return <main className="motion-gallery" style={{ "--motion-accent": selected.palette[0] }}>
+  return <main className="motion-gallery">
     <header className="motion-gallery-heading"><div><p className="eyebrow">UAVLED / MOTION ALBUM</p><h1>动效专辑</h1><p className="section-subtitle">让光循着轮廓流动，也让每一种节奏有自己的画面。</p></div><span className="motion-album-count"><Disc3 size={17} />{effects.length} 种灯光</span></header>
     <div className="motion-gallery-layout">
       <aside className="motion-playlist" aria-label="选择灯光动效">
@@ -114,7 +108,9 @@ export default function MotionGallery() {
           <span className="motion-palette" aria-hidden="true">{effect.palette.map((color) => <i key={color} style={{ background: color }} />)}</span>
         </button>)}</div>
       </aside>
-      <MotionPlayer key={selected.id} effect={selected} onPrevious={() => change(-1)} onNext={() => change(1)} />
+      {selected.kind === "single-image"
+        ? <SingleImagePlayer key={selected.id} effect={selected} onPrevious={() => change(-1)} onNext={() => change(1)} />
+        : <MotionPlayer key={selected.id} effect={selected} onPrevious={() => change(-1)} onNext={() => change(1)} />}
     </div>
   </main>;
 }
