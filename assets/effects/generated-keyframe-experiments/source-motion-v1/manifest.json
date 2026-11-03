@@ -1,0 +1,106 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "operation": "images.edit",
+  "size": "1536x1024",
+  "quality": "high",
+  "sourceFps": 30,
+  "renderFps": 60,
+  "keyframeSourceIndices": [
+    0,
+    16,
+    32,
+    48,
+    64,
+    80,
+    96,
+    112
+  ],
+  "inputAuthority": "source RGB and calibrated image-space positions",
+  "neutralMaterial": "fixed reference pixels",
+  "interpolation": "forward-only source RGB interpolation; generated detail advected along known background directions",
+  "cyberpunkDisplacementPerSourceFrame": -0.09523809523809523,
+  "matrixMotion": "LED birth/decay at fixed indices; background heads move down at 130px/s after source trigger",
+  "generatedDetailGainRange": [
+    0.75,
+    1.35
+  ],
+  "preludeSha256": "4e86f3a04ffcaaf6e34c9190eae6ba9fb7b2ae8f1ef1293adca35bbbdffde344",
+  "requests": [
+    {
+      "sourceIndices": [
+        0,
+        16,
+        32,
+        48
+      ],
+      "images": [
+        "request-controls/styleCyberpunk-00.png",
+        "../flare-dense16/frames/styleCyberpunk-000.png"
+      ],
+      "prompt": "prompts/styleCyberpunk-00.txt",
+      "output": "raw/styleCyberpunk-00.png",
+      "outputSha256": "5f995a728f5f52719eda1043fcc1261a826f8680f9430d4d8561f62e74f4a286",
+      "inputSha256": [
+        "f327b135a0eee10a652f3f9e670f55b1a126580c184f10de7673ffaabc631e54",
+        "0a6fdc8daf188d62e98a765732cfc930836d9715cef659bb514cafe894959d64"
+      ]
+    },
+    {
+      "sourceIndices": [
+        64,
+        80,
+        96,
+        112
+      ],
+      "images": [
+        "request-controls/styleCyberpunk-01.png",
+        "../flare-dense16/frames/styleCyberpunk-000.png"
+      ],
+      "prompt": "prompts/styleCyberpunk-01.txt",
+      "output": "raw/styleCyberpunk-01.png",
+      "outputSha256": "f00227d21b07236127a2239db77d34e6343bb56090ed675b54a089d7755c5f0f",
+      "inputSha256": [
+        "d64aff737f9e2d3fd8f75cefa80de54ed8474ec8b58561edc7ec7ba843e31552",
+        "0a6fdc8daf188d62e98a765732cfc930836d9715cef659bb514cafe894959d64"
+      ]
+    },
+    {
+      "sourceIndices": [
+        0,
+        16,
+        32,
+        48
+      ],
+      "images": [
+        "request-controls/styleMatrix-00.png",
+        "../flare-dense16/frames/styleMatrix-000.png"
+      ],
+      "prompt": "prompts/styleMatrix-00.txt",
+      "output": "raw/styleMatrix-00.png",
+      "outputSha256": "059fe09b699e7810e45a37cb91e7b3d82f5524649f97ad315dba3bae62dfd086",
+      "inputSha256": [
+        "38be24a33c0c885514c863bc89b970c5db392d46f4d2a12176121e4b37695942",
+        "78c906ca8f41c7c152cfecf13423b2e817ab7453e09d983042fb385346b5d00e"
+      ]
+    },
+    {
+      "sourceIndices": [
+        64,
+        80,
+        96,
+        112
+      ],
+      "images": [
+        "request-controls/styleMatrix-01.png",
+        "../flare-dense16/frames/styleMatrix-000.png"
+      ],
+      "prompt": "prompts/styleMatrix-01.txt",
+      "output": "raw/styleMatrix-01.png",
+      "outputSha256": "891d121f2eb0cead25b5db1514b766a5e98be0ddc13a7b3b72733fde8409bd82",
+      "inputSha256": [
+        "768bfe157ff54c2028ab5fa2c5c4ce56ab0802a43ca2eaade9d201c325123f0a",
+        "78c906ca8f41c7c152cfecf13423b2e817ab7453e09d983042fb385346b5d00e"
+      ]
+    }
+  ]
+}

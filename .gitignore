@@ -3,6 +3,7 @@ node_modules/
 simulator-build/
 simulator-evidence/
 tmp/
+__pycache__/
 simulator/public/canvaskit.wasm
 compiled/*
 !compiled/wing-chase.js
