@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { BookOpen, Check, ChevronRight, CircleHelp, FileCode2, Hammer, MonitorPlay, Palette, Pause, Play, RotateCcw, Search, SkipBack, SkipForward } from "lucide-react";
+import { BookOpen, Check, ChevronRight, CircleHelp, Disc3, FileCode2, Hammer, MonitorPlay, Palette, Pause, Play, RotateCcw, Search, SkipBack, SkipForward } from "lucide-react";
 import CompilerView from "./CompilerView.jsx";
 import ColorLab from "./ColorLab.jsx";
+import MotionGallery from "./MotionGallery.jsx";
 import DroneCanvas from "./DroneCanvas.jsx";
 import { categories, compiledScripts, scripts } from "./catalog.js";
 import { FRAME_COUNT, FRAME_RATE } from "./simulate.js";
@@ -27,7 +28,7 @@ function ScriptList({ items, selectedId, onSelect, showAction = false }) {
 }
 
 export default function App() {
-  const [view, setView] = useState("library");
+  const [view, setView] = useState(() => new URLSearchParams(window.location.search).get("view") === "motion" ? "motion" : "library");
   const [selectedId, setSelectedId] = useState(DEFAULT_SCRIPT_ID);
   const [currentCompiled, setCurrentCompiled] = useState(null);
   const [search, setSearch] = useState("");
@@ -88,10 +89,10 @@ export default function App() {
   }, [selectedId, selected.compiledCode]);
 
   useEffect(() => {
-    if (!playing || snapshots.length === 0) return;
+    if (view !== "simulator" || !playing || snapshots.length === 0) return;
     const timer = setInterval(() => setFrameIndex((current) => (current + 1) % snapshots.length), 1000 / (FRAME_RATE * speed));
     return () => clearInterval(timer);
-  }, [playing, speed, snapshots.length]);
+  }, [view, playing, speed, snapshots.length]);
 
   const filtered = useMemo(() => scripts.filter((script) =>
     (category === "全部" || script.categoryLabel === category) &&
@@ -127,11 +128,12 @@ export default function App() {
         <button className={view === "compiler" ? "active" : ""} onClick={() => setView("compiler")} title="编译器"><Hammer size={17} />编译器</button>
         <button className={view === "simulator" ? "active" : ""} onClick={() => setView("simulator")}><MonitorPlay size={17} />模拟器</button>
         <button className={view === "color-lab" ? "active" : ""} onClick={() => setView("color-lab")} title="静态图色区实验"><Palette size={17} />色彩实验</button>
+        <button className={view === "motion" ? "active" : ""} onClick={() => setView("motion")} title="动效专辑"><Disc3 size={17} />动效专辑</button>
       </nav>
       <div className="topbar-status"><span className="status-dot" />Skia Web <span className="topbar-divider" /> {scripts.length} 个脚本</div>
     </header>
 
-    {view === "color-lab" ? <ColorLab /> : view === "library" ? <main className="library-view">
+    {view === "motion" ? <MotionGallery /> : view === "color-lab" ? <ColorLab /> : view === "library" ? <main className="library-view">
       <div className="section-head">
         <div><p className="eyebrow">LIBRARY / SCRIPTS</p><h1>特效脚本</h1><p className="section-subtitle">按类型浏览内置特效，选择文件后在无人机灯带上模拟。</p></div>
         <div className="entry-actions"><button className="secondary-button" onClick={() => setView("compiler")}><Hammer size={17} />进入编译器</button><button className="primary-button" onClick={() => setView("simulator")}><MonitorPlay size={18} />进入模拟器<ChevronRight size={16} /></button></div>

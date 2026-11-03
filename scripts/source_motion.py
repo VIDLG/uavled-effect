@@ -75,11 +75,11 @@ def geometry(style):
 
 
 class MotionField:
-    def __init__(self, style, frames):
+    def __init__(self, style, frames, base=None, paths=None):
         self.style = style
         self.frames = np.asarray(frames, dtype=np.float32)
-        self.base = np.asarray(Image.open(OLD / "frames" / f"{style}-000.png").convert("RGB"))
-        self.left, self.right = geometry(style)
+        self.base = np.asarray(Image.open(OLD / "frames" / f"{style}-000.png").convert("RGB")) if base is None else np.asarray(base)
+        self.left, self.right = geometry(style) if paths is None else paths
         self.y, self.x = np.mgrid[:HEIGHT, :WIDTH].astype(np.float32)
         self.distance = np.full((HEIGHT, WIDTH), np.inf, np.float32)
         self.coordinate = np.zeros((HEIGHT, WIDTH), np.float32)
@@ -105,7 +105,7 @@ class MotionField:
         saturation = hsv[..., 1] / 255
         # Max RGB alone flattens saturated glow and white emitter cores to the same brightness.
         # Preserve the original low-saturation bright cores above their colored halos.
-        gain = 1.2 if style == "styleCyberpunk" else 4.0
+        gain = 4.0 if style == "styleMatrix" else 1.2
         self.band_texture = np.clip(self.value * (1-.72*saturation) * gain, .025, 1)
         colored = smoothstep(.08, .3, saturation)
         # Include low-saturation light cores next to a color region, while protecting neutral drone areas.
@@ -130,9 +130,9 @@ class MotionField:
         amount = (coordinate-low)[..., None]
         return colors[low] * (1-amount) + colors[np.minimum(low+1, 39)] * amount
 
-    def render(self, seconds, detail=None):
+    def render(self, seconds, detail=None, colors=None):
         source_position = float(np.clip(seconds*30, 0, len(self.frames)-1))
-        colors = sample_source(self.frames, seconds, 30)
+        colors = sample_source(self.frames, seconds, 30) if colors is None else colors
         band = self.at_coordinate(colors, self.coordinate)
         if self.style == "styleCyberpunk":
             diagonal = ((self.x + self.y) / 17 + 3) % 39

@@ -1,0 +1,279 @@
+{
+  "effects": [
+    {
+      "id": "styleCyberpunk",
+      "label": "赛博朋克",
+      "description": "粉青交替，霓虹循着轮廓前行。",
+      "palette": [
+        "#ec44ba",
+        "#26d9ed"
+      ],
+      "video": "styleCyberpunk-loop.mp4",
+      "poster": "posters/styleCyberpunk.jpg",
+      "duration": 8.533333333333333,
+      "fps": 60,
+      "keyframes": [
+        {
+          "time": 0.0,
+          "image": "keyframes/styleCyberpunk-000.jpg",
+          "sourceFrame": 0
+        },
+        {
+          "time": 0.5333333333333333,
+          "image": "keyframes/styleCyberpunk-016.jpg",
+          "sourceFrame": 16
+        },
+        {
+          "time": 1.0666666666666667,
+          "image": "keyframes/styleCyberpunk-032.jpg",
+          "sourceFrame": 32
+        },
+        {
+          "time": 1.6,
+          "image": "keyframes/styleCyberpunk-048.jpg",
+          "sourceFrame": 48
+        },
+        {
+          "time": 2.1333333333333333,
+          "image": "keyframes/styleCyberpunk-064.jpg",
+          "sourceFrame": 64
+        },
+        {
+          "time": 2.6666666666666665,
+          "image": "keyframes/styleCyberpunk-080.jpg",
+          "sourceFrame": 80
+        },
+        {
+          "time": 3.2,
+          "image": "keyframes/styleCyberpunk-096.jpg",
+          "sourceFrame": 96
+        },
+        {
+          "time": 3.7333333333333334,
+          "image": "keyframes/styleCyberpunk-112.jpg",
+          "sourceFrame": 112
+        }
+      ]
+    },
+    {
+      "id": "styleMatrix",
+      "label": "黑客帝国",
+      "description": "绿光逐次亮起，数字光雨缓缓落下。",
+      "palette": [
+        "#72e23a",
+        "#123b29"
+      ],
+      "video": "styleMatrix-loop.mp4",
+      "poster": "posters/styleMatrix.jpg",
+      "duration": 8.533333333333333,
+      "fps": 60,
+      "keyframes": [
+        {
+          "time": 0.0,
+          "image": "keyframes/styleMatrix-000.jpg",
+          "sourceFrame": 0
+        },
+        {
+          "time": 0.5333333333333333,
+          "image": "keyframes/styleMatrix-016.jpg",
+          "sourceFrame": 16
+        },
+        {
+          "time": 1.0666666666666667,
+          "image": "keyframes/styleMatrix-032.jpg",
+          "sourceFrame": 32
+        },
+        {
+          "time": 1.6,
+          "image": "keyframes/styleMatrix-048.jpg",
+          "sourceFrame": 48
+        },
+        {
+          "time": 2.1333333333333333,
+          "image": "keyframes/styleMatrix-064.jpg",
+          "sourceFrame": 64
+        },
+        {
+          "time": 2.6666666666666665,
+          "image": "keyframes/styleMatrix-080.jpg",
+          "sourceFrame": 80
+        },
+        {
+          "time": 3.2,
+          "image": "keyframes/styleMatrix-096.jpg",
+          "sourceFrame": 96
+        },
+        {
+          "time": 3.7333333333333334,
+          "image": "keyframes/styleMatrix-112.jpg",
+          "sourceFrame": 112
+        }
+      ]
+    },
+    {
+      "id": "styleForest",
+      "label": "森林",
+      "description": "绿意层层起伏，萤光在林间闪动。",
+      "palette": [
+        "#65cf36",
+        "#c8ea60"
+      ],
+      "video": "styleForest-loop.mp4",
+      "poster": "posters/styleForest.jpg",
+      "duration": 8.533333333333333,
+      "fps": 60,
+      "keyframes": [
+        {
+          "time": 0.0,
+          "image": "keyframes/styleForest-000.jpg",
+          "sourceFrame": 0
+        },
+        {
+          "time": 1.0666666666666667,
+          "image": "keyframes/styleForest-032.jpg",
+          "sourceFrame": 32
+        },
+        {
+          "time": 2.1333333333333333,
+          "image": "keyframes/styleForest-064.jpg",
+          "sourceFrame": 64
+        },
+        {
+          "time": 3.2,
+          "image": "keyframes/styleForest-096.jpg",
+          "sourceFrame": 96
+        },
+        {
+          "time": 4.266666666666667,
+          "image": "keyframes/styleForest-128.jpg",
+          "sourceFrame": 128
+        },
+        {
+          "time": 5.333333333333333,
+          "image": "keyframes/styleForest-160.jpg",
+          "sourceFrame": 160
+        },
+        {
+          "time": 6.4,
+          "image": "keyframes/styleForest-192.jpg",
+          "sourceFrame": 192
+        },
+        {
+          "time": 7.466666666666667,
+          "image": "keyframes/styleForest-224.jpg",
+          "sourceFrame": 224
+        }
+      ]
+    },
+    {
+      "id": "styleOcean",
+      "label": "海洋",
+      "description": "蓝青波纹交错，光沿轮廓流动。",
+      "palette": [
+        "#25c9e8",
+        "#2058e2"
+      ],
+      "video": "styleOcean-loop.mp4",
+      "poster": "posters/styleOcean.jpg",
+      "duration": 8.533333333333333,
+      "fps": 60,
+      "keyframes": [
+        {
+          "time": 0.0,
+          "image": "keyframes/styleOcean-000.jpg",
+          "sourceFrame": 0
+        },
+        {
+          "time": 1.0666666666666667,
+          "image": "keyframes/styleOcean-032.jpg",
+          "sourceFrame": 32
+        },
+        {
+          "time": 2.1333333333333333,
+          "image": "keyframes/styleOcean-064.jpg",
+          "sourceFrame": 64
+        },
+        {
+          "time": 3.2,
+          "image": "keyframes/styleOcean-096.jpg",
+          "sourceFrame": 96
+        },
+        {
+          "time": 4.266666666666667,
+          "image": "keyframes/styleOcean-128.jpg",
+          "sourceFrame": 128
+        },
+        {
+          "time": 5.333333333333333,
+          "image": "keyframes/styleOcean-160.jpg",
+          "sourceFrame": 160
+        },
+        {
+          "time": 6.4,
+          "image": "keyframes/styleOcean-192.jpg",
+          "sourceFrame": 192
+        },
+        {
+          "time": 7.466666666666667,
+          "image": "keyframes/styleOcean-224.jpg",
+          "sourceFrame": 224
+        }
+      ]
+    },
+    {
+      "id": "styleAurora",
+      "label": "极光",
+      "description": "紫红光幕舒展，层层掠过机身。",
+      "palette": [
+        "#d64bd8",
+        "#6c2b8c"
+      ],
+      "video": "styleAurora-loop.mp4",
+      "poster": "posters/styleAurora.jpg",
+      "duration": 8.533333333333333,
+      "fps": 60,
+      "keyframes": [
+        {
+          "time": 0.0,
+          "image": "keyframes/styleAurora-000.jpg",
+          "sourceFrame": 0
+        },
+        {
+          "time": 1.0666666666666667,
+          "image": "keyframes/styleAurora-032.jpg",
+          "sourceFrame": 32
+        },
+        {
+          "time": 2.1333333333333333,
+          "image": "keyframes/styleAurora-064.jpg",
+          "sourceFrame": 64
+        },
+        {
+          "time": 3.2,
+          "image": "keyframes/styleAurora-096.jpg",
+          "sourceFrame": 96
+        },
+        {
+          "time": 4.266666666666667,
+          "image": "keyframes/styleAurora-128.jpg",
+          "sourceFrame": 128
+        },
+        {
+          "time": 5.333333333333333,
+          "image": "keyframes/styleAurora-160.jpg",
+          "sourceFrame": 160
+        },
+        {
+          "time": 6.4,
+          "image": "keyframes/styleAurora-192.jpg",
+          "sourceFrame": 192
+        },
+        {
+          "time": 7.466666666666667,
+          "image": "keyframes/styleAurora-224.jpg",
+          "sourceFrame": 224
+        }
+      ]
+    }
+  ]
+}

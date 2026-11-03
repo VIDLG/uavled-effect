@@ -1,0 +1,132 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "operation": "images.edit",
+  "size": "1536x1024",
+  "quality": "high",
+  "sourceSha256": "4e86f3a04ffcaaf6e34c9190eae6ba9fb7b2ae8f1ef1293adca35bbbdffde344",
+  "requests": [
+    {
+      "style": "styleForest",
+      "sourceFrames": [
+        0,
+        32,
+        64,
+        96
+      ],
+      "images": [
+        "controls/styleForest-00.png",
+        "references/styleForest.png"
+      ],
+      "inputSha256": [
+        "0ae3607e211a97511a3546c2f10bfe5e31f31691c8c2b1db4c3554ef843a11ed",
+        "47b7330f0d928a10828bc45bb141e6b97d177747cba2d1a1be08da32b9eca7fc"
+      ],
+      "prompt": "prompts/styleForest-00.txt",
+      "output": "raw/styleForest-00.png",
+      "outputSha256": "9c9b6a3b4a1956f3e4fb3113f07cb391e1ca3034f9d09881e7951a4f1b7c8263"
+    },
+    {
+      "style": "styleForest",
+      "sourceFrames": [
+        128,
+        160,
+        192,
+        224
+      ],
+      "images": [
+        "controls/styleForest-01.png",
+        "references/styleForest.png"
+      ],
+      "inputSha256": [
+        "5138e14eacd274fd6241ad030e3da3c6d0e8326ae89f5c0b3b8e93e78d840018",
+        "47b7330f0d928a10828bc45bb141e6b97d177747cba2d1a1be08da32b9eca7fc"
+      ],
+      "prompt": "prompts/styleForest-01.txt",
+      "output": "raw/styleForest-01.png",
+      "outputSha256": "6cc0a2dd7e335a66c541de0a7525860baa6b0332d111ecb2e769e9acc73102ba"
+    },
+    {
+      "style": "styleOcean",
+      "sourceFrames": [
+        0,
+        32,
+        64,
+        96
+      ],
+      "images": [
+        "controls/styleOcean-00.png",
+        "references/styleOcean.png"
+      ],
+      "inputSha256": [
+        "ced6393c35e842e3e2d79828ba1cc81d7c69a90c77ae7ee0f62c600034d77299",
+        "8d68638d3e76bef8c7b1c416c5790e9044c9ee4792e235988987b8ae18abf46d"
+      ],
+      "prompt": "prompts/styleOcean-00.txt",
+      "output": "raw/styleOcean-00.png",
+      "outputSha256": "3e61234ef7aab63d9318ad4ac3a941162625223b7088440e64649d481eb612e4"
+    },
+    {
+      "style": "styleOcean",
+      "sourceFrames": [
+        128,
+        160,
+        192,
+        224
+      ],
+      "images": [
+        "controls/styleOcean-01.png",
+        "references/styleOcean.png"
+      ],
+      "inputSha256": [
+        "a327510d676305034ebe9b5b5d8dc18edbbe656df4c8e9673a8913f3fdbf421f",
+        "8d68638d3e76bef8c7b1c416c5790e9044c9ee4792e235988987b8ae18abf46d"
+      ],
+      "prompt": "prompts/styleOcean-01.txt",
+      "output": "raw/styleOcean-01.png",
+      "outputSha256": "a53d02609a021749ea86a1c3c96e358a615980f26498ade6d2131e447756c7e2"
+    },
+    {
+      "style": "styleAurora",
+      "sourceFrames": [
+        0,
+        32,
+        64,
+        96
+      ],
+      "images": [
+        "controls/styleAurora-00.png",
+        "references/styleAurora.png"
+      ],
+      "inputSha256": [
+        "66f3ea30dbb70d90c1478cdb73eaa187ae6be81b6ed653c2b1f8c8ad511e4b8c",
+        "abf34632ce4f5a6a0691fd4d83e6377eb2957daf287c78cdf9232d9c089396ac"
+      ],
+      "prompt": "prompts/styleAurora-00.txt",
+      "output": "raw/styleAurora-00.png",
+      "outputSha256": "1f6beb1fad4f74a5ff43ace0504a5129fb6411f11ea8feb493d488714bcec723"
+    },
+    {
+      "style": "styleAurora",
+      "sourceFrames": [
+        128,
+        160,
+        192,
+        224
+      ],
+      "images": [
+        "controls/styleAurora-01.png",
+        "references/styleAurora.png"
+      ],
+      "inputSha256": [
+        "e0f9d1ac65115daa2df149a130e4bbbe82b293692e69781e1312ecdb6b679568",
+        "abf34632ce4f5a6a0691fd4d83e6377eb2957daf287c78cdf9232d9c089396ac"
+      ],
+      "prompt": "prompts/styleAurora-01.txt",
+      "output": "raw/styleAurora-01.png",
+      "outputSha256": "69b014a455d4b56cfee4767a96512af7aa5bbad77b589ece33688e99d741b05a"
+    }
+  ],
+  "reusedGeneratedKeyframes": "assets\\effects\\generated-keyframe-experiments\\source-motion-v1",
+  "loopClosure": "Forward playback, last 12 source frames blend RGB to first state; generated detail wraps forward, never ping-pong",
+  "sourceNote": "Aurora native-JavaScript ledHsv fractional branch yields magenta, unlike its comment; no source functions modified"
+}
