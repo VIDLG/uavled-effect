@@ -36,6 +36,8 @@ The dynamic behavior remains source-controlled alongside the presets:
 - `simulator/src/ColorLab.jsx`: static-image color mapping, effect-specific preview policies, and the Forest keyframe interpolation preview.
 - `simulator/src/simulate.js` and `simulator/src/topology.js`: frame simulation and drone LED topology used by the previews.
 
+The rainbow mappings are kept explicit: `effectRainbow` is **彩虹循环** (ordered hue progression), while `effectColorSparkle` is **彩虹闪烁** (random rainbow colors with independent point brightness decay). The Color Lab preserves those source hues and only animates the corresponding color zones. `styleForest()` uses nine simulated keyframes and a synchronized, low-frequency background drift.
+
 The `tmp/` directory contains local screenshots, browser recordings, and generation intermediates. It is evidence for development and is intentionally separate from the committed reusable assets.
 
 ## Skia Web simulator

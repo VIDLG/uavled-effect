@@ -26,14 +26,15 @@ const EFFECT_OPTIONS = [
   { id: "effectIceFire", label: "冰火", url: DEFAULT_IMAGE },
   ...detailOptions.filter((option) => option.id !== "effectIceFire"),
 ];
-const NO_PALETTE_IDS = new Set(["effectIceFire", "effectRainbow", "effectRainbowWave", "styleForest"]);
+const NO_PALETTE_IDS = new Set(["effectIceFire", "effectRainbow", "effectRainbowWave", "effectColorSparkle", "styleForest"]);
 const ANIMATION_POLICIES = {
   effectFade: { kind: "fade", slots: 1, label: "单色淡入淡出" },
-  effectRainbow: { kind: "rainbow", slots: 0, label: "彩虹闪烁" },
+  effectRainbow: { kind: "rainbow", slots: 0, label: "彩虹循环" },
   effectRainbowWave: { kind: "colorWave", slots: 0, label: "色彩波动" },
+  effectColorSparkle: { kind: "colorSparkle", slots: 0, label: "彩虹闪烁" },
   styleForest: { kind: "forestKeyframes", slots: 0, label: "森林时空" },
 };
-const FOREST_KEYFRAME_INDICES = [0, 60, 120, 180, 240];
+const FOREST_KEYFRAME_INDICES = [0, 30, 60, 90, 120, 150, 180, 210, 240];
 const FOREST_KEYFRAME_MS = (FOREST_KEYFRAME_INDICES[1] - FOREST_KEYFRAME_INDICES[0]) * 1000 / FRAME_RATE;
 
 function clamp(value, min, max) {
@@ -273,6 +274,30 @@ function applyRainbowBlink(base, features, width, timeMs, wave) {
   return output;
 }
 
+function applyColorSparkle(base, features, width, height, timeMs) {
+  const output = new Uint8ClampedArray(base);
+  const time = timeMs / 1000;
+  const tau = Math.PI * 2;
+  for (let index = 0; index < features.luminance.length; index += 1) {
+    const offset = index * 4;
+    const x = (index % width) / Math.max(1, width - 1);
+    const y = Math.floor(index / width) / Math.max(1, height - 1);
+    const zone = colorZoneWeight(features.saturation[index]);
+    if (zone < 0.02) continue;
+    const cellX = Math.floor(x * 42);
+    const cellY = Math.floor(y * 28);
+    const seed = Math.sin((cellX + 1) * 12.9898 + (cellY + 1) * 78.233) * 43758.5453;
+    const phaseOffset = (seed - Math.floor(seed)) * tau;
+    const phase = time * tau * 1.55 + phaseOffset + features.hue[index] * tau / 360 * 0.35;
+    const activity = 0.06 + (0.5 + 0.5 * Math.sin(phase)) * 0.94;
+    const animated = hsvToRgb(features.hue[index], features.saturation[index], features.value[index] * activity);
+    output[offset] = base[offset] + (animated[0] - base[offset]) * zone;
+    output[offset + 1] = base[offset + 1] + (animated[1] - base[offset + 1]) * zone;
+    output[offset + 2] = base[offset + 2] + (animated[2] - base[offset + 2]) * zone;
+  }
+  return output;
+}
+
 function buildForestData(width, height) {
   const topology = buildTopology(profile, width, height);
   const points = [...topology.left, ...topology.right];
@@ -301,6 +326,7 @@ function buildForestData(width, height) {
     nearest,
     distance,
     points,
+    box: topology.box,
     keyframes: FOREST_KEYFRAME_INDICES.map((frame) => snapshots[frame]),
   };
 }
@@ -323,11 +349,32 @@ function renderForestFrame(base, features, forestData, width, height, timeMs) {
   const frameB = forestData.keyframes[frameIndex + 1];
   for (let index = 0; index < features.luminance.length; index += 1) {
     const distance = forestData.distance[index];
-    if (distance > 58) continue;
+    const x = index % width;
+    const y = Math.floor(index / width);
+    const bodyLeft = forestData.box.x + forestData.box.width * 0.08;
+    const bodyRight = forestData.box.x + forestData.box.width * 0.92;
+    const bodyTop = forestData.box.y + forestData.box.height * 0.06;
+    const bodyBottom = forestData.box.y + forestData.box.height * 0.94;
+    const insideDrone = x >= bodyLeft && x <= bodyRight && y >= bodyTop && y <= bodyBottom;
+    const backgroundWeight = insideDrone ? 0 : clamp((features.saturation[index] - 0.12) / 0.34, 0, 1);
     const pointIndex = forestData.nearest[index] % 40;
     const [red, green, blue] = interpolateLed(frameA, frameB, amount, pointIndex);
-    const ringInfluence = Math.exp(-(distance * distance) / (2 * 14 * 14));
-    const glowInfluence = Math.exp(-(distance * distance) / (2 * 34 * 34)) * 0.14;
+    if (backgroundWeight > 0.02) {
+      const [ledHue] = rgbToHsv(red, green, blue);
+      const spatialWave = 0.5 + 0.5 * Math.sin(timeMs / 1000 * Math.PI * 1.15 + x * 0.014 + y * 0.009);
+      const driftWave = 0.5 + 0.5 * Math.sin(timeMs / 1000 * Math.PI * 0.52 - x * 0.006 + y * 0.012);
+      const hue = features.hue[index] * 0.78 + (ledHue + (driftWave - 0.5) * 12) * 0.22;
+      const value = clamp(features.value[index] * (0.78 + spatialWave * 0.34), 0, 1);
+      const animated = hsvToRgb(hue, clamp(features.saturation[index] * (0.9 + spatialWave * 0.24), 0, 1), value);
+      const blend = backgroundWeight * (0.28 + spatialWave * 0.18);
+      const offset = index * 4;
+      output[offset] = base[offset] + (animated[0] - base[offset]) * blend;
+      output[offset + 1] = base[offset + 1] + (animated[1] - base[offset + 1]) * blend;
+      output[offset + 2] = base[offset + 2] + (animated[2] - base[offset + 2]) * blend;
+    }
+    if (distance > 58) continue;
+    const ringInfluence = Math.exp(-(distance * distance) / (2 * 10 * 10));
+    const glowInfluence = Math.exp(-(distance * distance) / (2 * 26 * 26)) * 0.08;
     const sourceShade = 0.38 + features.luminance[index] * 0.82;
     const colorRed = red * sourceShade;
     const colorGreen = green * sourceShade;
@@ -377,6 +424,8 @@ export default function ColorLab() {
       output = applyFade(staticFrame, analysis.features, analysis.width, analysis.height, timeMs);
     } else if (activeAnimation?.kind === "rainbow" || activeAnimation?.kind === "colorWave") {
       output = applyRainbowBlink(analysis.base, analysis.features, analysis.width, timeMs, activeAnimation.kind === "colorWave");
+    } else if (activeAnimation?.kind === "colorSparkle") {
+      output = applyColorSparkle(analysis.base, analysis.features, analysis.width, analysis.height, timeMs);
     } else if (activeAnimation?.kind === "forestKeyframes" && forestDataRef.current) {
       output = renderForestFrame(analysis.base, analysis.features, forestDataRef.current, analysis.width, analysis.height, timeMs);
     } else {
@@ -536,7 +585,7 @@ export default function ColorLab() {
       </section>
       <aside className="color-lab-controls">
         <div className="color-lab-panel-head"><strong>色区参数</strong><span>{sourceOnly ? "按原始色区做时序变化" : "主体色驱动主题"}</span></div>
-        {sourceOnly ? <div className="static-notice"><ImagePlus size={19} /><strong>{staticOnly ? "该函数保留静态详情图" : selectedEffectId === "styleForest" ? "森林关键帧" : selectedEffectId === "effectRainbow" ? "彩虹闪烁" : "色彩波动"}</strong><span>{staticOnly ? "冰火不套用通用调色。" : selectedEffectId === "styleForest" ? "关键帧来自 styleForest() 的真实仿真帧，播放时在空间灯带路径上插值。" : "多色动态不重新选色，仅改变各色区的亮度和 RGB，保持原始色彩关系。"}</span>{selectedEffectId === "styleForest" && <div className="forest-keyframes">{FOREST_KEYFRAME_INDICES.map((frame, index) => <figure key={frame}><canvas ref={(node) => { forestThumbRefs.current[index] = node; }} /><figcaption>仿真帧 {frame}</figcaption></figure>)}</div>}</div> : editableRegions.map((region, index) => <section className={`region-control ${activeRegion === index ? "active" : ""}`} key={region.id}>
+        {sourceOnly ? <div className="static-notice"><ImagePlus size={19} /><strong>{staticOnly ? "该函数保留静态详情图" : selectedEffectId === "styleForest" ? "森林关键帧" : selectedEffectId === "effectRainbow" ? "彩虹循环" : selectedEffectId === "effectColorSparkle" ? "彩虹闪烁" : "色彩波动"}</strong><span>{staticOnly ? "冰火不套用通用调色。" : selectedEffectId === "styleForest" ? "关键帧来自 styleForest() 的真实仿真帧，播放时在空间灯带路径上插值；背景色区同步缓慢漂移。" : selectedEffectId === "effectColorSparkle" ? "保持每个色区原有彩虹色，只改变各灯点的明暗，模拟随机星闪。" : "多色动态不重新选色，仅改变各色区的亮度和 RGB，保持原始色彩关系。"}</span>{selectedEffectId === "styleForest" && <div className="forest-keyframes">{FOREST_KEYFRAME_INDICES.map((frame, index) => <figure key={frame}><canvas ref={(node) => { forestThumbRefs.current[index] = node; }} /><figcaption>仿真帧 {frame}</figcaption></figure>)}</div>}</div> : editableRegions.map((region, index) => <section className={`region-control ${activeRegion === index ? "active" : ""}`} key={region.id}>
           <button type="button" className="region-select" onClick={() => setActiveRegion(index)}><span className="region-dot" style={{ background: region.target }} /><strong>{region.label}</strong><small>{activeRegion === index ? "取样中" : "点击激活"}</small></button>
           <label className="color-field"><span>目标颜色</span><input type="color" value={region.target} onChange={(event) => updateRegion(index, { target: event.target.value })} /></label>
           <label className="range-field"><span>颜色容差 <b>{region.tolerance}</b></span><input type="range" min="12" max="100" value={region.tolerance} onChange={(event) => changeTolerance(index, event.target.value)} /></label>

@@ -172,7 +172,7 @@ select { height: 36px; min-width: 120px; padding: 0 12px; border: 1px solid #d5d
 .static-notice { display: grid; justify-items: start; gap: 9px; padding: 24px 17px 26px; color: #73827b; font-size: 11px; line-height: 1.6; }
 .static-notice svg { color: #c26b53; }
 .static-notice strong { color: #455950; font-size: 12px; }
-.forest-keyframes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; margin-top: 6px; }
+.forest-keyframes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; margin-top: 6px; }
 .forest-keyframes figure { margin: 0; min-width: 0; }
 .forest-keyframes canvas { display: block; width: 100%; height: auto; border: 1px solid #d6e0db; border-radius: 4px; background: #182a23; }
 .forest-keyframes figcaption { margin-top: 4px; color: #89958f; font: 9px Consolas, monospace; }

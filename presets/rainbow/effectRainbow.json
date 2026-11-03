@@ -1,7 +1,7 @@
 {
   "preset": {
     "id": "effectRainbow",
-    "label": "彩虹闪烁",
+    "label": "彩虹循环",
     "category": "彩虹",
     "call": "effectRainbow(3)",
     "colors": [

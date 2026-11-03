@@ -1,7 +1,7 @@
 {
   "preset": {
     "id": "effectColorSparkle",
-    "label": "彩色闪烁",
+    "label": "彩虹闪烁",
     "category": "闪烁",
     "call": "effectColorSparkle(70)",
     "colors": [

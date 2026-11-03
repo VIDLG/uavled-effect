@@ -1,7 +1,7 @@
 
 
-// --- Color sparkle (random colors) ---
-// 中文：彩色星闪，每次闪烁都会随机抽取颜色
+// --- Color sparkle (random rainbow colors) ---
+// 中文：彩虹闪烁，每颗灯随机抽取彩虹色并逐帧衰减
 function effectColorSparkle(density) {
     var count = getLedCount();
     density = clamp(density, 0, 100);
