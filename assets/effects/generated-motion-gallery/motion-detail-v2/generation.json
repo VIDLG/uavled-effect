@@ -1,0 +1,129 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "operation": "images.edit",
+  "size": "1536x1024",
+  "quality": "high",
+  "requestsRoot": "assets/effects/generated-motion-gallery",
+  "requests": [
+    {
+      "style": "styleLava",
+      "sourceFrames": [
+        0,
+        16,
+        32,
+        48
+      ],
+      "images": [
+        "motion-detail-v2/controls/styleLava-00.png",
+        "motion-detail-v2/references/styleLava.png"
+      ],
+      "inputSha256": [
+        "703918312d93aea975616a335823c10d63290781f888d99a37a98d2534abfe63",
+        "2a3c57b8115c731ecaa658923ac22e498415101ed83769f1dad5a85d751df87e"
+      ],
+      "prompt": "motion-detail-v2/prompts/styleLava-00.txt",
+      "output": "motion-detail-v2/raw/styleLava-00.png",
+      "outputSha256": "6ee3da0360ec82f1fc46b970937c106a4a0f85a49d0ca747eef6cda7fa0707d7"
+    },
+    {
+      "style": "styleLava",
+      "sourceFrames": [
+        64,
+        80,
+        96,
+        112
+      ],
+      "images": [
+        "motion-detail-v2/controls/styleLava-01.png",
+        "motion-detail-v2/references/styleLava.png"
+      ],
+      "inputSha256": [
+        "e7eea83e5f1b0469cce4d18cd588508b045492cc22b48ed22f137d303667fcf7",
+        "2a3c57b8115c731ecaa658923ac22e498415101ed83769f1dad5a85d751df87e"
+      ],
+      "prompt": "motion-detail-v2/prompts/styleLava-01.txt",
+      "output": "motion-detail-v2/raw/styleLava-01.png",
+      "outputSha256": "720d41562a855fbe9114516bf58337a23c1dc1bd5df5cb94798f9246f27b7dba"
+    },
+    {
+      "style": "styleGalaxy",
+      "sourceFrames": [
+        0,
+        32,
+        64,
+        96
+      ],
+      "images": [
+        "motion-detail-v2/controls/styleGalaxy-00.png",
+        "motion-detail-v2/references/styleGalaxy.png"
+      ],
+      "inputSha256": [
+        "2dbdb2b823202f16be264eb804daeaae7508c17519f63807fa92933adbd2f07a",
+        "56a7ea9ccd5ef4c1a927e13f16824de0bc2449039f1814a329e06eec57e5dfd8"
+      ],
+      "prompt": "motion-detail-v2/prompts/styleGalaxy-00.txt",
+      "output": "motion-detail-v2/raw/styleGalaxy-00.png",
+      "outputSha256": "828a969e99b236cd7ed2b128d1dd2a702f67263905738d0f29f841b974c47689"
+    },
+    {
+      "style": "styleGalaxy",
+      "sourceFrames": [
+        128,
+        160,
+        192,
+        224
+      ],
+      "images": [
+        "motion-detail-v2/controls/styleGalaxy-01.png",
+        "motion-detail-v2/references/styleGalaxy.png"
+      ],
+      "inputSha256": [
+        "c3eb8a069ce59c8fce57a0bd47652b6b46e573839ebab38666e1d5023476d79b",
+        "56a7ea9ccd5ef4c1a927e13f16824de0bc2449039f1814a329e06eec57e5dfd8"
+      ],
+      "prompt": "motion-detail-v2/prompts/styleGalaxy-01.txt",
+      "output": "motion-detail-v2/raw/styleGalaxy-01.png",
+      "outputSha256": "4225c8e02515e20ac991bb6f8081a5c4d7a2ada251433f6d15cea31c7e85c315"
+    },
+    {
+      "style": "styleNeon",
+      "sourceFrames": [
+        0,
+        14,
+        29,
+        44
+      ],
+      "images": [
+        "motion-detail-v2/controls/styleNeon-00.png",
+        "motion-detail-v2/references/styleNeon.png"
+      ],
+      "inputSha256": [
+        "1f0ce3ed77b501c6ca2d2d6dff38c104f404616585cc9d4ad0e8fd1bcc4064d5",
+        "939e0af6b8b338b674a852519c34259d0a282740b076eb5f0e374bdeaa753a7f"
+      ],
+      "prompt": "motion-detail-v2/prompts/styleNeon-00.txt",
+      "output": "motion-detail-v2/raw/styleNeon-00.png",
+      "outputSha256": "6fe79eab78aaee154fd93d001bb0c7319a6f1dd0ad868bc3037fe31e6ddba14f"
+    },
+    {
+      "style": "styleNeon",
+      "sourceFrames": [
+        59,
+        89,
+        119,
+        149
+      ],
+      "images": [
+        "motion-detail-v2/controls/styleNeon-01.png",
+        "motion-detail-v2/references/styleNeon.png"
+      ],
+      "inputSha256": [
+        "35e818c5921bb5f6409f63e772f380ffaf48083d5b6ffcd1a100a1d1bca79b1b",
+        "939e0af6b8b338b674a852519c34259d0a282740b076eb5f0e374bdeaa753a7f"
+      ],
+      "prompt": "motion-detail-v2/prompts/styleNeon-01.txt",
+      "output": "motion-detail-v2/raw/styleNeon-01.png",
+      "outputSha256": "ef9f8fcfa75b379c530ba67a631f35a5665a84cc9fb6d9621a1ef052a3829b3f"
+    }
+  ]
+}

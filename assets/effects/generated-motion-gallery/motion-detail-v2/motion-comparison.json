@@ -1,0 +1,43 @@
+{
+  "measurement": "Farneback optical flow on decoded frames 0.5 seconds apart, outer background only; mean of per-pair 75th-percentile displacement in pixels. Diagnostic, not perceptual acceptance.",
+  "effects": {
+    "styleLava": {
+      "before": {
+        "backgroundDisplacementPx": 0.07151222513879046,
+        "video": "styleLava-loop.mp4",
+        "fps": 60.0
+      },
+      "after": {
+        "backgroundDisplacementPx": 9.904362566330853,
+        "video": "styleLava-detail-v2-loop.mp4",
+        "fps": 60.0
+      }
+    },
+    "styleGalaxy": {
+      "before": {
+        "backgroundDisplacementPx": 0.07768578213803909,
+        "video": "styleGalaxy-loop.mp4",
+        "fps": 60.0
+      },
+      "after": {
+        "backgroundDisplacementPx": 8.957716212553137,
+        "video": "styleGalaxy-detail-v2-loop.mp4",
+        "fps": 60.0
+      }
+    },
+    "styleNeon": {
+      "before": {
+        "backgroundDisplacementPx": 0.18341127715327524,
+        "video": "styleNeon-loop.mp4",
+        "fps": 60.0
+      },
+      "after": {
+        "backgroundDisplacementPx": 8.313967054540461,
+        "video": "styleNeon-detail-v2-loop.mp4",
+        "fps": 60.0
+      }
+    }
+  },
+  "verifiedEditRequests": 6,
+  "heartbeatSha256Unchanged": true
+}

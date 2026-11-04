@@ -200,7 +200,7 @@ Lock drone silhouette, four dense guard grills, propellers, body, camera, size a
     print("Prepared four source-position storyboard targets and exact edit prompts.")
 
 
-def align_generated(image, field):
+def align_generated(image, field, background_only=False):
     region = np.zeros((HEIGHT, WIDTH), np.uint8)
     region[45:435, 160:610] = 255
     region[field.mask > .01] = 0
@@ -219,7 +219,8 @@ def align_generated(image, field):
     if transform is None or inliers.sum() < 12:
         raise ValueError("Generated frame cannot be reliably aligned")
     scale = np.hypot(transform[0, 0], transform[1, 0])
-    if not .94 < scale < 1.06 or abs(transform[:, 2]).max() > 24:
+    low,high,translation=(.85,1.15,60) if background_only else (.94,1.06,24)
+    if not low < scale < high or abs(transform[:, 2]).max() > translation:
         raise ValueError(f"Generated frame moved the drone too much: {transform.tolist()}")
     return cv2.warpAffine(image, transform, (WIDTH, HEIGHT), borderMode=cv2.BORDER_REFLECT_101), {
         "transform": transform.tolist(), "inliers": int(inliers.sum())}

@@ -1,0 +1,15 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "styles": [
+    "styleLava",
+    "styleGalaxy",
+    "styleNeon"
+  ],
+  "background": "Eight full-RGB generated phases, light structures visibly displaced/deformed; forward transport between anchors, periodic wrap. No extraction to a scalar brightness ratio.",
+  "emitters": "Fixed original high-frequency white-core microtexture, dark inter-emitter gaps, narrow halo; no generated strip texture or blur. Source RGB controls color and brightness.",
+  "motion": {
+    "styleLava": "Molten tongues and branching hot ridges descend diagonally; distinct crest positions and crack illumination at each phase.",
+    "styleGalaxy": "Nebula filaments shift left/up; star clusters change sparkle state and luminous wave-front shape.",
+    "styleNeon": "Background scanning lines and reflective streaks move left; strip itself follows actual intermittent color blocks, not an invented chase."
+  }
+}

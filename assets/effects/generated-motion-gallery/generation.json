@@ -149,5 +149,13 @@
       "styleHeartbeat"
     ],
     "manifest": "motion-expansion-v1/generation.json"
+  },
+  "motionDetailRevision": {
+    "effects": [
+      "styleLava",
+      "styleGalaxy",
+      "styleNeon"
+    ],
+    "manifest": "motion-detail-v2/generation.json"
   }
 }

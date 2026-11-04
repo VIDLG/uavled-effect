@@ -30,7 +30,13 @@ def paths(style):
 def background(field, seconds, colors, detail):
     period = field.definition.get('periodFrames',256)/30
     phase = 2*np.pi*(field.x/768*1.3 + field.y/512*.7)
-    scene=field.base.astype(np.float32)
+    if len(getattr(field,'rgb_backgrounds',[]))==len(field.definition['keyframes']):
+        from album_detail_v2 import scene_at
+        scene=scene_at(field,seconds)
+    elif hasattr(field,'control_background'):
+        scene=field.control_background
+    else:
+        scene=field.base.astype(np.float32)
     if field.style == 'styleNeon':
         cyan=(scene[...,1]>scene[...,0]*1.3)&(scene[...,2]>scene[...,0]*1.3)
         scene[cyan]=scene[cyan].max(axis=1,keepdims=True)*np.array([.28,.04,1])
