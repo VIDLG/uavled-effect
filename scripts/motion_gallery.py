@@ -13,7 +13,8 @@ from source_motion import (MotionField, sample_source, smoothstep, resample_path
                            replace_regions, display_exposure, save_image, align_generated)
 from album_background import REVISION, TARGETS, VIDEO_SUFFIX, backdrop
 from album_extensions import STYLES as EXTRA_STYLES, REVISION as EXTRA_REVISION, paths as extra_paths, background as extra_background
-from album_detail_v2 import STYLES as DETAIL_STYLES, REVISION as DETAIL_REVISION, sharpen_emitters, clean_background
+from album_detail_v2 import STYLES as DETAIL_STYLES, REVISION as DETAIL_REVISION, configure_foreground, clean_background
+from album_foreground_v3 import REVISION as FOREGROUND_REVISION
 
 ROOT = Path("assets/effects/generated-motion-gallery")
 PREVIOUS = Path("assets/effects/generated-keyframe-experiments/source-motion-v1")
@@ -81,7 +82,7 @@ class AlbumField(MotionField):
             super().__init__(definition["id"], frames, base=current, paths=album_paths(definition["id"]))
             self.art_saturation = cv2.cvtColor(base,cv2.COLOR_RGB2HSV)[...,1].astype(np.float32)/255
             if self.style in DETAIL_STYLES:
-                sharpen_emitters(self)
+                configure_foreground(self)
             if self.revised:
                 # Preserve the old physical emitter texture/exposure exactly; the revision is in the scene.
                 hsv = cv2.cvtColor(base, cv2.COLOR_RGB2HSV).astype(np.float32)
@@ -106,6 +107,10 @@ class AlbumField(MotionField):
         colors = sample_source(self.frames, seconds, 30) if colors is None else colors
         if self.style in EXTRA_STYLES:
             background = extra_background(self, seconds, colors, detail)
+            if self.style in DETAIL_STYLES:
+                from album_foreground_v3 import light_layer
+                output = replace_regions(self.base,background,self.background_mask)
+                return replace_regions(output,light_layer(self,colors),self.band_mask)
             band = self.at_coordinate(colors,self.coordinate)*self.band_texture[...,None]
             if detail is not None:
                 band *= detail[...,None]
@@ -276,7 +281,7 @@ def export(root, styles=None):
             ImageDraw.Draw(contact).text((x+8, y+4), f"{index/30:.2f}s | source {index:03}", fill="white")
         save_image(contact, root/f"{style}-keyframes.jpg", quality=92)
 
-        output = root/f'{style}-detail-v2-loop.mp4' if style in DETAIL_STYLES else root/definition['video'] if definition.get('video') else root/f"{style}-{VIDEO_SUFFIX}" if field.revised else root/f"{style}-loop.mp4"
+        output = root/f'{style}-foreground-v3-loop.mp4' if style in DETAIL_STYLES else root/definition['video'] if definition.get('video') else root/f"{style}-{VIDEO_SUFFIX}" if field.revised else root/f"{style}-loop.mp4"
         temporary = root/f".{style}-{uuid.uuid4().hex}.mp4"
         encoder = subprocess.Popen(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
             "-s", "768x512", "-r", "60", "-i", "-", "-an", "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p",
@@ -320,7 +325,7 @@ def export(root, styles=None):
             catalog[style]['revision'] = REVISION.name
         if definition.get('renderRevision'):
             catalog[style]['revision'] = definition['renderRevision']
-        if style in DETAIL_STYLES: catalog[style]['revision']=DETAIL_REVISION.name
+        if style in DETAIL_STYLES: catalog[style]['revision']=FOREGROUND_REVISION.name
         print(f"{style}: closed-loop seam MAE={seam:.4f}, neutral error={neutral_error}", flush=True)
 
     (root/"index.json").write_text(json.dumps({"effects": [catalog[d['id']] for d in data['definitions'] if d['id'] in catalog]}, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
@@ -360,6 +365,7 @@ def export(root, styles=None):
             detail_requests = merged_requests(DETAIL_REVISION/'generation.json', detail_requests)
             (DETAIL_REVISION/'generation.json').write_text(json.dumps({'model':'gpt-image-2.5-flare','operation':'images.edit','size':'1536x1024','quality':'high','requestsRoot':root.as_posix(),'requests':detail_requests},indent=2)+'\n',encoding='utf-8')
             generation['motionDetailRevision']={'effects':list(DETAIL_STYLES),'manifest':f'{DETAIL_REVISION.name}/generation.json'}
+            generation['motionForegroundRevision']={'effects':list(DETAIL_STYLES),'manifest':f'{FOREGROUND_REVISION.name}/render.json'}
         extra_requests = [request for request in requests if request['style'] in EXTRA_STYLES and request['style'] not in DETAIL_STYLES]
         if extra_requests or (styles and 'styleHeartbeat' in styles):
             extra_requests = merged_requests(EXTRA_REVISION/'generation.json', extra_requests)

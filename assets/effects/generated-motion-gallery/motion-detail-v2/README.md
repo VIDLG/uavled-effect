@@ -1,5 +1,7 @@
 # Lava / Galaxy / Neon: background movement and emitter detail
 
+The background phases remain in use. The foreground treatment was corrected in `../foreground-detail-v3/` to restore original LED size, position and bright-core profiles and remove the convex side plate. Current exports select `*-foreground-v3-loop.mp4`; this folder's prior videos and generation inputs are historical evidence.
+
 The previous renderer retained a fixed scene and used generated anchors only as a blurred scalar brightness ratio. Its prompts also locked background geometry. Generated phases therefore looked nearly identical. Saturated halos had a high brightness floor, filling inter-emitter gaps with color.
 
 This revision changes only Lava, Galaxy and Neon. Heartbeat and the other album videos remain intact.

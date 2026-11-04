@@ -11,22 +11,15 @@ REVISION=ROOT/'motion-detail-v2'
 STYLES=('styleLava','styleGalaxy','styleNeon')
 
 
-def sharpen_emitters(field):
-    hsv=cv2.cvtColor(field.base,cv2.COLOR_RGB2HSV).astype(np.float32)
-    white=hsv[...,2]*(1-hsv[...,1]/255)
-    peaks=np.maximum(white-cv2.GaussianBlur(white,(0,0),2),0)
-    field.band_texture=.025+.975*np.clip(peaks/100,0,1)**.8
-    # The physical path is fixed; broad halos must not fill the gaps between LEDs.
-    field.band_mask=np.maximum(1-smoothstep(2.5,4.5,field.distance),
-        .16*(1-smoothstep(4.5,9,field.distance)))
+def configure_foreground(field):
+    # A hull is useful for removing generated drone pixels from the background,
+    # but must never be the visible foreground mask.
     hull=np.vstack([field.left,field.right,[[200,25],[568,25],[310,445],[458,445]]]).astype(np.int32)
     inside=np.zeros((512,768),np.uint8)
     cv2.fillConvexPoly(inside,cv2.convexHull(hull),1)
     field.protected_hull=inside
-    outside=cv2.distanceTransform(1-inside,cv2.DIST_L2,5)
-    field.background_mask *= smoothstep(0,8,outside)
-    field.motion_weight=smoothstep(8,35,outside)
-    field.mask=np.maximum(field.background_mask,field.band_mask)
+    from album_foreground_v3 import restore_emitters
+    restore_emitters(field)
 
 
 def clean_background(field,image):

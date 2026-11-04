@@ -46,6 +46,23 @@ class LoopTests(unittest.TestCase):
             if definition.get('existing'):
                 continue
             field = AlbumField(definition, data['styles'][definition['id']])
+            if hasattr(field,'emitter_centers'):
+                # White cores retain the source artwork's neutral highlights. Hue
+                # lives in their chromatic component, checked below clipping.
+                for index in (0,64,128,224):
+                    colors=field.frames[index]*.15
+                    frame=field.render(index/30,colors=colors)
+                    points=np.array(field.emitter_centers)
+                    actual=frame[points[:,1],points[:,0]].astype(np.float32)
+                    expected=colors[points[:,2]]
+                    a=actual-actual.min(axis=1,keepdims=True)
+                    b=expected-expected.min(axis=1,keepdims=True)
+                    active=(a.max(axis=1)>8)&(b.max(axis=1)>1)
+                    self.assertTrue(active.any(),definition['id'])
+                    a/=np.maximum(a.max(axis=1,keepdims=True),1)
+                    b/=np.maximum(b.max(axis=1,keepdims=True),1)
+                    self.assertLess(float(np.abs(a-b)[active].mean()),.04,definition['id'])
+                continue
             for index in (0, 64, 128, 224):
                 frame = field.render(index/30)
                 np.testing.assert_array_equal(frame[field.mask == 0], field.base[field.mask == 0])

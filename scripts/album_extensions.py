@@ -40,7 +40,11 @@ def background(field, seconds, colors, detail):
     if field.style == 'styleNeon':
         cyan=(scene[...,1]>scene[...,0]*1.3)&(scene[...,2]>scene[...,0]*1.3)
         scene[cyan]=scene[cyan].max(axis=1,keepdims=True)*np.array([.28,.04,1])
-    rgb = backdrop(scene,field.distance,phase,seconds,detail,period)
+    if hasattr(field,'material_matte'):
+        from album_foreground_v3 import background as foreground_background
+        rgb = foreground_background(field,scene,seconds,period)
+    else:
+        rgb = backdrop(scene,field.distance,phase,seconds,detail,period)
     if field.style == 'styleHeartbeat':
         # One brightness for both complete strips; pulse only chromatic scene motifs.
         level = float(colors.max())/max(float(field.frames.max()),1)

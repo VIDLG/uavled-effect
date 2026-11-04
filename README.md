@@ -17,7 +17,7 @@ The initial split was checked against the former aggregate files: 98 prelude fun
 
 ## Visual assets and dynamics
 
-Lava/Galaxy/Neon now select `*-detail-v2-loop.mp4`. Their regenerated spatial background phases, sharper emitter treatment, exact prompts and source mapping are documented in `assets/effects/generated-motion-gallery/motion-detail-v2/`. Heartbeat retains its approved single-artwork rendering.
+Lava/Galaxy/Neon now select `*-foreground-v3-loop.mp4`. The original LED footprints and softer scene boundary are restored; correction rules, masks and comparisons are in `assets/effects/generated-motion-gallery/foreground-detail-v3/`. Moving RGB background phases, exact image-generation prompts and source mapping remain in `assets/effects/generated-motion-gallery/motion-detail-v2/`. Heartbeat retains its approved single-artwork rendering.
 
 The motion gallery now includes four additional albums: Lava, Galaxy, Neon and Heartbeat. Their source mapping, prompts, generation provenance and calibration are in `assets/effects/generated-motion-gallery/motion-expansion-v1/`. Aurora's corrected independent strip paths and calibration evidence are in `assets/effects/generated-motion-gallery/calibration-v4/`; its selected video is `styleAurora-calibrated-v4-loop.mp4`.
 

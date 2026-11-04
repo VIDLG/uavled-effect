@@ -1,0 +1,39 @@
+{
+  "method": "Decoded-video Farneback displacement, 0.5 second pairs, 75th percentile across exterior background, then mean over time; diagnostic, not a perceptual score.",
+  "effects": {
+    "styleLava": {
+      "movingBackgroundV2": 9.740943684297449,
+      "restoredForegroundV3": 9.477895175709444,
+      "retention": 0.9729955826546823
+    },
+    "styleGalaxy": {
+      "movingBackgroundV2": 8.865584710065056,
+      "restoredForegroundV3": 8.933921701767865,
+      "retention": 1.007708120100102
+    },
+    "styleNeon": {
+      "movingBackgroundV2": 7.115053870461204,
+      "restoredForegroundV3": 7.887854012576017,
+      "retention": 1.1086147984519363
+    }
+  },
+  "oldVideosUnchanged": {
+    "assets/effects/generated-motion-gallery/styleAurora-background-v2-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleAurora-background-v3-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleAurora-calibrated-v4-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleAurora-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleCyberpunk-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleForest-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleGalaxy-detail-v2-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleGalaxy-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleHeartbeat-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleLava-detail-v2-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleLava-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleMatrix-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleNeon-detail-v2-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleNeon-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleOcean-background-v2-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleOcean-background-v3-loop.mp4": true,
+    "assets/effects/generated-motion-gallery/styleOcean-loop.mp4": true
+  }
+}

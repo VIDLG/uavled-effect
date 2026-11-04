@@ -285,7 +285,7 @@
         "#ff5310",
         "#ff9d35"
       ],
-      "video": "styleLava-detail-v2-loop.mp4",
+      "video": "styleLava-foreground-v3-loop.mp4",
       "poster": "posters/styleLava.jpg",
       "duration": 8.533333333333333,
       "fps": 60,
@@ -331,7 +331,7 @@
           "sourceFrame": 112
         }
       ],
-      "revision": "motion-detail-v2"
+      "revision": "foreground-detail-v3"
     },
     {
       "id": "styleGalaxy",
@@ -341,7 +341,7 @@
         "#4e33cf",
         "#b4bdff"
       ],
-      "video": "styleGalaxy-detail-v2-loop.mp4",
+      "video": "styleGalaxy-foreground-v3-loop.mp4",
       "poster": "posters/styleGalaxy.jpg",
       "duration": 8.533333333333333,
       "fps": 60,
@@ -387,7 +387,7 @@
           "sourceFrame": 224
         }
       ],
-      "revision": "motion-detail-v2"
+      "revision": "foreground-detail-v3"
     },
     {
       "id": "styleNeon",
@@ -397,7 +397,7 @@
         "#ec20cf",
         "#4933ef"
       ],
-      "video": "styleNeon-detail-v2-loop.mp4",
+      "video": "styleNeon-foreground-v3-loop.mp4",
       "poster": "posters/styleNeon.jpg",
       "duration": 6.0,
       "fps": 60,
@@ -443,7 +443,7 @@
           "sourceFrame": 149
         }
       ],
-      "revision": "motion-detail-v2"
+      "revision": "foreground-detail-v3"
     },
     {
       "id": "styleHeartbeat",

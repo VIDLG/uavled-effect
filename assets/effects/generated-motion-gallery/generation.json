@@ -157,5 +157,13 @@
       "styleNeon"
     ],
     "manifest": "motion-detail-v2/generation.json"
+  },
+  "motionForegroundRevision": {
+    "effects": [
+      "styleLava",
+      "styleGalaxy",
+      "styleNeon"
+    ],
+    "manifest": "foreground-detail-v3/render.json"
   }
 }

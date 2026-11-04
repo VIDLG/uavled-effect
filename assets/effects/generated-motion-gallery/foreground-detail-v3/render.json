@@ -1,0 +1,43 @@
+{
+  "operation": "render-only; no new image-generation requests",
+  "backgroundGeneration": "../motion-detail-v2/generation.json",
+  "effects": [
+    "styleLava",
+    "styleGalaxy",
+    "styleNeon"
+  ],
+  "foreground": {
+    "source": "assets/effects/generated-details/<style>-detail.png",
+    "footprint": "Original RGB max/min at the same pixel coordinates; no high-pass extraction of displayed texture, erosion or relocation. Bright-core landmarks partition colors only.",
+    "spatialColor": "Each observed core takes one nearest source LED state; diffuse halo blends neighboring source states. Neutral core highlights preserve original saturation profile.",
+    "exposure": "1.25*sqrt(source maximum / per-effect global source maximum), capped at 255; source-off is exactly zero.",
+    "boundary": "Connected actual material silhouette from GrabCut with documented seeds, filled rotor interiors, 0.65px edge feather; no convex visible plate or fixed 24px collar. Original rotor interiors remain static artwork.",
+    "motion": "Original RGB generated background phases reused; transport uses distance outside actual silhouette. Original foreground and effect/helper source files remain unchanged."
+  },
+  "assets": [
+    {
+      "path": "assets/effects/generated-details/styleLava-detail.png",
+      "sha256": "28b5820e024a1f86b8ef05efc8b59000fbe2a7d32383546a8f3b35b25d69faf1"
+    },
+    {
+      "path": "assets/effects/generated-motion-gallery/foreground-detail-v3/masks/styleLava.png",
+      "sha256": "5483fad8826ad3933acb538a734add6a8ea349ebc30419c2b58f700d5f226ad6"
+    },
+    {
+      "path": "assets/effects/generated-details/styleGalaxy-detail.png",
+      "sha256": "a32b4179c38c601a477fa481e033ea9a2001838ea008d29aa8e9d86b30bfb7c0"
+    },
+    {
+      "path": "assets/effects/generated-motion-gallery/foreground-detail-v3/masks/styleGalaxy.png",
+      "sha256": "c0483e7cda65a7d8aa9199450a8e3a7d39516ef3aeba50de352d010a42fcbd4b"
+    },
+    {
+      "path": "assets/effects/generated-details/styleNeon-detail.png",
+      "sha256": "06df8675192d6c501e7d55fe5c58faf5119d38425bd3f49ff798ddd2db0e2a69"
+    },
+    {
+      "path": "assets/effects/generated-motion-gallery/foreground-detail-v3/masks/styleNeon.png",
+      "sha256": "964166bf1c4497956ea6a0b0b9e0d1f407e6c6fe6182dafe950c7e77bd9bd002"
+    }
+  ]
+}
