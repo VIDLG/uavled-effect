@@ -12,6 +12,7 @@ from PIL import Image, ImageDraw
 from source_motion import (MotionField, sample_source, smoothstep, resample_path,
                            replace_regions, display_exposure, save_image, align_generated)
 from album_background import REVISION, TARGETS, VIDEO_SUFFIX, backdrop
+from album_extensions import STYLES as EXTRA_STYLES, REVISION as EXTRA_REVISION, paths as extra_paths, background as extra_background
 
 ROOT = Path("assets/effects/generated-motion-gallery")
 PREVIOUS = Path("assets/effects/generated-keyframe-experiments/source-motion-v1")
@@ -21,12 +22,12 @@ WIDTH, HEIGHT = 768, 512
 def loop_colors(frames, seconds, period=256, closure=12):
     position = (seconds*30) % period
     colors = sample_source(frames, position/30, 30)
-    weight = smoothstep(period-closure, period, position)
+    weight = smoothstep(period-closure, period, position) if closure else 0
     return colors*(1-weight) + frames[0]*weight
 
 
-def detail_segment(keys, position):
-    period = keys[-1] + keys[1]-keys[0]
+def detail_segment(keys, position, period=None):
+    period = period or keys[-1] + keys[1]-keys[0]
     position %= period
     left = min(len(keys)-1, max(0, int(np.searchsorted(keys, position, side="right"))-1))
     right = (left+1) % len(keys)
@@ -35,15 +36,24 @@ def detail_segment(keys, position):
 
 
 def album_paths(style):
+    if style in EXTRA_STYLES:
+        return extra_paths(style)
     if style == "styleForest":
         upper = [[176, 106], [164, 123], [155, 147], [157, 171], [166, 197], [179, 224], [184, 246]]
         lower = [[177, 258], [166, 280], [156, 305], [154, 331], [161, 358], [165, 389], [176, 420]]
     elif style == "styleOcean":
         upper = [[172, 107], [160, 125], [151, 148], [151, 171], [158, 195], [166, 218], [168, 241]]
         lower = [[173, 255], [160, 280], [150, 306], [148, 333], [153, 361], [164, 389], [178, 423]]
+    elif style == 'styleAurora':
+        # Independently traced emitter cores; the artwork is not exactly symmetric.
+        upper = [[163,106],[155,118],[146,138],[143,159],[143,175],[147,196],[157,215],[169,234],[177,252]]
+        lower = [[175,264],[163,281],[151,300],[142,331],[141,353],[146,375],[161,403],[179,420],[189,427]]
+        right_upper = [[599,105],[606,119],[614,138],[618,159],[618,175],[615,196],[605,215],[593,234],[585,252]]
+        right_lower = [[587,264],[598,283],[611,302],[618,331],[618,354],[614,375],[600,402],[583,420],[573,426]]
+        return (np.vstack([resample_path(upper,20),resample_path(lower,20)]),
+                np.vstack([resample_path(right_upper,20),resample_path(right_lower,20)]))
     else:
-        upper = [[165, 107], [152, 127], [144, 149], [144, 174], [150, 198], [159, 219], [160, 241]]
-        lower = [[165, 255], [151, 282], [142, 309], [140, 338], [145, 368], [159, 400], [175, 433]]
+        raise ValueError(f'No calibrated artwork path for {style}')
     left = np.vstack([resample_path(upper, 20), resample_path(lower, 20)])
     right = left.copy()
     right[:, 0] = WIDTH-right[:, 0]
@@ -61,11 +71,18 @@ class AlbumField(MotionField):
             base = np.asarray(image.resize((WIDTH, HEIGHT), Image.Resampling.LANCZOS))
             current = np.asarray(Image.open(REVISION/'bases'/f"{definition['id']}.png").convert('RGB')) if self.revised else base
             super().__init__(definition["id"], frames, base=current, paths=album_paths(definition["id"]))
+            self.art_saturation = cv2.cvtColor(base,cv2.COLOR_RGB2HSV)[...,1].astype(np.float32)/255
             if self.revised:
                 # Preserve the old physical emitter texture/exposure exactly; the revision is in the scene.
                 hsv = cv2.cvtColor(base, cv2.COLOR_RGB2HSV).astype(np.float32)
                 self.band_texture = np.clip(hsv[..., 2]/255*(1-.72*hsv[..., 1]/255)*1.2, .025, 1)
                 self.background_mask = np.asarray(Image.open(REVISION/'masks'/f"{definition['id']}.png").convert('L'), np.float32)/255
+                if self.style == 'styleAurora':
+                    # Old composition protected an approximate tube. Reclaim colored
+                    # halos left outside the corrected carrier instead of freezing them.
+                    saturation = cv2.cvtColor(current,cv2.COLOR_RGB2HSV)[...,1].astype(np.float32)/255
+                    unclaimed = smoothstep(.4,.65,saturation)*(1-smoothstep(18,26,self.distance))
+                    self.background_mask = np.maximum(self.background_mask,unclaimed)
                 self.mask = np.maximum(self.background_mask, self.band_mask)
         self.angle = np.arctan2(self.y-HEIGHT/2, self.x-WIDTH/2)
         self.radius = np.hypot(self.x-WIDTH/2, self.y-HEIGHT/2)
@@ -77,6 +94,13 @@ class AlbumField(MotionField):
         if self.definition.get("existing"):
             return super().render(seconds, detail, colors)
         colors = sample_source(self.frames, seconds, 30) if colors is None else colors
+        if self.style in EXTRA_STYLES:
+            background = extra_background(self, seconds, colors, detail)
+            band = self.at_coordinate(colors,self.coordinate)*self.band_texture[...,None]
+            if detail is not None:
+                band *= detail[...,None]
+            output = replace_regions(self.base,background,self.background_mask)
+            return replace_regions(output,display_exposure(band,2.8),self.band_mask)
         if self.revised:
             background = backdrop(self.scene, self.distance, self.background_phase, seconds, detail)
             band = self.at_coordinate(colors, self.coordinate)*self.band_texture[..., None]
@@ -102,8 +126,9 @@ class AlbumField(MotionField):
 
 
 def advect(field, detail, seconds):
-    if field.style in ("styleForest", "styleOcean"):
-        speed = -30*(3/32 if field.style == "styleForest" else 3/30)*2*np.pi/40
+    if field.style in ("styleForest", "styleOcean", "styleLava", "styleGalaxy"):
+        rate={'styleForest':3/32,'styleOcean':3/30,'styleLava':2/45,'styleGalaxy':2/34}[field.style]
+        speed = -30*rate*2*np.pi/40
         theta = field.angle-speed*seconds
         x = WIDTH/2 + field.radius*np.cos(theta)
         y = HEIGHT/2 + field.radius*np.sin(theta)
@@ -111,23 +136,25 @@ def advect(field, detail, seconds):
         vx, vy = {
             "styleCyberpunk": (-30*4/42*17/2, -30*4/42*17/2),
             "styleMatrix": (0, 130), "styleAurora": (-30*2/28*WIDTH/39, 0),
+            "styleNeon": (-30*2/45*WIDTH/39,0), "styleHeartbeat": (0,0),
         }[field.style]
         x, y = field.x-vx*seconds, field.y-vy*seconds
     return cv2.remap(detail, x.astype(np.float32), y.astype(np.float32), cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT_101)
 
 
 def loop_detail(field, details, keys, seconds):
-    period = keys[-1]+keys[1]-keys[0]
+    period = field.definition.get('texturePeriodFrames',keys[-1]+keys[1]-keys[0])
     position = (seconds*30) % period
-    a, b, amount, start, end = detail_segment(keys, position)
+    a, b, amount, start, end = detail_segment(keys, position, period)
     moving = advect(field, details[a], (position-start)/30)*(1-amount) + advect(field, details[b], (position-end)/30)*amount
     fixed = details[a]*(1-amount)+details[b]*amount
     return moving*(1-field.band_mask)+fixed*field.band_mask
 
 
 def render_loop(field, details, keys, seconds):
-    seconds %= 256/30
-    colors = loop_colors(field.frames, seconds)
+    period = field.definition.get('periodFrames',256)
+    seconds %= period/30
+    colors = loop_colors(field.frames, seconds, period, field.definition.get('closureFrames',12))
     detail = loop_detail(field, details, keys, seconds)
     frame = field.render(seconds, detail, colors)
     # Random Matrix birth histories do not repeat every 256 frames. Close their
@@ -146,6 +173,8 @@ def prepare(root):
     calibration = {}
     for definition in data["definitions"]:
         style = definition["id"]
+        if style in EXTRA_STYLES:
+            continue
         field = AlbumField(definition, data["styles"][style], revised=False)
         calibration[style] = {"left": field.left.tolist(), "right": field.right.tolist()}
         if definition.get("existing"):
@@ -174,6 +203,8 @@ Background motion: {('green canopy fronts and yellow-green firefly highlights tr
             (root/"prompts"/f"{style}-{batch:02}.txt").write_text(prompt, encoding="utf-8")
     (root/"calibration.json").write_text(json.dumps(calibration, indent=2)+"\n")
     print("Prepared source-position controls and prompts for Forest, Ocean and Aurora.")
+    from album_extensions import prepare as prepare_extra
+    prepare_extra()
 
 
 def export(root, styles=None):
@@ -186,9 +217,9 @@ def export(root, styles=None):
         if styles and style not in styles:
             continue
         field = AlbumField(definition, data["styles"][style])
-        raw_root = REVISION/'raw' if field.revised else PREVIOUS/"raw" if definition.get("existing") else root/"raw"
+        raw_root = EXTRA_REVISION/'raw' if style in EXTRA_STYLES else REVISION/'raw' if field.revised else PREVIOUS/"raw" if definition.get("existing") else root/"raw"
         details, alignments = [], []
-        for batch in range(2):
+        for batch in range(0 if definition.get('singleArtwork') else 2):
             raw_path = raw_root/f"{style}-{batch:02}.png"
             with Image.open(raw_path) as grid:
                 assert grid.size == (1536, 1024), grid.size
@@ -202,17 +233,22 @@ def export(root, styles=None):
                     details.append(cv2.GaussianBlur(np.clip(ratio, .75, 1.35), (5, 5), .8))
                     alignments.append({"sourceFrame": index, **stats})
             if not definition.get("existing"):
-                prefix = f'{REVISION.name}/' if field.revised else ''
-                inputs = [f"{prefix}controls/{style}-{batch:02}.png", f"{prefix}bases/{style}.png" if field.revised else f"references/{style}.png"]
+                prefix = f'{EXTRA_REVISION.name}/' if style in EXTRA_STYLES else f'{REVISION.name}/' if field.revised else ''
+                inputs = [f"{prefix}controls/{style}-{batch:02}.png", f"{prefix}bases/{style}.png" if field.revised else f"{prefix}references/{style}.png"]
                 requests.append({"style": style, "sourceFrames": keys[batch*4:batch*4+4],
                     "images": inputs, "inputSha256": [hashlib.sha256((root/p).read_bytes()).hexdigest() for p in inputs],
                     "prompt": f"{prefix}prompts/{style}-{batch:02}.txt", "output": f"{prefix}raw/{style}-{batch:02}.png",
                     "outputSha256": hashlib.sha256(raw_path.read_bytes()).hexdigest()})
 
+        if definition.get('singleArtwork'):
+            details = [np.ones((HEIGHT,WIDTH),np.float32) for _ in keys]
+        period = definition.get('periodFrames',256)
+        duration, frame_count = period/30, period*2
         first = render_loop(field, details, keys, 0)
-        endpoint = render_loop(field, details, keys, 256/30)
+        endpoint = render_loop(field, details, keys, duration)
         assert np.array_equal(first, endpoint), f"Loop endpoint mismatch: {style}"
-        save_image(Image.fromarray(first), root/"posters"/f"{style}.jpg", quality=92)
+        poster = render_loop(field,details,keys,definition.get('posterFrame',0)/30)
+        save_image(Image.fromarray(poster), root/"posters"/f"{style}.jpg", quality=92)
         contact = Image.new("RGB", (1536, 552), (17, 22, 23))
         thumbnails = []
         for n, index in enumerate(keys):
@@ -225,7 +261,7 @@ def export(root, styles=None):
             ImageDraw.Draw(contact).text((x+8, y+4), f"{index/30:.2f}s | source {index:03}", fill="white")
         save_image(contact, root/f"{style}-keyframes.jpg", quality=92)
 
-        output = root/f"{style}-{VIDEO_SUFFIX}" if field.revised else root/f"{style}-loop.mp4"
+        output = root/definition['video'] if definition.get('video') else root/f"{style}-{VIDEO_SUFFIX}" if field.revised else root/f"{style}-loop.mp4"
         temporary = root/f".{style}-{uuid.uuid4().hex}.mp4"
         encoder = subprocess.Popen(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
             "-s", "768x512", "-r", "60", "-i", "-", "-an", "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p",
@@ -234,7 +270,7 @@ def export(root, styles=None):
         previous, last, error = None, None, None
         points = np.round(field.left).astype(int)
         try:
-            for n in range(512):
+            for n in range(frame_count):
                 frame = render_loop(field, details, keys, n/60)
                 neutral_error = max(neutral_error, int(np.abs(frame[field.mask == 0].astype(int)-field.base[field.mask == 0].astype(int)).max()))
                 if previous is not None:
@@ -243,7 +279,7 @@ def export(root, styles=None):
                 trace.append(frame[points[:, 1], points[:, 0]])
                 encoder.stdin.write(frame.tobytes())
                 if n % 128 == 0:
-                    print(f"{style}: {n}/512 loop frames", flush=True)
+                    print(f"{style}: {n}/{frame_count} loop frames", flush=True)
         except BaseException as exc:
             error = exc
         finally:
@@ -257,19 +293,21 @@ def export(root, styles=None):
         temporary.replace(output)
         assert neutral_error == 0
         seam = float(np.abs(last.astype(np.float32)-first).mean())
-        verification[style] = {"generatedKeyframes": 8, "sourceFrames": 257, "renderFrames": 512, "fps": 60,
-            "duration": 256/30, "closureSourceFrames": 12, "neutralMaxDifference": neutral_error,
+        verification[style] = {"generatedKeyframes": 0 if definition.get('singleArtwork') else 8, "singleArtwork": bool(definition.get('singleArtwork')), "sourceFrames": len(field.frames), "renderFrames": frame_count, "fps": 60,
+            "duration": duration, "closureSourceFrames": definition.get('closureFrames',12), "neutralMaxDifference": neutral_error,
             "endpointMaxDifference": int(np.abs(endpoint.astype(int)-first.astype(int)).max()),
             "lastToFirstRgbMAE": seam, "meanAdjacentRgbMAE": float(np.mean(adjacent)), "alignment": alignments}
         save_image(Image.fromarray(np.stack(trace, axis=1)).resize((1024, 160), Image.Resampling.NEAREST), root/f"{style}-space-time.png")
         catalog[style] = {k: definition[k] for k in ("id", "label", "description", "palette")}
-        catalog[style].update({"video": output.name, "poster": f"posters/{style}.jpg", "duration": 256/30,
+        catalog[style].update({"video": output.name, "poster": f"posters/{style}.jpg", "duration": duration,
                            "fps": 60, "keyframes": thumbnails})
         if field.revised:
             catalog[style]['revision'] = REVISION.name
+        if definition.get('renderRevision'):
+            catalog[style]['revision'] = definition['renderRevision']
         print(f"{style}: closed-loop seam MAE={seam:.4f}, neutral error={neutral_error}", flush=True)
 
-    (root/"index.json").write_text(json.dumps({"effects": [catalog[d['id']] for d in data['definitions']]}, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+    (root/"index.json").write_text(json.dumps({"effects": [catalog[d['id']] for d in data['definitions'] if d['id'] in catalog]}, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     (root/"verification.json").write_text(json.dumps(verification, indent=2)+"\n", encoding="utf-8")
     generation = {"model": "gpt-image-2.5-flare", "operation": "images.edit",
         "size": "1536x1024", "quality": "high", "sourceSha256": data["preludeSha256"],
@@ -277,9 +315,13 @@ def export(root, styles=None):
         "loopClosure": "Forward playback, last 12 source frames blend RGB to first state; generated detail wraps forward, never ping-pong",
         "sourceNote": "Aurora native-JavaScript ledHsv fractional branch yields magenta, unlike its comment; no source functions modified"}
     if any((REVISION/'bases'/f'{style}.png').exists() for style in TARGETS):
-        revision_requests = [request for request in requests if request['prompt'].startswith(REVISION.name+'/')]
+        calibrated_requests = [request for request in requests if request['style']=='styleAurora']
+        revision_requests = [request for request in requests if request['prompt'].startswith(REVISION.name+'/') and request['style']!='styleAurora']
         if revision_requests:
-            revised_generation = {**generation, 'requests': revision_requests, 'backgroundRequests': [],
+            saved_revision = json.loads((REVISION/'generation.json').read_text(encoding='utf-8'))
+            merged = {request['output']:request for request in saved_revision['requests']}
+            merged.update({request['output']:request for request in revision_requests})
+            revised_generation = {**generation, 'requests': list(merged.values()), 'backgroundRequests': [],
                 'requestsRoot': root.as_posix(), 'backgroundRequestsRoot': REVISION.as_posix()}
             for style in TARGETS:
                 raw = REVISION/'background-raw'/f'{style}.png'
@@ -291,14 +333,27 @@ def export(root, styles=None):
         generation = json.loads((root/'generation.json').read_text(encoding='utf-8'))
         generation['backgroundRevision'] = {'effects': list(TARGETS), 'manifest': f'{REVISION.name}/generation.json',
                                            'rules': f'{REVISION.name}/rules.json'}
+        if calibrated_requests:
+            correction = root/'calibration-v4'
+            (correction/'render.json').write_text(json.dumps({'operation':'render with corrected paths; no new API calls',
+                'reusedGeneratedInputs':calibrated_requests,'calibration':'calibration.json','video':'../styleAurora-calibrated-v4-loop.mp4',
+                'note':'Historical controls keep their original path positions. Generated color positions are not played back; bounded detail ratios are reused, while final RGB and masks follow the corrected physical paths.'},indent=2)+'\n',encoding='utf-8')
+            generation['calibrationRevision'] = {'effect':'styleAurora','manifest':'calibration-v4/render.json'}
+        extra_requests = [request for request in requests if request['style'] in EXTRA_STYLES]
+        if extra_requests or (styles and 'styleHeartbeat' in styles):
+            (EXTRA_REVISION/'generation.json').write_text(json.dumps({'model':'gpt-image-2.5-flare','operation':'images.edit','size':'1536x1024','quality':'high',
+                'requestsRoot':root.as_posix(),'requests':extra_requests,'singleArtwork':{'style':'styleHeartbeat',
+                'image':'references/styleHeartbeat.png','sha256':hashlib.sha256((EXTRA_REVISION/'references/styleHeartbeat.png').read_bytes()).hexdigest()},
+                'discardedTrial':'neon-initial-trial/diagnosis.json'},indent=2)+'\n',encoding='utf-8')
+            generation['motionExpansion'] = {'effects':list(EXTRA_STYLES),'manifest':f'{EXTRA_REVISION.name}/generation.json'}
     (root/"generation.json").write_text(json.dumps(generation, indent=2)+'\n', encoding='utf-8')
-    print("Saved the five-effect browser catalog and verification records.")
+    print("Saved the selected-effect browser catalog and verification records.")
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("prepare", "export"))
-    parser.add_argument('--styles', nargs='+', choices=('styleCyberpunk', 'styleMatrix', 'styleForest', 'styleOcean', 'styleAurora'))
+    parser.add_argument('--styles', nargs='+', choices=('styleCyberpunk', 'styleMatrix', 'styleForest', 'styleOcean', 'styleAurora', *EXTRA_STYLES))
     args = parser.parse_args()
     if args.mode == "prepare":
         prepare(ROOT)

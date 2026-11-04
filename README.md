@@ -17,6 +17,8 @@ The initial split was checked against the former aggregate files: 98 prelude fun
 
 ## Visual assets and dynamics
 
+The motion gallery now includes four additional albums: Lava, Galaxy, Neon and Heartbeat. Their source mapping, prompts, generation provenance and calibration are in `assets/effects/generated-motion-gallery/motion-expansion-v1/`. Aurora's corrected independent strip paths and calibration evidence are in `assets/effects/generated-motion-gallery/calibration-v4/`; its selected video is `styleAurora-calibrated-v4-loop.mp4`.
+
 The reusable image assets are committed under `assets/` and are grouped by purpose:
 
 | Category | Location | Contents |

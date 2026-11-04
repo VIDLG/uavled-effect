@@ -229,7 +229,7 @@
         "#d64bd8",
         "#6c2b8c"
       ],
-      "video": "styleAurora-background-v3-loop.mp4",
+      "video": "styleAurora-calibrated-v4-loop.mp4",
       "poster": "posters/styleAurora.jpg",
       "duration": 8.533333333333333,
       "fps": 60,
@@ -275,7 +275,231 @@
           "sourceFrame": 224
         }
       ],
-      "revision": "background-depth-v3"
+      "revision": "calibration-v4"
+    },
+    {
+      "id": "styleLava",
+      "label": "熔岩",
+      "description": "橙红热流沿灯带推进，岩层光纹缓慢起伏。",
+      "palette": [
+        "#ff5310",
+        "#ff9d35"
+      ],
+      "video": "styleLava-loop.mp4",
+      "poster": "posters/styleLava.jpg",
+      "duration": 8.533333333333333,
+      "fps": 60,
+      "keyframes": [
+        {
+          "time": 0.0,
+          "image": "keyframes/styleLava-000.jpg",
+          "sourceFrame": 0
+        },
+        {
+          "time": 0.5333333333333333,
+          "image": "keyframes/styleLava-016.jpg",
+          "sourceFrame": 16
+        },
+        {
+          "time": 1.0666666666666667,
+          "image": "keyframes/styleLava-032.jpg",
+          "sourceFrame": 32
+        },
+        {
+          "time": 1.6,
+          "image": "keyframes/styleLava-048.jpg",
+          "sourceFrame": 48
+        },
+        {
+          "time": 2.1333333333333333,
+          "image": "keyframes/styleLava-064.jpg",
+          "sourceFrame": 64
+        },
+        {
+          "time": 2.6666666666666665,
+          "image": "keyframes/styleLava-080.jpg",
+          "sourceFrame": 80
+        },
+        {
+          "time": 3.2,
+          "image": "keyframes/styleLava-096.jpg",
+          "sourceFrame": 96
+        },
+        {
+          "time": 3.7333333333333334,
+          "image": "keyframes/styleLava-112.jpg",
+          "sourceFrame": 112
+        }
+      ],
+      "revision": "motion-expansion-v1"
+    },
+    {
+      "id": "styleGalaxy",
+      "label": "银河",
+      "description": "蓝紫星云缓慢流动，零星白光独立闪现。",
+      "palette": [
+        "#4e33cf",
+        "#b4bdff"
+      ],
+      "video": "styleGalaxy-loop.mp4",
+      "poster": "posters/styleGalaxy.jpg",
+      "duration": 8.533333333333333,
+      "fps": 60,
+      "keyframes": [
+        {
+          "time": 0.0,
+          "image": "keyframes/styleGalaxy-000.jpg",
+          "sourceFrame": 0
+        },
+        {
+          "time": 1.0666666666666667,
+          "image": "keyframes/styleGalaxy-032.jpg",
+          "sourceFrame": 32
+        },
+        {
+          "time": 2.1333333333333333,
+          "image": "keyframes/styleGalaxy-064.jpg",
+          "sourceFrame": 64
+        },
+        {
+          "time": 3.2,
+          "image": "keyframes/styleGalaxy-096.jpg",
+          "sourceFrame": 96
+        },
+        {
+          "time": 4.266666666666667,
+          "image": "keyframes/styleGalaxy-128.jpg",
+          "sourceFrame": 128
+        },
+        {
+          "time": 5.333333333333333,
+          "image": "keyframes/styleGalaxy-160.jpg",
+          "sourceFrame": 160
+        },
+        {
+          "time": 6.4,
+          "image": "keyframes/styleGalaxy-192.jpg",
+          "sourceFrame": 192
+        },
+        {
+          "time": 7.466666666666667,
+          "image": "keyframes/styleGalaxy-224.jpg",
+          "sourceFrame": 224
+        }
+      ],
+      "revision": "motion-expansion-v1"
+    },
+    {
+      "id": "styleNeon",
+      "label": "霓虹",
+      "description": "紫红底色常亮，彩色色块周期闪变。",
+      "palette": [
+        "#ec20cf",
+        "#4933ef"
+      ],
+      "video": "styleNeon-loop.mp4",
+      "poster": "posters/styleNeon.jpg",
+      "duration": 6.0,
+      "fps": 60,
+      "keyframes": [
+        {
+          "time": 0.0,
+          "image": "keyframes/styleNeon-000.jpg",
+          "sourceFrame": 0
+        },
+        {
+          "time": 0.4666666666666667,
+          "image": "keyframes/styleNeon-014.jpg",
+          "sourceFrame": 14
+        },
+        {
+          "time": 0.9666666666666667,
+          "image": "keyframes/styleNeon-029.jpg",
+          "sourceFrame": 29
+        },
+        {
+          "time": 1.4666666666666666,
+          "image": "keyframes/styleNeon-044.jpg",
+          "sourceFrame": 44
+        },
+        {
+          "time": 1.9666666666666666,
+          "image": "keyframes/styleNeon-059.jpg",
+          "sourceFrame": 59
+        },
+        {
+          "time": 2.966666666666667,
+          "image": "keyframes/styleNeon-089.jpg",
+          "sourceFrame": 89
+        },
+        {
+          "time": 3.966666666666667,
+          "image": "keyframes/styleNeon-119.jpg",
+          "sourceFrame": 119
+        },
+        {
+          "time": 4.966666666666667,
+          "image": "keyframes/styleNeon-149.jpg",
+          "sourceFrame": 149
+        }
+      ],
+      "revision": "motion-expansion-v1"
+    },
+    {
+      "id": "styleHeartbeat",
+      "label": "心跳",
+      "description": "整条灯带同步双拍，短暂熄灭后再次跳动。",
+      "palette": [
+        "#ff0028",
+        "#72001b"
+      ],
+      "video": "styleHeartbeat-loop.mp4",
+      "poster": "posters/styleHeartbeat.jpg",
+      "duration": 6.0,
+      "fps": 60,
+      "keyframes": [
+        {
+          "time": 0.0,
+          "image": "keyframes/styleHeartbeat-000.jpg",
+          "sourceFrame": 0
+        },
+        {
+          "time": 0.23333333333333334,
+          "image": "keyframes/styleHeartbeat-007.jpg",
+          "sourceFrame": 7
+        },
+        {
+          "time": 0.5,
+          "image": "keyframes/styleHeartbeat-015.jpg",
+          "sourceFrame": 15
+        },
+        {
+          "time": 0.6333333333333333,
+          "image": "keyframes/styleHeartbeat-019.jpg",
+          "sourceFrame": 19
+        },
+        {
+          "time": 0.9,
+          "image": "keyframes/styleHeartbeat-027.jpg",
+          "sourceFrame": 27
+        },
+        {
+          "time": 1.1666666666666667,
+          "image": "keyframes/styleHeartbeat-035.jpg",
+          "sourceFrame": 35
+        },
+        {
+          "time": 2.966666666666667,
+          "image": "keyframes/styleHeartbeat-089.jpg",
+          "sourceFrame": 89
+        },
+        {
+          "time": 3.2333333333333334,
+          "image": "keyframes/styleHeartbeat-097.jpg",
+          "sourceFrame": 97
+        }
+      ],
+      "revision": "motion-expansion-v1"
     }
   ]
 }

@@ -1,0 +1,135 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "operation": "images.edit",
+  "size": "1536x1024",
+  "quality": "high",
+  "requestsRoot": "assets/effects/generated-motion-gallery",
+  "requests": [
+    {
+      "style": "styleLava",
+      "sourceFrames": [
+        0,
+        16,
+        32,
+        48
+      ],
+      "images": [
+        "motion-expansion-v1/controls/styleLava-00.png",
+        "motion-expansion-v1/references/styleLava.png"
+      ],
+      "inputSha256": [
+        "29b6afdd9b414536967fcc7c32fb6e55a800d0238ddba298fd74082e86e65db9",
+        "2a3c57b8115c731ecaa658923ac22e498415101ed83769f1dad5a85d751df87e"
+      ],
+      "prompt": "motion-expansion-v1/prompts/styleLava-00.txt",
+      "output": "motion-expansion-v1/raw/styleLava-00.png",
+      "outputSha256": "de09d9d33cc8538ae6d6b31bc527f5a9a22054860c16d7693cea3e7b912d04e1"
+    },
+    {
+      "style": "styleLava",
+      "sourceFrames": [
+        64,
+        80,
+        96,
+        112
+      ],
+      "images": [
+        "motion-expansion-v1/controls/styleLava-01.png",
+        "motion-expansion-v1/references/styleLava.png"
+      ],
+      "inputSha256": [
+        "4c3814de0955223d865b614b75fefa48b92cbbd4aa82bf45767323b1f68feb4b",
+        "2a3c57b8115c731ecaa658923ac22e498415101ed83769f1dad5a85d751df87e"
+      ],
+      "prompt": "motion-expansion-v1/prompts/styleLava-01.txt",
+      "output": "motion-expansion-v1/raw/styleLava-01.png",
+      "outputSha256": "09a859948c9b80b8c5cdf4b1d77af762e793efe32221f1b8965f4c465ec7a45f"
+    },
+    {
+      "style": "styleGalaxy",
+      "sourceFrames": [
+        0,
+        32,
+        64,
+        96
+      ],
+      "images": [
+        "motion-expansion-v1/controls/styleGalaxy-00.png",
+        "motion-expansion-v1/references/styleGalaxy.png"
+      ],
+      "inputSha256": [
+        "1898ed847eaa6f32e2b4471aa2a9bd0a8c93e9083af614e77129be529d9c0c1f",
+        "56a7ea9ccd5ef4c1a927e13f16824de0bc2449039f1814a329e06eec57e5dfd8"
+      ],
+      "prompt": "motion-expansion-v1/prompts/styleGalaxy-00.txt",
+      "output": "motion-expansion-v1/raw/styleGalaxy-00.png",
+      "outputSha256": "f06cd09ad984bf32f34739d59357c09fac8cf837863c71a8bf975b88d9ad6bb2"
+    },
+    {
+      "style": "styleGalaxy",
+      "sourceFrames": [
+        128,
+        160,
+        192,
+        224
+      ],
+      "images": [
+        "motion-expansion-v1/controls/styleGalaxy-01.png",
+        "motion-expansion-v1/references/styleGalaxy.png"
+      ],
+      "inputSha256": [
+        "fc209c731d6cc56918cc3486eaa300fceea18edf1d76a39b18443b86cc867b0f",
+        "56a7ea9ccd5ef4c1a927e13f16824de0bc2449039f1814a329e06eec57e5dfd8"
+      ],
+      "prompt": "motion-expansion-v1/prompts/styleGalaxy-01.txt",
+      "output": "motion-expansion-v1/raw/styleGalaxy-01.png",
+      "outputSha256": "f8129339feb8d15c9bc9b1ac55617aeb30b8145eba2f6cfbe23017960d34dabe"
+    },
+    {
+      "style": "styleNeon",
+      "sourceFrames": [
+        0,
+        14,
+        29,
+        44
+      ],
+      "images": [
+        "motion-expansion-v1/controls/styleNeon-00.png",
+        "motion-expansion-v1/references/styleNeon.png"
+      ],
+      "inputSha256": [
+        "196bd55ffa065eca2c496d029a0d0d2172cfa69be8dae7c6f63c6c5e26111ddd",
+        "939e0af6b8b338b674a852519c34259d0a282740b076eb5f0e374bdeaa753a7f"
+      ],
+      "prompt": "motion-expansion-v1/prompts/styleNeon-00.txt",
+      "output": "motion-expansion-v1/raw/styleNeon-00.png",
+      "outputSha256": "1afc808185b7042da1661f19ecf7b195086e611cdb8068363e117d34bd0382ec"
+    },
+    {
+      "style": "styleNeon",
+      "sourceFrames": [
+        59,
+        89,
+        119,
+        149
+      ],
+      "images": [
+        "motion-expansion-v1/controls/styleNeon-01.png",
+        "motion-expansion-v1/references/styleNeon.png"
+      ],
+      "inputSha256": [
+        "36bc72dd071ddbf85f794662e570352eea361f211c15b0967292c77c81c09079",
+        "939e0af6b8b338b674a852519c34259d0a282740b076eb5f0e374bdeaa753a7f"
+      ],
+      "prompt": "motion-expansion-v1/prompts/styleNeon-01.txt",
+      "output": "motion-expansion-v1/raw/styleNeon-01.png",
+      "outputSha256": "5af3256f611fe67be05d1ed29b6388877f7a92f4f6fdae27f791549c94f6e6b7"
+    }
+  ],
+  "singleArtwork": {
+    "style": "styleHeartbeat",
+    "image": "references/styleHeartbeat.png",
+    "sha256": "3452844bbcb05441608b495fa1f16fd979a0bbb21aa107347db03cc4de46d8f3"
+  },
+  "discardedTrial": "neon-initial-trial/diagnosis.json"
+}

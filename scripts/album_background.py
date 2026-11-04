@@ -14,13 +14,13 @@ VIDEO_SUFFIX = 'background-v3-loop.mp4'
 TARGETS = ('styleOcean', 'styleAurora')
 
 
-def backdrop(rgb, distance, phase, seconds, detail=None):
+def backdrop(rgb, distance, phase, seconds, detail=None, period=256/30):
     """Quiet near-strip region, broad slow background fronts, capped after texture."""
     near = smoothstep(24, 80, distance)[..., None]
     luma = np.sum(rgb*np.array([.2126, .7152, .0722]), axis=2, keepdims=True)
     saturation = .50+.46*near
     color = rgb*saturation+luma*(1-saturation)
-    envelope = .86+.14*(.5+.5*np.cos(phase-seconds*2*np.pi/(256/30)))
+    envelope = .86+.14*(.5+.5*np.cos(phase-seconds*2*np.pi/period))
     color = color*envelope[..., None]
     if detail is not None:
         color *= detail[..., None]

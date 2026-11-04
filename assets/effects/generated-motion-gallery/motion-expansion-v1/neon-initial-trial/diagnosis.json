@@ -1,0 +1,30 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "reason": "Initial anchors missed the exact-sector exception frames in native ledHsv. Most RGB snapshots are identical magenta, so continuous spatial motion cannot be claimed. Kept as an unsuccessful trial, excluded from delivered anchors. Revised anchors must include frames 14,29,44,... and show actual intermittent color blocks.",
+  "files": [
+    {
+      "path": "controls/styleNeon-00.png",
+      "sha256": "649547766795ce3495c5f4aa5cb3544d5ebc2c57dffeb7d5a754bcc2abeabe41"
+    },
+    {
+      "path": "controls/styleNeon-01.png",
+      "sha256": "a83a2d4ae714d3d364d3a7d8b9f76d2862840adc86612cdfeda4b62d46f04f63"
+    },
+    {
+      "path": "prompts/styleNeon-00.txt",
+      "sha256": "7c7ab24a51c15da6585e20896458ca5d98f5ee86153ff4fd14af5bea4a191f92"
+    },
+    {
+      "path": "prompts/styleNeon-01.txt",
+      "sha256": "50d7933b0672021ed655f73e1e91b72ad70d72a0793e427eeacb2247326a25f4"
+    },
+    {
+      "path": "raw/styleNeon-00.png",
+      "sha256": "ab4405ee37e4b9d09377174d8323bcbaa007eabeaefc671fee272a75c9b0d0c3"
+    },
+    {
+      "path": "raw/styleNeon-01.png",
+      "sha256": "e7ca9cf0ee994ad91b6ba48e5c340c0b9339caa6ecb62e8b7b207f184b637c7c"
+    }
+  ]
+}

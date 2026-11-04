@@ -22,7 +22,7 @@ try {
   await page.waitForFunction(() => { const v = document.querySelector("video"); return v?.readyState >= 2 && !v.paused && v.currentTime > .1; });
   assert.equal(videos.size, 1, "Only the selected MP4 should load initially");
   results.initialVideoRequests = [...videos];
-  for (const label of ["赛博朋克", "黑客帝国", "森林", "海洋", "极光"]) {
+  for (const { label } of catalog.effects) {
     await page.getByRole("button", { name: `选择${label}动效`, exact: true }).click();
     await page.waitForFunction((label) => {
       const v = document.querySelector("video");
@@ -53,7 +53,7 @@ try {
     await page.waitForTimeout(300);
     assert(Math.abs(await page.locator("video").evaluate((v) => v.currentTime)-frozen) < .06);
     await page.getByRole("button", { name: `跳转至${label}第4个关键画面`, exact: true }).click();
-    assert(await page.locator("video").evaluate((v) => v.currentTime) > 1.5, "Keyframe controls should seek");
+    await page.waitForFunction((time) => Math.abs(document.querySelector('video').currentTime-time)<.08, definition.keyframes[3].time);
     // Exercise the native loop boundary without waiting through all five clips.
     await page.locator("video").evaluate((v) => { v.currentTime = v.duration-.25; });
     await page.getByRole("button", { name: "播放动效", exact: true }).click();

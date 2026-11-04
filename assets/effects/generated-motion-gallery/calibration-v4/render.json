@@ -1,0 +1,48 @@
+{
+  "operation": "render with corrected paths; no new API calls",
+  "reusedGeneratedInputs": [
+    {
+      "style": "styleAurora",
+      "sourceFrames": [
+        0,
+        32,
+        64,
+        96
+      ],
+      "images": [
+        "background-depth-v3/controls/styleAurora-00.png",
+        "background-depth-v3/bases/styleAurora.png"
+      ],
+      "inputSha256": [
+        "0927d2310a52606448125e3f745d7d59188ac762126470db3ea711588d087d7c",
+        "133dde3efc19544aa1b7ef17dcf3296cd9c58bd7f1eb4514c5e7d4003d782667"
+      ],
+      "prompt": "background-depth-v3/prompts/styleAurora-00.txt",
+      "output": "background-depth-v3/raw/styleAurora-00.png",
+      "outputSha256": "1b061732542b0fc60f9af3550e3474ac73c72649be442417792287eaa42a1ca9"
+    },
+    {
+      "style": "styleAurora",
+      "sourceFrames": [
+        128,
+        160,
+        192,
+        224
+      ],
+      "images": [
+        "background-depth-v3/controls/styleAurora-01.png",
+        "background-depth-v3/bases/styleAurora.png"
+      ],
+      "inputSha256": [
+        "f195dabdda2a889ca6c94ed117abd9d9283fdda254ef5102ae22c7301613b85d",
+        "133dde3efc19544aa1b7ef17dcf3296cd9c58bd7f1eb4514c5e7d4003d782667"
+      ],
+      "prompt": "background-depth-v3/prompts/styleAurora-01.txt",
+      "output": "background-depth-v3/raw/styleAurora-01.png",
+      "outputSha256": "e8bff768c5b163ff56d2b8d8214109dbebc3c66bf1875e893ae45209b422891a"
+    }
+  ],
+  "calibration": "calibration.json",
+  "video": "../styleAurora-calibrated-v4-loop.mp4",
+  "note": "Historical controls keep their original path positions. Generated color positions are not played back; bounded detail ratios are reused, while final RGB and masks follow the corrected physical paths."
+}

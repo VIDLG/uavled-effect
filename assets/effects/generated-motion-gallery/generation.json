@@ -136,5 +136,18 @@
     ],
     "manifest": "background-depth-v3/generation.json",
     "rules": "background-depth-v3/rules.json"
+  },
+  "calibrationRevision": {
+    "effect": "styleAurora",
+    "manifest": "calibration-v4/render.json"
+  },
+  "motionExpansion": {
+    "effects": [
+      "styleLava",
+      "styleGalaxy",
+      "styleNeon",
+      "styleHeartbeat"
+    ],
+    "manifest": "motion-expansion-v1/generation.json"
   }
 }
