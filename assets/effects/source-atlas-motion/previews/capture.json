@@ -1,0 +1,33 @@
+{
+  "base": "http://localhost:4173",
+  "browser": "Headless Microsoft Edge on Windows; desktop evidence, not phone acceptance",
+  "effects": [
+    {
+      "id": "effectChase",
+      "label": "单点追逐",
+      "seconds": 6,
+      "output": "assets/effects/source-atlas-motion/previews/effectChase.mp4",
+      "draws": 362,
+      "observedFps": 59.990693964356325,
+      "p95IntervalMs": 17
+    },
+    {
+      "id": "effectColorSparkle",
+      "label": "彩虹闪烁",
+      "seconds": 5,
+      "output": "assets/effects/source-atlas-motion/previews/effectColorSparkle.mp4",
+      "draws": 301,
+      "observedFps": 59.9976000959604,
+      "p95IntervalMs": 17
+    },
+    {
+      "id": "effectFire",
+      "label": "火焰",
+      "seconds": 10,
+      "output": "assets/effects/source-atlas-motion/previews/effectFire.mp4",
+      "draws": 602,
+      "observedFps": 59.99141553786752,
+      "p95IntervalMs": 17
+    }
+  ]
+}

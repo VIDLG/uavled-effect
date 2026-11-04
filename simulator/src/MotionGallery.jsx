@@ -4,6 +4,8 @@ import catalog from "../../assets/effects/generated-motion-gallery/index.json";
 import single from "../../assets/effects/single-image-motion/index.json";
 import MotionControls, { formatTime as clock } from "./MotionControls.jsx";
 import SingleImagePlayer from "./SingleImagePlayer.jsx";
+import sourceAtlas from "../../assets/effects/source-atlas-motion/index.json";
+import SourceAtlasPlayer from "./SourceAtlasPlayer.jsx";
 import "./MotionGallery.css";
 
 const files = {
@@ -20,6 +22,13 @@ const effects = catalog.effects.map((effect) => ({ ...effect, video: versionedAs
 const singleAsset = (path) => files[`../../assets/effects/single-image-motion/${path}`];
 effects.push({ ...single, base: singleAsset(single.base), map: singleAsset(single.map),
   lookup: singleAsset(single.paletteTexture), poster: singleAsset(single.poster) });
+const atlasFiles=import.meta.glob("../../assets/effects/source-atlas-motion/{shared,scenes,sources,zones,backgrounds,posters,keyframes}/*.{png,jpg}",{eager:true,query:"?url",import:"default"});
+const atlasAsset=path=>atlasFiles[`../../assets/effects/source-atlas-motion/${path}`];
+effects.push(...sourceAtlas.effects.map(effect=>({...effect,
+  base:atlasAsset(sourceAtlas.shared.base),profile:atlasAsset(sourceAtlas.shared.profile),masks:atlasAsset(sourceAtlas.shared.masks),
+  scene:atlasAsset(effect.scene),sourceTexture:atlasAsset(effect.sourceTexture),zones:atlasAsset(effect.zones),poster:atlasAsset(effect.poster),
+  backgroundAtlas:effect.backgroundAtlas?atlasAsset(effect.backgroundAtlas):null,keyframes:effect.keyframes.map(k=>({...k,image:atlasAsset(k.image)})),
+})));
 
 function MotionPlayer({ effect, onPrevious, onNext }) {
   const videoRef = useRef(null);
@@ -101,6 +110,10 @@ export default function MotionGallery() {
     const bounds = container.getBoundingClientRect(), selected = track.getBoundingClientRect();
     if (selected.left < bounds.left) container.scrollLeft += selected.left-bounds.left-8;
     else if (selected.right > bounds.right) container.scrollLeft += selected.right-bounds.right+8;
+    if (container.scrollHeight > container.clientHeight) {
+      if (selected.top < bounds.top) container.scrollTop += selected.top-bounds.top-8;
+      else if (selected.bottom > bounds.bottom) container.scrollTop += selected.bottom-bounds.bottom+8;
+    }
   }, [selectedId]);
 
   return <main className="motion-gallery">
@@ -113,11 +126,12 @@ export default function MotionGallery() {
           onClick={() => setSelectedId(effect.id)} aria-label={`选择${effect.label}动效`}>
           <span className="motion-track-number">{String(index + 1).padStart(2, "0")}</span>
           <img src={effect.poster} alt="" loading="lazy" decoding="async" />
-          <span className="motion-track-copy"><strong>{effect.label}</strong><small>{clock(effect.duration)} · 循环</small></span>
+          <span className="motion-track-copy"><strong>{effect.label}</strong><small>{effect.isStatic?"常亮":`${clock(effect.duration)} · ${effect.oneShot?"单次":"循环"}`}</small></span>
           <span className="motion-palette" aria-hidden="true">{effect.palette.map((color) => <i key={color} style={{ background: color }} />)}</span>
         </button>)}</div>
       </aside>
-      {selected.kind === "single-image"
+      {selected.kind === "source-atlas" ? <SourceAtlasPlayer key={selected.id} effect={selected} onPrevious={()=>change(-1)} onNext={()=>change(1)}/>
+        : selected.kind === "single-image"
         ? <SingleImagePlayer key={selected.id} effect={selected} onPrevious={() => change(-1)} onNext={() => change(1)} />
         : <MotionPlayer key={selected.id} effect={selected} onPrevious={() => change(-1)} onNext={() => change(1)} />}
     </div>

@@ -1,0 +1,22 @@
+{
+  "sourceTests": 21,
+  "imageTests": 19,
+  "sourceAlbumBrowserEntries": 46,
+  "originalVideoBrowserEntries": 9,
+  "initialSelectedTextureRequests": 5,
+  "oneShotEndsAndReplays": true,
+  "mobile": {
+    "viewport": 390,
+    "width": 390
+  },
+  "rendererReleasedOnLeave": true,
+  "browserErrors": [],
+  "failedRequests": [],
+  "originalSourceAndSelectedAssetsChanged": false,
+  "limitations": [
+    "Desktop headless Microsoft Edge; no physical phone GPU or hardware acceptance",
+    "Generated background semantic direction reviewed with raw storyboard sheets; numeric difference alone cannot establish direction",
+    "Finite stochastic sample windows repeat; not an indefinitely running native effect"
+  ],
+  "existingRainbowBrowserVerified": true
+}

@@ -1,0 +1,470 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "operation": "images.edit",
+  "quality": "high",
+  "size": "1536x1024",
+  "requests": [
+    {
+      "id": "effectChase",
+      "images": [
+        "controls/effectChase.png",
+        "references/effectChase.png"
+      ],
+      "inputSha256": [
+        "d92502194eec0eb7a2ae68f1168c0f412977aab15cb5d507f214e584a8b4109e",
+        "2ac9414fbd67dcfdccb29d36fee7914abce65f666ceb4b4d85c6cc7a3d863435"
+      ],
+      "prompt": "prompts/effectChase.txt",
+      "output": "raw/effectChase.png",
+      "sourceFrames": [
+        0,
+        39,
+        79,
+        119
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "cd47be2f59f05ea2f527bc610ee28acfbe23e43a01a38735f64a9c155fa1a3a5"
+    },
+    {
+      "id": "effectMeteor",
+      "images": [
+        "controls/effectMeteor.png",
+        "references/effectMeteor.png"
+      ],
+      "inputSha256": [
+        "6bcd33d4f12314628ee33833bab3098dee8fe17af2534b7d57881b3d4d09aa45",
+        "af93e80ca9173fa88099cd90e9108cc93eb416c8c81d6ee7ad44a46af35be458"
+      ],
+      "prompt": "prompts/effectMeteor.txt",
+      "output": "raw/effectMeteor.png",
+      "sourceFrames": [
+        0,
+        35,
+        70,
+        105
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "bf98102127844f437c16c15a02271d8c57710391e48015d41af77d8e94423a4a"
+    },
+    {
+      "id": "effectMeteorRain",
+      "images": [
+        "controls/effectMeteorRain.png",
+        "references/effectMeteorRain.png"
+      ],
+      "inputSha256": [
+        "8234e9cf027f61f61841088ebe348a987cc01a69f668972f0e736eed765c292a",
+        "ffa8321ad57597a6b72ce0f0ab3d2ee9126147f7fe1a4097f8ab221ab512594f"
+      ],
+      "prompt": "prompts/effectMeteorRain.txt",
+      "output": "raw/effectMeteorRain.png",
+      "sourceFrames": [
+        0,
+        63,
+        127,
+        191
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "a69f24046ce6495943f6fff208f55f312beefa45a00e6b6419039f3fde4da407"
+    },
+    {
+      "id": "effectFire",
+      "images": [
+        "controls/effectFire.png",
+        "references/effectFire.png"
+      ],
+      "inputSha256": [
+        "24a4a32e42f765956a95483dc0f8441f4df9e1c4664c94f35b66a064e498b100",
+        "6c070f8a2473e1be2770b97511827438dfacf5fad4c814b91f09b2d8783f2d37"
+      ],
+      "prompt": "prompts/effectFire.txt",
+      "output": "raw/effectFire.png",
+      "sourceFrames": [
+        0,
+        63,
+        127,
+        191
+      ],
+      "warmupFrames": 256,
+      "promptSha256": "80a69ddaf3fa4bcde9fb9ae4b4acda0573ec982f4cfbd81a1ef8f38c764d4558"
+    },
+    {
+      "id": "effectIceFire",
+      "images": [
+        "controls/effectIceFire.png",
+        "references/effectIceFire.png"
+      ],
+      "inputSha256": [
+        "01f2debf7fa60e90815c2ed529262a70696ae38729cc984ead204cdc97c1f895",
+        "c50dc62670dece806336ddd810f2e8f56e6832e175a41d8d022e5d2b96684cba"
+      ],
+      "prompt": "prompts/effectIceFire.txt",
+      "output": "raw/effectIceFire.png",
+      "sourceFrames": [
+        0,
+        63,
+        127,
+        191
+      ],
+      "warmupFrames": 256,
+      "promptSha256": "21c23c0ab9a5cbe263005252aa819d30701923a444eefc17348cbf8c0d2e068d"
+    },
+    {
+      "id": "effectPulse",
+      "images": [
+        "controls/effectPulse.png",
+        "references/effectPulse.png"
+      ],
+      "inputSha256": [
+        "4b31f6af3f9dbbada222a44b766fccf6c0ff90714ca5800c8b59e380c1f2986f",
+        "b9da5b9adccbc15ebabba76eb269bd6e5619984bbda7d76b8c928c298b53bee6"
+      ],
+      "prompt": "prompts/effectPulse.txt",
+      "output": "raw/effectPulse.png",
+      "sourceFrames": [
+        0,
+        45,
+        91,
+        137
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "d0568af1ac12e305b6a0b7737be2918493d7cbfe3250634ba3a33d7ac7f69469"
+    },
+    {
+      "id": "effectCenterExpand",
+      "images": [
+        "controls/effectCenterExpand.png",
+        "references/effectCenterExpand.png"
+      ],
+      "inputSha256": [
+        "8c08aa2cdeb62282fa9207b9e39b88fa8f3eecc2b9d259a50ad968168b7505fa",
+        "c2de368c680665b8f82d4fbc0ebc488ae54f30ddc15c75d5314d4459eda0b91f"
+      ],
+      "prompt": "prompts/effectCenterExpand.txt",
+      "output": "raw/effectCenterExpand.png",
+      "sourceFrames": [
+        0,
+        29,
+        59,
+        89
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "3c845fbf48a355c1af75850624cd185531b193f95146ace262f5fddc456bd281"
+    },
+    {
+      "id": "effectCenterContract",
+      "images": [
+        "controls/effectCenterContract.png",
+        "references/effectCenterContract.png"
+      ],
+      "inputSha256": [
+        "f00acb7ed58fa18bc458a1a8569a2f87d2fcefd2192e760ff25b508eef0d6120",
+        "2ccd662e10b99b3eeaea91b9f5352da9bb73a4f3ae7a700066c3a94d01a5e5bd"
+      ],
+      "prompt": "prompts/effectCenterContract.txt",
+      "output": "raw/effectCenterContract.png",
+      "sourceFrames": [
+        0,
+        29,
+        59,
+        89
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "3df348a7e220e0be5de817e53645e8fe903e84b214189f94d1ec5d73a117aed1"
+    },
+    {
+      "id": "effectDampedRebound",
+      "images": [
+        "controls/effectDampedRebound.png",
+        "references/effectDampedRebound.png"
+      ],
+      "inputSha256": [
+        "c3bbee9e8d1b70e9e6fc46d4f27ceebd24f93706a643682317e0a324d253db7b",
+        "c830ecc8b1403acc7030107e722251e9ad7171b7350173808ddcb8a998015d8e"
+      ],
+      "prompt": "prompts/effectDampedRebound.txt",
+      "output": "raw/effectDampedRebound.png",
+      "sourceFrames": [
+        0,
+        37,
+        74,
+        111
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "b3d33be694fd0cc183db396a9c43e9394eab675c4b0934b9b8e9795cc15122cb"
+    },
+    {
+      "id": "effectTendril",
+      "images": [
+        "controls/effectTendril.png",
+        "references/effectTendril.png"
+      ],
+      "inputSha256": [
+        "85c2339c128483615f8eb54bab0f5c4d91e67677bac99f92003230e94fa57617",
+        "954029b80ebde9095ca23f5e5f9aefd746c57b690ec4efc9c1a186c72fffa3af"
+      ],
+      "prompt": "prompts/effectTendril.txt",
+      "output": "raw/effectTendril.png",
+      "sourceFrames": [
+        0,
+        37,
+        74,
+        111
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "19594a64f4a4cab7b366655be067d4afee37bc397efe9572f8853682e974206c"
+    },
+    {
+      "id": "effectBubble",
+      "images": [
+        "controls/effectBubble.png",
+        "references/effectBubble.png"
+      ],
+      "inputSha256": [
+        "516cbef8025418ce6f41e3696172666a98fabb349a3d9ac55e79df52c0c90b0f",
+        "4b75f47e496e09959bc7512714e70213a4fea9b83790a94bd47a01401deb7f58"
+      ],
+      "prompt": "prompts/effectBubble.txt",
+      "output": "raw/effectBubble.png",
+      "sourceFrames": [
+        0,
+        37,
+        74,
+        111
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "33686ace631bde894aa9769abbde9f4c989eb6ed28fff6b55cacb0195387f3d1"
+    },
+    {
+      "id": "effectDirectionalTrail",
+      "images": [
+        "controls/effectDirectionalTrail.png",
+        "references/effectDirectionalTrail.png"
+      ],
+      "inputSha256": [
+        "b381ac1e6cb8dd80636f29a215125e5a91b28b86b87c85188b76de2cd6d358da",
+        "7a73628e859a2df9df8916ed6aeea0b2fd2a806fd219d52b9ca180033d83e6c9"
+      ],
+      "prompt": "prompts/effectDirectionalTrail.txt",
+      "output": "raw/effectDirectionalTrail.png",
+      "sourceFrames": [
+        0,
+        29,
+        59,
+        89
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "320af088be5abab7cfee275d0809c6ef03286d37979b6cc96369614201eb3810"
+    },
+    {
+      "id": "effectDirectionalWipe",
+      "images": [
+        "controls/effectDirectionalWipe.png",
+        "references/effectDirectionalWipe.png"
+      ],
+      "inputSha256": [
+        "650b300860a94ec39938082c508cdcf1b56f08c026353b5935668a12df15730f",
+        "f54fd2523551f4a7904be666e1f3db15cc1240da3e0c9eb8c9a3bec55ef1786a"
+      ],
+      "prompt": "prompts/effectDirectionalWipe.txt",
+      "output": "raw/effectDirectionalWipe.png",
+      "sourceFrames": [
+        0,
+        29,
+        59,
+        89
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "cdfcf05bab320843b9de23bf04955df710ed994d4854c0e4f5a110c9ffcd75a1"
+    },
+    {
+      "id": "effectDirectionalTendril",
+      "images": [
+        "controls/effectDirectionalTendril.png",
+        "references/effectDirectionalTendril.png"
+      ],
+      "inputSha256": [
+        "875f11e34e4d996a9a948a425dbc03e95e5c05659e8304f9e033bda238733de2",
+        "b2d626ca0a82ed615ebe449812860e8b14ce5f9243328d7f7e91676ede164a2f"
+      ],
+      "prompt": "prompts/effectDirectionalTendril.txt",
+      "output": "raw/effectDirectionalTendril.png",
+      "sourceFrames": [
+        0,
+        37,
+        74,
+        111
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "788c7842c7ef09d5460f59cf1f1462ddb46ca8f667d422c22df64e2e1fc890f6"
+    },
+    {
+      "id": "effectMultiChase",
+      "images": [
+        "controls/effectMultiChase.png",
+        "references/effectMultiChase.png"
+      ],
+      "inputSha256": [
+        "8a2cd389c3618d508a100c4d09628c77c51228e679833a59dc49793c33394fa8",
+        "f1bc9c83092a86756f5b183f2c733c8e3bea099c278f421b4be84dde2931c243"
+      ],
+      "prompt": "prompts/effectMultiChase.txt",
+      "output": "raw/effectMultiChase.png",
+      "sourceFrames": [
+        0,
+        39,
+        79,
+        119
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "63ebb351fe38dec732febaa162128161ff1407a6cc1132d8dae68a6217654c2d"
+    },
+    {
+      "id": "effectMultiChaseTail",
+      "images": [
+        "controls/effectMultiChaseTail.png",
+        "references/effectMultiChaseTail.png"
+      ],
+      "inputSha256": [
+        "6e7b3626455226d04523e17ab0d4eeb8fd38d58bb24cbcb8356402e01d6c5e9a",
+        "92b777e68ab75570721915e7533ac482d0fb199c12236fadc3789738d08d2a7a"
+      ],
+      "prompt": "prompts/effectMultiChaseTail.txt",
+      "output": "raw/effectMultiChaseTail.png",
+      "sourceFrames": [
+        0,
+        39,
+        79,
+        119
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "0c87b359e883c2aa526dc28f0f7bf62829ffa8cf45141fc9f1d71a73aca7dca3"
+    },
+    {
+      "id": "effectComet",
+      "images": [
+        "controls/effectComet.png",
+        "references/effectComet.png"
+      ],
+      "inputSha256": [
+        "d283b42597a6acdd67b5ab503dbd0da38cebf062f42dee931d56945464647085",
+        "e697e518530244107e119930d9238748543553f1f4a70622c4d813a71b5d9529"
+      ],
+      "prompt": "prompts/effectComet.txt",
+      "output": "raw/effectComet.png",
+      "sourceFrames": [
+        0,
+        39,
+        79,
+        119
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "8671bea55027f8632a6e909476ce808530fad4b65ba238580d6d9b3cdadda737"
+    },
+    {
+      "id": "effectBounce",
+      "images": [
+        "controls/effectBounce.png",
+        "references/effectBounce.png"
+      ],
+      "inputSha256": [
+        "83817309e900224cab00e36ee1378b32ffaea2e9852559ae74bef0cfb867e697",
+        "5e9b7a08205208ac48a0716985edd83a633669f965cb708f28ef1d748435f76b"
+      ],
+      "prompt": "prompts/effectBounce.txt",
+      "output": "raw/effectBounce.png",
+      "sourceFrames": [
+        0,
+        77,
+        155,
+        233
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "b61ed63a71f606bf3b234c8750225af1ce924896ef7ae8d2cde49a55af5103ef"
+    },
+    {
+      "id": "effectBounceTail",
+      "images": [
+        "controls/effectBounceTail.png",
+        "references/effectBounceTail.png"
+      ],
+      "inputSha256": [
+        "3a84e3396552daf2a3bf7913199e1f8043b4f4dc33e95247fadd1571c566b75b",
+        "f9fdd1c8a6b1e34ea1d8ad782771025966885deda4831fe379c5a15f3a791fc9"
+      ],
+      "prompt": "prompts/effectBounceTail.txt",
+      "output": "raw/effectBounceTail.png",
+      "sourceFrames": [
+        0,
+        77,
+        155,
+        233
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "ce87a90f9c034e819e6270cbef6aabfd198472892f615c3d936deadc9a645b9b"
+    },
+    {
+      "id": "effectStack",
+      "images": [
+        "controls/effectStack.png",
+        "references/effectStack.png"
+      ],
+      "inputSha256": [
+        "f418a8af36f2917811d38d0c5118a9dc770f14ca00b76f76a6641384bf12e365",
+        "639a2a4d7d573f058c7715f1e8bb827401660cbba8dca474679f7a22450cbd87"
+      ],
+      "prompt": "prompts/effectStack.txt",
+      "output": "raw/effectStack.png",
+      "sourceFrames": [
+        0,
+        79,
+        159,
+        239
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "2a2585ed2b34df8ccf3da6b2308f5b760a052ef47714014bc8afec80d496707a"
+    },
+    {
+      "id": "effectScanner",
+      "images": [
+        "controls/effectScanner.png",
+        "references/effectScanner.png"
+      ],
+      "inputSha256": [
+        "34f234b5ae931f992da09b9e0c81cf7583ba9a31a0d1b31959e7b950c6c201c9",
+        "06174fe81adb3a48d670e90ea9fc536dffb9f8afa8f49120590be98c861f7271"
+      ],
+      "prompt": "prompts/effectScanner.txt",
+      "output": "raw/effectScanner.png",
+      "sourceFrames": [
+        0,
+        77,
+        155,
+        233
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "c30daee6f51dbdcebf3620580ab649c6f08433327aa339476d40e26d380a1f03"
+    },
+    {
+      "id": "effectColorWipe",
+      "images": [
+        "controls/effectColorWipe.png",
+        "references/effectColorWipe.png"
+      ],
+      "inputSha256": [
+        "c37b9bc3f2ebe92cdb7cf8585b4a1b673a07d18d1589dc28d02cfda3c479590b",
+        "02eaca90bc67bb6fd81d8649b376e22c1cdbc3fb704323e8a4d60f118ccf2d42"
+      ],
+      "prompt": "prompts/effectColorWipe.txt",
+      "output": "raw/effectColorWipe.png",
+      "sourceFrames": [
+        0,
+        79,
+        159,
+        239
+      ],
+      "warmupFrames": 0,
+      "promptSha256": "63cf00e7771fe43d1f3ea51b9bd47708939f0cfc2d4ab4057e872375f122478b"
+    }
+  ]
+}

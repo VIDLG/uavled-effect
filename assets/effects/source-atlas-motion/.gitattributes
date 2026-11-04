@@ -1,0 +1,2 @@
+# Exact prompt hashes must survive Windows and Unix checkouts.
+prompts/*.txt text eol=lf
