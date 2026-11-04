@@ -1,0 +1,92 @@
+{
+  "consoleErrors": [],
+  "failedRequests": [],
+  "mobile": {
+    "body": 390,
+    "viewport": 390
+  },
+  "reducedMotionManualPlay": true,
+  "effects": [
+    {
+      "label": "赛博朋克",
+      "width": 768,
+      "height": 512,
+      "duration": 8.533333,
+      "observedFps": 49.96252810398405,
+      "loopBoundaryPassed": true,
+      "pauseAndSeekPassed": true
+    },
+    {
+      "label": "黑客帝国",
+      "width": 768,
+      "height": 512,
+      "duration": 8.533008,
+      "observedFps": 56.58179397566803,
+      "loopBoundaryPassed": true,
+      "pauseAndSeekPassed": true
+    },
+    {
+      "label": "森林",
+      "width": 768,
+      "height": 512,
+      "duration": 8.533333,
+      "observedFps": 53.32000333246711,
+      "loopBoundaryPassed": true,
+      "pauseAndSeekPassed": true
+    },
+    {
+      "label": "海洋",
+      "width": 768,
+      "height": 512,
+      "duration": 8.533333,
+      "observedFps": 49.150283238981366,
+      "loopBoundaryPassed": true,
+      "pauseAndSeekPassed": true
+    },
+    {
+      "label": "极光",
+      "width": 768,
+      "height": 512,
+      "duration": 8.533333,
+      "observedFps": 48.28504828507824,
+      "loopBoundaryPassed": true,
+      "pauseAndSeekPassed": true
+    },
+    {
+      "label": "熔岩",
+      "width": 768,
+      "height": 512,
+      "duration": 8.533333,
+      "observedFps": 47.38154613466334,
+      "loopBoundaryPassed": true,
+      "pauseAndSeekPassed": true
+    },
+    {
+      "label": "银河",
+      "width": 768,
+      "height": 512,
+      "duration": 8.533333,
+      "observedFps": 45.52226452576884,
+      "loopBoundaryPassed": true,
+      "pauseAndSeekPassed": true
+    },
+    {
+      "label": "霓虹",
+      "width": 768,
+      "height": 512,
+      "duration": 6,
+      "observedFps": 45.77230359514963,
+      "loopBoundaryPassed": true,
+      "pauseAndSeekPassed": true
+    },
+    {
+      "label": "心跳",
+      "width": 768,
+      "height": 512,
+      "duration": 6,
+      "observedFps": 44.99250124967998,
+      "loopBoundaryPassed": true,
+      "pauseAndSeekPassed": true
+    }
+  ]
+}
