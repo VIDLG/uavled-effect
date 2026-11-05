@@ -7,9 +7,9 @@
       "label": "单点追逐",
       "seconds": 6,
       "output": "assets/effects/source-atlas-motion/previews/effectChase.mp4",
-      "draws": 362,
-      "observedFps": 60.014629604989516,
-      "p95IntervalMs": 16.90000000037253
+      "draws": 361,
+      "observedFps": 60.01300281728453,
+      "p95IntervalMs": 17.100000001490116
     },
     {
       "id": "effectColorSparkle",
@@ -17,8 +17,8 @@
       "seconds": 5,
       "output": "assets/effects/source-atlas-motion/previews/effectColorSparkle.mp4",
       "draws": 301,
-      "observedFps": 60.00960153625474,
-      "p95IntervalMs": 17.09999999962747
+      "observedFps": 60.018005401620485,
+      "p95IntervalMs": 17
     },
     {
       "id": "effectFire",
@@ -26,8 +26,8 @@
       "seconds": 10,
       "output": "assets/effects/source-atlas-motion/previews/effectFire.mp4",
       "draws": 602,
-      "observedFps": 60.011183448491764,
-      "p95IntervalMs": 17
+      "observedFps": 60.0099850224663,
+      "p95IntervalMs": 17.099999997764826
     }
   ]
 }

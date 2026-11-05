@@ -1,0 +1,3976 @@
+{
+  "atlas": {
+    "shared": {
+      "base": "shared/drone.png",
+      "profile": "shared/profile.png",
+      "masks": "shared/masks.png"
+    },
+    "effects": [
+      {
+        "id": "effectSolid",
+        "label": "纯色",
+        "duration": 0.03333333333333333,
+        "periodFrames": 1,
+        "peak": 160,
+        "isStatic": true,
+        "oneShot": false,
+        "uniform": true,
+        "fullLit": true,
+        "generated": false,
+        "policy": "static",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectSolid-0.jpg"
+          },
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectSolid-1.jpg"
+          },
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectSolid-2.jpg"
+          },
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectSolid-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "整条灯带保持常亮，颜色与亮度稳定。",
+        "palette": [
+          "#0060a0"
+        ],
+        "scene": "scenes/effectSolid.png",
+        "sourceTexture": "sources/effectSolid.png",
+        "zones": "zones/effectSolid.png",
+        "poster": "posters/effectSolid.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectStudySegment",
+        "label": "学习分段",
+        "duration": 5,
+        "periodFrames": 150,
+        "peak": 69,
+        "isStatic": false,
+        "oneShot": true,
+        "uniform": false,
+        "fullLit": false,
+        "generated": false,
+        "policy": "one-shot",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectStudySegment-0.jpg"
+          },
+          {
+            "time": 1.2333333333333334,
+            "sourceFrame": 37,
+            "image": "keyframes/effectStudySegment-1.jpg"
+          },
+          {
+            "time": 2.466666666666667,
+            "sourceFrame": 74,
+            "image": "keyframes/effectStudySegment-2.jpg"
+          },
+          {
+            "time": 3.7,
+            "sourceFrame": 111,
+            "image": "keyframes/effectStudySegment-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光按既定方向变化，结束后停留，可重新播放。",
+        "palette": [
+          "#002040",
+          "#002020",
+          "#000020"
+        ],
+        "scene": "scenes/effectStudySegment.png",
+        "sourceTexture": "sources/effectStudySegment.png",
+        "zones": "zones/effectStudySegment.png",
+        "poster": "posters/effectStudySegment.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectPlanSegment",
+        "label": "计划分段",
+        "duration": 5,
+        "periodFrames": 150,
+        "peak": 69,
+        "isStatic": false,
+        "oneShot": true,
+        "uniform": false,
+        "fullLit": false,
+        "generated": false,
+        "policy": "one-shot",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectPlanSegment-0.jpg"
+          },
+          {
+            "time": 1.2333333333333334,
+            "sourceFrame": 37,
+            "image": "keyframes/effectPlanSegment-1.jpg"
+          },
+          {
+            "time": 2.466666666666667,
+            "sourceFrame": 74,
+            "image": "keyframes/effectPlanSegment-2.jpg"
+          },
+          {
+            "time": 3.7,
+            "sourceFrame": 111,
+            "image": "keyframes/effectPlanSegment-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光按既定方向变化，结束后停留，可重新播放。",
+        "palette": [
+          "#002040",
+          "#002020",
+          "#000020"
+        ],
+        "scene": "scenes/effectPlanSegment.png",
+        "sourceTexture": "sources/effectPlanSegment.png",
+        "zones": "zones/effectPlanSegment.png",
+        "poster": "posters/effectPlanSegment.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectChase",
+        "label": "单点追逐",
+        "duration": 5.333333333333333,
+        "periodFrames": 160,
+        "peak": 183,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectChase-0.jpg"
+          },
+          {
+            "time": 1.3,
+            "sourceFrame": 39,
+            "image": "keyframes/effectChase-1.jpg"
+          },
+          {
+            "time": 2.6333333333333333,
+            "sourceFrame": 79,
+            "image": "keyframes/effectChase-2.jpg"
+          },
+          {
+            "time": 3.966666666666667,
+            "sourceFrame": 119,
+            "image": "keyframes/effectChase-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#c04000",
+          "#802000",
+          "#602000"
+        ],
+        "scene": "scenes/effectChase.png",
+        "sourceTexture": "sources/effectChase.png",
+        "zones": "zones/effectChase.png",
+        "poster": "posters/effectChase.jpg",
+        "backgroundAtlas": "backgrounds/effectChase.png"
+      },
+      {
+        "id": "effectMeteor",
+        "label": "流星",
+        "duration": 4.7,
+        "periodFrames": 141,
+        "peak": 160,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectMeteor-0.jpg"
+          },
+          {
+            "time": 1.1666666666666667,
+            "sourceFrame": 35,
+            "image": "keyframes/effectMeteor-1.jpg"
+          },
+          {
+            "time": 2.3333333333333335,
+            "sourceFrame": 70,
+            "image": "keyframes/effectMeteor-2.jpg"
+          },
+          {
+            "time": 3.5,
+            "sourceFrame": 105,
+            "image": "keyframes/effectMeteor-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#0060a0",
+          "#206080",
+          "#004080"
+        ],
+        "scene": "scenes/effectMeteor.png",
+        "sourceTexture": "sources/effectMeteor.png",
+        "zones": "zones/effectMeteor.png",
+        "poster": "posters/effectMeteor.jpg",
+        "backgroundAtlas": "backgrounds/effectMeteor.png"
+      },
+      {
+        "id": "effectMeteorRain",
+        "label": "流星雨",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 102,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectMeteorRain-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectMeteorRain-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectMeteorRain-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectMeteorRain-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#406060",
+          "#606060",
+          "#404060"
+        ],
+        "scene": "scenes/effectMeteorRain.png",
+        "sourceTexture": "sources/effectMeteorRain.png",
+        "zones": "zones/effectMeteorRain.png",
+        "poster": "posters/effectMeteorRain.jpg",
+        "backgroundAtlas": "backgrounds/effectMeteorRain.png"
+      },
+      {
+        "id": "effectFire",
+        "label": "火焰",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 177,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectFire-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectFire-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectFire-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectFire-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#a06000",
+          "#a04000",
+          "#802000"
+        ],
+        "scene": "scenes/effectFire.png",
+        "sourceTexture": "sources/effectFire.png",
+        "zones": "zones/effectFire.png",
+        "poster": "posters/effectFire.jpg",
+        "backgroundAtlas": "backgrounds/effectFire.png"
+      },
+      {
+        "id": "effectIceFire",
+        "label": "冰火",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 177,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectIceFire-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectIceFire-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectIceFire-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectIceFire-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#0060a0",
+          "#0040a0",
+          "#002080"
+        ],
+        "scene": "scenes/effectIceFire.png",
+        "sourceTexture": "sources/effectIceFire.png",
+        "zones": "zones/effectIceFire.png",
+        "poster": "posters/effectIceFire.jpg",
+        "backgroundAtlas": "backgrounds/effectIceFire.png"
+      },
+      {
+        "id": "effectLightning",
+        "label": "闪电",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 89,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectLightning-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectLightning-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectLightning-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectLightning-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#606040",
+          "#404040"
+        ],
+        "scene": "scenes/effectLightning.png",
+        "sourceTexture": "sources/effectLightning.png",
+        "zones": "zones/effectLightning.png",
+        "poster": "posters/effectLightning.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectPulse",
+        "label": "中心脉冲",
+        "duration": 6.133333333333334,
+        "periodFrames": 184,
+        "peak": 183,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectPulse-0.jpg"
+          },
+          {
+            "time": 1.5,
+            "sourceFrame": 45,
+            "image": "keyframes/effectPulse-1.jpg"
+          },
+          {
+            "time": 3.033333333333333,
+            "sourceFrame": 91,
+            "image": "keyframes/effectPulse-2.jpg"
+          },
+          {
+            "time": 4.566666666666666,
+            "sourceFrame": 137,
+            "image": "keyframes/effectPulse-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#c04000",
+          "#802000",
+          "#a04000"
+        ],
+        "scene": "scenes/effectPulse.png",
+        "sourceTexture": "sources/effectPulse.png",
+        "zones": "zones/effectPulse.png",
+        "poster": "posters/effectPulse.jpg",
+        "backgroundAtlas": "backgrounds/effectPulse.png"
+      },
+      {
+        "id": "effectCenterExpand",
+        "label": "中心扩散",
+        "duration": 4,
+        "periodFrames": 120,
+        "peak": 149,
+        "isStatic": false,
+        "oneShot": true,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "one-shot",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectCenterExpand-0.jpg"
+          },
+          {
+            "time": 0.9666666666666667,
+            "sourceFrame": 29,
+            "image": "keyframes/effectCenterExpand-1.jpg"
+          },
+          {
+            "time": 1.9666666666666666,
+            "sourceFrame": 59,
+            "image": "keyframes/effectCenterExpand-2.jpg"
+          },
+          {
+            "time": 2.966666666666667,
+            "sourceFrame": 89,
+            "image": "keyframes/effectCenterExpand-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光按既定方向变化，结束后停留，可重新播放。",
+        "palette": [
+          "#0060a0",
+          "#006080",
+          "#004060"
+        ],
+        "scene": "scenes/effectCenterExpand.png",
+        "sourceTexture": "sources/effectCenterExpand.png",
+        "zones": "zones/effectCenterExpand.png",
+        "poster": "posters/effectCenterExpand.jpg",
+        "backgroundAtlas": "backgrounds/effectCenterExpand.png"
+      },
+      {
+        "id": "effectCenterContract",
+        "label": "中心收缩",
+        "duration": 4,
+        "periodFrames": 120,
+        "peak": 149,
+        "isStatic": false,
+        "oneShot": true,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "one-shot",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectCenterContract-0.jpg"
+          },
+          {
+            "time": 0.9666666666666667,
+            "sourceFrame": 29,
+            "image": "keyframes/effectCenterContract-1.jpg"
+          },
+          {
+            "time": 1.9666666666666666,
+            "sourceFrame": 59,
+            "image": "keyframes/effectCenterContract-2.jpg"
+          },
+          {
+            "time": 2.966666666666667,
+            "sourceFrame": 89,
+            "image": "keyframes/effectCenterContract-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光按既定方向变化，结束后停留，可重新播放。",
+        "palette": [
+          "#0060a0",
+          "#006080",
+          "#004060"
+        ],
+        "scene": "scenes/effectCenterContract.png",
+        "sourceTexture": "sources/effectCenterContract.png",
+        "zones": "zones/effectCenterContract.png",
+        "poster": "posters/effectCenterContract.jpg",
+        "backgroundAtlas": "backgrounds/effectCenterContract.png"
+      },
+      {
+        "id": "effectDampedRebound",
+        "label": "阻尼回弹",
+        "duration": 5,
+        "periodFrames": 150,
+        "peak": 166,
+        "isStatic": false,
+        "oneShot": true,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "one-shot",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectDampedRebound-0.jpg"
+          },
+          {
+            "time": 1.2333333333333334,
+            "sourceFrame": 37,
+            "image": "keyframes/effectDampedRebound-1.jpg"
+          },
+          {
+            "time": 2.466666666666667,
+            "sourceFrame": 74,
+            "image": "keyframes/effectDampedRebound-2.jpg"
+          },
+          {
+            "time": 3.7,
+            "sourceFrame": 111,
+            "image": "keyframes/effectDampedRebound-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光按既定方向变化，结束后停留，可重新播放。",
+        "palette": [
+          "#a04020",
+          "#602000",
+          "#804020"
+        ],
+        "scene": "scenes/effectDampedRebound.png",
+        "sourceTexture": "sources/effectDampedRebound.png",
+        "zones": "zones/effectDampedRebound.png",
+        "poster": "posters/effectDampedRebound.jpg",
+        "backgroundAtlas": "backgrounds/effectDampedRebound.png"
+      },
+      {
+        "id": "effectTendril",
+        "label": "藤蔓伸展",
+        "duration": 5,
+        "periodFrames": 150,
+        "peak": 134,
+        "isStatic": false,
+        "oneShot": true,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "one-shot",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectTendril-0.jpg"
+          },
+          {
+            "time": 1.2333333333333334,
+            "sourceFrame": 37,
+            "image": "keyframes/effectTendril-1.jpg"
+          },
+          {
+            "time": 2.466666666666667,
+            "sourceFrame": 74,
+            "image": "keyframes/effectTendril-2.jpg"
+          },
+          {
+            "time": 3.7,
+            "sourceFrame": 111,
+            "image": "keyframes/effectTendril-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光按既定方向变化，结束后停留，可重新播放。",
+        "palette": [
+          "#008080",
+          "#006060",
+          "#008060"
+        ],
+        "scene": "scenes/effectTendril.png",
+        "sourceTexture": "sources/effectTendril.png",
+        "zones": "zones/effectTendril.png",
+        "poster": "posters/effectTendril.jpg",
+        "backgroundAtlas": "backgrounds/effectTendril.png"
+      },
+      {
+        "id": "effectBubble",
+        "label": "气泡漂移",
+        "duration": 5,
+        "periodFrames": 150,
+        "peak": 149,
+        "isStatic": false,
+        "oneShot": true,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "one-shot",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectBubble-0.jpg"
+          },
+          {
+            "time": 1.2333333333333334,
+            "sourceFrame": 37,
+            "image": "keyframes/effectBubble-1.jpg"
+          },
+          {
+            "time": 2.466666666666667,
+            "sourceFrame": 74,
+            "image": "keyframes/effectBubble-2.jpg"
+          },
+          {
+            "time": 3.7,
+            "sourceFrame": 111,
+            "image": "keyframes/effectBubble-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光按既定方向变化，结束后停留，可重新播放。",
+        "palette": [
+          "#0060a0"
+        ],
+        "scene": "scenes/effectBubble.png",
+        "sourceTexture": "sources/effectBubble.png",
+        "zones": "zones/effectBubble.png",
+        "poster": "posters/effectBubble.jpg",
+        "backgroundAtlas": "backgrounds/effectBubble.png"
+      },
+      {
+        "id": "effectBreathe",
+        "label": "呼吸渐变",
+        "duration": 2.1333333333333333,
+        "periodFrames": 64,
+        "peak": 149,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": true,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectBreathe-0.jpg"
+          },
+          {
+            "time": 0.5,
+            "sourceFrame": 15,
+            "image": "keyframes/effectBreathe-1.jpg"
+          },
+          {
+            "time": 1.0333333333333334,
+            "sourceFrame": 31,
+            "image": "keyframes/effectBreathe-2.jpg"
+          },
+          {
+            "time": 1.5666666666666667,
+            "sourceFrame": 47,
+            "image": "keyframes/effectBreathe-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "整条灯带同步明暗变化。",
+        "palette": [
+          "#0060a0",
+          "#006080",
+          "#004060"
+        ],
+        "scene": "scenes/effectBreathe.png",
+        "sourceTexture": "sources/effectBreathe.png",
+        "zones": "zones/effectBreathe.png",
+        "poster": "posters/effectBreathe.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectFade",
+        "label": "淡入淡出",
+        "duration": 4,
+        "periodFrames": 120,
+        "peak": 149,
+        "isStatic": false,
+        "oneShot": true,
+        "uniform": true,
+        "fullLit": true,
+        "generated": false,
+        "policy": "one-shot",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectFade-0.jpg"
+          },
+          {
+            "time": 0.9666666666666667,
+            "sourceFrame": 29,
+            "image": "keyframes/effectFade-1.jpg"
+          },
+          {
+            "time": 1.9666666666666666,
+            "sourceFrame": 59,
+            "image": "keyframes/effectFade-2.jpg"
+          },
+          {
+            "time": 2.966666666666667,
+            "sourceFrame": 89,
+            "image": "keyframes/effectFade-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光按既定方向变化，结束后停留，可重新播放。",
+        "palette": [
+          "#0060a0",
+          "#006080",
+          "#004060"
+        ],
+        "scene": "scenes/effectFade.png",
+        "sourceTexture": "sources/effectFade.png",
+        "zones": "zones/effectFade.png",
+        "poster": "posters/effectFade.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectDirectionalTrail",
+        "label": "定向拖尾",
+        "duration": 4,
+        "periodFrames": 120,
+        "peak": 168,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectDirectionalTrail-0.jpg"
+          },
+          {
+            "time": 0.9666666666666667,
+            "sourceFrame": 29,
+            "image": "keyframes/effectDirectionalTrail-1.jpg"
+          },
+          {
+            "time": 1.9666666666666666,
+            "sourceFrame": 59,
+            "image": "keyframes/effectDirectionalTrail-2.jpg"
+          },
+          {
+            "time": 2.966666666666667,
+            "sourceFrame": 89,
+            "image": "keyframes/effectDirectionalTrail-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#a04020",
+          "#804000",
+          "#602000"
+        ],
+        "scene": "scenes/effectDirectionalTrail.png",
+        "sourceTexture": "sources/effectDirectionalTrail.png",
+        "zones": "zones/effectDirectionalTrail.png",
+        "poster": "posters/effectDirectionalTrail.jpg",
+        "backgroundAtlas": "backgrounds/effectDirectionalTrail.png"
+      },
+      {
+        "id": "effectDirectionalWipe",
+        "label": "定向擦除",
+        "duration": 4,
+        "periodFrames": 120,
+        "peak": 149,
+        "isStatic": false,
+        "oneShot": true,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "one-shot",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectDirectionalWipe-0.jpg"
+          },
+          {
+            "time": 0.9666666666666667,
+            "sourceFrame": 29,
+            "image": "keyframes/effectDirectionalWipe-1.jpg"
+          },
+          {
+            "time": 1.9666666666666666,
+            "sourceFrame": 59,
+            "image": "keyframes/effectDirectionalWipe-2.jpg"
+          },
+          {
+            "time": 2.966666666666667,
+            "sourceFrame": 89,
+            "image": "keyframes/effectDirectionalWipe-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光按既定方向变化，结束后停留，可重新播放。",
+        "palette": [
+          "#0060a0"
+        ],
+        "scene": "scenes/effectDirectionalWipe.png",
+        "sourceTexture": "sources/effectDirectionalWipe.png",
+        "zones": "zones/effectDirectionalWipe.png",
+        "poster": "posters/effectDirectionalWipe.jpg",
+        "backgroundAtlas": "backgrounds/effectDirectionalWipe.png"
+      },
+      {
+        "id": "effectDirectionalTendril",
+        "label": "定向藤蔓",
+        "duration": 5,
+        "periodFrames": 150,
+        "peak": 134,
+        "isStatic": false,
+        "oneShot": true,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "one-shot",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectDirectionalTendril-0.jpg"
+          },
+          {
+            "time": 1.2333333333333334,
+            "sourceFrame": 37,
+            "image": "keyframes/effectDirectionalTendril-1.jpg"
+          },
+          {
+            "time": 2.466666666666667,
+            "sourceFrame": 74,
+            "image": "keyframes/effectDirectionalTendril-2.jpg"
+          },
+          {
+            "time": 3.7,
+            "sourceFrame": 111,
+            "image": "keyframes/effectDirectionalTendril-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光按既定方向变化，结束后停留，可重新播放。",
+        "palette": [
+          "#008080",
+          "#006060",
+          "#008060"
+        ],
+        "scene": "scenes/effectDirectionalTendril.png",
+        "sourceTexture": "sources/effectDirectionalTendril.png",
+        "zones": "zones/effectDirectionalTendril.png",
+        "poster": "posters/effectDirectionalTendril.jpg",
+        "backgroundAtlas": "backgrounds/effectDirectionalTendril.png"
+      },
+      {
+        "id": "effectMultiChase",
+        "label": "多点追逐",
+        "duration": 5.333333333333333,
+        "periodFrames": 160,
+        "peak": 142,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectMultiChase-0.jpg"
+          },
+          {
+            "time": 1.3,
+            "sourceFrame": 39,
+            "image": "keyframes/effectMultiChase-1.jpg"
+          },
+          {
+            "time": 2.6333333333333333,
+            "sourceFrame": 79,
+            "image": "keyframes/effectMultiChase-2.jpg"
+          },
+          {
+            "time": 3.966666666666667,
+            "sourceFrame": 119,
+            "image": "keyframes/effectMultiChase-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#008080",
+          "#006080",
+          "#004060"
+        ],
+        "scene": "scenes/effectMultiChase.png",
+        "sourceTexture": "sources/effectMultiChase.png",
+        "zones": "zones/effectMultiChase.png",
+        "poster": "posters/effectMultiChase.jpg",
+        "backgroundAtlas": "backgrounds/effectMultiChase.png"
+      },
+      {
+        "id": "effectMultiChaseTail",
+        "label": "多点拖尾",
+        "duration": 5.333333333333333,
+        "periodFrames": 160,
+        "peak": 142,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectMultiChaseTail-0.jpg"
+          },
+          {
+            "time": 1.3,
+            "sourceFrame": 39,
+            "image": "keyframes/effectMultiChaseTail-1.jpg"
+          },
+          {
+            "time": 2.6333333333333333,
+            "sourceFrame": 79,
+            "image": "keyframes/effectMultiChaseTail-2.jpg"
+          },
+          {
+            "time": 3.966666666666667,
+            "sourceFrame": 119,
+            "image": "keyframes/effectMultiChaseTail-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#008080",
+          "#006080",
+          "#004060"
+        ],
+        "scene": "scenes/effectMultiChaseTail.png",
+        "sourceTexture": "sources/effectMultiChaseTail.png",
+        "zones": "zones/effectMultiChaseTail.png",
+        "poster": "posters/effectMultiChaseTail.jpg",
+        "backgroundAtlas": "backgrounds/effectMultiChaseTail.png"
+      },
+      {
+        "id": "effectWave",
+        "label": "正弦波浪",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 156,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectWave-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectWave-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectWave-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectWave-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#2040a0",
+          "#002060",
+          "#204080"
+        ],
+        "scene": "scenes/effectWave.png",
+        "sourceTexture": "sources/effectWave.png",
+        "zones": "zones/effectWave.png",
+        "poster": "posters/effectWave.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectDualWave",
+        "label": "双色波浪",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 206,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": false,
+        "policy": "single-image-flash",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectDualWave-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectDualWave-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectDualWave-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectDualWave-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#404080",
+          "#c02020",
+          "#604060"
+        ],
+        "scene": "scenes/effectDualWave.png",
+        "sourceTexture": "sources/effectDualWave.png",
+        "zones": "zones/effectDualWave.png",
+        "poster": "posters/effectDualWave.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectSparkle",
+        "label": "单色闪烁",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 85,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectSparkle-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectSparkle-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectSparkle-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectSparkle-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#606060",
+          "#404040",
+          "#202020"
+        ],
+        "scene": "scenes/effectSparkle.png",
+        "sourceTexture": "sources/effectSparkle.png",
+        "zones": "zones/effectSparkle.png",
+        "poster": "posters/effectSparkle.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectColorSparkle",
+        "label": "彩虹闪烁",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 255,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": false,
+        "policy": "single-image-flash",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectColorSparkle-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectColorSparkle-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectColorSparkle-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectColorSparkle-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#800080",
+          "#00c040",
+          "#40c000"
+        ],
+        "scene": "scenes/effectColorSparkle.png",
+        "sourceTexture": "sources/effectColorSparkle.png",
+        "zones": "zones/effectColorSparkle.png",
+        "poster": "posters/effectColorSparkle.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectTwinkle",
+        "label": "星光",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 92,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": false,
+        "policy": "single-image-flash",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectTwinkle-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectTwinkle-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectTwinkle-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectTwinkle-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#606040",
+          "#404040",
+          "#404020"
+        ],
+        "scene": "scenes/effectTwinkle.png",
+        "sourceTexture": "sources/effectTwinkle.png",
+        "zones": "zones/effectTwinkle.png",
+        "poster": "posters/effectTwinkle.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectComet",
+        "label": "彗星",
+        "duration": 5.333333333333333,
+        "periodFrames": 160,
+        "peak": 149,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectComet-0.jpg"
+          },
+          {
+            "time": 1.3,
+            "sourceFrame": 39,
+            "image": "keyframes/effectComet-1.jpg"
+          },
+          {
+            "time": 2.6333333333333333,
+            "sourceFrame": 79,
+            "image": "keyframes/effectComet-2.jpg"
+          },
+          {
+            "time": 3.966666666666667,
+            "sourceFrame": 119,
+            "image": "keyframes/effectComet-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#0060a0",
+          "#206080",
+          "#006080"
+        ],
+        "scene": "scenes/effectComet.png",
+        "sourceTexture": "sources/effectComet.png",
+        "zones": "zones/effectComet.png",
+        "poster": "posters/effectComet.jpg",
+        "backgroundAtlas": "backgrounds/effectComet.png"
+      },
+      {
+        "id": "effectBounce",
+        "label": "反弹",
+        "duration": 10.4,
+        "periodFrames": 312,
+        "peak": 136,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectBounce-0.jpg"
+          },
+          {
+            "time": 2.566666666666667,
+            "sourceFrame": 77,
+            "image": "keyframes/effectBounce-1.jpg"
+          },
+          {
+            "time": 5.166666666666667,
+            "sourceFrame": 155,
+            "image": "keyframes/effectBounce-2.jpg"
+          },
+          {
+            "time": 7.766666666666667,
+            "sourceFrame": 233,
+            "image": "keyframes/effectBounce-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#806020"
+        ],
+        "scene": "scenes/effectBounce.png",
+        "sourceTexture": "sources/effectBounce.png",
+        "zones": "zones/effectBounce.png",
+        "poster": "posters/effectBounce.jpg",
+        "backgroundAtlas": "backgrounds/effectBounce.png"
+      },
+      {
+        "id": "effectBounceTail",
+        "label": "反弹拖尾",
+        "duration": 10.4,
+        "periodFrames": 312,
+        "peak": 136,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectBounceTail-0.jpg"
+          },
+          {
+            "time": 2.566666666666667,
+            "sourceFrame": 77,
+            "image": "keyframes/effectBounceTail-1.jpg"
+          },
+          {
+            "time": 5.166666666666667,
+            "sourceFrame": 155,
+            "image": "keyframes/effectBounceTail-2.jpg"
+          },
+          {
+            "time": 7.766666666666667,
+            "sourceFrame": 233,
+            "image": "keyframes/effectBounceTail-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#806020",
+          "#604000",
+          "#404000"
+        ],
+        "scene": "scenes/effectBounceTail.png",
+        "sourceTexture": "sources/effectBounceTail.png",
+        "zones": "zones/effectBounceTail.png",
+        "poster": "posters/effectBounceTail.jpg",
+        "backgroundAtlas": "backgrounds/effectBounceTail.png"
+      },
+      {
+        "id": "effectTheaterChase",
+        "label": "剧院追逐",
+        "duration": 0.5333333333333333,
+        "periodFrames": 16,
+        "peak": 164,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": false,
+        "policy": "single-image-flash",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectTheaterChase-0.jpg"
+          },
+          {
+            "time": 0.1,
+            "sourceFrame": 3,
+            "image": "keyframes/effectTheaterChase-1.jpg"
+          },
+          {
+            "time": 0.23333333333333334,
+            "sourceFrame": 7,
+            "image": "keyframes/effectTheaterChase-2.jpg"
+          },
+          {
+            "time": 0.36666666666666664,
+            "sourceFrame": 11,
+            "image": "keyframes/effectTheaterChase-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#a04000"
+        ],
+        "scene": "scenes/effectTheaterChase.png",
+        "sourceTexture": "sources/effectTheaterChase.png",
+        "zones": "zones/effectTheaterChase.png",
+        "poster": "posters/effectTheaterChase.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectGradient",
+        "label": "渐变滚动",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 166,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectGradient-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectGradient-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectGradient-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectGradient-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#0060a0",
+          "#004080",
+          "#002060"
+        ],
+        "scene": "scenes/effectGradient.png",
+        "sourceTexture": "sources/effectGradient.png",
+        "zones": "zones/effectGradient.png",
+        "poster": "posters/effectGradient.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectStack",
+        "label": "堆叠",
+        "duration": 10.666666666666666,
+        "periodFrames": 320,
+        "peak": 149,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectStack-0.jpg"
+          },
+          {
+            "time": 2.6333333333333333,
+            "sourceFrame": 79,
+            "image": "keyframes/effectStack-1.jpg"
+          },
+          {
+            "time": 5.3,
+            "sourceFrame": 159,
+            "image": "keyframes/effectStack-2.jpg"
+          },
+          {
+            "time": 7.966666666666667,
+            "sourceFrame": 239,
+            "image": "keyframes/effectStack-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#0060a0"
+        ],
+        "scene": "scenes/effectStack.png",
+        "sourceTexture": "sources/effectStack.png",
+        "zones": "zones/effectStack.png",
+        "poster": "posters/effectStack.jpg",
+        "backgroundAtlas": "backgrounds/effectStack.png"
+      },
+      {
+        "id": "effectScanner",
+        "label": "扫描",
+        "duration": 10.4,
+        "periodFrames": 312,
+        "peak": 173,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectScanner-0.jpg"
+          },
+          {
+            "time": 2.566666666666667,
+            "sourceFrame": 77,
+            "image": "keyframes/effectScanner-1.jpg"
+          },
+          {
+            "time": 5.166666666666667,
+            "sourceFrame": 155,
+            "image": "keyframes/effectScanner-2.jpg"
+          },
+          {
+            "time": 7.766666666666667,
+            "sourceFrame": 233,
+            "image": "keyframes/effectScanner-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#a02040",
+          "#802020",
+          "#600020"
+        ],
+        "scene": "scenes/effectScanner.png",
+        "sourceTexture": "sources/effectScanner.png",
+        "zones": "zones/effectScanner.png",
+        "poster": "posters/effectScanner.jpg",
+        "backgroundAtlas": "backgrounds/effectScanner.png"
+      },
+      {
+        "id": "effectRipple",
+        "label": "涟漪",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 149,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectRipple-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectRipple-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectRipple-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectRipple-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#0060a0",
+          "#004060",
+          "#006080"
+        ],
+        "scene": "scenes/effectRipple.png",
+        "sourceTexture": "sources/effectRipple.png",
+        "zones": "zones/effectRipple.png",
+        "poster": "posters/effectRipple.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectPlasma",
+        "label": "等离子",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 209,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectPlasma-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectPlasma-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectPlasma-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectPlasma-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#c00000",
+          "#0000c0",
+          "#00c000"
+        ],
+        "scene": "scenes/effectPlasma.png",
+        "sourceTexture": "sources/effectPlasma.png",
+        "zones": "zones/effectPlasma.png",
+        "poster": "posters/effectPlasma.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "styleVaporwave",
+        "label": "蒸汽波",
+        "duration": 12.8,
+        "periodFrames": 384,
+        "peak": 125,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/styleVaporwave-0.jpg"
+          },
+          {
+            "time": 3.1666666666666665,
+            "sourceFrame": 95,
+            "image": "keyframes/styleVaporwave-1.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/styleVaporwave-2.jpg"
+          },
+          {
+            "time": 9.566666666666666,
+            "sourceFrame": 287,
+            "image": "keyframes/styleVaporwave-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#604060",
+          "#206080",
+          "#404080"
+        ],
+        "scene": "scenes/styleVaporwave.png",
+        "sourceTexture": "sources/styleVaporwave.png",
+        "zones": "zones/styleVaporwave.png",
+        "poster": "posters/styleVaporwave.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "styleSunset",
+        "label": "日落",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 119,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/styleSunset-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/styleSunset-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/styleSunset-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/styleSunset-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#800080",
+          "#600060"
+        ],
+        "scene": "scenes/styleSunset.png",
+        "sourceTexture": "sources/styleSunset.png",
+        "zones": "zones/styleSunset.png",
+        "poster": "posters/styleSunset.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "styleCandlelight",
+        "label": "烛光",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 156,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/styleCandlelight-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/styleCandlelight-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/styleCandlelight-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/styleCandlelight-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#a06000",
+          "#806000"
+        ],
+        "scene": "scenes/styleCandlelight.png",
+        "sourceTexture": "sources/styleCandlelight.png",
+        "zones": "zones/styleCandlelight.png",
+        "poster": "posters/styleCandlelight.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "styleMoonlight",
+        "label": "月光",
+        "duration": 4.266666666666667,
+        "periodFrames": 128,
+        "peak": 187,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/styleMoonlight-0.jpg"
+          },
+          {
+            "time": 1.0333333333333334,
+            "sourceFrame": 31,
+            "image": "keyframes/styleMoonlight-1.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/styleMoonlight-2.jpg"
+          },
+          {
+            "time": 3.1666666666666665,
+            "sourceFrame": 95,
+            "image": "keyframes/styleMoonlight-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#2040a0",
+          "#002060",
+          "#002080"
+        ],
+        "scene": "scenes/styleMoonlight.png",
+        "sourceTexture": "sources/styleMoonlight.png",
+        "zones": "zones/styleMoonlight.png",
+        "poster": "posters/styleMoonlight.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "styleArcade",
+        "label": "街机",
+        "duration": 25.6,
+        "periodFrames": 768,
+        "peak": 255,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/styleArcade-0.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/styleArcade-1.jpg"
+          },
+          {
+            "time": 12.766666666666667,
+            "sourceFrame": 383,
+            "image": "keyframes/styleArcade-2.jpg"
+          },
+          {
+            "time": 19.166666666666668,
+            "sourceFrame": 575,
+            "image": "keyframes/styleArcade-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#4000c0",
+          "#c00040",
+          "#0000a0"
+        ],
+        "scene": "scenes/styleArcade.png",
+        "sourceTexture": "sources/styleArcade.png",
+        "zones": "zones/styleArcade.png",
+        "poster": "posters/styleArcade.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "stylePolice",
+        "label": "警灯",
+        "duration": 0.8,
+        "periodFrames": 24,
+        "peak": 255,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": false,
+        "policy": "single-image-flash",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/stylePolice-0.jpg"
+          },
+          {
+            "time": 0.16666666666666666,
+            "sourceFrame": 5,
+            "image": "keyframes/stylePolice-1.jpg"
+          },
+          {
+            "time": 0.36666666666666664,
+            "sourceFrame": 11,
+            "image": "keyframes/stylePolice-2.jpg"
+          },
+          {
+            "time": 0.5666666666666667,
+            "sourceFrame": 17,
+            "image": "keyframes/stylePolice-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#ff0000",
+          "#0000ff"
+        ],
+        "scene": "scenes/stylePolice.png",
+        "sourceTexture": "sources/stylePolice.png",
+        "zones": "zones/stylePolice.png",
+        "poster": "posters/stylePolice.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "styleChristmas",
+        "label": "圣诞",
+        "duration": 8,
+        "periodFrames": 240,
+        "peak": 254,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/styleChristmas-0.jpg"
+          },
+          {
+            "time": 1.9666666666666666,
+            "sourceFrame": 59,
+            "image": "keyframes/styleChristmas-1.jpg"
+          },
+          {
+            "time": 3.966666666666667,
+            "sourceFrame": 119,
+            "image": "keyframes/styleChristmas-2.jpg"
+          },
+          {
+            "time": 5.966666666666667,
+            "sourceFrame": 179,
+            "image": "keyframes/styleChristmas-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#00e000",
+          "#00ff00",
+          "#00c000"
+        ],
+        "scene": "scenes/styleChristmas.png",
+        "sourceTexture": "sources/styleChristmas.png",
+        "zones": "zones/styleChristmas.png",
+        "poster": "posters/styleChristmas.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectStrobe",
+        "label": "频闪",
+        "duration": 2.8,
+        "periodFrames": 84,
+        "peak": 85,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": true,
+        "fullLit": false,
+        "generated": false,
+        "policy": "single-image-flash",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectStrobe-0.jpg"
+          },
+          {
+            "time": 0.6666666666666666,
+            "sourceFrame": 20,
+            "image": "keyframes/effectStrobe-1.jpg"
+          },
+          {
+            "time": 1.3666666666666667,
+            "sourceFrame": 41,
+            "image": "keyframes/effectStrobe-2.jpg"
+          },
+          {
+            "time": 2.066666666666667,
+            "sourceFrame": 62,
+            "image": "keyframes/effectStrobe-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "整条灯带同步明暗变化。",
+        "palette": [
+          "#606060"
+        ],
+        "scene": "scenes/effectStrobe.png",
+        "sourceTexture": "sources/effectStrobe.png",
+        "zones": "zones/effectStrobe.png",
+        "poster": "posters/effectStrobe.jpg",
+        "backgroundAtlas": null
+      },
+      {
+        "id": "effectColorWipe",
+        "label": "颜色擦除",
+        "duration": 10.666666666666666,
+        "periodFrames": 320,
+        "peak": 149,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": false,
+        "generated": true,
+        "policy": "generated-keyframes",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectColorWipe-0.jpg"
+          },
+          {
+            "time": 2.6333333333333333,
+            "sourceFrame": 79,
+            "image": "keyframes/effectColorWipe-1.jpg"
+          },
+          {
+            "time": 5.3,
+            "sourceFrame": 159,
+            "image": "keyframes/effectColorWipe-2.jpg"
+          },
+          {
+            "time": 7.966666666666667,
+            "sourceFrame": 239,
+            "image": "keyframes/effectColorWipe-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "光点沿灯带变化，背景光纹与节奏呼应。",
+        "palette": [
+          "#0060a0"
+        ],
+        "scene": "scenes/effectColorWipe.png",
+        "sourceTexture": "sources/effectColorWipe.png",
+        "zones": "zones/effectColorWipe.png",
+        "poster": "posters/effectColorWipe.jpg",
+        "backgroundAtlas": "backgrounds/effectColorWipe.png"
+      },
+      {
+        "id": "effectRainbowWave",
+        "label": "色彩波动",
+        "duration": 8.533333333333333,
+        "periodFrames": 256,
+        "peak": 127,
+        "isStatic": false,
+        "oneShot": false,
+        "uniform": false,
+        "fullLit": true,
+        "generated": false,
+        "policy": "single-image-flow",
+        "keyframes": [
+          {
+            "time": 0.0,
+            "sourceFrame": 0,
+            "image": "keyframes/effectRainbowWave-0.jpg"
+          },
+          {
+            "time": 2.1,
+            "sourceFrame": 63,
+            "image": "keyframes/effectRainbowWave-1.jpg"
+          },
+          {
+            "time": 4.233333333333333,
+            "sourceFrame": 127,
+            "image": "keyframes/effectRainbowWave-2.jpg"
+          },
+          {
+            "time": 6.366666666666666,
+            "sourceFrame": 191,
+            "image": "keyframes/effectRainbowWave-3.jpg"
+          }
+        ],
+        "kind": "source-atlas",
+        "description": "灯带持续点亮，分段色彩沿轮廓变化。",
+        "palette": [
+          "#800080",
+          "#802080",
+          "#602060"
+        ],
+        "scene": "scenes/effectRainbowWave.png",
+        "sourceTexture": "sources/effectRainbowWave.png",
+        "zones": "zones/effectRainbowWave.png",
+        "poster": "posters/effectRainbowWave.jpg",
+        "backgroundAtlas": null
+      }
+    ]
+  },
+  "videos": {
+    "effects": [
+      {
+        "id": "styleCyberpunk",
+        "label": "赛博朋克",
+        "description": "粉青交替，霓虹循着轮廓前行。",
+        "palette": [
+          "#ec44ba",
+          "#26d9ed"
+        ],
+        "video": "styleCyberpunk-loop.mp4",
+        "poster": "posters/styleCyberpunk.jpg",
+        "duration": 8.533333333333333,
+        "fps": 60,
+        "keyframes": [
+          {
+            "time": 0.0,
+            "image": "keyframes/styleCyberpunk-000.jpg",
+            "sourceFrame": 0
+          },
+          {
+            "time": 0.5333333333333333,
+            "image": "keyframes/styleCyberpunk-016.jpg",
+            "sourceFrame": 16
+          },
+          {
+            "time": 1.0666666666666667,
+            "image": "keyframes/styleCyberpunk-032.jpg",
+            "sourceFrame": 32
+          },
+          {
+            "time": 1.6,
+            "image": "keyframes/styleCyberpunk-048.jpg",
+            "sourceFrame": 48
+          },
+          {
+            "time": 2.1333333333333333,
+            "image": "keyframes/styleCyberpunk-064.jpg",
+            "sourceFrame": 64
+          },
+          {
+            "time": 2.6666666666666665,
+            "image": "keyframes/styleCyberpunk-080.jpg",
+            "sourceFrame": 80
+          },
+          {
+            "time": 3.2,
+            "image": "keyframes/styleCyberpunk-096.jpg",
+            "sourceFrame": 96
+          },
+          {
+            "time": 3.7333333333333334,
+            "image": "keyframes/styleCyberpunk-112.jpg",
+            "sourceFrame": 112
+          }
+        ]
+      },
+      {
+        "id": "styleMatrix",
+        "label": "黑客帝国",
+        "description": "绿光逐次亮起，数字光雨缓缓落下。",
+        "palette": [
+          "#72e23a",
+          "#123b29"
+        ],
+        "video": "styleMatrix-loop.mp4",
+        "poster": "posters/styleMatrix.jpg",
+        "duration": 8.533333333333333,
+        "fps": 60,
+        "keyframes": [
+          {
+            "time": 0.0,
+            "image": "keyframes/styleMatrix-000.jpg",
+            "sourceFrame": 0
+          },
+          {
+            "time": 0.5333333333333333,
+            "image": "keyframes/styleMatrix-016.jpg",
+            "sourceFrame": 16
+          },
+          {
+            "time": 1.0666666666666667,
+            "image": "keyframes/styleMatrix-032.jpg",
+            "sourceFrame": 32
+          },
+          {
+            "time": 1.6,
+            "image": "keyframes/styleMatrix-048.jpg",
+            "sourceFrame": 48
+          },
+          {
+            "time": 2.1333333333333333,
+            "image": "keyframes/styleMatrix-064.jpg",
+            "sourceFrame": 64
+          },
+          {
+            "time": 2.6666666666666665,
+            "image": "keyframes/styleMatrix-080.jpg",
+            "sourceFrame": 80
+          },
+          {
+            "time": 3.2,
+            "image": "keyframes/styleMatrix-096.jpg",
+            "sourceFrame": 96
+          },
+          {
+            "time": 3.7333333333333334,
+            "image": "keyframes/styleMatrix-112.jpg",
+            "sourceFrame": 112
+          }
+        ]
+      },
+      {
+        "id": "styleForest",
+        "label": "森林",
+        "description": "绿意层层起伏，萤光在林间闪动。",
+        "palette": [
+          "#65cf36",
+          "#c8ea60"
+        ],
+        "video": "styleForest-loop.mp4",
+        "poster": "posters/styleForest.jpg",
+        "duration": 8.533333333333333,
+        "fps": 60,
+        "keyframes": [
+          {
+            "time": 0.0,
+            "image": "keyframes/styleForest-000.jpg",
+            "sourceFrame": 0
+          },
+          {
+            "time": 1.0666666666666667,
+            "image": "keyframes/styleForest-032.jpg",
+            "sourceFrame": 32
+          },
+          {
+            "time": 2.1333333333333333,
+            "image": "keyframes/styleForest-064.jpg",
+            "sourceFrame": 64
+          },
+          {
+            "time": 3.2,
+            "image": "keyframes/styleForest-096.jpg",
+            "sourceFrame": 96
+          },
+          {
+            "time": 4.266666666666667,
+            "image": "keyframes/styleForest-128.jpg",
+            "sourceFrame": 128
+          },
+          {
+            "time": 5.333333333333333,
+            "image": "keyframes/styleForest-160.jpg",
+            "sourceFrame": 160
+          },
+          {
+            "time": 6.4,
+            "image": "keyframes/styleForest-192.jpg",
+            "sourceFrame": 192
+          },
+          {
+            "time": 7.466666666666667,
+            "image": "keyframes/styleForest-224.jpg",
+            "sourceFrame": 224
+          }
+        ]
+      },
+      {
+        "id": "styleOcean",
+        "label": "海洋",
+        "description": "蓝青波纹交错，光沿轮廓流动。",
+        "palette": [
+          "#25c9e8",
+          "#2058e2"
+        ],
+        "video": "styleOcean-background-v3-loop.mp4",
+        "poster": "posters/styleOcean.jpg",
+        "duration": 8.533333333333333,
+        "fps": 60,
+        "keyframes": [
+          {
+            "time": 0.0,
+            "image": "keyframes/styleOcean-000.jpg",
+            "sourceFrame": 0
+          },
+          {
+            "time": 1.0666666666666667,
+            "image": "keyframes/styleOcean-032.jpg",
+            "sourceFrame": 32
+          },
+          {
+            "time": 2.1333333333333333,
+            "image": "keyframes/styleOcean-064.jpg",
+            "sourceFrame": 64
+          },
+          {
+            "time": 3.2,
+            "image": "keyframes/styleOcean-096.jpg",
+            "sourceFrame": 96
+          },
+          {
+            "time": 4.266666666666667,
+            "image": "keyframes/styleOcean-128.jpg",
+            "sourceFrame": 128
+          },
+          {
+            "time": 5.333333333333333,
+            "image": "keyframes/styleOcean-160.jpg",
+            "sourceFrame": 160
+          },
+          {
+            "time": 6.4,
+            "image": "keyframes/styleOcean-192.jpg",
+            "sourceFrame": 192
+          },
+          {
+            "time": 7.466666666666667,
+            "image": "keyframes/styleOcean-224.jpg",
+            "sourceFrame": 224
+          }
+        ],
+        "revision": "background-depth-v3"
+      },
+      {
+        "id": "styleAurora",
+        "label": "极光",
+        "description": "紫红光幕舒展，层层掠过机身。",
+        "palette": [
+          "#d64bd8",
+          "#6c2b8c"
+        ],
+        "video": "styleAurora-calibrated-v4-loop.mp4",
+        "poster": "posters/styleAurora.jpg",
+        "duration": 8.533333333333333,
+        "fps": 60,
+        "keyframes": [
+          {
+            "time": 0.0,
+            "image": "keyframes/styleAurora-000.jpg",
+            "sourceFrame": 0
+          },
+          {
+            "time": 1.0666666666666667,
+            "image": "keyframes/styleAurora-032.jpg",
+            "sourceFrame": 32
+          },
+          {
+            "time": 2.1333333333333333,
+            "image": "keyframes/styleAurora-064.jpg",
+            "sourceFrame": 64
+          },
+          {
+            "time": 3.2,
+            "image": "keyframes/styleAurora-096.jpg",
+            "sourceFrame": 96
+          },
+          {
+            "time": 4.266666666666667,
+            "image": "keyframes/styleAurora-128.jpg",
+            "sourceFrame": 128
+          },
+          {
+            "time": 5.333333333333333,
+            "image": "keyframes/styleAurora-160.jpg",
+            "sourceFrame": 160
+          },
+          {
+            "time": 6.4,
+            "image": "keyframes/styleAurora-192.jpg",
+            "sourceFrame": 192
+          },
+          {
+            "time": 7.466666666666667,
+            "image": "keyframes/styleAurora-224.jpg",
+            "sourceFrame": 224
+          }
+        ],
+        "revision": "calibration-v4"
+      },
+      {
+        "id": "styleLava",
+        "label": "熔岩",
+        "description": "橙红热流沿灯带推进，岩层光纹缓慢起伏。",
+        "palette": [
+          "#ff5310",
+          "#ff9d35"
+        ],
+        "video": "styleLava-foreground-v3-loop.mp4",
+        "poster": "posters/styleLava.jpg",
+        "duration": 8.533333333333333,
+        "fps": 60,
+        "keyframes": [
+          {
+            "time": 0.0,
+            "image": "keyframes/styleLava-000.jpg",
+            "sourceFrame": 0
+          },
+          {
+            "time": 0.5333333333333333,
+            "image": "keyframes/styleLava-016.jpg",
+            "sourceFrame": 16
+          },
+          {
+            "time": 1.0666666666666667,
+            "image": "keyframes/styleLava-032.jpg",
+            "sourceFrame": 32
+          },
+          {
+            "time": 1.6,
+            "image": "keyframes/styleLava-048.jpg",
+            "sourceFrame": 48
+          },
+          {
+            "time": 2.1333333333333333,
+            "image": "keyframes/styleLava-064.jpg",
+            "sourceFrame": 64
+          },
+          {
+            "time": 2.6666666666666665,
+            "image": "keyframes/styleLava-080.jpg",
+            "sourceFrame": 80
+          },
+          {
+            "time": 3.2,
+            "image": "keyframes/styleLava-096.jpg",
+            "sourceFrame": 96
+          },
+          {
+            "time": 3.7333333333333334,
+            "image": "keyframes/styleLava-112.jpg",
+            "sourceFrame": 112
+          }
+        ],
+        "revision": "foreground-detail-v3"
+      },
+      {
+        "id": "styleGalaxy",
+        "label": "银河",
+        "description": "蓝紫星云缓慢流动，零星白光独立闪现。",
+        "palette": [
+          "#4e33cf",
+          "#b4bdff"
+        ],
+        "video": "styleGalaxy-foreground-v3-loop.mp4",
+        "poster": "posters/styleGalaxy.jpg",
+        "duration": 8.533333333333333,
+        "fps": 60,
+        "keyframes": [
+          {
+            "time": 0.0,
+            "image": "keyframes/styleGalaxy-000.jpg",
+            "sourceFrame": 0
+          },
+          {
+            "time": 1.0666666666666667,
+            "image": "keyframes/styleGalaxy-032.jpg",
+            "sourceFrame": 32
+          },
+          {
+            "time": 2.1333333333333333,
+            "image": "keyframes/styleGalaxy-064.jpg",
+            "sourceFrame": 64
+          },
+          {
+            "time": 3.2,
+            "image": "keyframes/styleGalaxy-096.jpg",
+            "sourceFrame": 96
+          },
+          {
+            "time": 4.266666666666667,
+            "image": "keyframes/styleGalaxy-128.jpg",
+            "sourceFrame": 128
+          },
+          {
+            "time": 5.333333333333333,
+            "image": "keyframes/styleGalaxy-160.jpg",
+            "sourceFrame": 160
+          },
+          {
+            "time": 6.4,
+            "image": "keyframes/styleGalaxy-192.jpg",
+            "sourceFrame": 192
+          },
+          {
+            "time": 7.466666666666667,
+            "image": "keyframes/styleGalaxy-224.jpg",
+            "sourceFrame": 224
+          }
+        ],
+        "revision": "foreground-detail-v3"
+      },
+      {
+        "id": "styleNeon",
+        "label": "霓虹",
+        "description": "紫红底色常亮，彩色色块周期闪变。",
+        "palette": [
+          "#ec20cf",
+          "#4933ef"
+        ],
+        "video": "styleNeon-foreground-v3-loop.mp4",
+        "poster": "posters/styleNeon.jpg",
+        "duration": 6.0,
+        "fps": 60,
+        "keyframes": [
+          {
+            "time": 0.0,
+            "image": "keyframes/styleNeon-000.jpg",
+            "sourceFrame": 0
+          },
+          {
+            "time": 0.4666666666666667,
+            "image": "keyframes/styleNeon-014.jpg",
+            "sourceFrame": 14
+          },
+          {
+            "time": 0.9666666666666667,
+            "image": "keyframes/styleNeon-029.jpg",
+            "sourceFrame": 29
+          },
+          {
+            "time": 1.4666666666666666,
+            "image": "keyframes/styleNeon-044.jpg",
+            "sourceFrame": 44
+          },
+          {
+            "time": 1.9666666666666666,
+            "image": "keyframes/styleNeon-059.jpg",
+            "sourceFrame": 59
+          },
+          {
+            "time": 2.966666666666667,
+            "image": "keyframes/styleNeon-089.jpg",
+            "sourceFrame": 89
+          },
+          {
+            "time": 3.966666666666667,
+            "image": "keyframes/styleNeon-119.jpg",
+            "sourceFrame": 119
+          },
+          {
+            "time": 4.966666666666667,
+            "image": "keyframes/styleNeon-149.jpg",
+            "sourceFrame": 149
+          }
+        ],
+        "revision": "foreground-detail-v3"
+      },
+      {
+        "id": "styleHeartbeat",
+        "label": "心跳",
+        "description": "整条灯带同步双拍，短暂熄灭后再次跳动。",
+        "palette": [
+          "#ff0028",
+          "#72001b"
+        ],
+        "video": "styleHeartbeat-loop.mp4",
+        "poster": "posters/styleHeartbeat.jpg",
+        "duration": 6.0,
+        "fps": 60,
+        "keyframes": [
+          {
+            "time": 0.0,
+            "image": "keyframes/styleHeartbeat-000.jpg",
+            "sourceFrame": 0
+          },
+          {
+            "time": 0.23333333333333334,
+            "image": "keyframes/styleHeartbeat-007.jpg",
+            "sourceFrame": 7
+          },
+          {
+            "time": 0.5,
+            "image": "keyframes/styleHeartbeat-015.jpg",
+            "sourceFrame": 15
+          },
+          {
+            "time": 0.6333333333333333,
+            "image": "keyframes/styleHeartbeat-019.jpg",
+            "sourceFrame": 19
+          },
+          {
+            "time": 0.9,
+            "image": "keyframes/styleHeartbeat-027.jpg",
+            "sourceFrame": 27
+          },
+          {
+            "time": 1.1666666666666667,
+            "image": "keyframes/styleHeartbeat-035.jpg",
+            "sourceFrame": 35
+          },
+          {
+            "time": 2.966666666666667,
+            "image": "keyframes/styleHeartbeat-089.jpg",
+            "sourceFrame": 89
+          },
+          {
+            "time": 3.2333333333333334,
+            "image": "keyframes/styleHeartbeat-097.jpg",
+            "sourceFrame": 97
+          }
+        ],
+        "revision": "motion-expansion-v1"
+      }
+    ]
+  },
+  "rainbow": {
+    "id": "effectRainbow",
+    "label": "彩虹循环",
+    "kind": "single-image",
+    "description": "整条常亮，彩色分段沿左右灯带同步流动。",
+    "palette": [
+      "#ef4d66",
+      "#62d957",
+      "#278ee8"
+    ],
+    "duration": 8.533333333333333,
+    "width": 768,
+    "height": 512,
+    "source": "effects/rainbow/effectRainbow.js",
+    "call": "effectRainbow(3)",
+    "sourceSha256": "c88ab72cc82a3428c5484d0cb897032720ec61220b80bd30cd7f3fa752c7dd34",
+    "preludeSha256": "4e86f3a04ffcaaf6e34c9190eae6ba9fb7b2ae8f1ef1293adca35bbbdffde344",
+    "reference": "assets/effects/generated-details/effectRainbow-detail.png",
+    "base": "effectRainbow-base.png",
+    "map": "effectRainbow-phase.png",
+    "paletteTexture": "effectRainbow-palette.png",
+    "poster": "effectRainbow-poster.jpg",
+    "sourcePeak": 255,
+    "sourcePalette": [
+      [
+        252,
+        3,
+        0
+      ],
+      [
+        249,
+        6,
+        0
+      ],
+      [
+        246,
+        9,
+        0
+      ],
+      [
+        243,
+        12,
+        0
+      ],
+      [
+        240,
+        15,
+        0
+      ],
+      [
+        237,
+        18,
+        0
+      ],
+      [
+        234,
+        21,
+        0
+      ],
+      [
+        231,
+        24,
+        0
+      ],
+      [
+        228,
+        27,
+        0
+      ],
+      [
+        225,
+        30,
+        0
+      ],
+      [
+        222,
+        33,
+        0
+      ],
+      [
+        219,
+        36,
+        0
+      ],
+      [
+        216,
+        39,
+        0
+      ],
+      [
+        213,
+        42,
+        0
+      ],
+      [
+        210,
+        45,
+        0
+      ],
+      [
+        207,
+        48,
+        0
+      ],
+      [
+        204,
+        51,
+        0
+      ],
+      [
+        201,
+        54,
+        0
+      ],
+      [
+        198,
+        57,
+        0
+      ],
+      [
+        195,
+        60,
+        0
+      ],
+      [
+        192,
+        63,
+        0
+      ],
+      [
+        189,
+        66,
+        0
+      ],
+      [
+        186,
+        69,
+        0
+      ],
+      [
+        183,
+        72,
+        0
+      ],
+      [
+        180,
+        75,
+        0
+      ],
+      [
+        177,
+        78,
+        0
+      ],
+      [
+        174,
+        81,
+        0
+      ],
+      [
+        171,
+        84,
+        0
+      ],
+      [
+        168,
+        87,
+        0
+      ],
+      [
+        165,
+        90,
+        0
+      ],
+      [
+        162,
+        93,
+        0
+      ],
+      [
+        159,
+        96,
+        0
+      ],
+      [
+        156,
+        99,
+        0
+      ],
+      [
+        153,
+        102,
+        0
+      ],
+      [
+        150,
+        105,
+        0
+      ],
+      [
+        147,
+        108,
+        0
+      ],
+      [
+        144,
+        111,
+        0
+      ],
+      [
+        141,
+        114,
+        0
+      ],
+      [
+        138,
+        117,
+        0
+      ],
+      [
+        135,
+        120,
+        0
+      ],
+      [
+        132,
+        123,
+        0
+      ],
+      [
+        129,
+        126,
+        0
+      ],
+      [
+        126,
+        129,
+        0
+      ],
+      [
+        123,
+        132,
+        0
+      ],
+      [
+        120,
+        135,
+        0
+      ],
+      [
+        117,
+        138,
+        0
+      ],
+      [
+        114,
+        141,
+        0
+      ],
+      [
+        111,
+        144,
+        0
+      ],
+      [
+        108,
+        147,
+        0
+      ],
+      [
+        105,
+        150,
+        0
+      ],
+      [
+        102,
+        153,
+        0
+      ],
+      [
+        99,
+        156,
+        0
+      ],
+      [
+        96,
+        159,
+        0
+      ],
+      [
+        93,
+        162,
+        0
+      ],
+      [
+        90,
+        165,
+        0
+      ],
+      [
+        87,
+        168,
+        0
+      ],
+      [
+        84,
+        171,
+        0
+      ],
+      [
+        81,
+        174,
+        0
+      ],
+      [
+        78,
+        177,
+        0
+      ],
+      [
+        75,
+        180,
+        0
+      ],
+      [
+        72,
+        183,
+        0
+      ],
+      [
+        69,
+        186,
+        0
+      ],
+      [
+        66,
+        189,
+        0
+      ],
+      [
+        63,
+        192,
+        0
+      ],
+      [
+        60,
+        195,
+        0
+      ],
+      [
+        57,
+        198,
+        0
+      ],
+      [
+        54,
+        201,
+        0
+      ],
+      [
+        51,
+        204,
+        0
+      ],
+      [
+        48,
+        207,
+        0
+      ],
+      [
+        45,
+        210,
+        0
+      ],
+      [
+        42,
+        213,
+        0
+      ],
+      [
+        39,
+        216,
+        0
+      ],
+      [
+        36,
+        219,
+        0
+      ],
+      [
+        33,
+        222,
+        0
+      ],
+      [
+        30,
+        225,
+        0
+      ],
+      [
+        27,
+        228,
+        0
+      ],
+      [
+        24,
+        231,
+        0
+      ],
+      [
+        21,
+        234,
+        0
+      ],
+      [
+        18,
+        237,
+        0
+      ],
+      [
+        15,
+        240,
+        0
+      ],
+      [
+        12,
+        243,
+        0
+      ],
+      [
+        9,
+        246,
+        0
+      ],
+      [
+        6,
+        249,
+        0
+      ],
+      [
+        3,
+        252,
+        0
+      ],
+      [
+        0,
+        255,
+        0
+      ],
+      [
+        0,
+        253,
+        2
+      ],
+      [
+        0,
+        250,
+        5
+      ],
+      [
+        0,
+        247,
+        8
+      ],
+      [
+        0,
+        244,
+        11
+      ],
+      [
+        0,
+        241,
+        14
+      ],
+      [
+        0,
+        238,
+        17
+      ],
+      [
+        0,
+        235,
+        20
+      ],
+      [
+        0,
+        232,
+        23
+      ],
+      [
+        0,
+        229,
+        26
+      ],
+      [
+        0,
+        226,
+        29
+      ],
+      [
+        0,
+        223,
+        32
+      ],
+      [
+        0,
+        220,
+        35
+      ],
+      [
+        0,
+        217,
+        38
+      ],
+      [
+        0,
+        214,
+        41
+      ],
+      [
+        0,
+        211,
+        44
+      ],
+      [
+        0,
+        208,
+        47
+      ],
+      [
+        0,
+        205,
+        50
+      ],
+      [
+        0,
+        202,
+        53
+      ],
+      [
+        0,
+        199,
+        56
+      ],
+      [
+        0,
+        196,
+        59
+      ],
+      [
+        0,
+        193,
+        62
+      ],
+      [
+        0,
+        190,
+        65
+      ],
+      [
+        0,
+        187,
+        68
+      ],
+      [
+        0,
+        184,
+        71
+      ],
+      [
+        0,
+        181,
+        74
+      ],
+      [
+        0,
+        178,
+        77
+      ],
+      [
+        0,
+        175,
+        80
+      ],
+      [
+        0,
+        172,
+        83
+      ],
+      [
+        0,
+        169,
+        86
+      ],
+      [
+        0,
+        166,
+        89
+      ],
+      [
+        0,
+        163,
+        92
+      ],
+      [
+        0,
+        160,
+        95
+      ],
+      [
+        0,
+        157,
+        98
+      ],
+      [
+        0,
+        154,
+        101
+      ],
+      [
+        0,
+        151,
+        104
+      ],
+      [
+        0,
+        148,
+        107
+      ],
+      [
+        0,
+        145,
+        110
+      ],
+      [
+        0,
+        142,
+        113
+      ],
+      [
+        0,
+        139,
+        116
+      ],
+      [
+        0,
+        136,
+        119
+      ],
+      [
+        0,
+        133,
+        122
+      ],
+      [
+        0,
+        130,
+        125
+      ],
+      [
+        0,
+        127,
+        128
+      ],
+      [
+        0,
+        124,
+        131
+      ],
+      [
+        0,
+        121,
+        134
+      ],
+      [
+        0,
+        118,
+        137
+      ],
+      [
+        0,
+        115,
+        140
+      ],
+      [
+        0,
+        112,
+        143
+      ],
+      [
+        0,
+        109,
+        146
+      ],
+      [
+        0,
+        106,
+        149
+      ],
+      [
+        0,
+        103,
+        152
+      ],
+      [
+        0,
+        100,
+        155
+      ],
+      [
+        0,
+        97,
+        158
+      ],
+      [
+        0,
+        94,
+        161
+      ],
+      [
+        0,
+        91,
+        164
+      ],
+      [
+        0,
+        88,
+        167
+      ],
+      [
+        0,
+        85,
+        170
+      ],
+      [
+        0,
+        82,
+        173
+      ],
+      [
+        0,
+        79,
+        176
+      ],
+      [
+        0,
+        76,
+        179
+      ],
+      [
+        0,
+        73,
+        182
+      ],
+      [
+        0,
+        70,
+        185
+      ],
+      [
+        0,
+        67,
+        188
+      ],
+      [
+        0,
+        64,
+        191
+      ],
+      [
+        0,
+        61,
+        194
+      ],
+      [
+        0,
+        58,
+        197
+      ],
+      [
+        0,
+        55,
+        200
+      ],
+      [
+        0,
+        52,
+        203
+      ],
+      [
+        0,
+        49,
+        206
+      ],
+      [
+        0,
+        46,
+        209
+      ],
+      [
+        0,
+        43,
+        212
+      ],
+      [
+        0,
+        40,
+        215
+      ],
+      [
+        0,
+        37,
+        218
+      ],
+      [
+        0,
+        34,
+        221
+      ],
+      [
+        0,
+        31,
+        224
+      ],
+      [
+        0,
+        28,
+        227
+      ],
+      [
+        0,
+        25,
+        230
+      ],
+      [
+        0,
+        22,
+        233
+      ],
+      [
+        0,
+        19,
+        236
+      ],
+      [
+        0,
+        16,
+        239
+      ],
+      [
+        0,
+        13,
+        242
+      ],
+      [
+        0,
+        10,
+        245
+      ],
+      [
+        0,
+        7,
+        248
+      ],
+      [
+        0,
+        4,
+        251
+      ],
+      [
+        0,
+        1,
+        254
+      ],
+      [
+        1,
+        0,
+        254
+      ],
+      [
+        4,
+        0,
+        251
+      ],
+      [
+        7,
+        0,
+        248
+      ],
+      [
+        10,
+        0,
+        245
+      ],
+      [
+        13,
+        0,
+        242
+      ],
+      [
+        16,
+        0,
+        239
+      ],
+      [
+        19,
+        0,
+        236
+      ],
+      [
+        22,
+        0,
+        233
+      ],
+      [
+        25,
+        0,
+        230
+      ],
+      [
+        28,
+        0,
+        227
+      ],
+      [
+        31,
+        0,
+        224
+      ],
+      [
+        34,
+        0,
+        221
+      ],
+      [
+        37,
+        0,
+        218
+      ],
+      [
+        40,
+        0,
+        215
+      ],
+      [
+        43,
+        0,
+        212
+      ],
+      [
+        46,
+        0,
+        209
+      ],
+      [
+        49,
+        0,
+        206
+      ],
+      [
+        52,
+        0,
+        203
+      ],
+      [
+        55,
+        0,
+        200
+      ],
+      [
+        58,
+        0,
+        197
+      ],
+      [
+        61,
+        0,
+        194
+      ],
+      [
+        64,
+        0,
+        191
+      ],
+      [
+        67,
+        0,
+        188
+      ],
+      [
+        70,
+        0,
+        185
+      ],
+      [
+        73,
+        0,
+        182
+      ],
+      [
+        76,
+        0,
+        179
+      ],
+      [
+        79,
+        0,
+        176
+      ],
+      [
+        82,
+        0,
+        173
+      ],
+      [
+        85,
+        0,
+        170
+      ],
+      [
+        88,
+        0,
+        167
+      ],
+      [
+        91,
+        0,
+        164
+      ],
+      [
+        94,
+        0,
+        161
+      ],
+      [
+        97,
+        0,
+        158
+      ],
+      [
+        100,
+        0,
+        155
+      ],
+      [
+        103,
+        0,
+        152
+      ],
+      [
+        106,
+        0,
+        149
+      ],
+      [
+        109,
+        0,
+        146
+      ],
+      [
+        112,
+        0,
+        143
+      ],
+      [
+        115,
+        0,
+        140
+      ],
+      [
+        118,
+        0,
+        137
+      ],
+      [
+        121,
+        0,
+        134
+      ],
+      [
+        124,
+        0,
+        131
+      ],
+      [
+        127,
+        0,
+        128
+      ],
+      [
+        130,
+        0,
+        125
+      ],
+      [
+        133,
+        0,
+        122
+      ],
+      [
+        136,
+        0,
+        119
+      ],
+      [
+        139,
+        0,
+        116
+      ],
+      [
+        142,
+        0,
+        113
+      ],
+      [
+        145,
+        0,
+        110
+      ],
+      [
+        148,
+        0,
+        107
+      ],
+      [
+        151,
+        0,
+        104
+      ],
+      [
+        154,
+        0,
+        101
+      ],
+      [
+        157,
+        0,
+        98
+      ],
+      [
+        160,
+        0,
+        95
+      ],
+      [
+        163,
+        0,
+        92
+      ],
+      [
+        166,
+        0,
+        89
+      ],
+      [
+        169,
+        0,
+        86
+      ],
+      [
+        172,
+        0,
+        83
+      ],
+      [
+        175,
+        0,
+        80
+      ],
+      [
+        178,
+        0,
+        77
+      ],
+      [
+        181,
+        0,
+        74
+      ],
+      [
+        184,
+        0,
+        71
+      ],
+      [
+        187,
+        0,
+        68
+      ],
+      [
+        190,
+        0,
+        65
+      ],
+      [
+        193,
+        0,
+        62
+      ],
+      [
+        196,
+        0,
+        59
+      ],
+      [
+        199,
+        0,
+        56
+      ],
+      [
+        202,
+        0,
+        53
+      ],
+      [
+        205,
+        0,
+        50
+      ],
+      [
+        208,
+        0,
+        47
+      ],
+      [
+        211,
+        0,
+        44
+      ],
+      [
+        214,
+        0,
+        41
+      ],
+      [
+        217,
+        0,
+        38
+      ],
+      [
+        220,
+        0,
+        35
+      ],
+      [
+        223,
+        0,
+        32
+      ],
+      [
+        226,
+        0,
+        29
+      ],
+      [
+        229,
+        0,
+        26
+      ],
+      [
+        232,
+        0,
+        23
+      ],
+      [
+        235,
+        0,
+        20
+      ],
+      [
+        238,
+        0,
+        17
+      ],
+      [
+        241,
+        0,
+        14
+      ],
+      [
+        244,
+        0,
+        11
+      ],
+      [
+        247,
+        0,
+        8
+      ],
+      [
+        250,
+        0,
+        5
+      ],
+      [
+        253,
+        0,
+        2
+      ],
+      [
+        255,
+        0,
+        0
+      ]
+    ],
+    "rules": {
+      "source": "wheelRgb(_frame*3 + i*768/40), 30 source FPS; snapshot zero has already executed tick()",
+      "phase": "LED phase=i/40; global phase advances seconds/(256/30), forward modulo one; 16-bit per-pixel phase plus 8-bit color-zone weight",
+      "background": "Invert the static artwork's chromatic wheel mixture to a phase; equal phases share the same palette lookup as the LED regions",
+      "texture": "Fixed luminance texture and saturation; retain the source color wheel's intrinsic intensity variation; no added blinking or spatial deformation",
+      "material": "Neutral body and propeller materials are excluded; white emitter cores remain bright",
+      "limits": "Image-space background phase is an appearance mapping, not a 3D illumination solver. One artwork plus a compact phase map and 256x1 source RGB lookup; no generated frame sequence or video is used at runtime."
+    },
+    "fullLit": {
+      "minimumLedPeak": 127,
+      "offLedCount": 0
+    }
+  }
+}

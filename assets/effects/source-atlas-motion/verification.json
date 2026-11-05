@@ -19,6 +19,7 @@
     "Finite stochastic sample windows repeat; not an indefinitely running native effect"
   ],
   "existingRainbowBrowserVerified": true,
-  "geometryRevision": "outer-rim-v4",
-  "guardOnOffBrowserCheck": "rim-v4/browser-verification.json"
+  "geometryRevision": "outer-rim-v5",
+  "guardOnOffBrowserCheck": "rim-v5/browser-verification.json",
+  "allNineVideoGuardsConnectToBody": true
 }

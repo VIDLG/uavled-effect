@@ -32,15 +32,28 @@ class OuterRim:
         material=cv2.remap(gray.astype(np.float32),sample_x,y,cv2.INTER_LINEAR)
         material=cv2.GaussianBlur(material,(0,0),.7).clip(35,180)
         self.material=np.repeat(material[...,None],3,axis=2)
-        self.body=replace_regions(np.repeat(gray[...,None],3,axis=2),self.material,self.lip)
         self.band=self.shift(field.band_mask)* (1-smoothstep(-4,-2,self.inward))
-        self.body_mask=np.maximum(getattr(field,'material_matte',np.zeros_like(x)),self.lip)
-        self.band*=1-self.lip
+        original=getattr(field,'material_matte',None)
+        if original is None:
+            # Historical video fields have no cached material matte.
+            from album_detail_v2 import configure_foreground
+            configure_foreground(field)
+            original=field.material_matte
+        # The old matte deliberately removed a 7px tube around the LEDs. A
+        # narrow replacement rail alone left that tube between rail and drone.
+        bridge=(1-smoothstep(12,16,field.distance))*smoothstep(-3,-1,self.inward)
+        matte=np.maximum(original,bridge)
+        closed=cv2.morphologyEx((matte>.5).astype(np.uint8),cv2.MORPH_CLOSE,np.ones((11,11),np.uint8))
+        self.body_mask=np.maximum(matte,closed*(1-smoothstep(16,21,field.distance))*smoothstep(-3,-1,self.inward))
+        self.structure=(self.body_mask-original).clip(0,1)
+        repair=(bridge>.01)&(field.distance<7)
+        self.body=replace_regions(np.repeat(gray[...,None],3,axis=2),self.material,repair.astype(float))
+        self.band*=1-self.body_mask
 
     def shift(self,image,nearest=False):
         return cv2.remap(image,self.map_x,self.map_y,cv2.INTER_NEAREST if nearest else cv2.INTER_LINEAR,borderMode=cv2.BORDER_REFLECT_101)
 
     def frame(self,frame):
-        restored=replace_regions(frame,self.material,self.lip)
+        restored=replace_regions(frame,self.body,np.maximum(self.structure,self.lip))
         # Halo stays feathered; the fixed lip is never multiplied by light level.
         return replace_regions(restored,self.shift(frame),self.band)

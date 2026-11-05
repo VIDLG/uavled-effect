@@ -25,6 +25,12 @@ class SourceAtlasTest(unittest.TestCase):
         self.assertGreater(protected.sum(),500)
         self.assertEqual(int(masks[...,1][protected].max()),0)
         self.assertEqual(int(masks[...,0][protected].min()),255)
+        import cv2
+        components=cv2.connectedComponents((masks[...,0]>127).astype(np.uint8))[1]
+        body_component=components[256,384]
+        self.assertGreater(int(body_component),0)
+        self.assertTrue(np.all(components[protected]==body_component),
+                        'A stable rail can still float: every guard pixel must connect to the drone')
         neutral=np.asarray(Image.open(ROOT/j['shared']['base']))
         self.assertGreater(float(neutral[protected].mean()),35)
         np.testing.assert_array_equal(neutral[...,0],neutral[...,1])

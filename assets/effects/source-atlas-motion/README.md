@@ -1,8 +1,10 @@
-## Outer-rim correction (v4)
+## Connected guard correction (v5)
 
-Selected foreground assets now use `shared/rim-*-v4.png`. The original dense emitter profile/source coordinates are translated 6 pixels outwards at 768×512. A narrow neutral guard lip is reconstructed from adjacent inboard material and protected from source brightness. Halo opacity falls with source brightness, so an unlit halo no longer erases the scene or guard. `rim-v4/` contains geometry evidence and real-browser red/blue views. A 740-point fixed-lip ON/OFF comparison has zero RGB error; dense external bead lighting is checked separately. This is image-space calibration, not CAD/hardware measurement.
+Selected foreground assets now use `shared/rim-*-v5.png`. The v4 matte left a gap between its fixed rail and the original guard. V5 restores the missing inboard guard material and requires every restored rim pixel to connect to the central drone component; all nine video styles pass this check. Historical v4 assets remain archived.
 
-`python scripts/apply_outer_rim.py atlas`, `videos`, and `rainbow` apply this version after original asset generation. The nine video albums select versioned `generated-motion-gallery/rim-v4/` videos; Rainbow selects versioned base/map assets. Existing generation inputs and earlier image/video variants remain as historical evidence. Validate with `node scripts/test-outer-rim-browser.mjs http://localhost:5173`.
+The original dense emitter profile/source coordinates are translated 6 pixels outwards at 768×512. A narrow neutral guard lip is reconstructed from adjacent inboard material and protected from source brightness. Halo opacity falls with source brightness, so an unlit halo no longer erases the scene or guard. `rim-v5/` contains geometry evidence and real-browser red/blue views. A 740-point fixed-lip ON/OFF comparison has zero RGB error; dense external bead lighting is checked separately. This is image-space calibration, not CAD/hardware measurement.
+
+`python scripts/apply_outer_rim.py atlas`, `videos`, and `rainbow` apply this version after original asset generation. The nine video albums select versioned `generated-motion-gallery/rim-v5/` videos; Rainbow selects versioned base/map assets. Existing generation inputs and earlier image/video variants remain as historical evidence. Validate with `node scripts/test-outer-rim-browser.mjs http://localhost:5173`.
 
 # Source-driven motion albums
 

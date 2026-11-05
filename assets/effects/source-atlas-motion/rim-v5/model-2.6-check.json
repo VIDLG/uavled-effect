@@ -1,0 +1,27 @@
+{
+  "requestedAlias": "gpt-img-2.6",
+  "officialModels": [
+    "gpt-image-2.6-flare",
+    "gpt-image-2.6-sunburst"
+  ],
+  "officialGifGenerationSupported": true,
+  "officialGifEditingSupported": false,
+  "guide": "https://developers.openai.com/api/docs/guides/image-generation#generate-animated-gif-output",
+  "configuredEndpointListed26": false,
+  "retrieveStatus": {
+    "gpt-img-2.6": 404,
+    "gpt-image-2.6-flare": 404,
+    "gpt-image-2.6-sunburst": 404,
+    "gpt-image-2.5-flare": 200
+  },
+  "actualGenerateProbe": {
+    "model": "gpt-image-2.6-flare",
+    "size": "1024x1024",
+    "quality": "low",
+    "status": 404,
+    "message": "Model is not supported by any configured account in this group",
+    "artifactGenerated": false
+  },
+  "gifGenerated": false,
+  "probeMode": "OpenAI() read-only model checks and official imagegen CLI minimal generation; no SDK generation wrapper"
+}

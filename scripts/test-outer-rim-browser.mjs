@@ -24,9 +24,9 @@ try{
   await page.waitForFunction(()=>document.querySelector('.motion-artwork')?.getAttribute('aria-busy')==='false');
   for(const [key,phase]of[[1,'red'],[4,'blue']]){
     await page.getByRole('button',{name:`跳转至警灯第${key}个关键画面`,exact:true}).click();
-    await page.locator('.motion-artwork').screenshot({path:`assets/effects/source-atlas-motion/rim-v4/browser-${phase}.png`});
+    await page.locator('.motion-artwork').screenshot({path:`assets/effects/source-atlas-motion/rim-v5/browser-${phase}.png`});
   }
   assert.deepEqual(errors,[]);
-  await writeFile('assets/effects/source-atlas-motion/rim-v4/browser-verification.json',JSON.stringify({base,guardSamples:points.lip.length,guardOnOffMaxError:0,activeOriginalBeads:change.filter(v=>v>50).length,errors},null,2)+'\n');
+  await writeFile('assets/effects/source-atlas-motion/rim-v5/browser-verification.json',JSON.stringify({base,guardSamples:points.lip.length,guardOnOffMaxError:0,activeOriginalBeads:change.filter(v=>v>50).length,errors},null,2)+'\n');
   console.log('PASS: fixed outer rim across ON/OFF, original bead density at outside positions');
 }finally{await browser.close();}

@@ -1,0 +1,32 @@
+{
+  "revision": "outer-rim-v5",
+  "shiftOutwardsPixels": 6,
+  "lipLightMaskOverlapMax": 0.020859671756625175,
+  "oldEmitterCount": 86,
+  "newEmitterCount": 86,
+  "guardConnectedToBody": true,
+  "changes": "Restore the old cutout between lip and connected guard, then move fixed original LED profile outwards; reconstruct narrow neutral guard lip from adjacent inboard material; never replace lip with emissive RGB. Halo opacity follows source brightness.",
+  "disconnectedRimPixels": 0,
+  "videoStylesChecked": [
+    "styleCyberpunk",
+    "styleMatrix",
+    "styleForest",
+    "styleOcean",
+    "styleAurora",
+    "styleLava",
+    "styleGalaxy",
+    "styleNeon",
+    "styleHeartbeat"
+  ],
+  "videoStylesDisconnectedRimPixels": {
+    "styleCyberpunk": 0,
+    "styleMatrix": 0,
+    "styleForest": 0,
+    "styleOcean": 0,
+    "styleAurora": 0,
+    "styleLava": 0,
+    "styleGalaxy": 0,
+    "styleNeon": 0,
+    "styleHeartbeat": 0
+  }
+}
