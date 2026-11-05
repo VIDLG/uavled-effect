@@ -1,6 +1,6 @@
 {
   "sourceTests": 21,
-  "imageTests": 19,
+  "imageTests": 20,
   "sourceAlbumBrowserEntries": 46,
   "originalVideoBrowserEntries": 9,
   "initialSelectedTextureRequests": 5,
@@ -18,5 +18,7 @@
     "Generated background semantic direction reviewed with raw storyboard sheets; numeric difference alone cannot establish direction",
     "Finite stochastic sample windows repeat; not an indefinitely running native effect"
   ],
-  "existingRainbowBrowserVerified": true
+  "existingRainbowBrowserVerified": true,
+  "geometryRevision": "outer-rim-v4",
+  "guardOnOffBrowserCheck": "rim-v4/browser-verification.json"
 }

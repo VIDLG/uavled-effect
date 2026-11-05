@@ -8,52 +8,53 @@
         "#ec44ba",
         "#26d9ed"
       ],
-      "video": "styleCyberpunk-loop.mp4",
-      "poster": "posters/styleCyberpunk.jpg",
+      "video": "rim-v4/styleCyberpunk-loop.mp4",
+      "poster": "posters/styleCyberpunk-rim-v4.jpg",
       "duration": 8.533333333333333,
       "fps": 60,
       "keyframes": [
         {
           "time": 0.0,
-          "image": "keyframes/styleCyberpunk-000.jpg",
+          "image": "keyframes/styleCyberpunk-000-rim-v4.jpg",
           "sourceFrame": 0
         },
         {
           "time": 0.5333333333333333,
-          "image": "keyframes/styleCyberpunk-016.jpg",
+          "image": "keyframes/styleCyberpunk-016-rim-v4.jpg",
           "sourceFrame": 16
         },
         {
           "time": 1.0666666666666667,
-          "image": "keyframes/styleCyberpunk-032.jpg",
+          "image": "keyframes/styleCyberpunk-032-rim-v4.jpg",
           "sourceFrame": 32
         },
         {
           "time": 1.6,
-          "image": "keyframes/styleCyberpunk-048.jpg",
+          "image": "keyframes/styleCyberpunk-048-rim-v4.jpg",
           "sourceFrame": 48
         },
         {
           "time": 2.1333333333333333,
-          "image": "keyframes/styleCyberpunk-064.jpg",
+          "image": "keyframes/styleCyberpunk-064-rim-v4.jpg",
           "sourceFrame": 64
         },
         {
           "time": 2.6666666666666665,
-          "image": "keyframes/styleCyberpunk-080.jpg",
+          "image": "keyframes/styleCyberpunk-080-rim-v4.jpg",
           "sourceFrame": 80
         },
         {
           "time": 3.2,
-          "image": "keyframes/styleCyberpunk-096.jpg",
+          "image": "keyframes/styleCyberpunk-096-rim-v4.jpg",
           "sourceFrame": 96
         },
         {
           "time": 3.7333333333333334,
-          "image": "keyframes/styleCyberpunk-112.jpg",
+          "image": "keyframes/styleCyberpunk-112-rim-v4.jpg",
           "sourceFrame": 112
         }
-      ]
+      ],
+      "revision": "outer-rim-v4"
     },
     {
       "id": "styleMatrix",
@@ -63,52 +64,53 @@
         "#72e23a",
         "#123b29"
       ],
-      "video": "styleMatrix-loop.mp4",
-      "poster": "posters/styleMatrix.jpg",
+      "video": "rim-v4/styleMatrix-loop.mp4",
+      "poster": "posters/styleMatrix-rim-v4.jpg",
       "duration": 8.533333333333333,
       "fps": 60,
       "keyframes": [
         {
           "time": 0.0,
-          "image": "keyframes/styleMatrix-000.jpg",
+          "image": "keyframes/styleMatrix-000-rim-v4.jpg",
           "sourceFrame": 0
         },
         {
           "time": 0.5333333333333333,
-          "image": "keyframes/styleMatrix-016.jpg",
+          "image": "keyframes/styleMatrix-016-rim-v4.jpg",
           "sourceFrame": 16
         },
         {
           "time": 1.0666666666666667,
-          "image": "keyframes/styleMatrix-032.jpg",
+          "image": "keyframes/styleMatrix-032-rim-v4.jpg",
           "sourceFrame": 32
         },
         {
           "time": 1.6,
-          "image": "keyframes/styleMatrix-048.jpg",
+          "image": "keyframes/styleMatrix-048-rim-v4.jpg",
           "sourceFrame": 48
         },
         {
           "time": 2.1333333333333333,
-          "image": "keyframes/styleMatrix-064.jpg",
+          "image": "keyframes/styleMatrix-064-rim-v4.jpg",
           "sourceFrame": 64
         },
         {
           "time": 2.6666666666666665,
-          "image": "keyframes/styleMatrix-080.jpg",
+          "image": "keyframes/styleMatrix-080-rim-v4.jpg",
           "sourceFrame": 80
         },
         {
           "time": 3.2,
-          "image": "keyframes/styleMatrix-096.jpg",
+          "image": "keyframes/styleMatrix-096-rim-v4.jpg",
           "sourceFrame": 96
         },
         {
           "time": 3.7333333333333334,
-          "image": "keyframes/styleMatrix-112.jpg",
+          "image": "keyframes/styleMatrix-112-rim-v4.jpg",
           "sourceFrame": 112
         }
-      ]
+      ],
+      "revision": "outer-rim-v4"
     },
     {
       "id": "styleForest",
@@ -118,52 +120,53 @@
         "#65cf36",
         "#c8ea60"
       ],
-      "video": "styleForest-loop.mp4",
-      "poster": "posters/styleForest.jpg",
+      "video": "rim-v4/styleForest-loop.mp4",
+      "poster": "posters/styleForest-rim-v4.jpg",
       "duration": 8.533333333333333,
       "fps": 60,
       "keyframes": [
         {
           "time": 0.0,
-          "image": "keyframes/styleForest-000.jpg",
+          "image": "keyframes/styleForest-000-rim-v4.jpg",
           "sourceFrame": 0
         },
         {
           "time": 1.0666666666666667,
-          "image": "keyframes/styleForest-032.jpg",
+          "image": "keyframes/styleForest-032-rim-v4.jpg",
           "sourceFrame": 32
         },
         {
           "time": 2.1333333333333333,
-          "image": "keyframes/styleForest-064.jpg",
+          "image": "keyframes/styleForest-064-rim-v4.jpg",
           "sourceFrame": 64
         },
         {
           "time": 3.2,
-          "image": "keyframes/styleForest-096.jpg",
+          "image": "keyframes/styleForest-096-rim-v4.jpg",
           "sourceFrame": 96
         },
         {
           "time": 4.266666666666667,
-          "image": "keyframes/styleForest-128.jpg",
+          "image": "keyframes/styleForest-128-rim-v4.jpg",
           "sourceFrame": 128
         },
         {
           "time": 5.333333333333333,
-          "image": "keyframes/styleForest-160.jpg",
+          "image": "keyframes/styleForest-160-rim-v4.jpg",
           "sourceFrame": 160
         },
         {
           "time": 6.4,
-          "image": "keyframes/styleForest-192.jpg",
+          "image": "keyframes/styleForest-192-rim-v4.jpg",
           "sourceFrame": 192
         },
         {
           "time": 7.466666666666667,
-          "image": "keyframes/styleForest-224.jpg",
+          "image": "keyframes/styleForest-224-rim-v4.jpg",
           "sourceFrame": 224
         }
-      ]
+      ],
+      "revision": "outer-rim-v4"
     },
     {
       "id": "styleOcean",
@@ -173,53 +176,53 @@
         "#25c9e8",
         "#2058e2"
       ],
-      "video": "styleOcean-background-v3-loop.mp4",
-      "poster": "posters/styleOcean.jpg",
+      "video": "rim-v4/styleOcean-loop.mp4",
+      "poster": "posters/styleOcean-rim-v4.jpg",
       "duration": 8.533333333333333,
       "fps": 60,
       "keyframes": [
         {
           "time": 0.0,
-          "image": "keyframes/styleOcean-000.jpg",
+          "image": "keyframes/styleOcean-000-rim-v4.jpg",
           "sourceFrame": 0
         },
         {
           "time": 1.0666666666666667,
-          "image": "keyframes/styleOcean-032.jpg",
+          "image": "keyframes/styleOcean-032-rim-v4.jpg",
           "sourceFrame": 32
         },
         {
           "time": 2.1333333333333333,
-          "image": "keyframes/styleOcean-064.jpg",
+          "image": "keyframes/styleOcean-064-rim-v4.jpg",
           "sourceFrame": 64
         },
         {
           "time": 3.2,
-          "image": "keyframes/styleOcean-096.jpg",
+          "image": "keyframes/styleOcean-096-rim-v4.jpg",
           "sourceFrame": 96
         },
         {
           "time": 4.266666666666667,
-          "image": "keyframes/styleOcean-128.jpg",
+          "image": "keyframes/styleOcean-128-rim-v4.jpg",
           "sourceFrame": 128
         },
         {
           "time": 5.333333333333333,
-          "image": "keyframes/styleOcean-160.jpg",
+          "image": "keyframes/styleOcean-160-rim-v4.jpg",
           "sourceFrame": 160
         },
         {
           "time": 6.4,
-          "image": "keyframes/styleOcean-192.jpg",
+          "image": "keyframes/styleOcean-192-rim-v4.jpg",
           "sourceFrame": 192
         },
         {
           "time": 7.466666666666667,
-          "image": "keyframes/styleOcean-224.jpg",
+          "image": "keyframes/styleOcean-224-rim-v4.jpg",
           "sourceFrame": 224
         }
       ],
-      "revision": "background-depth-v3"
+      "revision": "outer-rim-v4"
     },
     {
       "id": "styleAurora",
@@ -229,53 +232,53 @@
         "#d64bd8",
         "#6c2b8c"
       ],
-      "video": "styleAurora-calibrated-v4-loop.mp4",
-      "poster": "posters/styleAurora.jpg",
+      "video": "rim-v4/styleAurora-loop.mp4",
+      "poster": "posters/styleAurora-rim-v4.jpg",
       "duration": 8.533333333333333,
       "fps": 60,
       "keyframes": [
         {
           "time": 0.0,
-          "image": "keyframes/styleAurora-000.jpg",
+          "image": "keyframes/styleAurora-000-rim-v4.jpg",
           "sourceFrame": 0
         },
         {
           "time": 1.0666666666666667,
-          "image": "keyframes/styleAurora-032.jpg",
+          "image": "keyframes/styleAurora-032-rim-v4.jpg",
           "sourceFrame": 32
         },
         {
           "time": 2.1333333333333333,
-          "image": "keyframes/styleAurora-064.jpg",
+          "image": "keyframes/styleAurora-064-rim-v4.jpg",
           "sourceFrame": 64
         },
         {
           "time": 3.2,
-          "image": "keyframes/styleAurora-096.jpg",
+          "image": "keyframes/styleAurora-096-rim-v4.jpg",
           "sourceFrame": 96
         },
         {
           "time": 4.266666666666667,
-          "image": "keyframes/styleAurora-128.jpg",
+          "image": "keyframes/styleAurora-128-rim-v4.jpg",
           "sourceFrame": 128
         },
         {
           "time": 5.333333333333333,
-          "image": "keyframes/styleAurora-160.jpg",
+          "image": "keyframes/styleAurora-160-rim-v4.jpg",
           "sourceFrame": 160
         },
         {
           "time": 6.4,
-          "image": "keyframes/styleAurora-192.jpg",
+          "image": "keyframes/styleAurora-192-rim-v4.jpg",
           "sourceFrame": 192
         },
         {
           "time": 7.466666666666667,
-          "image": "keyframes/styleAurora-224.jpg",
+          "image": "keyframes/styleAurora-224-rim-v4.jpg",
           "sourceFrame": 224
         }
       ],
-      "revision": "calibration-v4"
+      "revision": "outer-rim-v4"
     },
     {
       "id": "styleLava",
@@ -285,53 +288,53 @@
         "#ff5310",
         "#ff9d35"
       ],
-      "video": "styleLava-foreground-v3-loop.mp4",
-      "poster": "posters/styleLava.jpg",
+      "video": "rim-v4/styleLava-loop.mp4",
+      "poster": "posters/styleLava-rim-v4.jpg",
       "duration": 8.533333333333333,
       "fps": 60,
       "keyframes": [
         {
           "time": 0.0,
-          "image": "keyframes/styleLava-000.jpg",
+          "image": "keyframes/styleLava-000-rim-v4.jpg",
           "sourceFrame": 0
         },
         {
           "time": 0.5333333333333333,
-          "image": "keyframes/styleLava-016.jpg",
+          "image": "keyframes/styleLava-016-rim-v4.jpg",
           "sourceFrame": 16
         },
         {
           "time": 1.0666666666666667,
-          "image": "keyframes/styleLava-032.jpg",
+          "image": "keyframes/styleLava-032-rim-v4.jpg",
           "sourceFrame": 32
         },
         {
           "time": 1.6,
-          "image": "keyframes/styleLava-048.jpg",
+          "image": "keyframes/styleLava-048-rim-v4.jpg",
           "sourceFrame": 48
         },
         {
           "time": 2.1333333333333333,
-          "image": "keyframes/styleLava-064.jpg",
+          "image": "keyframes/styleLava-064-rim-v4.jpg",
           "sourceFrame": 64
         },
         {
           "time": 2.6666666666666665,
-          "image": "keyframes/styleLava-080.jpg",
+          "image": "keyframes/styleLava-080-rim-v4.jpg",
           "sourceFrame": 80
         },
         {
           "time": 3.2,
-          "image": "keyframes/styleLava-096.jpg",
+          "image": "keyframes/styleLava-096-rim-v4.jpg",
           "sourceFrame": 96
         },
         {
           "time": 3.7333333333333334,
-          "image": "keyframes/styleLava-112.jpg",
+          "image": "keyframes/styleLava-112-rim-v4.jpg",
           "sourceFrame": 112
         }
       ],
-      "revision": "foreground-detail-v3"
+      "revision": "outer-rim-v4"
     },
     {
       "id": "styleGalaxy",
@@ -341,53 +344,53 @@
         "#4e33cf",
         "#b4bdff"
       ],
-      "video": "styleGalaxy-foreground-v3-loop.mp4",
-      "poster": "posters/styleGalaxy.jpg",
+      "video": "rim-v4/styleGalaxy-loop.mp4",
+      "poster": "posters/styleGalaxy-rim-v4.jpg",
       "duration": 8.533333333333333,
       "fps": 60,
       "keyframes": [
         {
           "time": 0.0,
-          "image": "keyframes/styleGalaxy-000.jpg",
+          "image": "keyframes/styleGalaxy-000-rim-v4.jpg",
           "sourceFrame": 0
         },
         {
           "time": 1.0666666666666667,
-          "image": "keyframes/styleGalaxy-032.jpg",
+          "image": "keyframes/styleGalaxy-032-rim-v4.jpg",
           "sourceFrame": 32
         },
         {
           "time": 2.1333333333333333,
-          "image": "keyframes/styleGalaxy-064.jpg",
+          "image": "keyframes/styleGalaxy-064-rim-v4.jpg",
           "sourceFrame": 64
         },
         {
           "time": 3.2,
-          "image": "keyframes/styleGalaxy-096.jpg",
+          "image": "keyframes/styleGalaxy-096-rim-v4.jpg",
           "sourceFrame": 96
         },
         {
           "time": 4.266666666666667,
-          "image": "keyframes/styleGalaxy-128.jpg",
+          "image": "keyframes/styleGalaxy-128-rim-v4.jpg",
           "sourceFrame": 128
         },
         {
           "time": 5.333333333333333,
-          "image": "keyframes/styleGalaxy-160.jpg",
+          "image": "keyframes/styleGalaxy-160-rim-v4.jpg",
           "sourceFrame": 160
         },
         {
           "time": 6.4,
-          "image": "keyframes/styleGalaxy-192.jpg",
+          "image": "keyframes/styleGalaxy-192-rim-v4.jpg",
           "sourceFrame": 192
         },
         {
           "time": 7.466666666666667,
-          "image": "keyframes/styleGalaxy-224.jpg",
+          "image": "keyframes/styleGalaxy-224-rim-v4.jpg",
           "sourceFrame": 224
         }
       ],
-      "revision": "foreground-detail-v3"
+      "revision": "outer-rim-v4"
     },
     {
       "id": "styleNeon",
@@ -397,53 +400,53 @@
         "#ec20cf",
         "#4933ef"
       ],
-      "video": "styleNeon-foreground-v3-loop.mp4",
-      "poster": "posters/styleNeon.jpg",
+      "video": "rim-v4/styleNeon-loop.mp4",
+      "poster": "posters/styleNeon-rim-v4.jpg",
       "duration": 6.0,
       "fps": 60,
       "keyframes": [
         {
           "time": 0.0,
-          "image": "keyframes/styleNeon-000.jpg",
+          "image": "keyframes/styleNeon-000-rim-v4.jpg",
           "sourceFrame": 0
         },
         {
           "time": 0.4666666666666667,
-          "image": "keyframes/styleNeon-014.jpg",
+          "image": "keyframes/styleNeon-014-rim-v4.jpg",
           "sourceFrame": 14
         },
         {
           "time": 0.9666666666666667,
-          "image": "keyframes/styleNeon-029.jpg",
+          "image": "keyframes/styleNeon-029-rim-v4.jpg",
           "sourceFrame": 29
         },
         {
           "time": 1.4666666666666666,
-          "image": "keyframes/styleNeon-044.jpg",
+          "image": "keyframes/styleNeon-044-rim-v4.jpg",
           "sourceFrame": 44
         },
         {
           "time": 1.9666666666666666,
-          "image": "keyframes/styleNeon-059.jpg",
+          "image": "keyframes/styleNeon-059-rim-v4.jpg",
           "sourceFrame": 59
         },
         {
           "time": 2.966666666666667,
-          "image": "keyframes/styleNeon-089.jpg",
+          "image": "keyframes/styleNeon-089-rim-v4.jpg",
           "sourceFrame": 89
         },
         {
           "time": 3.966666666666667,
-          "image": "keyframes/styleNeon-119.jpg",
+          "image": "keyframes/styleNeon-119-rim-v4.jpg",
           "sourceFrame": 119
         },
         {
           "time": 4.966666666666667,
-          "image": "keyframes/styleNeon-149.jpg",
+          "image": "keyframes/styleNeon-149-rim-v4.jpg",
           "sourceFrame": 149
         }
       ],
-      "revision": "foreground-detail-v3"
+      "revision": "outer-rim-v4"
     },
     {
       "id": "styleHeartbeat",
@@ -453,53 +456,53 @@
         "#ff0028",
         "#72001b"
       ],
-      "video": "styleHeartbeat-loop.mp4",
-      "poster": "posters/styleHeartbeat.jpg",
+      "video": "rim-v4/styleHeartbeat-loop.mp4",
+      "poster": "posters/styleHeartbeat-rim-v4.jpg",
       "duration": 6.0,
       "fps": 60,
       "keyframes": [
         {
           "time": 0.0,
-          "image": "keyframes/styleHeartbeat-000.jpg",
+          "image": "keyframes/styleHeartbeat-000-rim-v4.jpg",
           "sourceFrame": 0
         },
         {
           "time": 0.23333333333333334,
-          "image": "keyframes/styleHeartbeat-007.jpg",
+          "image": "keyframes/styleHeartbeat-007-rim-v4.jpg",
           "sourceFrame": 7
         },
         {
           "time": 0.5,
-          "image": "keyframes/styleHeartbeat-015.jpg",
+          "image": "keyframes/styleHeartbeat-015-rim-v4.jpg",
           "sourceFrame": 15
         },
         {
           "time": 0.6333333333333333,
-          "image": "keyframes/styleHeartbeat-019.jpg",
+          "image": "keyframes/styleHeartbeat-019-rim-v4.jpg",
           "sourceFrame": 19
         },
         {
           "time": 0.9,
-          "image": "keyframes/styleHeartbeat-027.jpg",
+          "image": "keyframes/styleHeartbeat-027-rim-v4.jpg",
           "sourceFrame": 27
         },
         {
           "time": 1.1666666666666667,
-          "image": "keyframes/styleHeartbeat-035.jpg",
+          "image": "keyframes/styleHeartbeat-035-rim-v4.jpg",
           "sourceFrame": 35
         },
         {
           "time": 2.966666666666667,
-          "image": "keyframes/styleHeartbeat-089.jpg",
+          "image": "keyframes/styleHeartbeat-089-rim-v4.jpg",
           "sourceFrame": 89
         },
         {
           "time": 3.2333333333333334,
-          "image": "keyframes/styleHeartbeat-097.jpg",
+          "image": "keyframes/styleHeartbeat-097-rim-v4.jpg",
           "sourceFrame": 97
         }
       ],
-      "revision": "motion-expansion-v1"
+      "revision": "outer-rim-v4"
     }
   ]
 }

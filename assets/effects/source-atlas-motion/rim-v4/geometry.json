@@ -1,0 +1,8 @@
+{
+  "revision": "outer-rim-v4",
+  "shiftOutwardsPixels": 6,
+  "lipLightMaskOverlapMax": 0.020859671756625175,
+  "oldEmitterCount": 86,
+  "newEmitterCount": 86,
+  "changes": "Move fixed original LED profile outwards; reconstruct narrow neutral guard lip from adjacent inboard material; never replace lip with emissive RGB. Halo opacity follows source brightness."
+}

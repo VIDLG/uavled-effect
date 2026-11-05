@@ -9,6 +9,26 @@ ROOT=Path('assets/effects/source-atlas-motion')
 def read(path):return json.loads(path.read_text(encoding='utf-8'))
 
 class SourceAtlasTest(unittest.TestCase):
+    def test_selected_leds_are_outside_a_fixed_guard_lip(self):
+        import sys
+        sys.path.insert(0,str(Path('scripts').resolve()))
+        from source_atlas_assets import shared_field
+        from outer_rim import OuterRim
+        f=shared_field();r=OuterRim(f);j=read(ROOT/'index.json')
+        profile=np.asarray(Image.open(ROOT/j['shared']['profile']))
+        masks=np.asarray(Image.open(ROOT/j['shared']['masks']))
+        old=np.asarray(Image.open(ROOT/'shared/profile.png'))
+        for x,y,index in f.emitter_centers:
+            moved=x-6 if x<384 else x+6
+            np.testing.assert_array_equal(profile[y,moved],old[y,x])
+        protected=r.lip>.999
+        self.assertGreater(protected.sum(),500)
+        self.assertEqual(int(masks[...,1][protected].max()),0)
+        self.assertEqual(int(masks[...,0][protected].min()),255)
+        neutral=np.asarray(Image.open(ROOT/j['shared']['base']))
+        self.assertGreater(float(neutral[protected].mean()),35)
+        np.testing.assert_array_equal(neutral[...,0],neutral[...,1])
+
     def test_source_textures_are_exact_rgb(self):
         for d in read(ROOT/'mapping.json')['effects']:
             expected=np.asarray(read(ROOT/d['trace'])['frames'],np.uint8)

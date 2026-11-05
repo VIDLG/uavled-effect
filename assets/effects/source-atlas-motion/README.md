@@ -1,3 +1,9 @@
+## Outer-rim correction (v4)
+
+Selected foreground assets now use `shared/rim-*-v4.png`. The original dense emitter profile/source coordinates are translated 6 pixels outwards at 768×512. A narrow neutral guard lip is reconstructed from adjacent inboard material and protected from source brightness. Halo opacity falls with source brightness, so an unlit halo no longer erases the scene or guard. `rim-v4/` contains geometry evidence and real-browser red/blue views. A 740-point fixed-lip ON/OFF comparison has zero RGB error; dense external bead lighting is checked separately. This is image-space calibration, not CAD/hardware measurement.
+
+`python scripts/apply_outer_rim.py atlas`, `videos`, and `rainbow` apply this version after original asset generation. The nine video albums select versioned `generated-motion-gallery/rim-v4/` videos; Rainbow selects versioned base/map assets. Existing generation inputs and earlier image/video variants remain as historical evidence. Validate with `node scripts/test-outer-rim-browser.mjs http://localhost:5173`.
+
 # Source-driven motion albums
 
 The gallery now covers every one of the 56 functions listed in `manifest.json`: nine preserved MP4 albums, the preserved single-image Rainbow, and this set of 46 new entries (45 dynamic and static Solid).
@@ -58,7 +64,7 @@ node scripts/record-source-atlas-preview.mjs http://localhost:4173
 
 Do not rerun preparation over a reviewed set unless intentionally revising its assets: changed source calls/hashes or controls require fresh generation and provenance. API keys stay in the configured environment, outside source/logs.
 
-Browser checks cover all 46 new entries, actual phase differences, unchanged neutral body, pause/seeking, static Solid, one-shot fade completion/replay, one active canvas, selected-texture loading, mobile width and reduced-motion/manual play. All 46 new browser entries passed; the nine existing videos passed their separate regression, and existing Rainbow passed playback/pause/original-comparison/switching checks. 21 JavaScript and 19 Python image checks passed. Three actual canvas recordings observed about 60 draws/s in desktop headless Edge (P95 interval 17 ms); see `previews/capture.json`. Numeric tests verify complete 56-function coverage, exact cached source RGB, input/output hashes, unchanged original LED texture/support and distinct generated background phases. These are desktop browser/source checks, not real-phone performance or hardware acceptance. Visual motion direction still needs human review alongside these checks.
+Browser checks cover all 46 new entries, actual phase differences, unchanged neutral body, pause/seeking, static Solid, one-shot fade completion/replay, one active canvas, selected-texture loading, mobile width and reduced-motion/manual play. All 46 new browser entries passed; the nine existing videos passed their separate regression, and existing Rainbow passed playback/pause/original-comparison/switching checks. 21 JavaScript and 20 Python image checks passed. Three actual canvas recordings observed about 60 draws/s in desktop headless Edge (P95 interval 17 ms); see `previews/capture.json`. Numeric tests verify complete 56-function coverage, exact cached source RGB, input/output hashes, unchanged original LED texture/support and distinct generated background phases. These are desktop browser/source checks, not real-phone performance or hardware acceptance. Visual motion direction still needs human review alongside these checks.
 
 ## Per-function coverage
 

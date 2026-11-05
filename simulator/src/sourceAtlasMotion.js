@@ -72,7 +72,9 @@ void main(){
  float maximum=max(max(scene.r,scene.g),scene.b);
  scene*=min(1.,ceiling/max(maximum,1./255.));
  vec3 result=mix(scene,base,mask.r);
- result=mix(result,emission,mask.g);
+ float level=max(max(color.r,color.g),color.b)/max(u_peak,1.);
+ float carrier=smoothstep(170./255.,220./255.,profile.a);
+ result=mix(result,emission,mask.g*max(carrier,sqrt(level)));
  gl_FragColor=vec4(result,1.);
 }`;
 
