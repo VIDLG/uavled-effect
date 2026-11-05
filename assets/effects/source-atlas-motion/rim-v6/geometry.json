@@ -1,0 +1,9 @@
+{
+  "revision": "outer-rim-v6",
+  "shiftOutwardsPixels": 6,
+  "lipLightMaskOverlapMax": 0.154304560372438,
+  "oldEmitterCount": 86,
+  "newEmitterCount": 86,
+  "guardConnectedToBody": true,
+  "changes": "Bounded AI neutral perimeter repair extending beyond LED endpoints into original upper/lower molded joins. Original central drone pixels, dense emitter profile and native RGB timing retained. No copied parallel rail."
+}

@@ -7,27 +7,27 @@
       "label": "单点追逐",
       "seconds": 6,
       "output": "assets/effects/source-atlas-motion/previews/effectChase.mp4",
-      "draws": 361,
-      "observedFps": 60.01300281728453,
-      "p95IntervalMs": 17.100000001490116
+      "draws": 362,
+      "observedFps": 60.01063900523815,
+      "p95IntervalMs": 17
     },
     {
       "id": "effectColorSparkle",
       "label": "彩虹闪烁",
       "seconds": 5,
       "output": "assets/effects/source-atlas-motion/previews/effectColorSparkle.mp4",
-      "draws": 301,
-      "observedFps": 60.018005401620485,
-      "p95IntervalMs": 17
+      "draws": 302,
+      "observedFps": 60.01634996904107,
+      "p95IntervalMs": 16.899999998509884
     },
     {
       "id": "effectFire",
       "label": "火焰",
       "seconds": 10,
       "output": "assets/effects/source-atlas-motion/previews/effectFire.mp4",
-      "draws": 602,
-      "observedFps": 60.0099850224663,
-      "p95IntervalMs": 17.099999997764826
+      "draws": 601,
+      "observedFps": 60.014403456820695,
+      "p95IntervalMs": 16.899999998509884
     }
   ]
 }

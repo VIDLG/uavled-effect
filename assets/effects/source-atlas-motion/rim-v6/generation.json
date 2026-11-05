@@ -1,0 +1,337 @@
+{
+  "revision": "outer-rim-v6",
+  "cli": "imagegen/scripts/image_gen.py edit --model gpt-image-2.5-flare --image EDIT_TARGET --image MECHANICAL_REFERENCE --prompt-file PROMPT --size 1536x1024 --quality high --out OUTPUT --no-augment",
+  "requests": [
+    {
+      "style": "styleNeon",
+      "model": "gpt-image-2.5-flare",
+      "mode": "fallback CLI edit",
+      "size": "1536x1024",
+      "quality": "high",
+      "inputs": [
+        {
+          "path": "input.png",
+          "sha256": "bff486034e2f1272faed99a51cac161c80a4ead8d8a55f9968ea4f188a680efb",
+          "role": "edit target"
+        },
+        {
+          "path": "original.png",
+          "sha256": "3fc0c65991c3117a10dd00361dc3a2000add3cc6d0cb72930e8962605260333e",
+          "role": "mechanical reference"
+        }
+      ],
+      "prompt": {
+        "path": "repair-prompt.txt",
+        "sha256": "754792caedcd9f66e12863b53d6a340f22cb81a01810bc0e8f131e51299a222c"
+      },
+      "output": {
+        "path": "repaired.png",
+        "sha256": "d72095743156585dcdfc712ef33e6583d727e0ac00b49c04b2111a3c528fc02c"
+      }
+    },
+    {
+      "style": "effectRainbow",
+      "model": "gpt-image-2.5-flare",
+      "mode": "fallback CLI edit",
+      "size": "1536x1024",
+      "quality": "high",
+      "inputs": [
+        {
+          "path": "effectRainbow/input.png",
+          "sha256": "b2b6b7d98726e93ca6991964a15aa1c1c44dd6c1699137b84dcbc8d8ae11b039",
+          "role": "edit target"
+        },
+        {
+          "path": "effectRainbow/original.png",
+          "sha256": "b555aeb00878ee51e534caa8e8ef7b512967576de44f6a475a558e705559118c",
+          "role": "mechanical reference"
+        }
+      ],
+      "prompt": {
+        "path": "effectRainbow/repair-prompt.txt",
+        "sha256": "754792caedcd9f66e12863b53d6a340f22cb81a01810bc0e8f131e51299a222c"
+      },
+      "output": {
+        "path": "effectRainbow/repaired.png",
+        "sha256": "eefd15189c09de326af5e003b60fa092902b629a837f45a9b89c3a26b4b1a500"
+      }
+    },
+    {
+      "style": "styleAurora",
+      "model": "gpt-image-2.5-flare",
+      "mode": "fallback CLI edit",
+      "size": "1536x1024",
+      "quality": "high",
+      "inputs": [
+        {
+          "path": "styleAurora/input.png",
+          "sha256": "4faba9ce542b61e6cbc5217a6ae51b06fbd5173759e43514b508dbbe1f33ced7",
+          "role": "edit target"
+        },
+        {
+          "path": "styleAurora/original.png",
+          "sha256": "426f731d87501df20d1565d46e279f04cc2ec9e50b5ca4f14e85e175ff8aae97",
+          "role": "mechanical reference"
+        }
+      ],
+      "prompt": {
+        "path": "styleAurora/repair-prompt.txt",
+        "sha256": "754792caedcd9f66e12863b53d6a340f22cb81a01810bc0e8f131e51299a222c"
+      },
+      "output": {
+        "path": "styleAurora/repaired-draft.png",
+        "sha256": "e9c23efd5d7ea295e25feb47befe7ef8a7f564477531a0f67f9b724020d36ee6"
+      }
+    },
+    {
+      "style": "styleAurora",
+      "model": "gpt-image-2.5-flare",
+      "mode": "fallback CLI edit",
+      "size": "1536x1024",
+      "quality": "high",
+      "inputs": [
+        {
+          "path": "styleAurora/repaired-draft.png",
+          "sha256": "e9c23efd5d7ea295e25feb47befe7ef8a7f564477531a0f67f9b724020d36ee6",
+          "role": "edit target"
+        },
+        {
+          "path": "styleAurora/original.png",
+          "sha256": "426f731d87501df20d1565d46e279f04cc2ec9e50b5ca4f14e85e175ff8aae97",
+          "role": "mechanical reference"
+        }
+      ],
+      "prompt": {
+        "path": "styleAurora/cleanup-prompt.txt",
+        "sha256": "c044d510dceb1b4fb819566308c68d8868a3aadd6462787ac8783021976d8d9c"
+      },
+      "output": {
+        "path": "styleAurora/repaired-top-clean.png",
+        "sha256": "bd89b572f17bc508f001dddad7c54c77ac057d15607d8f86d2ad24bd958b040b"
+      }
+    },
+    {
+      "style": "styleAurora",
+      "model": "gpt-image-2.5-flare",
+      "mode": "fallback CLI edit",
+      "size": "1536x1024",
+      "quality": "high",
+      "inputs": [
+        {
+          "path": "styleAurora/repaired-top-clean.png",
+          "sha256": "bd89b572f17bc508f001dddad7c54c77ac057d15607d8f86d2ad24bd958b040b",
+          "role": "edit target"
+        },
+        {
+          "path": "styleAurora/original.png",
+          "sha256": "426f731d87501df20d1565d46e279f04cc2ec9e50b5ca4f14e85e175ff8aae97",
+          "role": "mechanical reference"
+        }
+      ],
+      "prompt": {
+        "path": "styleAurora/lower-cleanup-prompt.txt",
+        "sha256": "fa37228e13ef3c17decf2189b68e5b24197b8f6d9d9293cbdab0e2985b20d067"
+      },
+      "output": {
+        "path": "styleAurora/repaired.png",
+        "sha256": "ef9dbb1505716376e5aadd2f21f19c400953e7c78f32bcb563828b17635b0da4"
+      }
+    },
+    {
+      "style": "styleCyberpunk",
+      "model": "gpt-image-2.5-flare",
+      "mode": "fallback CLI edit",
+      "size": "1536x1024",
+      "quality": "high",
+      "inputs": [
+        {
+          "path": "styleCyberpunk/input.png",
+          "sha256": "fcd37f927a0608b3c0f6285164108c27499dd9537ccd3e40c183d8edfb225455",
+          "role": "edit target"
+        },
+        {
+          "path": "styleCyberpunk/original.png",
+          "sha256": "7a2e6d9971fa2e9a18c9beddd058d0d0d28c0a71b21e714b297fdc71957d6966",
+          "role": "mechanical reference"
+        }
+      ],
+      "prompt": {
+        "path": "styleCyberpunk/repair-prompt.txt",
+        "sha256": "754792caedcd9f66e12863b53d6a340f22cb81a01810bc0e8f131e51299a222c"
+      },
+      "output": {
+        "path": "styleCyberpunk/repaired.png",
+        "sha256": "94ff7a66732a6e693cab3831f19b7c2d8251b7c8d2d9534719bfce32062103fa"
+      }
+    },
+    {
+      "style": "styleForest",
+      "model": "gpt-image-2.5-flare",
+      "mode": "fallback CLI edit",
+      "size": "1536x1024",
+      "quality": "high",
+      "inputs": [
+        {
+          "path": "styleForest/input.png",
+          "sha256": "e8063469e961fc1243de66466a77b9dece89fc4a327f61502744c50f46650936",
+          "role": "edit target"
+        },
+        {
+          "path": "styleForest/original.png",
+          "sha256": "736aebbf50b197abdf184998d6d41ac987c5edfee6a09178b3c864cfda657309",
+          "role": "mechanical reference"
+        }
+      ],
+      "prompt": {
+        "path": "styleForest/repair-prompt.txt",
+        "sha256": "754792caedcd9f66e12863b53d6a340f22cb81a01810bc0e8f131e51299a222c"
+      },
+      "output": {
+        "path": "styleForest/repaired.png",
+        "sha256": "3c25c8c6a4049c36cb473e778b526337f11ed1912a6f56b14ae12a26d240df3b"
+      }
+    },
+    {
+      "style": "styleGalaxy",
+      "model": "gpt-image-2.5-flare",
+      "mode": "fallback CLI edit",
+      "size": "1536x1024",
+      "quality": "high",
+      "inputs": [
+        {
+          "path": "styleGalaxy/input.png",
+          "sha256": "abb4fc34be4eb21423477629d4bcc23af7ddf3faa70cdadc4d7f3824458bb1db",
+          "role": "edit target"
+        },
+        {
+          "path": "styleGalaxy/original.png",
+          "sha256": "fae8d23172aea2516493cde083d947f0ce1907e9a159258475298303f27db31a",
+          "role": "mechanical reference"
+        }
+      ],
+      "prompt": {
+        "path": "styleGalaxy/repair-prompt.txt",
+        "sha256": "754792caedcd9f66e12863b53d6a340f22cb81a01810bc0e8f131e51299a222c"
+      },
+      "output": {
+        "path": "styleGalaxy/repaired.png",
+        "sha256": "9b38a7959d75a97ea8718dbe43d2a1608a48bc9aaf0f4ae353a2dddc1587f74a"
+      }
+    },
+    {
+      "style": "styleHeartbeat",
+      "model": "gpt-image-2.5-flare",
+      "mode": "fallback CLI edit",
+      "size": "1536x1024",
+      "quality": "high",
+      "inputs": [
+        {
+          "path": "styleHeartbeat/input.png",
+          "sha256": "aa630cdb4ca4691fa5661a2f2542da708ca3bffe34e037021be1793c3b06da3c",
+          "role": "edit target"
+        },
+        {
+          "path": "styleHeartbeat/original.png",
+          "sha256": "42e423d731a4d2e2ed5f626a570e30b875f17f8f8cd8353e87b91c81df2fbad1",
+          "role": "mechanical reference"
+        }
+      ],
+      "prompt": {
+        "path": "styleHeartbeat/repair-prompt.txt",
+        "sha256": "754792caedcd9f66e12863b53d6a340f22cb81a01810bc0e8f131e51299a222c"
+      },
+      "output": {
+        "path": "styleHeartbeat/repaired.png",
+        "sha256": "0b58aa954d417a6c1b1dd0e3defaa6f5424c03ebaafcf2e7a577d6f7420f4eab"
+      }
+    },
+    {
+      "style": "styleLava",
+      "model": "gpt-image-2.5-flare",
+      "mode": "fallback CLI edit",
+      "size": "1536x1024",
+      "quality": "high",
+      "inputs": [
+        {
+          "path": "styleLava/input.png",
+          "sha256": "c4b0bd69bcf27865f231575f37d7702b986f960b72e33de3b44ccbaa2c7a76be",
+          "role": "edit target"
+        },
+        {
+          "path": "styleLava/original.png",
+          "sha256": "762827bfcbcede0aca915470f82b9cb2010bc4aaacfad83666039fb1460c6c38",
+          "role": "mechanical reference"
+        }
+      ],
+      "prompt": {
+        "path": "styleLava/repair-prompt.txt",
+        "sha256": "754792caedcd9f66e12863b53d6a340f22cb81a01810bc0e8f131e51299a222c"
+      },
+      "output": {
+        "path": "styleLava/repaired.png",
+        "sha256": "27bb0dc79f09d3ed8001fba92b54d212945b90225fe508c8b62aa30ca42aa336"
+      }
+    },
+    {
+      "style": "styleMatrix",
+      "model": "gpt-image-2.5-flare",
+      "mode": "fallback CLI edit",
+      "size": "1536x1024",
+      "quality": "high",
+      "inputs": [
+        {
+          "path": "styleMatrix/input.png",
+          "sha256": "49f6a13acdd3dab64394a2144c03987e3dba93c962a8343684e88368000ac8a8",
+          "role": "edit target"
+        },
+        {
+          "path": "styleMatrix/original.png",
+          "sha256": "df85a98046dd214d1f4ebc8d5c0723ba09d5d31cb1cf0fb6c06298590732459b",
+          "role": "mechanical reference"
+        }
+      ],
+      "prompt": {
+        "path": "styleMatrix/repair-prompt.txt",
+        "sha256": "754792caedcd9f66e12863b53d6a340f22cb81a01810bc0e8f131e51299a222c"
+      },
+      "output": {
+        "path": "styleMatrix/repaired.png",
+        "sha256": "01ba5cc1d3e88abb7c9208f2cb1072cbaebaaf6cdd1b3346bb8863412c130483"
+      }
+    },
+    {
+      "style": "styleOcean",
+      "model": "gpt-image-2.5-flare",
+      "mode": "fallback CLI edit",
+      "size": "1536x1024",
+      "quality": "high",
+      "inputs": [
+        {
+          "path": "styleOcean/input.png",
+          "sha256": "6c8ea576ebde89a327b783d95983486d9113fcf6613c81de212925c96117fd8e",
+          "role": "edit target"
+        },
+        {
+          "path": "styleOcean/original.png",
+          "sha256": "dfca47147a44dcad394bc9e63bd3bc6bf5436654ac09fba50c62dba777cf04b5",
+          "role": "mechanical reference"
+        }
+      ],
+      "prompt": {
+        "path": "styleOcean/repair-prompt.txt",
+        "sha256": "754792caedcd9f66e12863b53d6a340f22cb81a01810bc0e8f131e51299a222c"
+      },
+      "output": {
+        "path": "styleOcean/repaired.png",
+        "sha256": "ee596ed9cc2a8c341190bbc524db94acea1b80033bf3c4b77fe409360bec639d"
+      }
+    }
+  ],
+  "mapping": {
+    "edit": "Neutral physical perimeter and upper diagonal/lower corner joins; no emissive texture.",
+    "composite": "20px solid repair plus 12px transition around original carrier AND endpoint extensions. Preserve central drone pixels outside repair bounds. Use generated external silhouette, never adjacent-pixel duplicate rail.",
+    "emitters": "Original dense profile moved 6px outwards; unchanged texture, size, count, native RGB source and timing.",
+    "backgrounds": "Existing generated backgrounds and motion retained."
+  },
+  "validationLimit": "Image-space/browser evidence, not CAD or hardware validation."
+}

@@ -1,0 +1,7 @@
+{
+  "base": "http://localhost:4173",
+  "guardSamples": 214,
+  "guardOnOffMaxError": 0,
+  "activeOriginalBeads": 86,
+  "errors": []
+}

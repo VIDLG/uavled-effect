@@ -1,9 +1,9 @@
 {
   "sourceTests": 21,
-  "imageTests": 20,
+  "imageTests": 22,
   "sourceAlbumBrowserEntries": 46,
   "originalVideoBrowserEntries": 9,
-  "initialSelectedTextureRequests": 5,
+  "initialSelectedTextureRequests": 6,
   "oneShotEndsAndReplays": true,
   "mobile": {
     "viewport": 390,
@@ -12,14 +12,21 @@
   "rendererReleasedOnLeave": true,
   "browserErrors": [],
   "failedRequests": [],
-  "originalSourceAndSelectedAssetsChanged": false,
   "limitations": [
     "Desktop headless Microsoft Edge; no physical phone GPU or hardware acceptance",
     "Generated background semantic direction reviewed with raw storyboard sheets; numeric difference alone cannot establish direction",
     "Finite stochastic sample windows repeat; not an indefinitely running native effect"
   ],
   "existingRainbowBrowserVerified": true,
-  "geometryRevision": "outer-rim-v5",
-  "guardOnOffBrowserCheck": "rim-v5/browser-verification.json",
-  "allNineVideoGuardsConnectToBody": true
+  "geometryRevision": "outer-rim-v6",
+  "guardOnOffBrowserCheck": "rim-v6/browser-verification.json",
+  "allNineVideoGuardsConnectToBody": true,
+  "originalSourceRgbChanged": false,
+  "selectedGeometryAssetsChanged": true,
+  "perimeterGenerationManifest": "rim-v6/generation.json",
+  "visualJoinReview": "rim-v6/all-joins.jpg",
+  "sourceAlbumBrowserEvidence": "rim-v6/source-albums-browser.json",
+  "videoAlbumBrowserEvidence": "rim-v6/video-albums-browser.json",
+  "rainbowBrowserEvidence": "rim-v6/rainbow-browser.json",
+  "previewCapture": "previews/capture.json"
 }

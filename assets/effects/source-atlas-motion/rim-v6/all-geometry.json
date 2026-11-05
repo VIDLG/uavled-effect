@@ -1,0 +1,62 @@
+[
+  {
+    "id": "styleCyberpunk",
+    "fixedGuardPixels": 2001,
+    "allFixedGuardPixelsConnected": true,
+    "guardLightMaskOverlapMax": 0.154304560372438
+  },
+  {
+    "id": "styleMatrix",
+    "fixedGuardPixels": 2192,
+    "allFixedGuardPixelsConnected": true,
+    "guardLightMaskOverlapMax": 0.1543219286567954
+  },
+  {
+    "id": "styleForest",
+    "fixedGuardPixels": 2071,
+    "allFixedGuardPixelsConnected": true,
+    "guardLightMaskOverlapMax": 0.154304560372438
+  },
+  {
+    "id": "styleOcean",
+    "fixedGuardPixels": 549,
+    "allFixedGuardPixelsConnected": true,
+    "guardLightMaskOverlapMax": 0.154304560372438
+  },
+  {
+    "id": "styleAurora",
+    "fixedGuardPixels": 2749,
+    "allFixedGuardPixelsConnected": true,
+    "guardLightMaskOverlapMax": 0.1544329230528092
+  },
+  {
+    "id": "styleLava",
+    "fixedGuardPixels": 1589,
+    "allFixedGuardPixelsConnected": true,
+    "guardLightMaskOverlapMax": 0.1544329230528092
+  },
+  {
+    "id": "styleGalaxy",
+    "fixedGuardPixels": 775,
+    "allFixedGuardPixelsConnected": true,
+    "guardLightMaskOverlapMax": 0.154304560372438
+  },
+  {
+    "id": "styleNeon",
+    "fixedGuardPixels": 855,
+    "allFixedGuardPixelsConnected": true,
+    "guardLightMaskOverlapMax": 0.154304560372438
+  },
+  {
+    "id": "styleHeartbeat",
+    "fixedGuardPixels": 2031,
+    "allFixedGuardPixelsConnected": true,
+    "guardLightMaskOverlapMax": 0.154304560372438
+  },
+  {
+    "id": "effectRainbow",
+    "fixedGuardPixels": 2382,
+    "allFixedGuardPixelsConnected": true,
+    "guardLightMaskOverlapMax": 0.16118709623335903
+  }
+]

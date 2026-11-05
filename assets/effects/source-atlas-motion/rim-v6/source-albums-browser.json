@@ -1,0 +1,333 @@
+{
+  "base": "http://localhost:5173",
+  "effects": [
+    {
+      "id": "effectSolid",
+      "static": true
+    },
+    {
+      "id": "effectStudySegment",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectPlanSegment",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectChase",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectMeteor",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectMeteorRain",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectFire",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectIceFire",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectLightning",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectPulse",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectCenterExpand",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectCenterContract",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectDampedRebound",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectTendril",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectBubble",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectBreathe",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectFade",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectDirectionalTrail",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectDirectionalWipe",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectDirectionalTendril",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectMultiChase",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectMultiChaseTail",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectWave",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectDualWave",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectSparkle",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectColorSparkle",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectTwinkle",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectComet",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectBounce",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectBounceTail",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectTheaterChase",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectGradient",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectStack",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectScanner",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectRipple",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectPlasma",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "styleVaporwave",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "styleSunset",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "styleCandlelight",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "styleMoonlight",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "styleArcade",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "stylePolice",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "styleChristmas",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectStrobe",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectColorWipe",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    },
+    {
+      "id": "effectRainbowWave",
+      "pause": true,
+      "seek": true,
+      "neutralFixed": true,
+      "visibleChange": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "initialTextureCount": 6,
+  "oneShotEndsAndReplays": true,
+  "mobile": {
+    "viewport": 390,
+    "width": 390
+  },
+  "rendererReleasedOnLeave": true
+}

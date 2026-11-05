@@ -1,0 +1,22 @@
+{
+  "errors": [],
+  "imageUrls": {
+    "base": "http://localhost:5173/@fs/D:/msys64/home/clf20/tmp/uavled/uavled-effects/assets/effects/single-image-motion/effectRainbow-base-rim-v6.png",
+    "phase": "http://localhost:5173/@fs/D:/msys64/home/clf20/tmp/uavled/uavled-effects/assets/effects/single-image-motion/effectRainbow-phase-rim-v6.png",
+    "palette": "http://localhost:5173/@fs/D:/msys64/home/clf20/tmp/uavled/uavled-effects/assets/effects/single-image-motion/effectRainbow-palette.png"
+  },
+  "pauseSeekAndLoop": true,
+  "singleImageMediaRequests": [],
+  "gpu": {
+    "neutralMaxDifference": 0,
+    "neutralPixels": 92514,
+    "referenceMaxDifference": 1,
+    "endpointMaxDifference": 0,
+    "observedFps": 60.01348617666891,
+    "averageDrawMs": 0.05666666668322351
+  },
+  "videoRequestsAfterSwitch": [
+    "http://localhost:5173/@fs/D:/msys64/home/clf20/tmp/uavled/uavled-effects/assets/effects/generated-motion-gallery/rim-v6/styleCyberpunk-loop.mp4?v=outer-rim-v6"
+  ],
+  "mobileOverflow": false
+}

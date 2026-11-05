@@ -16,10 +16,10 @@
   "sourceSha256": "c88ab72cc82a3428c5484d0cb897032720ec61220b80bd30cd7f3fa752c7dd34",
   "preludeSha256": "4e86f3a04ffcaaf6e34c9190eae6ba9fb7b2ae8f1ef1293adca35bbbdffde344",
   "reference": "assets/effects/generated-details/effectRainbow-detail.png",
-  "base": "effectRainbow-base-rim-v5.png",
-  "map": "effectRainbow-phase-rim-v5.png",
+  "base": "effectRainbow-base-rim-v6.png",
+  "map": "effectRainbow-phase-rim-v6.png",
   "paletteTexture": "effectRainbow-palette.png",
-  "poster": "effectRainbow-rim-v5-poster.jpg",
+  "poster": "effectRainbow-rim-v6-poster.jpg",
   "sourcePeak": 255,
   "sourcePalette": [
     [
@@ -1315,5 +1315,5 @@
     "minimumLedPeak": 127,
     "offLedCount": 0
   },
-  "geometryRevision": "outer-rim-v5"
+  "geometryRevision": "outer-rim-v6"
 }

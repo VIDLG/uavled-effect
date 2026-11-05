@@ -17,7 +17,7 @@ The initial split was checked against the former aggregate files: 98 prelude fun
 
 ## Visual assets and dynamics
 
-Selected motion albums now use the **connected outer-rim v5** correction: the LED carrier sits just outside a fixed neutral guard lip, so turning LEDs off does not remove the guard. The 46 live albums, nine videos, Rainbow artwork and selected thumbnails use the corrected geometry. See `assets/effects/source-atlas-motion/rim-v5/` for geometry and browser evidence; `scripts/apply_outer_rim.py` reproduces the correction. Earlier generation inputs/assets remain available.
+Selected motion albums use **joined guard v6**: the neutral physical perimeter is repaired with `gpt-image-2.5-flare`, then blended through the original upper/lower molded joins. This replaces the v5 sampled parallel rail and its disconnected caps. Original dense emitters, their 6px external offset and native RGB timing are retained. The 46 live albums, nine videos, Rainbow artwork and selected thumbnails share this correction. `assets/effects/source-atlas-motion/rim-v6/` contains the exact prompts, edit inputs/outputs, hash manifest, four-corner sheets, before/after close-up and browser ON/OFF evidence. `scripts/apply_outer_rim.py` reproduces compositing from the preserved original catalogs; v4/v5 variants remain archived.
 
 Lava/Galaxy/Neon now select `*-foreground-v3-loop.mp4`. The original LED footprints and softer scene boundary are restored; correction rules, masks and comparisons are in `assets/effects/generated-motion-gallery/foreground-detail-v3/`. Moving RGB background phases, exact image-generation prompts and source mapping remain in `assets/effects/generated-motion-gallery/motion-detail-v2/`. Heartbeat retains its approved single-artwork rendering.
 

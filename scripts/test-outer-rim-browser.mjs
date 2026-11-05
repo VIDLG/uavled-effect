@@ -16,7 +16,9 @@ try{
     return Object.fromEntries(Object.entries(points).map(([name,coords])=>[name,coords.map(([x,y])=>Array.from(p.slice(((511-y)*768+x)*4,((511-y)*768+x)*4+3)))]));
   },points);
   await page.getByRole('button',{name:'跳转至频闪第1个关键画面',exact:true}).click();const on=await sample();
+  await page.locator('.motion-artwork').screenshot({path:'assets/effects/source-atlas-motion/rim-v6/browser-on.png'});
   await page.getByRole('button',{name:'跳转至频闪第4个关键画面',exact:true}).click();const off=await sample();
+  await page.locator('.motion-artwork').screenshot({path:'assets/effects/source-atlas-motion/rim-v6/browser-off.png'});
   assert.deepEqual(on.lip,off.lip,'Guard material must survive source ON/OFF exactly');
   assert(off.lip.every(rgb=>Math.max(...rgb)>30),'The fixed guard must not become a missing black cutout');
   const change=on.led.map((rgb,i)=>Math.max(...rgb)-Math.max(...off.led[i]));assert(change.filter(v=>v>50).length>70,'Original dense bead footprints must still light up at their new outside positions');
@@ -24,9 +26,9 @@ try{
   await page.waitForFunction(()=>document.querySelector('.motion-artwork')?.getAttribute('aria-busy')==='false');
   for(const [key,phase]of[[1,'red'],[4,'blue']]){
     await page.getByRole('button',{name:`跳转至警灯第${key}个关键画面`,exact:true}).click();
-    await page.locator('.motion-artwork').screenshot({path:`assets/effects/source-atlas-motion/rim-v5/browser-${phase}.png`});
+    await page.locator('.motion-artwork').screenshot({path:`assets/effects/source-atlas-motion/rim-v6/browser-${phase}.png`});
   }
   assert.deepEqual(errors,[]);
-  await writeFile('assets/effects/source-atlas-motion/rim-v5/browser-verification.json',JSON.stringify({base,guardSamples:points.lip.length,guardOnOffMaxError:0,activeOriginalBeads:change.filter(v=>v>50).length,errors},null,2)+'\n');
+  await writeFile('assets/effects/source-atlas-motion/rim-v6/browser-verification.json',JSON.stringify({base,guardSamples:points.lip.length,guardOnOffMaxError:0,activeOriginalBeads:change.filter(v=>v>50).length,errors},null,2)+'\n');
   console.log('PASS: fixed outer rim across ON/OFF, original bead density at outside positions');
 }finally{await browser.close();}

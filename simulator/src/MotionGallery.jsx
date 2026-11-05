@@ -12,6 +12,7 @@ const files = {
   ...import.meta.glob("../../assets/effects/generated-motion-gallery/*-loop.mp4", { eager: true, query: "?url", import: "default" }),
   ...import.meta.glob("../../assets/effects/generated-motion-gallery/rim-v4/*.mp4", { eager: true, query: "?url", import: "default" }),
   ...import.meta.glob("../../assets/effects/generated-motion-gallery/rim-v5/*.mp4", { eager: true, query: "?url", import: "default" }),
+  ...import.meta.glob("../../assets/effects/generated-motion-gallery/rim-v6/*.mp4", { eager: true, query: "?url", import: "default" }),
   ...import.meta.glob("../../assets/effects/generated-motion-gallery/posters/*.jpg", { eager: true, query: "?url", import: "default" }),
   ...import.meta.glob("../../assets/effects/generated-motion-gallery/keyframes/*.jpg", { eager: true, query: "?url", import: "default" }),
   ...import.meta.glob("../../assets/effects/single-image-motion/*.png", { eager: true, query: "?url", import: "default" }),

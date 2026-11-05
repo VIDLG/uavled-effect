@@ -9,6 +9,37 @@ ROOT=Path('assets/effects/source-atlas-motion')
 def read(path):return json.loads(path.read_text(encoding='utf-8'))
 
 class SourceAtlasTest(unittest.TestCase):
+    def test_perimeter_edit_provenance_covers_every_drone(self):
+        root=ROOT/'rim-v6'
+        plan=read(root/'generation.json')
+        styles={r['style'] for r in plan['requests']}
+        expected={e['id'] for e in read(Path('assets/effects/generated-motion-gallery/index.json'))['effects']}
+        self.assertEqual(styles,expected|{'effectRainbow'})
+        for request in plan['requests']:
+            self.assertEqual(request['model'],'gpt-image-2.5-flare')
+            for record in request['inputs']+[request['prompt'],request['output']]:
+                self.assertEqual(hashlib.sha256((root/record['path']).read_bytes()).hexdigest(),record['sha256'])
+
+    def test_perimeter_edit_continues_beyond_the_led_endpoints(self):
+        """A cropped repair can be connected yet leave a visible cut at a join."""
+        import sys
+        sys.path.insert(0,str(Path('scripts').resolve()))
+        from source_atlas_assets import shared_field
+        from outer_rim import OuterRim
+        f=shared_field();r=OuterRim(f)
+        for a,b in r.joins:
+            for t in np.linspace(0,1,30):
+                x,y=np.round(a*(1-t)+b*t).astype(int)
+                self.assertEqual(float(r.repair_weight[y,x]),1)
+        original=np.round(f.base@np.array([.2126,.7152,.0722])).astype(np.uint8)
+        untouched=r.repair_weight==0
+        np.testing.assert_array_equal(r.body[...,0][untouched],original[untouched])
+        # In the join region the saved guard is the repaired texture, not a
+        # sampled parallel rail. Visual corner sheets remain separate evidence.
+        selected=r.repair_weight==1
+        np.testing.assert_array_equal(r.body[...,0][selected],
+                                     np.round(r.repaired_gray[selected]).astype(np.uint8))
+
     def test_selected_leds_are_outside_a_fixed_guard_lip(self):
         import sys
         sys.path.insert(0,str(Path('scripts').resolve()))
