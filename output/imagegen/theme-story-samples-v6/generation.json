@@ -1,0 +1,1208 @@
+{
+  "purpose": "No-text clean resample: preserve the mechanism-first visual mapping while removing accidental lettering from generated artwork.",
+  "mode": "official imagegen fallback CLI generate-batch through configured OpenAI interface",
+  "artDirection": "Mechanism first, story second. Broad painterly masses, sparse details, no drone, no typography.",
+  "requests": [
+    {
+      "id": "styleOcean",
+      "label": "海洋",
+      "storyTitle": "海浪的层层推进",
+      "visualMechanism": "A single buoy and lighthouse establish depth; broad blue wave fronts travel visibly from foreground to horizon.",
+      "source": "styles/styleOcean.js",
+      "sourceSha256": "7d86cc20222ec14a9316d9af8d4baf461d0b1f534b367d40fb26e1cf5abb35ef",
+      "palette": [
+        "#25c9e8",
+        "#2058e2"
+      ],
+      "prompt": "styleOcean-prompt.txt",
+      "output": "styleOcean.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "205b2f4614640637d75a25f6d78eaa67569b638306b10a829af0c70e611da343",
+      "promptSha256": "eef0bef9d49b7805e28c862452b685378b878504dc84e2559692142832efa31e"
+    },
+    {
+      "id": "styleAurora",
+      "label": "极光",
+      "storyTitle": "极光幕的横向舒展",
+      "visualMechanism": "Layered violet curtains stretch sideways across a dark polar sky; each curtain has a clear displaced edge.",
+      "source": "styles/styleAurora.js",
+      "sourceSha256": "662463933f73847c67d39b95cdd7dd95d7cb525e9e0092869d1331cc3dbc3998",
+      "palette": [
+        "#d64bd8",
+        "#6c2b8c"
+      ],
+      "prompt": "styleAurora-prompt.txt",
+      "output": "styleAurora.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "ada25722e308c4e9f35cac2b94da6c7ef8210435de0f9fd63ba2edd265dcf5ec",
+      "promptSha256": "aa8f27a1167fc2527880f8dedc529d770e8befa9713677d8eaf9497868271103"
+    },
+    {
+      "id": "styleLava",
+      "label": "熔岩",
+      "storyTitle": "熔岩流的缓慢推进",
+      "visualMechanism": "Orange molten channels advance through black rock, with one bright front and cooling dark crust behind.",
+      "source": "styles/styleLava.js",
+      "sourceSha256": "5df14700d237ce021bf1e25f1a9d58e911e7ce3dfb8a356b9b1efff26facc1e8",
+      "palette": [
+        "#ff5310",
+        "#ff9d35"
+      ],
+      "prompt": "styleLava-prompt.txt",
+      "output": "styleLava.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "c0fa9e977a3228099cd2abb75be9ed2436a4e6f6a7202102df6c1715f8b24fb0",
+      "promptSha256": "5b5b667b469727764750b0babc7c1f1e8e9767344b90b2a549a4f3b5ded86ab5"
+    },
+    {
+      "id": "styleGalaxy",
+      "label": "银河",
+      "storyTitle": "星云和独立闪点",
+      "visualMechanism": "A violet-blue nebula drifts in broad bands while separate white stars brighten independently.",
+      "source": "styles/styleGalaxy.js",
+      "sourceSha256": "36a7650488e7ddd690286eba12e719e24d283c8ca1636a7a57725cd5ce2d6d61",
+      "palette": [
+        "#4e33cf",
+        "#b4bdff"
+      ],
+      "prompt": "styleGalaxy-prompt.txt",
+      "output": "styleGalaxy.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "0de4262265158e5080339cbc2e9bf820e51da8cad8eb2fd7df6eb93eaa17d3de",
+      "promptSha256": "f7d91295b8eadf30ad37fe2bcaafb7524dd17a880adc8695d067bfd2987a0345"
+    },
+    {
+      "id": "styleNeon",
+      "label": "霓虹",
+      "storyTitle": "分区色块的循环变化",
+      "visualMechanism": "Large magenta and blue neon planes alternate around an empty night storefront; the color blocks are the composition.",
+      "source": "styles/styleNeon.js",
+      "sourceSha256": "002299b5ad850d5ac8e179e03ad6edd000b7363424a24e5021175d680ffcc910",
+      "palette": [
+        "#ec20cf",
+        "#4933ef"
+      ],
+      "prompt": "styleNeon-prompt.txt",
+      "output": "styleNeon.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "719f57330a3e442098d7492f191d4b2be6933357f748e2994c6c37890c0d3bc5",
+      "promptSha256": "797fc8fd7238615e5a00c64bb5757628a3951070a2151505060afca910121892"
+    },
+    {
+      "id": "styleHeartbeat",
+      "label": "心跳",
+      "storyTitle": "整面红光的双拍",
+      "visualMechanism": "Two concentric red light pulses pass through a dark room, separated by a brief quiet interval.",
+      "source": "styles/styleHeartbeat.js",
+      "sourceSha256": "367e898c8b63fefa190781998beeb894b6d5812aef97acac2590ec86b08b2667",
+      "palette": [
+        "#ff0028",
+        "#72001b"
+      ],
+      "prompt": "styleHeartbeat-prompt.txt",
+      "output": "styleHeartbeat.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "3f1c83ef8de4db353916ba045a8251c8bd4dae8812615dee06bce90f15bbb0cb",
+      "promptSha256": "77b891c123984aa51b8b96c15bc2f7793d71017f689bd3f4ccbc4e4eb3bf3ef4"
+    },
+    {
+      "id": "effectSolid",
+      "label": "纯色",
+      "storyTitle": "单一颜色的稳定持续",
+      "visualMechanism": "One uninterrupted blue light fills a quiet underwater chamber with no moving color boundary.",
+      "source": "effects/basic/effectSolid.js",
+      "sourceSha256": "a6b9a96363dbcdac463e6fa532f9503d99b5e84e939d210f294a8f8c956f1069",
+      "palette": [
+        "#0060a0"
+      ],
+      "prompt": "effectSolid-prompt.txt",
+      "output": "effectSolid.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "ccd7adca5610c0d9e8cdfc88c7678492dc37da9440a2998059f22562cdeacd5b",
+      "promptSha256": "8ee57fa78623910a3676f8091a5f5239a4853f7d1a7901e4aa94e7debcf7d24c"
+    },
+    {
+      "id": "effectStudySegment",
+      "label": "学习片段",
+      "storyTitle": "一段一段亮起",
+      "visualMechanism": "A long row of abstract desk-lamp pools lights one segment at a time, with paused dark gaps between segments; no readable text.",
+      "source": "effects/composition/effectStudySegment.js",
+      "sourceSha256": "ec98a64c4625ffe389f1844a7048453235ba18b8a8ef4b2df60656d60b56a53c",
+      "palette": [
+        "#002040",
+        "#002020",
+        "#000020"
+      ],
+      "prompt": "effectStudySegment-prompt.txt",
+      "output": "effectStudySegment.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "b415c7d6e08c7146c1bb43df4d2908de23439c85ac2a0ae4fd8ca54aa6241ada",
+      "promptSha256": "2cc841e1991621ede0028e04a41226e4264c77ab2d970c2e95d0fb2627be7bff"
+    },
+    {
+      "id": "effectPlanSegment",
+      "label": "计划片段",
+      "storyTitle": "一段一段推进后停住",
+      "visualMechanism": "A segmented blue route on a dark architectural floor illuminates in discrete sections, then holds before the next section.",
+      "source": "effects/composition/effectPlanSegment.js",
+      "sourceSha256": "5743f6cab12053883db914ed9fff5c9428045ee1b5cb6ee3e8bb2266ee84d1b1",
+      "palette": [
+        "#002040",
+        "#002020",
+        "#000020"
+      ],
+      "prompt": "effectPlanSegment-prompt.txt",
+      "output": "effectPlanSegment.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "fd5c8913adb1775e140775066c0084c8de2d98832b1bf53ad2393ae3d0058b77",
+      "promptSha256": "c135ec59b403c878e4c1a10d9fc16d38f60d8b58b85649bd85520e87c8660a58"
+    },
+    {
+      "id": "effectChase",
+      "label": "单点追逐",
+      "storyTitle": "一个亮点沿路径追逐",
+      "visualMechanism": "One orange luminous bead travels along a curved rail with a short clean wake; its position is the main subject.",
+      "source": "effects/motion/effectChase.js",
+      "sourceSha256": "7f8e68508c1a3dac130863e3e12348ea8389935f923c3b7cd3d3126ba39bbe9d",
+      "palette": [
+        "#c04000",
+        "#802000",
+        "#602000"
+      ],
+      "prompt": "effectChase-prompt.txt",
+      "output": "effectChase.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "3c48aa21673dc609a94d60e28fa967c5417a66e437bb89cdccf4757f3894b0b3",
+      "promptSha256": "e39881e39f151ff8db38b4b7bd89299ff5ccef6f943a3d54595adf8402884bb5"
+    },
+    {
+      "id": "effectMeteor",
+      "label": "流星",
+      "storyTitle": "一颗有尾迹的流星",
+      "visualMechanism": "One blue meteor crosses a dark sky with one sharp head and one continuous tail.",
+      "source": "effects/trails/effectMeteor.js",
+      "sourceSha256": "7b395a405d92d12df6f4b31577b48a97bd518c012fb643c4bdacb529263bc206",
+      "palette": [
+        "#0060a0",
+        "#206080",
+        "#004080"
+      ],
+      "prompt": "effectMeteor-prompt.txt",
+      "output": "effectMeteor.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "58bf67b7e2f36448306f6da2224ed34b8dfc82960cd6550c69793a72847f4fe3",
+      "promptSha256": "8ca3b72ae6d5774cbddbe1a9101b9e27c158a5c583d61e52978f7342d29a0e0d"
+    },
+    {
+      "id": "effectMeteorRain",
+      "label": "流星雨",
+      "storyTitle": "多颗流星同时下坠",
+      "visualMechanism": "Several silver-blue meteor heads descend on separate diagonal paths, each with a distinct tail.",
+      "source": "effects/trails/effectMeteorRain.js",
+      "sourceSha256": "ed78dd5e912d64b02a04ad19d42c4748d0b074ef1992118ce31b6cd2b84ee033",
+      "palette": [
+        "#406060",
+        "#606060",
+        "#404060"
+      ],
+      "prompt": "effectMeteorRain-prompt.txt",
+      "output": "effectMeteorRain.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "008bb0d54ac4ddf677275c4cc5db5b1fda71e83407052273678af29ca35b160e",
+      "promptSha256": "cff72cc902c8a1929c2d894fc6ab03f92a6cabafaa9dcded33d8a07ae426ba42"
+    },
+    {
+      "id": "effectFire",
+      "label": "火焰",
+      "storyTitle": "火焰向上翻涌",
+      "visualMechanism": "One orange fire plume rises, curls and sheds darker cooling wisps upward.",
+      "source": "effects/ambience/effectFire.js",
+      "sourceSha256": "6c9a045b36a7e0be60a0469d71f437e4b935692ca57dbfdbf5159c05ecde0f76",
+      "palette": [
+        "#a06000",
+        "#a04000",
+        "#802000"
+      ],
+      "prompt": "effectFire-prompt.txt",
+      "output": "effectFire.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "040a39f17f49e8a8710668492095cf662562d10b283bc21eb4a07444e6cc2b94",
+      "promptSha256": "8bc8ddf605260bfe266bd9fb3a94e645b799dc6ddfd337a92470eac202230201"
+    },
+    {
+      "id": "effectLightning",
+      "label": "闪电",
+      "storyTitle": "单次分叉闪电",
+      "visualMechanism": "One yellow-white lightning branch cuts a charcoal storm cloud; the surrounding sky stays still.",
+      "source": "effects/flashes/effectLightning.js",
+      "sourceSha256": "b07ac7e801258a8d9023047e5129c54f96514cdab1c1a458df36263b86d957c8",
+      "palette": [
+        "#606040",
+        "#404040"
+      ],
+      "prompt": "effectLightning-prompt.txt",
+      "output": "effectLightning.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "e204a27c654eaf6ec6499148d885e23c9de40fe4deab7e22385987d71649040d",
+      "promptSha256": "df5cffdbe19cf93624afc71311030ab57212bfb5fecb6127ed07b22accfc1089"
+    },
+    {
+      "id": "effectPulse",
+      "label": "中心脉冲",
+      "storyTitle": "中心亮点向外脉冲",
+      "visualMechanism": "A warm central lighthouse pulse expands as one broad ring through fog.",
+      "source": "effects/waves/effectPulse.js",
+      "sourceSha256": "56065eb175a4d1a7ad6aca2524bde6580095a546ebe14286f45477d6dbb9c459",
+      "palette": [
+        "#c04000",
+        "#802000",
+        "#a04000"
+      ],
+      "prompt": "effectPulse-prompt.txt",
+      "output": "effectPulse.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "9f62ff0b8051a94f18f2b3124701a1cbe450349d960d78f3eeceb85b49cdda79",
+      "promptSha256": "0aa5b111374f5589d87548d61b553367c06fab7f5effb655934d1b0b245f12cd"
+    },
+    {
+      "id": "effectCenterExpand",
+      "label": "中心扩散",
+      "storyTitle": "由中心向外扩散",
+      "visualMechanism": "A blue point at the bottom of a well sends clearly spaced rings outward across stone.",
+      "source": "effects/motion/effectCenterExpand.js",
+      "sourceSha256": "ab2e0c8e0772aec57704c08deda40dea76e46b49d2b6c1caf86214f596c6a039",
+      "palette": [
+        "#0060a0",
+        "#006080",
+        "#004060"
+      ],
+      "prompt": "effectCenterExpand-prompt.txt",
+      "output": "effectCenterExpand.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "2e68ccce8c4612f605a8daa41b867737ff89e5d7ecb1f5369e99c82361faaa6c",
+      "promptSha256": "8ce0cb37df8a206e769a906cf79b42db5ad9fb5258138ca364c7db8b26f452f4"
+    },
+    {
+      "id": "effectCenterContract",
+      "label": "中心收缩",
+      "storyTitle": "由外向中心收缩",
+      "visualMechanism": "Several blue rings contract toward one small dark center, leaving a narrowing quiet field.",
+      "source": "effects/motion/effectCenterContract.js",
+      "sourceSha256": "c3d76e8b359312f3e3d15d65f915104b29ef5ae7bd15c24269b6f341fee95ccd",
+      "palette": [
+        "#0060a0",
+        "#006080",
+        "#004060"
+      ],
+      "prompt": "effectCenterContract-prompt.txt",
+      "output": "effectCenterContract.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "2edb9f4a7264aab917e4924703b8a87b9305a9b6ea1018d12caddc992fbac676",
+      "promptSha256": "ff27fe4f7adc6a767977e81ac062d48c6ede560d58b1c8e73e09dff6f827c89c"
+    },
+    {
+      "id": "effectDampedRebound",
+      "label": "阻尼回弹",
+      "storyTitle": "回弹并逐次减弱",
+      "visualMechanism": "A red-orange wave hits a wall, rebounds, and returns twice with visibly smaller arcs each time.",
+      "source": "effects/motion/effectDampedRebound.js",
+      "sourceSha256": "24bad172882f48edccd3b84cf3b51bea5086522b62e45b846412ae2601235659",
+      "palette": [
+        "#a04020",
+        "#602000",
+        "#804020"
+      ],
+      "prompt": "effectDampedRebound-prompt.txt",
+      "output": "effectDampedRebound.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "31da5f094f7d9db2338409812273cb532f26968c155c50729ab8f39491d2369a",
+      "promptSha256": "b7f4fa970f685b533a51a68c480a346aa6577731aa7120574217d918af10f12a"
+    },
+    {
+      "id": "effectTendril",
+      "label": "卷须伸展",
+      "storyTitle": "卷须从根部伸展",
+      "visualMechanism": "Teal luminous tendrils branch outward from one root into a dark greenhouse; growth direction is obvious.",
+      "source": "effects/motion/effectTendril.js",
+      "sourceSha256": "df7bde52afeb13148c404eaac92fe9642f93b09ed903a19fac017efb3eff01ef",
+      "palette": [
+        "#008080",
+        "#006060",
+        "#008060"
+      ],
+      "prompt": "effectTendril-prompt.txt",
+      "output": "effectTendril.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "da2290afca7a0698aba049f947d7188c371329a43c1ff189e561b3b7e4964c97",
+      "promptSha256": "afd6cf146a05bf8d57397a55d541759e4d4133a62d3991a408658ba27ad409f3"
+    },
+    {
+      "id": "effectBubble",
+      "label": "气泡漂浮",
+      "storyTitle": "气泡向上漂浮",
+      "visualMechanism": "A small group of blue bubbles rises vertically through deep water, with separated round forms.",
+      "source": "effects/motion/effectBubble.js",
+      "sourceSha256": "d4685b59f2af79c0af3251140bb454c7c7d5bbae032c86fae72bc1494e5ca5d0",
+      "palette": [
+        "#0060a0"
+      ],
+      "prompt": "effectBubble-prompt.txt",
+      "output": "effectBubble.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "58b6622b400fcbd44ecf723adfb9de1847360188df096cd4ef360ab0843ed90e",
+      "promptSha256": "3b690c98d9356ca1f41e6a4c7b33dcdab5346f702d0edeff8d1c35a3f8d654a8"
+    },
+    {
+      "id": "effectBreathe",
+      "label": "呼吸",
+      "storyTitle": "整体同步膨胀收缩",
+      "visualMechanism": "One teal translucent form visibly expands and contracts around a steady core, like an inhale and exhale.",
+      "source": "effects/waves/effectBreathe.js",
+      "sourceSha256": "bb04f5cdf5ee75c494a8e2c7c401e7ac322764cd0d45634f80abafd9105bc08c",
+      "palette": [
+        "#0060a0",
+        "#006080",
+        "#004060"
+      ],
+      "prompt": "effectBreathe-prompt.txt",
+      "output": "effectBreathe.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "f08fc3888796ca33f236d03f772b0bb182b011f5f5f5cf155c3e0d98dcc88cff",
+      "promptSha256": "7e62836f7d7311c1af8b62ebb3d2e5771d1c4ad094681baa55b2acda64ffbf4c"
+    },
+    {
+      "id": "effectFade",
+      "label": "淡入淡出",
+      "storyTitle": "同一盏灯渐隐",
+      "visualMechanism": "One blue porch lamp fades smoothly from bright to almost dark against an otherwise fixed scene.",
+      "source": "effects/waves/effectFade.js",
+      "sourceSha256": "661b9cac6cafb34c5bd5408e4c403fb1c79bd289b4f1255909bc3009dda2ef73",
+      "palette": [
+        "#0060a0",
+        "#006080",
+        "#004060"
+      ],
+      "prompt": "effectFade-prompt.txt",
+      "output": "effectFade.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "8ed65e2a218b70df224cc4cc53052a5246e203c500c650def82bd062ed0d36d2",
+      "promptSha256": "72dd13fc8a020b0505f5c931367bc4ce6786f677f8e1c19a3715d47e42accb11"
+    },
+    {
+      "id": "effectDirectionalTrail",
+      "label": "方向拖尾",
+      "storyTitle": "方向运动和拖尾",
+      "visualMechanism": "A warm red light head travels left-to-right with a long fading trail that clearly lags behind.",
+      "source": "effects/trails/effectDirectionalTrail.js",
+      "sourceSha256": "21fa8afae8b4ddfec72d77e001c9396e5ae8dda0c8a65dfa59a62fa443f31807",
+      "palette": [
+        "#a04020",
+        "#804000",
+        "#602000"
+      ],
+      "prompt": "effectDirectionalTrail-prompt.txt",
+      "output": "effectDirectionalTrail.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "17ea546de3ba4a372cae76b107650514530ba8f3166d0d5238434deefeb3df5f",
+      "promptSha256": "03c10930cdb8ce1c3ad9626ee819806e2244cfb76f9f85704f21dd2522883dfa"
+    },
+    {
+      "id": "effectDirectionalWipe",
+      "label": "方向擦除",
+      "storyTitle": "边界把颜色擦过去",
+      "visualMechanism": "A clean vertical blue color boundary sweeps across a wall from left to right, replacing the old color behind it.",
+      "source": "effects/motion/effectDirectionalWipe.js",
+      "sourceSha256": "fd8d85f813c53185fff2335fb45c40fd1105b47764070b33ce26ab7c757ff315",
+      "palette": [
+        "#0060a0"
+      ],
+      "prompt": "effectDirectionalWipe-prompt.txt",
+      "output": "effectDirectionalWipe.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "5ab6950db55cd904f04b31485edc71e923dc18a0a344c78038967745ccc453e4",
+      "promptSha256": "42b4b3f5627e6abb2e06ae22649f025e2814b20231a7dba207eb95d3cb57449b"
+    },
+    {
+      "id": "effectDirectionalTendril",
+      "label": "方向卷须",
+      "storyTitle": "卷须沿单方向延伸",
+      "visualMechanism": "Teal branches extend sequentially toward one side, with older sections fixed behind the advancing tip.",
+      "source": "effects/motion/effectDirectionalTendril.js",
+      "sourceSha256": "94487b0fa069421122cf666a5f4f17bb9c93200755821920592846671fb68e74",
+      "palette": [
+        "#008080",
+        "#006060",
+        "#008060"
+      ],
+      "prompt": "effectDirectionalTendril-prompt.txt",
+      "output": "effectDirectionalTendril.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "d6cc286bbe455432b0681d4cac9b26b89d5994a89b019c5d45064b253b89a6c7",
+      "promptSha256": "1d749e8f4092648610f6ccc80c9011e0a1a517700385a052c514e641ae984bfe"
+    },
+    {
+      "id": "effectMultiChase",
+      "label": "多点追逐",
+      "storyTitle": "多个亮点同向追逐",
+      "visualMechanism": "Three cyan light heads move in the same direction along parallel paths, evenly separated.",
+      "source": "effects/motion/effectMultiChase.js",
+      "sourceSha256": "e71c27e1a8f1979e5061a10545af9dcbdfb50a78dafe14cae762340e91d3e614",
+      "palette": [
+        "#008080",
+        "#006080",
+        "#004060"
+      ],
+      "prompt": "effectMultiChase-prompt.txt",
+      "output": "effectMultiChase.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "a83d9fe0684f6fabcd3849ac36057e87e3d6fd4c4fedafebd0d1633b76a895f3",
+      "promptSha256": "f39838faca5431d58ab0c66ea6178e6e83a04e5eb0335ec836df73d06fbf5af0"
+    },
+    {
+      "id": "effectMultiChaseTail",
+      "label": "多点拖尾",
+      "storyTitle": "多个亮点带不同拖尾",
+      "visualMechanism": "Three red-orange heads travel together with three visibly staggered tails of different lengths.",
+      "source": "effects/trails/effectMultiChaseTail.js",
+      "sourceSha256": "269d0a57f2c67c58938b86b424c5538b2c7f4a755b7c7d65d89ca94deb5a547c",
+      "palette": [
+        "#008080",
+        "#006080",
+        "#004060"
+      ],
+      "prompt": "effectMultiChaseTail-prompt.txt",
+      "output": "effectMultiChaseTail.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "6c1202c1185b70f78ee5b7fbbadbbae7bc211690d7983a124a7e31c56f8fd7b6",
+      "promptSha256": "59564e35450454b383af8f4c8e1d3b8dfab6f3a48d945cde52ec0f3903a5583b"
+    },
+    {
+      "id": "effectWave",
+      "label": "单色波",
+      "storyTitle": "单色波峰横向传播",
+      "visualMechanism": "One cool-blue wave crest moves across a lake in a clear horizontal band.",
+      "source": "effects/waves/effectWave.js",
+      "sourceSha256": "e1ad79cadd0137f3f9b7ebcdc9bd0d7aa778d8c4e873796e56d1f5a782e4d0f2",
+      "palette": [
+        "#2040a0",
+        "#002060",
+        "#204080"
+      ],
+      "prompt": "effectWave-prompt.txt",
+      "output": "effectWave.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "f3fae78a85e10da3a5f33f2b233d0fec4646b2ec91970f0be9aaa9931ceff2aa",
+      "promptSha256": "0f2d04846a12ba26d421d4e6772ac5edf88446f64ad6fd01e5f24bda830f801c"
+    },
+    {
+      "id": "effectDualWave",
+      "label": "双色波",
+      "storyTitle": "两条不同颜色的波相遇",
+      "visualMechanism": "A red wave and a blue wave approach from opposite sides and meet in the middle.",
+      "source": "effects/waves/effectDualWave.js",
+      "sourceSha256": "d1d4b619c1c923de3d2cc25c8726ed814a75c7927cd9b3a84805caecf9760f22",
+      "palette": [
+        "#404080",
+        "#c02020",
+        "#604060"
+      ],
+      "prompt": "effectDualWave-prompt.txt",
+      "output": "effectDualWave.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "2d45b9bc68e8af4e382e448b45042bb7be8935350358ca3b2fb1230a44d51b20",
+      "promptSha256": "0c5ff46b9238e50cd1979001ee831d456df4a51e615e933b3fd752b0faf828a6"
+    },
+    {
+      "id": "effectSparkle",
+      "label": "单色闪烁",
+      "storyTitle": "同色亮点独立闪烁",
+      "visualMechanism": "A few neutral white points appear and disappear independently across a dark quiet room.",
+      "source": "effects/flashes/effectSparkle.js",
+      "sourceSha256": "3da614aaaa8ab785051bdd60ed4c6599cb4cf8bb0d20a3569ce16aa126aaa47a",
+      "palette": [
+        "#606060",
+        "#404040",
+        "#202020"
+      ],
+      "prompt": "effectSparkle-prompt.txt",
+      "output": "effectSparkle.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "deefb9f640652da35e4951bdf7a06fc10fab57a262a10cb96bca4e0ebc134b57",
+      "promptSha256": "bc4fbd45846e653008c0b665df2ca80f8bce55c396d64780ee788b5eea0a1be0"
+    },
+    {
+      "id": "effectColorSparkle",
+      "label": "彩虹闪烁",
+      "storyTitle": "不同色点独立换色闪烁",
+      "visualMechanism": "Separate magenta, green and blue points flash independently on a dark signal field; no continuous rainbow ribbon.",
+      "source": "effects/flashes/effectColorSparkle.js",
+      "sourceSha256": "f3aa97fd435d961199ec1f1eb318851a54dc5397fda2eb3047ec1be81a46bb49",
+      "palette": [
+        "#800080",
+        "#00c040",
+        "#40c000"
+      ],
+      "prompt": "effectColorSparkle-prompt.txt",
+      "output": "effectColorSparkle.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "3bfc64adc59918e720b29dbc61505aea92ad73210c4c063152a9649045a61879",
+      "promptSha256": "9463cd2e44671e1fdedf8e60f3985a44e4a75263cb3b70c18f2451064df25111"
+    },
+    {
+      "id": "effectTwinkle",
+      "label": "星光",
+      "storyTitle": "星点不规则明灭",
+      "visualMechanism": "Sparse warm stars twinkle at different times over a still night landscape.",
+      "source": "effects/flashes/effectTwinkle.js",
+      "sourceSha256": "df5dbfa0715198957cc6ce3038c98a5f822651f6faf20a2cc0b8aa27cbfa0b7b",
+      "palette": [
+        "#606040",
+        "#404040",
+        "#404020"
+      ],
+      "prompt": "effectTwinkle-prompt.txt",
+      "output": "effectTwinkle.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "1baa485341be0110e38b73b2d3e2c2b065a47787df1f2274ed93e52c4f2d4c50",
+      "promptSha256": "ec36387b9e586562242b505c9de2d2f3b60e5eae7df4bc7e2d1c113b6dc4a876"
+    },
+    {
+      "id": "effectComet",
+      "label": "彗星",
+      "storyTitle": "彗星头部带长尾流动",
+      "visualMechanism": "A single blue comet head leads a long curved tail across a dark sea.",
+      "source": "effects/trails/effectComet.js",
+      "sourceSha256": "9cc607ce4552d63947840861d22d47c3aa6a5498da28577e8e188e6a5b3ea981",
+      "palette": [
+        "#0060a0",
+        "#206080",
+        "#006080"
+      ],
+      "prompt": "effectComet-prompt.txt",
+      "output": "effectComet.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "e6c1c24fd2df0d6b769766df35bff8728cc816cd0a339039a0c8d2186322029c",
+      "promptSha256": "b56659258d68667a6bb9c454b9dc1c9e832f4bb20f5c1031bed5b9f4a1f12b89"
+    },
+    {
+      "id": "effectBounce",
+      "label": "弹跳",
+      "storyTitle": "亮点在两面之间往返弹跳",
+      "visualMechanism": "One amber light bead visibly ricochets between two parallel walls, reversing direction at each impact.",
+      "source": "effects/motion/effectBounce.js",
+      "sourceSha256": "ec650f0054a9f1e4b7c3de0b8142dffdde2b9fa6e20c98756b466efc86aaab32",
+      "palette": [
+        "#806020"
+      ],
+      "prompt": "effectBounce-prompt.txt",
+      "output": "effectBounce.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "38bcd12aa5a4a31d1e4fca29ea88e1a917c4eb52d97943ac0c6eddc6ea27a2c4",
+      "promptSha256": "23950b72b3a1f119f30b23668aea59cff71e2985fb751edf5b9f7d11a466c8c1"
+    },
+    {
+      "id": "effectBounceTail",
+      "label": "弹跳拖尾",
+      "storyTitle": "带尾迹的亮点往返弹跳",
+      "visualMechanism": "One amber head bounces between two walls while its fading tail bends and shortens after each rebound.",
+      "source": "effects/trails/effectBounceTail.js",
+      "sourceSha256": "c91135aafddc5e0728340bfe8ebbf1baed0f2313fb95f51eb3ac003b03305d02",
+      "palette": [
+        "#806020",
+        "#604000",
+        "#404000"
+      ],
+      "prompt": "effectBounceTail-prompt.txt",
+      "output": "effectBounceTail.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "e949522964e58b8c81d2847165f841e3c6502c7f78e3b4ba2986e422e10b58e4",
+      "promptSha256": "678faa5bb5c6f343e0adb26e18d79e2c38d5b266a3eadf13c2cc3bb021d2f81b"
+    },
+    {
+      "id": "effectTheaterChase",
+      "label": "剧院追逐",
+      "storyTitle": "舞台边缘灯逐点追逐",
+      "visualMechanism": "A row of warm red footlights around an empty theater stage turns on one bulb after another around the edge.",
+      "source": "effects/motion/effectTheaterChase.js",
+      "sourceSha256": "b30415838a59104ef3fdebd29e6bba82779d93ba0bb62c33ed0fc59e4d5ccefe",
+      "palette": [
+        "#a04000"
+      ],
+      "prompt": "effectTheaterChase-prompt.txt",
+      "output": "effectTheaterChase.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "a1314485867b9020908a1ec53ee8f8a9d0d5ebc2fdd280698e9e7ba542956ca2",
+      "promptSha256": "89661cc7898d1dfb219098f7fa555bcd92039db33d38b3d483f27dd2d498f478"
+    },
+    {
+      "id": "effectGradient",
+      "label": "渐变",
+      "storyTitle": "颜色连续平滑过渡",
+      "visualMechanism": "A single architectural wall carries a seamless blue gradient from deep to pale, with no discrete spots or bands.",
+      "source": "effects/basic/effectGradient.js",
+      "sourceSha256": "c362c1bcd1f909d69929d4d5c6587bf0f13b740fd505c2c70e8fe2da58fea48b",
+      "palette": [
+        "#0060a0",
+        "#004080",
+        "#002060"
+      ],
+      "prompt": "effectGradient-prompt.txt",
+      "output": "effectGradient.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "febfa5a6716f437f37551e97b367835e2f5cdba2c7b7d901697a9b4d249d9ee5",
+      "promptSha256": "535c6f8d35a2a523a7dfc6ce50f349bb099a28213700b05750ac315e0b5a8176"
+    },
+    {
+      "id": "effectStack",
+      "label": "堆叠",
+      "storyTitle": "光层由下向上叠加",
+      "visualMechanism": "Broad blue light layers accumulate one above another like translucent shelves, each new layer resting visibly on the previous.",
+      "source": "effects/motion/effectStack.js",
+      "sourceSha256": "b6de0d97ebcd3183cd5d989a0f788a8a582469c6d79b655dd6821792fbfb5cef",
+      "palette": [
+        "#0060a0"
+      ],
+      "prompt": "effectStack-prompt.txt",
+      "output": "effectStack.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "d6c992b93c0ce502ea4944ea9c33d5ad781614fa91d59fa244d30ecf944059ee",
+      "promptSha256": "a2c9bb9548ef74f789a7dba36344972e3a55dbf43c2b78bbf0ddf645f8f9e635"
+    },
+    {
+      "id": "effectScanner",
+      "label": "扫描",
+      "storyTitle": "窄光带横向扫描",
+      "visualMechanism": "One narrow crimson scanning beam sweeps across a dark archive, revealing only the strip it currently crosses.",
+      "source": "effects/motion/effectScanner.js",
+      "sourceSha256": "50e5553a613879ba1ef65b077ce3017dffc125e68f9c6a6b75610fd8db078462",
+      "palette": [
+        "#a02040",
+        "#802020",
+        "#600020"
+      ],
+      "prompt": "effectScanner-prompt.txt",
+      "output": "effectScanner.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "f07facea33d25ee89bcd421375952840a86443ffee8663f14470c3a0f1fbfd51",
+      "promptSha256": "1100992469ee62a98ccf1f6aa2c15fd4607b5632c3de3580421dc576326e4976"
+    },
+    {
+      "id": "effectRipple",
+      "label": "涟漪",
+      "storyTitle": "中心一点扩散成涟漪",
+      "visualMechanism": "One cool-blue drop creates several expanding circular ripples across a dark basin.",
+      "source": "effects/waves/effectRipple.js",
+      "sourceSha256": "7b4120248e5dbe8e33ddd0fbd465f33d6beebd0cf168d13d9dfe516370d822eb",
+      "palette": [
+        "#0060a0",
+        "#004060",
+        "#006080"
+      ],
+      "prompt": "effectRipple-prompt.txt",
+      "output": "effectRipple.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "9454383f25053b7acec7b23c9cb5018da3dd4e9ead9832aa7f2ca8dde8354e75",
+      "promptSha256": "8f5a6ddba0857e377437b1d2d986edeeaedc05a465fa15e27e51e3e142d3e426"
+    },
+    {
+      "id": "effectPlasma",
+      "label": "等离子",
+      "storyTitle": "三色电弧围绕核心汇聚",
+      "visualMechanism": "Red, blue and green plasma arcs converge around one suspended core, with separate channels clearly visible.",
+      "source": "effects/waves/effectPlasma.js",
+      "sourceSha256": "699173a96a6fc5bde18bfc55a776e9a0b1e47fffba7a237ecf8ad4155acb4622",
+      "palette": [
+        "#c00000",
+        "#0000c0",
+        "#00c000"
+      ],
+      "prompt": "effectPlasma-prompt.txt",
+      "output": "effectPlasma.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "e7aa8f3f22f1978e7ccc44581a8df2c39c513651ed9d1207c3b19a566c94afc3",
+      "promptSha256": "64e54f83b21ba43ae612ba8c0f71f135ba0a663037ba67ebaafb5ebc3ce9d009"
+    },
+    {
+      "id": "styleVaporwave",
+      "label": "蒸汽波",
+      "storyTitle": "粉紫蓝的复古空间",
+      "visualMechanism": "Broad lavender and cyan planes form a quiet retro mall horizon with one slow color shift; sparse geometric props only.",
+      "source": "styles/styleVaporwave.js",
+      "sourceSha256": "f806b7c4f140512321cddc70e2c5d681ef2cfd4399536f2248a62cf76d8fad7e",
+      "palette": [
+        "#604060",
+        "#206080",
+        "#404080"
+      ],
+      "prompt": "styleVaporwave-prompt.txt",
+      "output": "styleVaporwave.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "4b33c6c91f39e7bbbcba0a5311bb6488fdf43472e8a7b793b1fa07d77f683f0e",
+      "promptSha256": "24842cf6205d5bbf6bfd8f08072508ad491cc54aec920366e3defe103299ad49"
+    },
+    {
+      "id": "styleSunset",
+      "label": "日落",
+      "storyTitle": "紫色天空的平滑换色",
+      "visualMechanism": "A violet shoreline transitions smoothly toward a warmer horizon around one departing boat; no sharp color blocks.",
+      "source": "styles/styleSunset.js",
+      "sourceSha256": "542676664f9fe5315517c8e2bfcab1ab14c324295d6c4b2419deb94f6b45541c",
+      "palette": [
+        "#800080",
+        "#600060"
+      ],
+      "prompt": "styleSunset-prompt.txt",
+      "output": "styleSunset.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "1eb1267752dc241a330276008473564b2b0046959bdfda41b234e6c7a3c9fee6",
+      "promptSha256": "4e44397bd1f3ffa759220696966b3bd9442b76006be54c04978c1200f59466e3"
+    },
+    {
+      "id": "styleCandlelight",
+      "label": "烛光",
+      "storyTitle": "琥珀火光的细微摇曳",
+      "visualMechanism": "One amber candle pool gently varies over a still table; the flame and shadow are the only moving suggestion.",
+      "source": "styles/styleCandlelight.js",
+      "sourceSha256": "b6836f071633e32ddb624e19c270b9085577679ae753ace0bdc8d2412d7c9f65",
+      "palette": [
+        "#a06000",
+        "#806000"
+      ],
+      "prompt": "styleCandlelight-prompt.txt",
+      "output": "styleCandlelight.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "75e3ca5f0c26beee14caa08dc9212ffdd10d8f377b0f061e427ef9888bac7bed",
+      "promptSha256": "1da1eebfe521197dbc7f132efa456c25a1d703cf7d24baee8540cd75fc2acf0c"
+    },
+    {
+      "id": "styleMoonlight",
+      "label": "月光",
+      "storyTitle": "冷蓝月光缓慢流过窗面",
+      "visualMechanism": "A single cool moonbeam slides across a quiet room, leaving broad blue shadow shapes.",
+      "source": "styles/styleMoonlight.js",
+      "sourceSha256": "f7eb5bc282378115b66b098c09450c37c6dac2f5b9cf6e62c5dabe758c7e3964",
+      "palette": [
+        "#2040a0",
+        "#002060",
+        "#002080"
+      ],
+      "prompt": "styleMoonlight-prompt.txt",
+      "output": "styleMoonlight.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "24fa92f35802800e99d91ddbb439af52c853b167b1a9a61866958e4dc755abdf",
+      "promptSha256": "1569f75a7bc81621a21389d5c2dbd1e06f6ba533b291ef18cbb2b0738646f0e8"
+    },
+    {
+      "id": "styleArcade",
+      "label": "街机",
+      "storyTitle": "多色街机灯的循环追逐",
+      "visualMechanism": "A row of purple-red arcade cabinets lights in sequence around an empty hall, creating a clear chase path.",
+      "source": "styles/styleArcade.js",
+      "sourceSha256": "92b8e423d3b1e1b74f5d1fb89a51c5a7312bbad7c47978cad1ad0aa83da8b8b8",
+      "palette": [
+        "#4000c0",
+        "#c00040",
+        "#0000a0"
+      ],
+      "prompt": "styleArcade-prompt.txt",
+      "output": "styleArcade.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "fda81fab1800dc478e59b89f8892f2d8912a717189717dadf517848cc337a314",
+      "promptSha256": "4930d50ffadd3bd335a04f0646dfc2893a7ca882c6e882e10bbf3fd3d6604f4d"
+    },
+    {
+      "id": "stylePolice",
+      "label": "警灯",
+      "storyTitle": "红蓝交替警灯",
+      "visualMechanism": "Distinct red and blue emergency light fields alternate across a wet intersection; two opposing color blocks remain separate.",
+      "source": "styles/stylePolice.js",
+      "sourceSha256": "20b4963e7fb230eaaadeb94c73202d499b18c321d37452ceb180d55b45234a37",
+      "palette": [
+        "#ff0000",
+        "#0000ff"
+      ],
+      "prompt": "stylePolice-prompt.txt",
+      "output": "stylePolice.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "be4ec1d63f80ecc7e9973a1a34f681e067d34e5c65e6eca46d664c83e12fcf98",
+      "promptSha256": "313a00dbad463aafab7c201d829f426e0f5b3b28677e7b2bc111b1177f5855cb"
+    },
+    {
+      "id": "styleChristmas",
+      "label": "圣诞",
+      "storyTitle": "绿色灯串分段流动",
+      "visualMechanism": "Green holiday lights travel section by section along a quiet snowy house, with each illuminated segment distinct.",
+      "source": "styles/styleChristmas.js",
+      "sourceSha256": "e014f36424f31057883f2670f16e063d4b2362d17138177f6c39bb2dfab45b65",
+      "palette": [
+        "#00e000",
+        "#00ff00",
+        "#00c000"
+      ],
+      "prompt": "styleChristmas-prompt.txt",
+      "output": "styleChristmas.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "5cc62f14e3003648cc3791bc677588e9f3cc0ab4585c6ee93898fe83ff7209a4",
+      "promptSha256": "7d9aacc555a3927dee90afab4666cb21dc3084dbf9d8f1324742a796b733900d"
+    },
+    {
+      "id": "effectStrobe",
+      "label": "频闪",
+      "storyTitle": "同一画面被短促曝光切开",
+      "visualMechanism": "A dark room is shown through three hard, evenly separated exposure slices: bright, dark, bright. The same chair and doorway align across slices; no person or writing.",
+      "source": "effects/flashes/effectStrobe.js",
+      "sourceSha256": "5b2e87a4123183233b3c4e6a40e4fefc7f02c9cb044c3a64d8bc968e20be4482",
+      "palette": [
+        "#606060"
+      ],
+      "prompt": "effectStrobe-prompt.txt",
+      "output": "effectStrobe.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "aa6991fccd47999d5a9c3da884e330025991ee53a3df0bba9a66c20e63d7c4cb",
+      "promptSha256": "0114e2827bd82f96ee8f9e023071fc5df268fb647fa3a4cddbbba758b7d9025d"
+    },
+    {
+      "id": "effectColorWipe",
+      "label": "颜色擦除",
+      "storyTitle": "颜色沿一条边界擦除",
+      "visualMechanism": "One cool-blue boundary moves across a faded painted wall, leaving a single clean color behind it.",
+      "source": "effects/motion/effectColorWipe.js",
+      "sourceSha256": "914c9ed3c181c2b50234a31605bd7b8019238afa82f75cbb5df2623546b5f089",
+      "palette": [
+        "#0060a0"
+      ],
+      "prompt": "effectColorWipe-prompt.txt",
+      "output": "effectColorWipe.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "d8e8b79c6bbee96be71f9707f1e3441807ee023f23d18dccd54763b849d52fac",
+      "promptSha256": "2789138363aeaaa892f64c1640af60774436bcacff52f2fbfa3f735e3d322508"
+    },
+    {
+      "id": "effectRainbowWave",
+      "label": "色彩波动",
+      "storyTitle": "彩色波峰沿玻璃温室传播",
+      "visualMechanism": "A broad rainbow band travels across a greenhouse row, with ordered color progression and a clear moving crest.",
+      "source": "effects/rainbow/effectRainbowWave.js",
+      "sourceSha256": "e1a028bee4308f89e4f6693ecd30cead061fec06ce7c4e4b30edf16d58303918",
+      "palette": [
+        "#800080",
+        "#802080",
+        "#602060"
+      ],
+      "prompt": "effectRainbowWave-prompt.txt",
+      "output": "effectRainbowWave.png",
+      "model": "gpt-image-2.5-flare",
+      "size": "1024x1024",
+      "quality": "high",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "outputSha256": "e64071f0ce2390a9ddea3f19550f9da24a8c8ab16828e22acc697d7d83862a31",
+      "promptSha256": "818b5b774c0af9ad9f844f605cec5c4f63d0abe8053bc93e381d0ced8a0ae49c"
+    }
+  ],
+  "sourceBatch": "theme-story-samples-v5",
+  "generatedCount": 51,
+  "missingIds": []
+}
