@@ -4,8 +4,10 @@ import CompilerView from "./CompilerView.jsx";
 import ColorLab from "./ColorLab.jsx";
 import MotionGallery from "./MotionGallery.jsx";
 import DroneCanvas from "./DroneCanvas.jsx";
+import UpdateNotice from "./UpdateNotice.jsx";
 import { categories, compiledScripts, scripts } from "./catalog.js";
 import { FRAME_COUNT, FRAME_RATE } from "./simulate.js";
+import { checkRepositoryUpdate } from "./repositoryUpdate.js";
 import "./styles.css";
 
 const DEFAULT_SCRIPT_ID = "effectChase";
@@ -40,6 +42,7 @@ export default function App() {
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed] = useState(1);
   const [calibration, setCalibration] = useState(false);
+  const [repositoryUpdate, setRepositoryUpdate] = useState({ status: "checking" });
   const workerRef = useRef(null);
   const requestId = useRef(0);
   const currentScript = currentCompiled && { id: "compiled:current", path: currentCompiled.origin, label: currentCompiled.name, categoryLabel: "已编译", source: currentCompiled.code, compiledCode: currentCompiled.code };
@@ -119,6 +122,15 @@ export default function App() {
     setFrameIndex(Math.max(0, Math.min(snapshots.length - 1, index)));
   };
   const frame = snapshots[frameIndex];
+  const checkForRepositoryUpdate = () => {
+    const controller = new AbortController();
+    checkRepositoryUpdate({ signal: controller.signal })
+      .then(setRepositoryUpdate)
+      .catch(() => setRepositoryUpdate({ status: "unavailable" }));
+    return () => controller.abort();
+  };
+
+  useEffect(() => checkForRepositoryUpdate(), []);
 
   return <div className="app-shell">
     <header className="topbar">
@@ -132,6 +144,7 @@ export default function App() {
       </nav>
       <div className="topbar-status"><span className="status-dot" />Skia Web <span className="topbar-divider" /> {scripts.length} 个脚本</div>
     </header>
+    <UpdateNotice update={repositoryUpdate} onCheck={checkForRepositoryUpdate} onDismiss={() => setRepositoryUpdate({ status: "dismissed" })} />
 
     {view === "motion" ? <MotionGallery /> : view === "color-lab" ? <ColorLab /> : view === "library" ? <main className="library-view">
       <div className="section-head">

@@ -49,6 +49,8 @@ The dynamic behavior remains source-controlled alongside the presets:
 - `simulator/src/ColorLab.jsx`: static-image color mapping, effect-specific preview policies, and the Forest keyframe interpolation preview.
 - `simulator/src/simulate.js` and `simulator/src/topology.js`: frame simulation and drone LED topology used by the previews.
 
+When the simulator starts, it checks the public `main` branch of `VIDLG/uavled-effect` against the commit embedded at build time. If the clone is behind, the top of the simulator shows the remote short SHA, latest commit title, a GitHub comparison link, and controls to recheck or dismiss the notice. The check is read-only, requires no credentials, and silently degrades when GitHub is unavailable or the build has no Git metadata.
+
 The rainbow mappings are kept explicit: `effectRainbow` is **彩虹循环** (ordered hue progression), while `effectColorSparkle` is **彩虹闪烁** (random rainbow colors with independent point brightness decay). The Color Lab preserves those source hues and only animates the corresponding color zones. `styleForest()` uses nine simulated keyframes and a synchronized, low-frequency background drift.
 
 The two rainbow detail images are reference-image edits using `gpt-image-2`, preserving the existing series drone and background treatment. Their exact prompts, reference image, and source-to-visual rules are saved under `assets/effects/prompts/` in `rainbow-series-mapping.json`. A function's palette and spatial behavior change the lighting and background rhythm; they must not redesign the drone or change the series style.

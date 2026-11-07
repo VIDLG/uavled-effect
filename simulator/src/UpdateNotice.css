@@ -1,0 +1,11 @@
+.update-notice { display: flex; align-items: center; gap: 11px; margin: 12px 30px 0; padding: 10px 12px; border: 1px solid #e7c391; border-radius: 7px; background: #fff8eb; color: #63482b; }
+.update-notice-mark { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; color: #ad6a25; background: #f8e5c5; }
+.update-notice-copy { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
+.update-notice-copy strong { font-size: 12px; }
+.update-notice-copy span { overflow: hidden; color: #806848; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.update-notice-actions { display: flex; align-items: center; gap: 7px; }
+.update-notice-actions a, .update-notice-actions button { display: inline-flex; align-items: center; gap: 5px; border: 0; color: #94602d; background: transparent; font-size: 11px; }
+.update-notice-actions a { text-decoration: none; font-weight: 650; }
+.update-notice-actions a:hover, .update-notice-actions button:hover { color: #c05d3f; }
+.update-notice-actions button { width: 26px; height: 26px; justify-content: center; border-radius: 4px; }
+@media (max-width: 760px) { .update-notice { align-items: flex-start; margin: 9px 15px 0; } .update-notice-actions { flex-wrap: wrap; justify-content: flex-end; } .update-notice-copy span { white-space: normal; } }

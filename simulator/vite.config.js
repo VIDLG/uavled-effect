@@ -1,10 +1,19 @@
 import { fileURLToPath } from "node:url";
 import { resolve, dirname } from "node:path";
+import { execFileSync } from "node:child_process";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const libraryRoot = resolve(root, "..");
+
+function buildCommit() {
+  try {
+    return execFileSync("git", ["rev-parse", "HEAD"], { cwd: libraryRoot, encoding: "utf8" }).trim();
+  } catch {
+    return "unknown";
+  }
+}
 
 function watchEffectFiles() {
   return {
@@ -36,7 +45,7 @@ export default defineConfig({
     ],
     extensions: [".web.mjs", ".mjs", ".web.js", ".js", ".web.ts", ".ts", ".web.tsx", ".tsx", ".json"],
   },
-  define: { global: "globalThis", __DEV__: false },
+  define: { global: "globalThis", __DEV__: false, __UAVLED_BUILD_COMMIT__: JSON.stringify(buildCommit()) },
   optimizeDeps: {
     include: ["typescript"],
     esbuildOptions: {
